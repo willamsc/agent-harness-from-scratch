@@ -64,6 +64,12 @@ def run_priority(email: Email, lm: LMCallable) -> dict:
     raise NotImplementedError
 
 
+def parse_priority(response: str) -> dict:
+    # 负责解析 LLM 返回内容
+    ...
+
+    
+
 def run_daily_digest(emails: list[Email], lm: LMCallable) -> str:
     """Problem (daily_digest).
 
