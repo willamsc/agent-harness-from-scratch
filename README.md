@@ -102,6 +102,49 @@ with unchanged code is free.
 
 ## Model calls and spending
 
+### Local use with DeepSeek
+
+To use DeepSeek instead of OpenRouter, set these in `.env` (keep your key private):
+
+```dotenv
+CS329Z_LLM_PROVIDER=deepseek
+DEEPSEEK_API_KEY=your-deepseek-api-key
+```
+
+All three roles (agent, simulated user, judge) then default to `deepseek-flash`.
+Remove any existing `CS329Z_GRADING_MODEL`, `CS329Z_USER_MODEL`, or
+`CS329Z_JUDGE_MODEL` overrides pointing to OpenRouter models, or change them to
+`deepseek-flash` / `deepseek-v4-pro`. The model names and rates come from the
+[DeepSeek documentation](https://api-docs.deepseek.com/quick_start/pricing/).
+
+Verify the connection independently of the unfinished homework:
+
+```sh
+uv run python -c 'from cs329z_hw1.llm import LM; print(LM()([{"role": "user", "content": "Reply with OK."}]))'
+```
+
+Offline checks for this provider extension run with
+`uv run pytest local_tests -q` and require no API key.
+
+Then run deterministic tests with `uv run pytest`, or try a small real-model test:
+
+```sh
+CS329Z_EVAL_SLICE=1 uv run pytest tests/test_priority.py -m live -s
+```
+
+The connection check and live tests make paid calls. Homework tests still need
+the corresponding adapters to be implemented; changing providers does not finish
+those exercises. Live scores can differ between models.
+
+DeepSeek uses non-thinking mode by default, preserving the wrapper's existing
+text-in/text-out interface. Set `CS329Z_DEEPSEEK_THINKING=enabled` to enable
+thinking; increase `LM(max_tokens=...)` if responses are truncated. DeepSeek
+cache entries are isolated from OpenRouter's. Its ledger uses published peak
+token rates as a conservative estimate; off-peak charges may be lower.
+
+Set `CS329Z_LLM_PROVIDER=openrouter` (the default) to switch back. This is a
+local learning extension: course grading replaces `llm.py` with its own copy.
+
 All model calls go through `cs329z_hw1.llm.LM`: a list of
 `{"role", "content"}` messages in, a string out.
 

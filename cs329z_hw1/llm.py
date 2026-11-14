@@ -56,6 +56,15 @@ DEFAULT_MODELS = {
 # OpenAI-compatible API. Model names carry the provider as a prefix
 # ("openai/gpt-6-luna"); https://openrouter.ai/models lists them.
 OPENROUTER_URL = "https://openrouter.ai/api/v1"
+DEEPSEEK_URL = "https://api.deepseek.com"
+
+
+def _provider() -> str:
+    provider = os.environ.get("CS329Z_LLM_PROVIDER", "openrouter").strip().lower()
+    if provider not in {"openrouter", "deepseek"}:
+        raise ValueError("CS329Z_LLM_PROVIDER must be 'openrouter' or 'deepseek'")
+    return provider
+
 
 # Reasoning effort requested from models that accept it (GPT-5 and GPT-6).
 # Override with CS329Z_REASONING_EFFORT.
@@ -69,6 +78,11 @@ DEFAULT_REASONING_EFFORT = "low"
 # https://openrouter.ai/models on 2026-10-05 (the same as OpenAI's list
 # prices).
 PRICES = {
+    # DeepSeek peak rates, checked 2026-11-14. Off-peak calls cost less;
+    # the ledger conservatively estimates cost rather than the actual bill.
+    # https://api-docs.deepseek.com/quick_start/pricing/
+    "deepseek-flash": (0.30, 0.006, 1.20),
+    "deepseek-v4-pro": (1.32, 0.044, 3.96),
     "gpt-4.1": (2.00, 0.50, 8.00),
     "gpt-4.1-mini": (0.40, 0.10, 1.60),
     "gpt-4.1-nano": (0.10, 0.025, 0.40),
@@ -130,7 +144,8 @@ def resolve_model(role_or_model: str | None = None) -> str:
     """
     name = role_or_model or "grading"
     if name in DEFAULT_MODELS:
-        return os.environ.get(f"CS329Z_{name.upper()}_MODEL", DEFAULT_MODELS[name])
+        default = "deepseek-flash" if _provider() == "deepseek" else DEFAULT_MODELS[name]
+        return os.environ.get(f"CS329Z_{name.upper()}_MODEL") or default
     return name
 
 
@@ -220,8 +235,10 @@ class LM:
     Parameters
     ----------
     model:
-        A role ("grading", "user", "judge"), an OpenRouter model name such
-        as "openai/gpt-6-sol", or ``None`` for "grading".
+        A role ("grading", "user", "judge"), a model name for the selected
+        provider, or ``None`` for "grading". CS329Z_LLM_PROVIDER selects
+        OpenRouter (default) or DeepSeek; DeepSeek roles default to
+        "deepseek-flash" unless overridden by CS329Z_<ROLE>_MODEL.
     temperature, max_tokens:
         Sampling settings. They are part of the cache key. Reasoning models
         spend part of ``max_tokens`` on hidden reasoning, so keep it large.
@@ -247,6 +264,12 @@ class LM:
         salt: str = "",
     ) -> None:
         _load_env()
+        self.provider = _provider()
+        self.base_url = DEEPSEEK_URL if self.provider == "deepseek" else OPENROUTER_URL
+        self.reasoning_effort = os.environ.get("CS329Z_REASONING_EFFORT", DEFAULT_REASONING_EFFORT)
+        self.thinking = os.environ.get("CS329Z_DEEPSEEK_THINKING", "disabled")
+        if self.provider == "deepseek" and self.thinking not in {"enabled", "disabled"}:
+            raise ValueError("CS329Z_DEEPSEEK_THINKING must be 'enabled' or 'disabled'")
         self.model = resolve_model(model)
         _price(self.model)  # fail now, not after a paid call, if the price is unknown
         self.temperature = temperature
@@ -291,6 +314,7 @@ class LM:
             {
                 "ts": round(start, 3),
                 "model": self.model,
+                "provider": self.provider,
                 "tag": self.tag or os.environ.get("CS329Z_TAG", ""),
                 "input_tokens": usage["input"],
                 "cached_tokens": usage["cached"],
@@ -330,9 +354,13 @@ class LM:
     # -- internals --------------------------------------------------------
 
     def _key(self, messages: list[Message]) -> str:
-        effort = os.environ.get("CS329Z_REASONING_EFFORT", DEFAULT_REASONING_EFFORT)
+        effort = self.reasoning_effort
+        settings = [self.model, self.temperature, self.max_tokens, effort, self.salt, messages]
+        # Keep existing OpenRouter cache entries usable.
+        if self.provider != "openrouter":
+            settings.extend([self.provider, self.base_url, self.thinking])
         blob = json.dumps(
-            [self.model, self.temperature, self.max_tokens, effort, self.salt, messages],
+            settings,
             sort_keys=True,
             ensure_ascii=False,
         )
@@ -353,13 +381,14 @@ class LM:
         if self._client is None:
             from openai import OpenAI
 
-            key = os.environ.get("OPENROUTER_API_KEY")
+            key_name = "DEEPSEEK_API_KEY" if self.provider == "deepseek" else "OPENROUTER_API_KEY"
+            key = os.environ.get(key_name)
             if not key:
                 raise RuntimeError(
-                    "OPENROUTER_API_KEY is not set. Copy .env.example to .env and add your key."
+                    f"{key_name} is not set. Add your key to .env."
                 )
             self._client = OpenAI(
-                base_url=OPENROUTER_URL,
+                base_url=self.base_url,
                 api_key=key,
                 max_retries=6,
                 timeout=120,
@@ -375,8 +404,12 @@ class LM:
         }
         if self.model not in _NO_TEMPERATURE:
             kwargs["temperature"] = self.temperature
-        effort = os.environ.get("CS329Z_REASONING_EFFORT", DEFAULT_REASONING_EFFORT)
-        if effort and self.model not in _NO_EFFORT:
+        effort = self.reasoning_effort
+        if self.provider == "deepseek":
+            # The harness consumes text only. Default to non-thinking so the
+            # existing 4096-token limit is available for the visible answer.
+            kwargs["extra_body"] = {"thinking": {"type": self.thinking}}
+        elif effort and self.model not in _NO_EFFORT:
             kwargs["extra_body"]["reasoning"] = {"effort": effort}
         try:
             response = self._client.chat.completions.create(**kwargs)
@@ -397,6 +430,8 @@ class LM:
         u = response.usage
         details = getattr(u, "prompt_tokens_details", None)
         cached = getattr(details, "cached_tokens", 0) or 0
+        if self.provider == "deepseek":
+            cached = getattr(u, "prompt_cache_hit_tokens", cached) or 0
         out_details = getattr(u, "completion_tokens_details", None)
         reasoning = getattr(out_details, "reasoning_tokens", 0) or 0
         usage = {
