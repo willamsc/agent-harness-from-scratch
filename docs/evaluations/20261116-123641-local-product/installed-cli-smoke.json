@@ -1,0 +1,72 @@
+{
+  "kind": "fresh venv, installed wheel, outside checkout; no API calls",
+  "python": "3.12.3",
+  "module_path": "/tmp/cardinal-install-check/lib/python3.12/site-packages/cs329z_hw1/app/cli.py",
+  "commands": [
+    {
+      "command": [
+        "/tmp/cardinal-install-check/bin/cardinal",
+        "--version"
+      ],
+      "cwd": "/tmp",
+      "exit_code": 0,
+      "stdout": "Cardinal Agent 0.1.0\n",
+      "stderr": "",
+      "seconds": 0.060627145001490135
+    },
+    {
+      "command": [
+        "/tmp/cardinal-install-check/bin/cardinal",
+        "--home",
+        "/tmp/cardinal-installed-demo",
+        "init",
+        "--demo"
+      ],
+      "cwd": "/tmp",
+      "exit_code": 0,
+      "stdout": "Profile initialized: /tmp/cardinal-installed-demo\nData: fictional demo\nNext: cardinal doctor. API keys are read from the environment, never saved in config.json.\n",
+      "stderr": "",
+      "seconds": 0.06612052700074855
+    },
+    {
+      "command": [
+        "/tmp/cardinal-install-check/bin/cardinal",
+        "--home",
+        "/tmp/cardinal-installed-demo",
+        "demo",
+        "Aurora owner"
+      ],
+      "cwd": "/tmp",
+      "exit_code": 0,
+      "stdout": "Offline retrieval only; no LLM answer and no API call.\n[\n  {\n    \"doc_id\": \"project-aurora\",\n    \"title\": \"Demo Project Aurora\",\n    \"snippet\": \"This fictional project demonstrates retrieval and project-specific memory.\\n\\n## Current status\\n\\nAurora's demo owner is Morgan Lee. The demo milestone is a design review. There is no live calendar, ticket system, or email account connected.\",\n    \"document_kind\": \"document\",\n    \"category\": \"product\",\n    \"section\": \"Current status\",\n    \"start_line\": 3,\n    \"end_line\": 7\n  },\n  {\n    \"doc_id\": \"project-aurora\",\n    \"title\": \"Demo Project Aurora\",\n    \"snippet\": \"# Demo Project Aurora\\n\\nThis fictional project demonstrates retrieval and project-specific memory.\\n\\n## Current status\\n\\nAurora's demo owner is Morgan Lee. The demo milestone is a design review. There is no live calendar, ticket system, or email account connected.\",\n    \"document_kind\": \"document\",\n    \"category\": \"product\",\n    \"section\": \"Demo Project Aurora\",\n    \"start_line\": 1,\n    \"end_line\": 7\n  }\n]\n",
+      "stderr": "",
+      "seconds": 0.049220021999644814
+    },
+    {
+      "command": [
+        "/tmp/cardinal-install-check/bin/cardinal",
+        "--home",
+        "/tmp/cardinal-installed-demo",
+        "doctor"
+      ],
+      "cwd": "/tmp",
+      "exit_code": 2,
+      "stdout": "{\n  \"profile\": \"/tmp/cardinal-installed-demo\",\n  \"provider\": \"deepseek\",\n  \"model\": \"deepseek-flash\",\n  \"api_key_configured\": false,\n  \"key_environment_variable\": \"DEEPSEEK_API_KEY\",\n  \"markdown_documents\": 2,\n  \"email_archive_present\": true,\n  \"demo_data\": true,\n  \"os_jail\": \"none\",\n  \"terminal_default\": \"disabled; explicit opt-in required\",\n  \"profile_lifetime_budget_usd\": 1.0,\n  \"recorded_spend_usd\": 0,\n  \"privacy\": \"Local orchestration/storage; prompts and selected evidence go to the configured model provider. No model request made by doctor.\"\n}\n",
+      "stderr": "",
+      "seconds": 0.12145607899947208
+    },
+    {
+      "command": [
+        "/tmp/cardinal-install-check/bin/cardinal",
+        "--home",
+        "/tmp/cardinal-installed-demo",
+        "history"
+      ],
+      "cwd": "/tmp",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "seconds": 0.0445049010013463
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "id": "20261116T043818Z-cb6fde97",
+  "version": "0.1.0",
+  "provider": "deepseek",
+  "model": "deepseek-flash",
+  "mode": "confirm",
+  "terminal_enabled": false,
+  "turns": [
+    {
+      "user": "Who owns the demo Aurora project? Cite the source.",
+      "assistant": "The demo Aurora project is owned by **Morgan Lee**.\n\nSource: `project-aurora` — \"Demo Project Aurora,\" section \"Current status,\" lines 3–7, which states: \"Aurora's demo owner is Morgan Lee.\"",
+      "status": "done",
+      "seconds": 4.313750469998922
+    }
+  ],
+  "transcript": [
+    {
+      "type": "user",
+      "content": "Who owns the demo Aurora project? Cite the source."
+    },
+    {
+      "type": "assistant",
+      "content": "I'll check persistent memory first for any stored context on the Aurora project.\n\n<tool_call>{\"name\":\"recall\",\"args\":{\"query\":\"Aurora project owner demo\"}}</tool_call>"
+    },
+    {
+      "type": "model_usage",
+      "input_tokens": 2015,
+      "reply_tokens": 42,
+      "send_turn": 1,
+      "elapsed_since_send_seconds": 1.6688389379996806
+    },
+    {
+      "type": "tool_call",
+      "name": "recall",
+      "args": {
+        "query": "Aurora project owner demo"
+      }
+    },
+    {
+      "type": "tool_result",
+      "name": "recall",
+      "status": "ok",
+      "content": "No matching memories stored."
+    },
+    {
+      "type": "assistant",
+      "content": "No stored memory on this. Let me search the company documents.\n\n<tool_call>{\"name\":\"search_docs\",\"args\":{\"query\":\"Aurora project owner\", \"k\": 5}}</tool_call>"
+    },
+    {
+      "type": "model_usage",
+      "input_tokens": 2092,
+      "reply_tokens": 40,
+      "send_turn": 2,
+      "elapsed_since_send_seconds": 2.702789529997972
+    },
+    {
+      "type": "tool_call",
+      "name": "search_docs",
+      "args": {
+        "query": "Aurora project owner",
+        "k": 5
+      }
+    },
+    {
+      "type": "tool_result",
+      "name": "search_docs",
+      "status": "ok",
+      "content": "[{\"doc_id\": \"project-aurora\", \"title\": \"Demo Project Aurora\", \"snippet\": \"# Demo Project Aurora\\n\\nThis fictional project demonstrates retrieval and project-specific memory.\\n\\n## Current status\\n\\nAurora's demo owner is Morgan Lee. The demo milestone is a design review. There is no live calendar, ticket system, or email account connected.\", \"document_kind\": \"document\", \"category\": \"product\", \"section\": \"Demo Project Aurora\", \"start_line\": 1, \"end_line\": 7}, {\"doc_id\": \"project-aurora\", \"title\": \"Demo Project Aurora\", \"snippet\": \"This fictional project demonstrates retrieval and project-specific memory.\\n\\n## Current status\\n\\nAurora's demo owner is Morgan Lee. The demo milestone is a design review. There is no live calendar, ticket system, or email account connected.\", \"document_kind\": \"document\", \"category\": \"product\", \"section\": \"Current status\", \"start_line\": 3, \"end_line\": 7}]"
+    },
+    {
+      "type": "assistant",
+      "content": "The demo Aurora project is owned by **Morgan Lee**.\n\nSource: `project-aurora` — \"Demo Project Aurora,\" section \"Current status,\" lines 3–7, which states: \"Aurora's demo owner is Morgan Lee.\""
+    },
+    {
+      "type": "model_usage",
+      "input_tokens": 2384,
+      "reply_tokens": 48,
+      "send_turn": 3,
+      "elapsed_since_send_seconds": 3.456832053998369
+    },
+    {
+      "type": "memory_extraction",
+      "saved_ids": [],
+      "seconds": 0.8566080390010029
+    }
+  ],
+  "usage": {
+    "agent": {
+      "model": "deepseek-flash",
+      "calls": 3,
+      "cached_calls": 0,
+      "input_tokens": 5381,
+      "output_tokens": 133,
+      "cost_usd": 0.000757836,
+      "seconds": 3.4505770206451416
+    },
+    "aux": {
+      "model": "deepseek-flash",
+      "calls": 1,
+      "cached_calls": 0,
+      "input_tokens": 225,
+      "output_tokens": 6,
+      "cost_usd": 7.47e-05,
+      "seconds": 0.8552312850952148
+    }
+  }
+}

@@ -8,3 +8,7 @@ data/raw/
 runs/
 *.pyc
 .DS_Store
+dist/
+build/
+*.egg-info/
+.cardinal/

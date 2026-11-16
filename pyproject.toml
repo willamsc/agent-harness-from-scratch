@@ -1,7 +1,7 @@
 [project]
-name = "cs329z-hw1"
-version = "26.1.0"
-description = "CS329Z Assignment 1: Building an Agent Harness"
+name = "cardinal-agent"
+version = "0.1.0"
+description = "Local employee assistant with source-aware retrieval, memory, and approved terminal tools"
 requires-python = ">=3.11"
 dependencies = [
     "openai>=1.50",
@@ -10,6 +10,9 @@ dependencies = [
     "pytest>=8.0",
     "numpy>=2.0",
 ]
+
+[project.scripts]
+cardinal = "cs329z_hw1.app.cli:main"
 
 [build-system]
 requires = ["hatchling"]

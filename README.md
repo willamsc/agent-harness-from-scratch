@@ -1,322 +1,132 @@
-![Agent Harness: CS329Z Assignment 1](assets/agent-harness.png)
+# Cardinal Agent
 
-# CS329Z Assignment 1: Building an Agent Harness
+面向员工个人工作流的本地命令行助手：查询制度与项目资料、搜索邮件、生成日报、跨会话记忆，以及经批准运行统计命令。
 
-This is the starter repository for Assignment 1.
+**Local-first orchestration, source-aware retrieval, persistent memory, and approved tools.** A single-user preview built from scratch on the Stanford CS329Z Assignment 1 harness. Runs locally; live model inference uses your configured external API provider.
 
-**Start by reading the handout, [`cs329z_assignment1_harness.pdf`](cs329z_assignment1_harness.pdf), in this directory.**
-It states every problem, what is graded, and the design decisions that
-are yours to make. This file covers setup, the commands you will run, and
-where things are.
+## 下载与运行
 
+GitHub Releases 提供 `code.zip`、Python wheel、`SHA256SUMS` 和记录源码 commit 的 manifest。当前为 `v0.1.0` 本地预览版本；以仓库实际 Release 页面为准，未发布前可直接从源码运行。
 
-## Setup
+需要 Python 3.11+。源代码安装：
 
-1. Install `uv`, which manages Python and the dependencies:
-   https://docs.astral.sh/uv/getting-started/installation/
-
-   The assignment needs Python 3.11 or newer. `uv` installs one if you do
-   not have it. macOS, Linux and Windows are supported. On Windows, also
-   install Git for Windows (https://git-scm.com/download/win, default
-   options): the terminal sandbox runs commands with the `bash.exe` it
-   ships, and there is no operating-system jail on Windows (see "The
-   terminal sandbox" below). WSL works too and gives you the Linux jail.
-
-2. Create your `.env` file and add your API key:
-
-   ```sh
-   cp .env.example .env
-   ```
-
-   Open `.env` and fill in `OPENROUTER_API_KEY`. The file is gitignored. Do not
-   commit it.
-
-
-3. Unpack the email archive. It ships in the repository as
-   `data/emails.jsonl.gz` (19 MB). This command verifies its checksum and
-   unpacks it to `data/emails/emails.jsonl` (58 MB):
-
-   ```sh
-   uv run python data/download.py
-   ```
-
-4. Run the tests. In the starter, every test fails with `NotImplementedError`:
-
-   ```sh
-   uv run pytest
-   ```
-
-Run every command from the repository root with `uv run`. The first
-`uv run` creates the environment in `.venv/`.
-
-## Tests
-
-There are two kinds of tests, in the same files under `tests/`.
-
-**Deterministic tests** run by default and make no model calls. Where your
-code needs a model, they pass a `ScriptedLM`, a stand-in that replays a fixed
-list of replies.
-
-```sh
-uv run pytest                          # all deterministic tests
-uv run pytest tests/test_priority.py   # one problem
+```bash
+# 下载 code.zip 并解压后，进入 cardinal-agent-0.1.0
+uv sync --locked
+uv run cardinal --version
+uv run cardinal init --demo --provider deepseek --model deepseek-flash
+uv run cardinal demo onboarding
 ```
 
-**Live tests** call the real model and compare your results against the
-thresholds in `tests/thresholds.py`. They cost money.
+最后一条是 **不调用 LLM 的真实本地 BM25 检索演示**，不需要 API key。演示资料是虚构的，与实际公司账号无关。
 
-```sh
-uv run pytest -m live -s                          # all live tests
-uv run pytest tests/test_priority.py -m live -s   # one problem
+也可以安装 Release 中的 wheel，获得全局可执行的命令：
+
+```bash
+uv tool install ./cardinal_agent-0.1.0-py3-none-any.whl
+cardinal --help
 ```
 
-A live test takes from a few seconds to a few minutes (`priority` makes 60
-model calls, about a minute), and pytest prints nothing while it waits.
-`-s` makes each test print its score and the items your code got wrong,
-whether or not it passes.
+不要直接从 PyPI 安装同名项目；本项目目前通过本仓库 Release 文件分发。没有 uv 时，可在自己的虚拟环境运行 `python -m pip install ./cardinal_agent-0.1.0-py3-none-any.whl`。
 
-While you iterate, `CS329Z_EVAL_SLICE=N` runs each live test on its first
-N items only. You can set it on the command line or in `.env`:
+配置你自己的 API key（以下是 Bash 示例，不要把真实 key 放进聊天或 Git）：
 
-```sh
-CS329Z_EVAL_SLICE=5 uv run pytest tests/test_priority.py -m live -s
+```bash
+export DEEPSEEK_API_KEY='your-key'
+cardinal doctor
+cardinal chat
+# 或单次提问
+cardinal ask "Who owns the demo Aurora project? Cite your source."
 ```
 
-## Seeing what your pipelines produce
+源码使用者将命令前加 `uv run`。OpenRouter 可用 `cardinal configure --provider openrouter --model openai/gpt-6-luna`，并设置 `OPENROUTER_API_KEY`。可用模型受现有 LM 封装支持范围限制，doctor 会在发请求前校验。
 
-The tests report scores. To read the output itself, run a pipeline on real
-data:
+## 用自己的资料
 
-```sh
-uv run python -m cs329z_hw1.show priority em-12167              # label and reason for one email
-uv run python -m cs329z_hw1.show digest 2001-06-22 --labels --limit 30   # the digest, plus each label
-uv run python -m cs329z_hw1.show bm25 "larchfield audit"                 # top emails for a query, with scores
-uv run python -m cs329z_hw1.show email_qa "Who leads the Basin Analytics move?"
-uv run python -m cs329z_hw1.show search_docs "parental leave"
-uv run python -m cs329z_hw1.show memory .lm_cache/chat_memory             # what chat.py's agent has stored
-uv run python -m cs329z_hw1.show memory                                   # each persona's memory after an evaluation run
+创建独立空 profile，再导入资料，避免把演示内容当作实际制度：
+
+```bash
+cardinal --home ./work-assistant init --provider deepseek --model deepseek-flash
+cardinal --home ./work-assistant import docs ./approved-company-docs
+cardinal --home ./work-assistant import emails ./exported-emails.jsonl
+cardinal --home ./work-assistant doctor
+cardinal --home ./work-assistant chat
 ```
 
-Each prints the result and the cost and time of the model calls. A repeat
-with unchanged code is free.
+默认 profile 位于 `$XDG_DATA_HOME/cardinal-agent`，未设置时为 `~/.local/share/cardinal-agent`。配置、资料、记忆、模型缓存、会话和命令工作目录均在 profile 内。不要把自有 profile 放进 Git，或将公司资料交给未获批准的模型服务。
 
-## Model calls and spending
+文档暂支持 UTF-8 Markdown，按标题/段落分块，返回原文片段及行号。邮件支持经过校验的 JSONL 导出，格式见 [本地使用指南](docs/local-usage.md)。暂不支持实时邮箱、日历、PDF/OCR 或办公套件连接器。
 
-### Local use with DeepSeek
+## 日常使用流程
 
-To use DeepSeek instead of OpenRouter, set these in `.env` (keep your key private):
+- **资料问答**：查询制度、组织和项目文档，查看来源 ID/行号；新政策以明确生效日期和替代关系判断。
+- **邮件处理**：搜索、原文读取、多跳问答、按 UTC 日期生成日报。
+- **个人记忆**：显式记忆及用户明确陈述的自动提取，按项目范围、时间和来源管理；`cardinal memory` 查看，`cardinal memory --forget ID` 删除单条。
+- **可追溯会话**：每轮保存完整日志，失败也保存；`cardinal history` 列表，`cardinal history --show ID` 查看。
+- **运行诊断**：`cardinal doctor` 不调用模型，检查资料、API 配置、模型、隔离能力和已记录费用。
 
-```dotenv
-CS329Z_LLM_PROVIDER=deepseek
-DEEPSEEK_API_KEY=your-deepseek-api-key
+默认仅只读工具。需要运行命令时显式启用：
+
+```bash
+cardinal chat --terminal
 ```
 
-All three roles (agent, simulated user, judge) then default to `deepseek-flash`.
-Remove any existing `CS329Z_GRADING_MODEL`, `CS329Z_USER_MODEL`, or
-`CS329Z_JUDGE_MODEL` overrides pointing to OpenRouter models, or change them to
-`deepseek-flash` / `deepseek-v4-pro`. The model names and rates come from the
-[DeepSeek documentation](https://api-docs.deepseek.com/quick_start/pricing/).
+每条命令均请求批准；无 OS jail 时拒绝启用，只有明确了解风险后才能加 `--allow-unisolated-terminal`。程序白名单和正则不等于完整安全隔离。CLI 目前不支持在同步命令执行过程中实时输入 steering；框架支持 UserIO 注入，终端界面仍是串行交互。
 
-Verify the connection independently of the unfinished homework:
+默认费用上限是 **每 profile 累计 $1**，不是每次请求 $1；提高上限用 `cardinal configure --budget 5`，不会清零旧费用。真实费用以服务商账单为准。缓存命中不会新增 API 支出，不能当作代码推理加速。
 
-```sh
-uv run python -c 'from cs329z_hw1.llm import LM; print(LM()([{"role": "user", "content": "Reply with OK."}]))'
+## 已测数据与范围
+
+| 测试 | 已记录结果 | 范围 |
+| --- | --- | --- |
+| 模拟用户综合评估 | 18/20（90%） | 公开 20 个任务；Agent/用户/评审均为 deepseek-flash；单次、带既有缓存 |
+| 邮件分类 | 59/60（98.3%） | 公开分类样本，历史版本 |
+| BM25 | 26,278 封邮件，平均查询约 8.4 ms，17 查询平均 recall@10=100% | 历史本机单次测量 |
+| 文档问答 | 20/20，单对话文档输出最多 2880 tokens | 公开文档问题，历史版本 |
+| 终端问答 | 10/10 | 包含大输出后续读取，历史版本 |
+| 提示注入 | 7/7 回答正确，植入命令零执行 | 公开七场景，实际暴露攻击文本；不代表普遍免疫 |
+
+这些结果来自不同阶段，不是对当前版本的一次统一跑分。后续综合评估也为 18/20，但失败任务有变化；没有生产用户或企业部署证据。详见 [评测基线](docs/15-sim-eval.md)、[已停止优化记录](docs/optimization-review.md) 和 [测试数据目录](docs/evaluations/README.md)。
+
+本地应用入口的可安装性、资料隔离和失败保存会另有发布验证记录，不用课程分数替代产品验证。
+
+## 架构
+
+```mermaid
+flowchart LR
+    CLI[Local CLI / Profile] --> Loop[Agent loop]
+    Loop --> Protocol[Text tool protocol]
+    Protocol --> Registry[Schema validation / approval / deny rules]
+    Registry --> Docs[BM25 documents + source lines]
+    Registry --> Email[Email workflows]
+    Registry --> Memory[Scoped JSON memory]
+    Registry --> Terminal[Course sandbox / saved output]
+    Loop --> Context[Bounded context + structured summaries]
+    Loop --> Trace[Conversation / cost ledger]
 ```
 
-Offline checks for this provider extension run with
-`uv run pytest local_tests -q` and require no API key.
+从零实现 Agent 调用循环及检索，不依赖 Agent 框架。复用课程模型接口和 sandbox，业务工具与本地产品入口分离。模块与设计思路见 `docs/01-priority.md` 至 `docs/15-sim-eval.md`。
 
-Then run deterministic tests with `uv run pytest`, or try a small real-model test:
+## 开发与评估
 
-```sh
-CS329Z_EVAL_SLICE=1 uv run pytest tests/test_priority.py -m live -s
+```bash
+uv sync --locked
+uv run pytest local_tests/test_local_cli.py
+# 完整课程数据已在 Git checkout 中；解压后可跑全套离线测试
+uv run python data/download.py
+uv run pytest tests local_tests
+# 付费综合评估
+uv run python -m cs329z_hw1.simulation
 ```
 
-The connection check and live tests make paid calls. Homework tests still need
-the corresponding adapters to be implemented; changing providers does not finish
-those exercises. Live scores can differ between models.
+Release 的 code.zip 不含完整公共邮件档案；从课程原仓库获得 `data/emails.jsonl.gz` 后再复现全档案测试，并按 `data/source.json` 校验。安装 wheel 只需应用自有数据或内置虚构 demo，不依赖开发仓库。原课程设置与来源保存在 [COURSE_README.md](COURSE_README.md)。
 
-DeepSeek uses non-thinking mode by default, preserving the wrapper's existing
-text-in/text-out interface. Set `CS329Z_DEEPSEEK_THINKING=enabled` to enable
-thinking; increase `LM(max_tokens=...)` if responses are truncated. DeepSeek
-cache entries are isolated from OpenRouter's. Its ledger uses published peak
-token rates as a conservative estimate; off-peak charges may be lower.
+## 当前成熟度
 
-Set `CS329Z_LLM_PROVIDER=openrouter` (the default) to switch back. This is a
-local learning extension: course grading replaces `llm.py` with its own copy.
+适合受控的个人本地试用和技术展示。未达到多人企业生产服务要求：缺少 SSO/RBAC、企业连接器与增量同步、完整数据生命周期/审计、跨进程存储一致性和长期故障恢复。模型回答可能出错，命令可能有部分副作用；真实公司部署需要单独验收。
 
-All model calls go through `cs329z_hw1.llm.LM`: a list of
-`{"role", "content"}` messages in, a string out.
+[可用性差距与路线](docs/product-readiness.md) · [本地使用](docs/local-usage.md) · [发布流程](docs/releasing.md) · [项目与面试材料](docs/project-case-study.md)
 
-```python
-from cs329z_hw1.llm import LM
+## 来源与许可
 
-lm = LM()            # the grading model, openai/gpt-6-luna
-judge = LM("judge")  # the evaluation's judge model, openai/gpt-6-sol
-text = lm([{"role": "user", "content": "Say hello."}])
-```
-
-The wrapper does three things:
-
-- **Cache.** Each reply is stored under `.lm_cache/`, keyed on the model,
-  the sampling settings and the exact messages. Repeating an identical call
-  returns the stored reply and costs nothing.
-- **Ledger.** Each call that reaches the provider is appended to
-  `.lm_cache/ledger.jsonl` with its token counts and cost. Print the totals
-  by model and by tag (the test suite tags each call with the test name)
-  with:
-
-  ```sh
-  uv run python -m cs329z_hw1.llm
-  ```
-
-- **Budget.** The key we issue you has a spending limit on our side, and
-  calls fail once it is reached. `CS329Z_BUDGET_USD` (in `.env` or the
-  environment) is a second limit you set for yourself: once the ledger
-  total reaches it, the wrapper raises `BudgetExceeded` instead of making
-  a call, so a runaway loop stops before the key does. Cached replies are
-  still returned.
-
-Deleting `.lm_cache/` deletes both the cache and the ledger.
-
-## How to work a problem
-
-Your code goes anywhere inside the `cs329z_hw1` package, and the tests
-reach it only through the functions in `cs329z_hw1/adapters.py`, which ship
-as stubs that raise `NotImplementedError`.
-
-For each problem:
-
-1. Read the problem in the handout.
-2. Open the adapter it names in `cs329z_hw1/adapters.py`. The adapter's type
-   hints and docstring are the exact signature the tests use.
-3. Implement the functionality in your package, for example in
-   `cs329z_hw1/pipelines/priority.py`.
-4. Replace the stub's body with a call into your code:
-
-   ```python
-   def run_priority(email, lm):
-       from cs329z_hw1.pipelines.priority import classify_priority
-       return classify_priority(email, lm)
-   ```
-
-5. Run that problem's tests, deterministic first and then live.
-
-The deterministic tests are the complete list of the error handling we
-require (an empty reply, a reply in the wrong format, a cut-off tool call,
-a tool that raises). Nothing is graded that is not in a test or asked for
-in the design memo.
-
-The types that cross the adapter boundary (`Email`, `ToolSpec`, `ToolCall`,
-`ToolResult`, `ParsedResponse`, `AgentConfig`, `AgentResult`, and others) are
-defined in `cs329z_hw1/types.py`. Use them as they are.
-
-## Repository layout
-
-Files marked *provided* are course code, which grading replaces with its
-own copies, so read them but do not edit them. Files marked *read* define
-interfaces you build on or rules the tests check, and each is worth
-reading before the problem that first uses it.
-
-```
-README.md  pyproject.toml  .env.example
-cs329z_hw1/                               your package: every file you write goes here
-  adapters.py           yours     read  the only file the tests call; starts as stubs
-  pipelines/            yours           Part 1 (starts empty)
-  agent/                yours           Part 2 (starts empty)
-  llm.py                provided  read  LM, ScriptedLM, cache, ledger, budget
-  types.py              provided  read  data types shared by your code and the tests
-  tokens.py             provided  read  count_tokens, count_message_tokens (4 characters per token)
-  tokenizer.py          provided        tokenize(), the tokenizer BM25 must use
-  data.py               provided  read  load_emails(), emails_on(), email_text(), load_docs()
-  sandbox.py            provided  read  run_terminal(), make_workspace()
-  cardinal.py           provided  read  names and argument schemas of the agent tools
-  user.py               provided  read  UserIO, ScriptedUser, ConsoleUser
-  chat.py               provided        terminal chat with your agent
-  show.py               provided        run one Part 1 pipeline on real data and print the result
-  simulation/           provided        simulated users, judge, evaluation runner (see its README.md)
-tests/                                    provided: read, do not edit; discarded at grading
-  conftest.py           provided
-  helpers.py            provided
-  thresholds.py         provided        pass thresholds for the live tests
-  test_*.py             provided  read  one file per problem; read the one you are on
-  fixtures/             provided        gold labels, scripted sessions, personas
-data/
-  docs/                 provided        Cardinal Energy documents
-  emails.jsonl.gz       provided        the email archive, compressed
-  download.py           provided        verifies and unpacks the archive
-  source.json           provided        checksum of the archive
-  priority_rubric.md    provided  read  how the gold priority labels were assigned
-  emails/                         unpacked by download.py, gitignored
-```
-
-
-You may add files and subpackages inside `cs329z_hw1/`. Grading copies
-your whole `cs329z_hw1/` package into a clean starter and discards
-everything else, so a helper you put under `tests/` or anywhere outside the
-package is not there when we grade. Do not add dependencies to
-`pyproject.toml`; NumPy is already one, and you may use it anywhere.
-
-## The terminal sandbox
-
-`cs329z_hw1.sandbox.run_terminal(cmd)` runs one shell command for your
-agent. Read `cs329z_hw1/sandbox.py` before you use it. Its module docstring
-lists what each layer stops and what it does not. One of those layers is an
-operating-system jail that is not available on every machine. To see which
-one your machine uses:
-
-```sh
-uv run python -c "from cs329z_hw1 import sandbox; print(sandbox.jail())"
-```
-
-This prints `sandbox-exec` (macOS), `bwrap` (Linux with bubblewrap
-installed and permitted), or `none`. With `none`, a command that runs
-`python3` can reach the network and any file your account can. On Linux you
-can install bubblewrap with your package manager (for example
-`sudo apt install bubblewrap`).
-
-On Windows it always prints `none`: there is no OS jail there, so the
-allowlist, the scrubbed environment and the timeout are the only limits.
-The shell and the allowed programs (`grep`, `sort`, `awk` and the rest)
-come from Git for Windows, so it must be installed; without it every
-command is rejected with a message that says so. Commands are written as on
-Linux (`grep`, `wc -l`, pipes, `python3 -c '...'`); `python3` is the Python
-that `uv` installed, without the project's packages. Line endings in a
-command's output are normalized to `\n`.
-
-Each command runs in a workspace directory that holds `emails.jsonl` and
-`docs/`. Here-documents (`<<EOF`) are rejected; multi-line Python goes in
-`python3 -c '...'`.
-
-## The simulated-user evaluation
-
-```sh
-uv run python -m cs329z_hw1.simulation --slice 3   # the first 3 personas
-uv run python -m cs329z_hw1.simulation             # all public personas
-```
-
-This plays each persona in `tests/fixtures/personas/` against the agent
-behind `run_agent_session` and saves the conversations under `runs/`. Pass a
-directory as the first argument to use other personas. See
-`uv run python -m cs329z_hw1.simulation --help` for the options.
-
-## Chatting with your agent
-
-Once `run_agent_session` works, you can talk to your agent in the terminal.
-
-```sh
-uv run python -m cs329z_hw1.chat [--mode confirm|auto] [--memory-dir DIR]
-```
-
-## Acknowledgements
-
-This assignment was designed and built by Michael Ryan for Stanford's
-CS329Z Engineering AI Agents course with lots of help from Claude Fable 5.1.
-We owe a debt of gratitude to the various people who shared thoughts and
-feedback on this assignment. In particular we would like to highlight Houjun
-(Jack) Liu, Owen Queen, Shreyas Sharma, and Anantharaman Iyer for completing a
-preliminary version of the assignment and offering invaluable feedback.
-
-If you would like to use this assignment for your course you are welcome to
-do so with brief attribution. It is released under the MIT license (see
-`LICENSE`).
+基于 Stanford CS329Z Assignment 1: Building an Agent Harness，保留课程来源、接口和测试。Cardinal Energy 与 demo 公司信息为虚构；Enron 档案仅作为公开评估语料。遵循仓库 [MIT License](LICENSE)。不声称真实公司部署、商业用户规模或未测量的效率提升。

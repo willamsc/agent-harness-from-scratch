@@ -1,0 +1,4 @@
+{"ts": 1794803898.309, "model": "deepseek-flash", "provider": "deepseek", "tag": "local/agent", "input_tokens": 1653, "cached_tokens": 256, "output_tokens": 40, "cost_usd": 0.000468636, "seconds": 1.666, "finish_reason": "stop"}
+{"ts": 1794803899.977, "model": "deepseek-flash", "provider": "deepseek", "tag": "local/agent", "input_tokens": 1720, "cached_tokens": 1536, "output_tokens": 43, "cost_usd": 0.000116016, "seconds": 1.033, "finish_reason": "stop"}
+{"ts": 1794803901.012, "model": "deepseek-flash", "provider": "deepseek", "tag": "local/agent", "input_tokens": 2008, "cached_tokens": 1664, "output_tokens": 50, "cost_usd": 0.000173184, "seconds": 0.751, "finish_reason": "stop"}
+{"ts": 1794803901.765, "model": "deepseek-flash", "provider": "deepseek", "tag": "local/aux", "input_tokens": 225, "cached_tokens": 0, "output_tokens": 6, "cost_usd": 7.47e-05, "seconds": 0.855, "finish_reason": "stop"}

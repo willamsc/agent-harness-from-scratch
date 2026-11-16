@@ -1,0 +1,2 @@
+{"id":"demo-001","thread_id":"demo-thread-001","reply_to":null,"from":"morgan@example.test","to":["employee@example.test"],"date":"2026-11-16T09:00:00Z","subject":"Aurora design review","body":"Please review the Aurora design draft by 3 PM today. This is fictional demo mail."}
+{"id":"demo-002","thread_id":"demo-thread-002","reply_to":null,"from":"team@example.test","to":["employee@example.test"],"date":"2026-11-16T10:00:00Z","subject":"Onboarding checklist","body":"The onboarding checklist is ready for next week's discussion. This is fictional demo mail."}
