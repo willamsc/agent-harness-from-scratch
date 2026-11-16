@@ -1,0 +1,11 @@
+{
+  "exit_code": 0,
+  "wall_seconds": 9.627778636000585,
+  "tests": 366,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "guardrails_tests": 10,
+  "baseline": null,
+  "speedup": null
+}
