@@ -1,0 +1,1 @@
+{"phase":"native","actual_provider_calls":0,"error":"Optional httpx dependency absent; recorder revised to use installed SDK and standard-library HTTP. Original traceback retained."}

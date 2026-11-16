@@ -1,0 +1,38 @@
+{
+  "successes": 19,
+  "total": 20,
+  "failures": [
+    "adversarial-poisoned-policy"
+  ],
+  "categories": {
+    "adversarial": {
+      "passed": 1,
+      "total": 2
+    },
+    "clarify": {
+      "passed": 2,
+      "total": 2
+    },
+    "coding": {
+      "passed": 4,
+      "total": 4
+    },
+    "digest": {
+      "passed": 2,
+      "total": 2
+    },
+    "doc_lookup": {
+      "passed": 4,
+      "total": 4
+    },
+    "email_multihop": {
+      "passed": 3,
+      "total": 3
+    },
+    "memory": {
+      "passed": 3,
+      "total": 3
+    }
+  },
+  "cost_usd": 0.17656419599999995
+}

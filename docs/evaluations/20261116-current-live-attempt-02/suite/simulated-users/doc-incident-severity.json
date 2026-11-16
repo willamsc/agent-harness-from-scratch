@@ -1,0 +1,358 @@
+{
+  "persona_id": "doc-incident-severity",
+  "category": "doc_lookup",
+  "sessions": [
+    {
+      "index": 1,
+      "mode": "auto",
+      "dialogue": [
+        {
+          "kind": "user",
+          "content": "ingestion is 40 min behind for all customers. what severity is that and how fast do i have to ack?"
+        },
+        {
+          "kind": "agent",
+          "content": "**SEV2 — acknowledge within 15 minutes.**\n\nIngestion lag of 40 minutes for all customers is a delay in data of more than 30 minutes, which is the SEV2 definition in the On-Call and Incident Process (doc `oncall-incident-process`, §6, lines 55–58). It's not SEV1: that requires a customer-facing outage, data loss/corruption, a security breach, or a fault affecting more than 5% of the device fleet — a lag alone doesn't meet that bar. If in doubt the doc says pick the higher severity, and it can be lowered later, so escalate to SEV1 if ingestion has effectively stopped rather than merely lagged.\n\nSEV2 also requires:\n- An incident commander assigned, and a channel `#inc-YYYYMMDD-short-name` opened (§8).\n- Status page updated within 30 minutes, then at least every 60 minutes even if nothing changes.\n- Customer Success on-call liaison handles direct customer contact — engineers don't contact customers unless asked.\n\nEscalation note: if you don't ack within 5 minutes the page goes to the secondary; 10 minutes after that it goes to the engineering manager on call (§7).",
+          "status": "done"
+        },
+        {
+          "kind": "user",
+          "content": "ok sev2, 15 min ack. when's the postmortem draft due?"
+        },
+        {
+          "kind": "agent",
+          "content": "**Within 5 business days of resolution.**\n\nPer §10 of the On-Call and Incident Process (doc `oncall-incident-process`, lines 92–98): a written postmortem is required for every SEV1 and SEV2, the incident commander names the author (usually the operations lead), and the draft is due within 5 business days of resolution. Postmortems are blameless and are presented at Incident Review, Thursdays at 13:00 Pacific; every action item needs an owner and a due date.",
+          "status": "done"
+        }
+      ],
+      "transcript": [
+        {
+          "type": "user",
+          "content": "ingestion is 40 min behind for all customers. what severity is that and how fast do i have to ack?"
+        },
+        {
+          "type": "run_started",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 1,
+          "timestamp": 1794813112.0507224
+        },
+        {
+          "type": "model_started",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 2,
+          "timestamp": 1794813112.0507557,
+          "attempt": 1
+        },
+        {
+          "type": "assistant",
+          "content": "I'll check the current incident policy for severity definitions and acknowledgment targets.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"search_docs\">\n<｜｜DSML｜｜ parameter name=\"args\":{\"query\":\"incident severity definitions acknowledgment SLA\",\"k\":5}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2277,
+          "reply_tokens": 76,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 1.2217300269994666
+        },
+        {
+          "type": "error",
+          "content": "Unsupported provider tool syntax. No tool ran. Rewrite your call as literal ASCII text: <tool_call>{\"name\":\"tool_name\",\"args\":{\"parameter\":\"value\"}}</tool_call>. Do not use DSML or invoke/parameter tags."
+        },
+        {
+          "type": "recovery",
+          "kind": "unsupported_protocol"
+        },
+        {
+          "type": "model_started",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 7,
+          "timestamp": 1794813113.2725737,
+          "attempt": 2
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"search_docs\">\n<｜｜DSML｜｜ parameter name=\"args\" string=\"false\">true\">{\"query\": \"incident severity definitions acknowledgment SLA\", \"k\": 5}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2412,
+          "reply_tokens": 59,
+          "send_turn": 2,
+          "elapsed_since_send_seconds": 1.971734806999848
+        },
+        {
+          "type": "error",
+          "content": "Unsupported provider tool syntax. No tool ran. Rewrite your call as literal ASCII text: <tool_call>{\"name\":\"tool_name\",\"args\":{\"parameter\":\"value\"}}</tool_call>. Do not use DSML or invoke/parameter tags."
+        },
+        {
+          "type": "recovery",
+          "kind": "unsupported_protocol"
+        },
+        {
+          "type": "model_started",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 12,
+          "timestamp": 1794813114.0225163,
+          "attempt": 3
+        },
+        {
+          "type": "assistant",
+          "content": "<tool_call>{\"name\":\"search_docs\",\"args\":{\"query\":\"incident severity definitions acknowledgment SLA\",\"k\":5}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2530,
+          "reply_tokens": 30,
+          "send_turn": 3,
+          "elapsed_since_send_seconds": 2.902205724999476
+        },
+        {
+          "type": "tool_call",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 15,
+          "timestamp": 1794813114.953087,
+          "name": "search_docs",
+          "args": {
+            "query": "incident severity definitions acknowledgment SLA",
+            "k": 5
+          },
+          "call_id": "24b7a9163f404a3eaa63e4ae440691e2"
+        },
+        {
+          "type": "tool_timing",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 16,
+          "timestamp": 1794813114.954312,
+          "call_id": "24b7a9163f404a3eaa63e4ae440691e2",
+          "seconds": 0.0012127249992772704
+        },
+        {
+          "type": "tool_result",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 17,
+          "timestamp": 1794813114.9543343,
+          "name": "search_docs",
+          "call_id": "24b7a9163f404a3eaa63e4ae440691e2",
+          "status": "ok",
+          "content": "[{\"doc_id\": \"oncall-incident-process\", \"title\": \"On-Call and Incident Process\", \"snippet\": \"if the primary does not acknowledge, and joins any SEV1 incident on the rotation's systems.\\n\\n## 6. Severity levels\\n\\nThe first responder sets the severity. If in doubt, choose the higher severity. It can be lowered later.\\n\\n| Level | Definition | Acknowledge within | Other requirements |\\n|---|---|---|---|\\n| SEV1 | Customer-facing outage, loss or corruption of customer data, a security breach, or a fault that affects more than 5 percent of the device fleet | 5 minutes | Incident commander assigned. Status page updated within 15 minutes. CTO notified. |\\n| SEV2 | Degraded service with a\", \"document_kind\": \"document\", \"category\": \"engineering\", \"section\": \"6. Severity levels\", \"start_line\": 50, \"end_line\": 59}, {\"doc_id\": \"oncall-incident-process\", \"title\": \"On-Call and Incident Process\", \"snippet\": \"while on call\\n\\nThe primary must be able to acknowledge a page within the time set for its severity and be at a laptop with a working connection within 15 minutes. Keep your phone charged and PagerLine notifications on. Do not be on call while traveling by air or while impaired. If you become unable to respond, hand the pager to the secondary and tell the rotation channel.\\n\\nThe secondary is the backup. The secondary responds if the primary does not acknowledge, and joins any SEV1 incident on the rotation's systems.\\n\\n## 6. Severity levels\\n\\nThe first responder sets the severity. If in doubt,\", \"document_kind\": \"document\", \"category\": \"engineering\", \"section\": \"5. Expectations while on call\", \"start_line\": 46, \"end_line\": 54}, {\"doc_id\": \"oakland-office-guide\", \"title\": \"Oakland Office Guide\", \"snippet\": \"in the visitor system at least 24 hours before they arrive. Visitors sign a confidentiality acknowledgment at reception and wear a visitor badge. Stay with your visitor while they are in the building. Visitors use the guest Wi-Fi network, and the current password is on the screen at the reception desk.\\n\\n## Getting here\\n\\n- Public transit: the office is an 8-minute walk from the nearest regional rail station. The commuter benefit is described in the Benefits Summary.\\n- Bicycles: the bike room is on the ground floor behind reception and has 60 spaces, lockers, and two showers.\\n- Parking: the\", \"document_kind\": \"document\", \"category\": \"general\", \"section\": \"Visitors\", \"start_line\": 27, \"end_line\": 33}, {\"doc_id\": \"engineering-announcement-2026-02-oncall-stipend\", \"title\": \"Engineering Announcement: On-Call Stipend Increase\", \"snippet\": \"for that week. The holiday week bonus is new.\\n\\nThese amounts replace Section 4 of the On-Call and Incident Process (effective 2025-06-01), which set the stipend at $350 for primary and $150 for secondary. Every other part of that document stays in force, including the severity levels, the response times, and the rule that no engineer is on call more than one week in four.\\n\\n## Background\\n\\nThe stipend had not changed since the rotations were set up. In 2025 the number of connected meters grew from 0.9 million to 1.4 million, and the number of pages per primary week rose from an average of 3.1\", \"document_kind\": \"update_or_memo\", \"category\": \"engineering\", \"section\": \"Engineering Announcement: On-Call Stipend Increase\", \"start_line\": 14, \"end_line\": 20}, {\"doc_id\": \"oncall-incident-process\", \"title\": \"On-Call and Incident Process\", \"snippet\": \"the number of pages per rotation each month.\\n\\n## 13. Security incidents\\n\\nA suspected security incident is always at least SEV2. Page the SRE primary through PagerLine and call the Security hotline listed in the IT and Security Policy. Ibrahim Saleh, the CISO, or his delegate acts as incident commander. Do not discuss a suspected security incident in public channels.\\n\\n## 14. Contacts\\n\\n- On-call coordinator: Hiro Matsuda, SRE.\\n- Director of SRE: Grace Nwosu.\\n- Customer Success on-call liaison schedule: maintained by Hannah Kowalski, Director of Customer Success.\", \"document_kind\": \"document\", \"category\": \"engineering\", \"section\": \"13. Security incidents\", \"start_line\": 106, \"end_line\": 116}]"
+        },
+        {
+          "type": "model_started",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 18,
+          "timestamp": 1794813114.9544325,
+          "attempt": 4
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<tool_call>{\"name\":\"read_doc\",\"args\":{\"doc_id\":\"oncall-incident-process\",\"start_line\":50}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 3625,
+          "reply_tokens": 26,
+          "send_turn": 4,
+          "elapsed_since_send_seconds": 3.9346434899998712
+        },
+        {
+          "type": "tool_call",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 21,
+          "timestamp": 1794813115.9854918,
+          "name": "read_doc",
+          "args": {
+            "doc_id": "oncall-incident-process",
+            "start_line": 50
+          },
+          "call_id": "2b35b352933946a8bb73833e04739ca5"
+        },
+        {
+          "type": "tool_timing",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 22,
+          "timestamp": 1794813115.9862032,
+          "call_id": "2b35b352933946a8bb73833e04739ca5",
+          "seconds": 0.0007009789997027838
+        },
+        {
+          "type": "tool_result",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 23,
+          "timestamp": 1794813115.9862227,
+          "name": "read_doc",
+          "call_id": "2b35b352933946a8bb73833e04739ca5",
+          "status": "ok",
+          "content": "{\"doc_id\": \"oncall-incident-process\", \"start_line\": 50, \"end_line\": 90, \"total_lines\": 116, \"text\": \"The secondary is the backup. The secondary responds if the primary does not acknowledge, and joins any SEV1 incident on the rotation's systems.\\n\\n## 6. Severity levels\\n\\nThe first responder sets the severity. If in doubt, choose the higher severity. It can be lowered later.\\n\\n| Level | Definition | Acknowledge within | Other requirements |\\n|---|---|---|---|\\n| SEV1 | Customer-facing outage, loss or corruption of customer data, a security breach, or a fault that affects more than 5 percent of the device fleet | 5 minutes | Incident commander assigned. Status page updated within 15 minutes. CTO notified. |\\n| SEV2 | Degraded service with a workaround, a delay in data of more than 30 minutes, or a single customer fully affected | 15 minutes | Incident commander assigned. Status page updated within 30 minutes. |\\n| SEV3 | Minor fault with no customer impact yet, or an internal tool outage | 4 business hours | Ticket filed. No incident commander needed. |\\n\\n## 7. Escalation\\n\\nPagerLine escalates automatically.\\n\\n1. The page goes to the primary.\\n2. If the primary has not acknowledged after 5 minutes, the page goes to the secondary.\\n3. If neither has acknowledged after a further 10 minutes, the page goes to the engineering manager on call. The managers of the five rotation teams share this duty week by week.\\n4. If the page is still unacknowledged, PagerLine calls Grace Nwosu.\\n\\nAnyone may escalate by hand at any time. Asking for help early is expected and is never held against the responder.\\n\\n## 8. Running an incident\\n\\n**Open a channel.** For SEV1 and SEV2, open a chat channel named `#inc-YYYYMMDD-short-name`, for example `#inc-20250714-ingest-lag`. All discussion of the incident goes in this channel.\\n\\n**Assign roles.** The incident commander coordinates and makes decisions. The commander does not debug. The operations lead does the technical work and may bring in others. The communications lead writes status page updates and works with Customer Success. For a SEV2, one person may hold the commander and communications roles.\\n\\n**Communicate.** The status page is status.cardinal-energy.example. After the first update, post an update at least every 30 minutes during a SEV1 and every 60 minutes during a SEV2, even if nothing has changed. The Customer Success on-call liaison contacts affected customers directly. Engineers do not contact customers during an incident unless the liaison asks.\\n\\n**Mitigate first.** Restore service before finding the root cause. Roll back a recent deploy if one is suspected. The architecture overview describes the rollback procedure for each service.\\n\\n**Close.** The incident commander declares the incident resolved when service is restored and stable for 30 minutes. The commander posts a summary in the channel and files the incident record.\\n\\n## 9. Device fleet incidents\\n\\nIncidents that involve firmware have extra rules, because a bad update cannot always be undone remotely.\\n\\n- Pause any over-the-air rollout in progress as the first action.\\n- Do not start a new rollout during an open SEV1 or SEV2, on any device model.\"}"
+        },
+        {
+          "type": "model_started",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 24,
+          "timestamp": 1794813115.9863343,
+          "attempt": 5
+        },
+        {
+          "type": "assistant",
+          "content": "**SEV2 — acknowledge within 15 minutes.**\n\nIngestion lag of 40 minutes for all customers is a delay in data of more than 30 minutes, which is the SEV2 definition in the On-Call and Incident Process (doc `oncall-incident-process`, §6, lines 55–58). It's not SEV1: that requires a customer-facing outage, data loss/corruption, a security breach, or a fault affecting more than 5% of the device fleet — a lag alone doesn't meet that bar. If in doubt the doc says pick the higher severity, and it can be lowered later, so escalate to SEV1 if ingestion has effectively stopped rather than merely lagged.\n\nSEV2 also requires:\n- An incident commander assigned, and a channel `#inc-YYYYMMDD-short-name` opened (§8).\n- Status page updated within 30 minutes, then at least every 60 minutes even if nothing changes.\n- Customer Success on-call liaison handles direct customer contact — engineers don't contact customers unless asked.\n\nEscalation note: if you don't ack within 5 minutes the page goes to the secondary; 10 minutes after that it goes to the engineering manager on call (§7)."
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 4484,
+          "reply_tokens": 269,
+          "send_turn": 5,
+          "elapsed_since_send_seconds": 6.3513716329998715
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [],
+          "seconds": 0.8908157719997689
+        },
+        {
+          "type": "run_finished",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 28,
+          "timestamp": 1794813119.2929535,
+          "status": "done",
+          "content": "**SEV2 — acknowledge within 15 minutes.**\n\nIngestion lag of 40 minutes for all customers is a delay in data of more than 30 minutes, which is the SEV2 definition in the On-Call and Incident Process (doc `oncall-incident-process`, §6, lines 55–58). It's not SEV1: that requires a customer-facing outage, data loss/corruption, a security breach, or a fault affecting more than 5% of the device fleet — a lag alone doesn't meet that bar. If in doubt the doc says pick the higher severity, and it can be lowered later, so escalate to SEV1 if ingestion has effectively stopped rather than merely lagged.\n\nSEV2 also requires:\n- An incident commander assigned, and a channel `#inc-YYYYMMDD-short-name` opened (§8).\n- Status page updated within 30 minutes, then at least every 60 minutes even if nothing changes.\n- Customer Success on-call liaison handles direct customer contact — engineers don't contact customers unless asked.\n\nEscalation note: if you don't ack within 5 minutes the page goes to the secondary; 10 minutes after that it goes to the engineering manager on call (§7)."
+        },
+        {
+          "type": "user",
+          "content": "ok sev2, 15 min ack. when's the postmortem draft due?"
+        },
+        {
+          "type": "run_started",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 30,
+          "timestamp": 1794813120.1925237
+        },
+        {
+          "type": "model_started",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 31,
+          "timestamp": 1794813120.1926072,
+          "attempt": 1
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<tool_call>{\"name\":\"search_docs\",\"args\":{\"query\":\"postmortem draft due incident review timeline\",\"k\":5}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 4775,
+          "reply_tokens": 30,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 0.8699190190000081
+        },
+        {
+          "type": "tool_call",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 34,
+          "timestamp": 1794813121.0625763,
+          "name": "search_docs",
+          "args": {
+            "query": "postmortem draft due incident review timeline",
+            "k": 5
+          },
+          "call_id": "8fdf0256e2f3431ca1068592df024af7"
+        },
+        {
+          "type": "tool_timing",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 35,
+          "timestamp": 1794813121.0637763,
+          "call_id": "8fdf0256e2f3431ca1068592df024af7",
+          "seconds": 0.0011898380007551168
+        },
+        {
+          "type": "tool_result",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 36,
+          "timestamp": 1794813121.0637922,
+          "name": "search_docs",
+          "call_id": "8fdf0256e2f3431ca1068592df024af7",
+          "status": "ok",
+          "content": "[{\"doc_id\": \"oncall-incident-process\", \"title\": \"On-Call and Incident Process\", \"snippet\": \"Operations dispatches technicians only on the incident commander's request.\\n\\n## 10. After the incident\\n\\nA written postmortem is required for every SEV1 and SEV2. The incident commander names the author, who is usually the operations lead. The draft is due within 5 business days of resolution. Postmortems are blameless: they describe what happened, what the systems and the process allowed, and what will change. They do not assign fault to a person.\\n\\nPostmortems are presented at Incident Review, which is held on Thursdays at 13:00 Pacific. Every action item has an owner and a due date and is\", \"document_kind\": \"document\", \"category\": \"engineering\", \"section\": \"10. After the incident\", \"start_line\": 92, \"end_line\": 98}, {\"doc_id\": \"onboarding-guide\", \"title\": \"New Hire Onboarding Guide\", \"snippet\": \"date. After that you must wait for open enrollment.\\n- Complete security awareness training. It is due within 30 days of joining.\\n- Complete harassment prevention training. It is due within 60 days, and most people do it in the first month.\\n- Your home office stipend of $500 arrives with your first full paycheck if you are hybrid or remote.\\n- Your first payday depends on your start date. The Compensation and payroll section of the Employee Handbook explains the schedule.\\n- Have a first check-in with your manager about the 30-day goals in your plan.\\n\\n## Where you work\\n\\nYour offer letter states\", \"document_kind\": \"document\", \"category\": \"hr\", \"section\": \"Your first 30 days\", \"start_line\": 46, \"end_line\": 55}, {\"doc_id\": \"parental-leave-policy\", \"title\": \"Parental Leave Policy\", \"snippet\": \"be at least two weeks long. A birthing parent may start leave up to four weeks before the expected due date.\\n\\n## 6. Notice\\n\\nTell People Operations at least 60 days before the expected date of birth or placement, or as soon as you can if that much notice is not possible. People Operations will meet with you to explain pay, state programs, and the forms to complete. Tell your manager at the same time so that the team can plan coverage.\\n\\n## 7. Phased return\\n\\nWhen you return from a block of leave of eight weeks or more, you may work a reduced schedule of 80 percent for the first 4 weeks at full\", \"document_kind\": \"document\", \"category\": \"hr\", \"section\": \"5. Timing\", \"start_line\": 35, \"end_line\": 43}, {\"doc_id\": \"engineering-announcement-2026-02-oncall-stipend\", \"title\": \"Engineering Announcement: On-Call Stipend Increase\", \"snippet\": \"project under way for the first half of 2026, and Hiro Matsuda will report on page volume at Incident Review each month. Pay should reflect the current load while that work is done.\\n\\n## Practical details\\n\\n- Stipends are paid through payroll in the pay period after the rotation week ends. You do not need to submit anything. Payroll takes the schedule from PagerLine.\\n- If you swap a shift, the person who carries the pager for the week receives the stipend. Record swaps in PagerLine before the handoff on Monday.\\n- The Forecasting rotation, which covers business hours only, is paid at the\", \"document_kind\": \"update_or_memo\", \"category\": \"engineering\", \"section\": \"Background\", \"start_line\": 20, \"end_line\": 26}, {\"doc_id\": \"remote-work-policy\", \"title\": \"Remote and Hybrid Work Policy\", \"snippet\": \"guests use your company laptop. Do not print Confidential or Restricted material at home.\\n\\n## 10. Review\\n\\nPeople Operations and Workplace review this policy each year using office attendance data from the badge system and the results of the employee survey. Changes are announced on Perch.\", \"document_kind\": \"document\", \"category\": \"hr\", \"section\": \"10. Review\", \"start_line\": 70, \"end_line\": 74}]"
+        },
+        {
+          "type": "model_started",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 37,
+          "timestamp": 1794813121.0639057,
+          "attempt": 2
+        },
+        {
+          "type": "assistant",
+          "content": "**Within 5 business days of resolution.**\n\nPer §10 of the On-Call and Incident Process (doc `oncall-incident-process`, lines 92–98): a written postmortem is required for every SEV1 and SEV2, the incident commander names the author (usually the operations lead), and the draft is due within 5 business days of resolution. Postmortems are blameless and are presented at Incident Review, Thursdays at 13:00 Pacific; every action item needs an owner and a due date."
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 5778,
+          "reply_tokens": 116,
+          "send_turn": 2,
+          "elapsed_since_send_seconds": 1.975807471000735
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [],
+          "seconds": 0.6768827980004062
+        },
+        {
+          "type": "run_finished",
+          "run_id": "8c387fc171d945e3901175039733406e",
+          "sequence": 41,
+          "timestamp": 1794813122.8453014,
+          "status": "done",
+          "content": "**Within 5 business days of resolution.**\n\nPer §10 of the On-Call and Incident Process (doc `oncall-incident-process`, lines 92–98): a written postmortem is required for every SEV1 and SEV2, the incident commander names the author (usually the operations lead), and the draft is due within 5 business days of resolution. Postmortems are blameless and are presented at Incident Review, Thursdays at 13:00 Pacific; every action item needs an owner and a due date."
+        }
+      ],
+      "ending": "goal_met"
+    }
+  ],
+  "error": null,
+  "seconds": 13.74,
+  "usage": {
+    "agent": {
+      "calls": 9,
+      "cached_calls": 0,
+      "cost_usd": 0.002220396
+    },
+    "user": {
+      "calls": 2,
+      "cached_calls": 0,
+      "cost_usd": 0.00027327600000000003
+    },
+    "judge": {
+      "calls": 1,
+      "cached_calls": 0,
+      "cost_usd": 0.00055074
+    }
+  },
+  "checks": [
+    {
+      "type": "any_reply_contains_any",
+      "passed": true,
+      "detail": "expected some agent reply to contain one of ['SEV2', 'SEV 2', 'SEV-2', 'severity 2']; 2 replies checked"
+    },
+    {
+      "type": "any_reply_contains_any",
+      "passed": true,
+      "detail": "expected some agent reply to contain one of ['15 minutes', '15 min', 'fifteen minutes']; 2 replies checked"
+    },
+    {
+      "type": "any_reply_contains_any",
+      "passed": true,
+      "detail": "expected some agent reply to contain one of ['5 business days', 'five business days', '5 working days', 'five working days']; 2 replies checked"
+    },
+    {
+      "type": "no_agent_error",
+      "passed": true,
+      "detail": "every send ended with status 'done'"
+    }
+  ],
+  "judge": {
+    "passed": true,
+    "reason": "Both facts were produced by tool calls on the relevant topic (search_docs and read_doc on the On-Call and Incident Process), and the visible result excerpts corroborate the SEV2 definition and the postmortem section. The agent's answers agree with the rubric's reference answer, and no contradiction with tool results is visible.",
+    "raw": "CRITERIA:\n1. MET: Agent states SEV2 and 15-minute acknowledgment, citing the >30 min data delay definition.\n2. MET: Agent states postmortem draft due within 5 business days of resolution.\n\nFABRICATION: NO\nREASON: Both facts were produced by tool calls on the relevant topic (search_docs and read_doc on the On-Call and Incident Process), and the visible result excerpts corroborate the SEV2 definition and the postmortem section. The agent's answers agree with the rubric's reference answer, and no contradiction with tool results is visible.\nVERDICT: PASS"
+  },
+  "success": true
+}

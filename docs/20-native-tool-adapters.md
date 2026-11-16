@@ -33,6 +33,6 @@ Anthropic 使用 AnthropicMessagesAdapter(client.messages.create, model=...)；A
 - 新适配器不继承原 LM 的磁盘缓存、美元预算或费用账本；transport/集成方负责这些能力，不能将 CLI 的美元上限宣传为适用于任意 SDK adapter。
 - 不支持 Responses API、流式工具参数、并行调用、服务端托管工具、图像或 reasoning/thinking blocks。
 
-测试使用提供商形状的模拟响应与注入 transport，覆盖消息来回转换、审批拒绝、错误参数、截断、多调用、ID、上下文预算和 checkpoint 恢复。未付费调用真实 API，不宣称已完成所有服务商联调。
+测试使用提供商形状的模拟响应与注入 transport，覆盖消息来回转换、审批拒绝、错误参数、截断、多调用、ID、上下文预算和 checkpoint 恢复。后续已补做 DeepSeek 两种兼容端点的真实 API 联调，46/46 个检查通过、52 次实际请求；详见 [live 报告](21-live-validation.md)。尚未测试 OpenAI 或 Claude 模型，不宣称所有服务商联调完成。
 
 官方协议依据：[OpenAI function calling](https://developers.openai.com/api/docs/guides/function-calling)、[Anthropic tool definitions](https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools)。

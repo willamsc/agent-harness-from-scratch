@@ -1,0 +1,23 @@
+[
+  {
+    "id": "mem-67701c2aeac34d3f8a186edbdd598ead",
+    "scope": "user",
+    "kind": "temporary",
+    "key": "upcoming trip",
+    "value": "flying to Chicago for three days in October 2026",
+    "source": {
+      "session_id": "5e75499d41bf434d8b055bbfbdea62ff",
+      "turn_id": 1,
+      "origin": "user",
+      "quote": "I'm flying to Chicago for three days in October 2026.",
+      "trigger": "after_send"
+    },
+    "created_at": "2026-11-16T07:12:11.134034+00:00",
+    "updated_at": "2026-11-16T07:12:11.134034+00:00",
+    "expires_at": null,
+    "status": "active",
+    "supersedes": [],
+    "related_ids": [],
+    "relation": "new"
+  }
+]

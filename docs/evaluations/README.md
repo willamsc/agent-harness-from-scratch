@@ -53,3 +53,11 @@
 [20261116-062855-harness-resilience](20261116-062855-harness-resilience/metadata.json) 为 UTC 命名的本次最终验证：424 passed、13 live deselected，0 真实模型调用。包含 6 个真实子进程 SIGKILL 场景、24 个原生适配器测试；不是线上可靠性抽样或用户效率对比。
 
 目录内 metrics.json 汇总测试数量；artifacts/process-*.json 记录实际写入数量、恢复前后预算和核对方式；native-*-roundtrip.json 保存虚构内容的请求与事件。source-snapshot.json、源码/fixture 哈希、metadata、JUnit 和 stdout 可用于复查。重跑可执行 `uv run python tools/verify_harness.py`，每次新建目录，不覆盖旧数据。
+
+## 当前版本真实模型验证
+
+[20261116-current-live-attempt-02/summary.json](20261116-current-live-attempt-02/summary.json) 汇总本轮真实 DeepSeek 请求：原生接口 46/46、live pytest 12/13、模拟任务 19/20。文本协议 16/20，专项测试失败；邮件问答 22/25。总估算费用 $0.287835384，按仓库价格表计算，不是服务商账单。
+
+原生格式分别在 DeepSeek OpenAI/Anthropic 兼容端点验证，不能称为测试了 OpenAI 与 Claude 两家模型。两个阶段从空本地缓存开始，suite 的轮内复用仍有 66 次。失败、逐请求压缩日志、账本、逐任务对话、JUnit、源码快照和原始输出均保留。初次记录脚本初始化失败（未调用模型）位于 20261116-current-live。
+
+解释与复现见 [live 报告](../21-live-validation.md)。本轮未为得到高分修改运行时，也没有覆盖旧实验记录。

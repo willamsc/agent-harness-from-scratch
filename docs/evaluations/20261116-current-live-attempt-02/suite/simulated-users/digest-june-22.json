@@ -1,0 +1,240 @@
+{
+  "persona_id": "digest-june-22",
+  "category": "digest",
+  "sessions": [
+    {
+      "index": 1,
+      "mode": "auto",
+      "dialogue": [
+        {
+          "kind": "user",
+          "content": "Give me the digest for June 22, 2001."
+        },
+        {
+          "kind": "agent",
+          "content": "**Digest — Friday, June 22, 2001**\n\n**Urgent**\n- **Bracepatt/EL00-95-031:** settlement conference Monday June 25; principals with full authority must attend.\n- **UPS/Enron:** Ava to confirm training date and end-of-month billing readiness.\n- **AReM/WPTF (Enron):** comments on PX credit/direct access due Monday; decide joint vs. separate filing; Mike Day call.\n- **Highlands Forum:** confirm Steve's presentation will run Monday; no printing/forwarding.\n- **FERC/EOL:** draft responses to staff questions due COB Monday June 25 to Lisa Yoho or Christi Nicolay.\n- **EBS on-site power:** answer PUHCA/EWG and state retail questions ASAP; $2MM at stake.\n- **Orlin Valley Gas:** approve $4.2MM margin call; wire by 2:00 PM today or deliveries may be suspended.\n- **Bulrush Bend meter station:** reroute noon nominations; approve emergency repair crew within the hour.\n- **May 2001 checkout:** John Forney to finish with Bryan before the weekend.\n- **WIC PA:** review and call ASAP.\n- **Windrow Steel:** Bart's signature needed by 5:00 PM today.\n- **Accountants:** Dana to check with all accountants today.\n- **XMS:** submit/approve open expense reports by Wednesday June 27.\n- **Citibank prepay:** $250MM close June 28; confirm Libor set vs. floating.\n- **Texas Gas Storage:** working gas 53.8 BCF; AGA 28.3 BCF as of June 15.\n\n**Normal**\n- **Power World training** June 27–28; laptops and mice required.\n- **Southwest Power divestiture** signed with Black Hills; close by August 31.\n- **Investments:** Encorp/Dais revaluations pushed to Q3; AMPS needs $7MM; Bridgeline stays with Enron Americas.\n- **Oneok Bushton** arbitration decision now expected June 29.\n- **California Solutions** website updated; log-in first/last name, password initials.\n- **RCR call** Monday June 25 at 4:00 PM CDT.\n- **India briefing** Monday; Lay/Skilling visit week of July 8.",
+          "status": "done"
+        },
+        {
+          "kind": "user",
+          "content": "I heard about the Orlin Valley Gas margin call in the hallway. How much is it and what was the deadline?"
+        },
+        {
+          "kind": "agent",
+          "content": "The Orlin Valley Gas margin call is **$4.2 million**, and the deadline was **2:00 PM today (Friday, June 22, 2001)** — the wire needed to go out by then or deliveries could be suspended.",
+          "status": "done"
+        }
+      ],
+      "transcript": [
+        {
+          "type": "user",
+          "content": "Give me the digest for June 22, 2001."
+        },
+        {
+          "type": "run_started",
+          "run_id": "dedae81c21344d8c9b694ad59c60959b",
+          "sequence": 1,
+          "timestamp": 1794813122.7934067
+        },
+        {
+          "type": "model_started",
+          "run_id": "dedae81c21344d8c9b694ad59c60959b",
+          "sequence": 2,
+          "timestamp": 1794813122.7934465,
+          "attempt": 1
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"daily_digest\">\n<｜｜DSML｜｜ parameter name=\"args\" string=\"false\">{\"date\": \"2001-06-22\"}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2262,
+          "reply_tokens": 46,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 0.990858520999609
+        },
+        {
+          "type": "error",
+          "content": "Unsupported provider tool syntax. No tool ran. Rewrite your call as literal ASCII text: <tool_call>{\"name\":\"tool_name\",\"args\":{\"parameter\":\"value\"}}</tool_call>. Do not use DSML or invoke/parameter tags."
+        },
+        {
+          "type": "recovery",
+          "kind": "unsupported_protocol"
+        },
+        {
+          "type": "model_started",
+          "run_id": "dedae81c21344d8c9b694ad59c60959b",
+          "sequence": 7,
+          "timestamp": 1794813123.784324,
+          "attempt": 2
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<tool_call>{\"name\":\"daily_digest\",\"args\":{\"date\":\"2001-06-22\"}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2367,
+          "reply_tokens": 20,
+          "send_turn": 2,
+          "elapsed_since_send_seconds": 1.921869310999682
+        },
+        {
+          "type": "tool_call",
+          "run_id": "dedae81c21344d8c9b694ad59c60959b",
+          "sequence": 10,
+          "timestamp": 1794813124.7153935,
+          "name": "daily_digest",
+          "args": {
+            "date": "2001-06-22"
+          },
+          "call_id": "c6f26925570440758007dfdf59ec1008"
+        },
+        {
+          "type": "tool_timing",
+          "run_id": "dedae81c21344d8c9b694ad59c60959b",
+          "sequence": 11,
+          "timestamp": 1794813157.6386983,
+          "call_id": "c6f26925570440758007dfdf59ec1008",
+          "seconds": 32.92329421100021
+        },
+        {
+          "type": "tool_result",
+          "run_id": "dedae81c21344d8c9b694ad59c60959b",
+          "sequence": 12,
+          "timestamp": 1794813157.6387146,
+          "name": "daily_digest",
+          "call_id": "c6f26925570440758007dfdf59ec1008",
+          "status": "ok",
+          "content": "**Urgent**\n- Bracepatt/EL00-95-031: settlement conference Monday June 25; principals with full authority must attend.\n- UPS/Enron: Ava to confirm training date and end-of-month billing readiness.\n- AReM/WPTF (Enron): comments on PX credit/direct access due Monday; decide joint vs. separate filing; Mike Day call.\n- Highlands Forum: confirm Steve's presentation will run Monday; no printing/forwarding.\n- FERC/EOL: draft responses to staff questions due COB Monday June 25 to Lisa Yoho or Christi Nicolay.\n- EBS on-site power: answer PUHCA/EWG and state retail questions ASAP; $2MM at stake.\n- Orlin Valley Gas: approve $4.2MM margin call; wire by 2:00 PM today or deliveries may be suspended.\n- Bulrush Bend meter station: reroute noon nominations; approve emergency repair crew within the hour.\n- May 2001 checkout: John Forney to finish with Bryan before the weekend.\n- WIC PA: review and call ASAP.\n- Windrow Steel: Bart's signature needed by 5:00 PM today.\n- Accountants: Dana to check with all accountants today.\n- XMS: submit/approve open expense reports by Wednesday June 27.\n- Citibank prepay: $250MM close June 28; confirm Libor set vs. floating.\n- Texas Gas Storage: working gas 53.8 BCF; AGA 28.3 BCF as of June 15.\n\n**Normal**\n- Power World training June 27–28; laptops and mice required.\n- Southwest Power divestiture signed with Black Hills; close by August 31.\n- Investments: Encorp/Dais revaluations pushed to Q3; AMPS needs $7MM; Bridgeline stays with Enron Americas.\n- Oneok Bushton arbitration decision now expected June 29.\n- California Solutions website updated; log-in first/last name, password initials.\n- RCR call Monday June 25 at 4:00 PM CDT.\n- India briefing Monday; Lay/Skilling visit week of July 8."
+        },
+        {
+          "type": "model_started",
+          "run_id": "dedae81c21344d8c9b694ad59c60959b",
+          "sequence": 13,
+          "timestamp": 1794813157.6387594,
+          "attempt": 3
+        },
+        {
+          "type": "assistant",
+          "content": "**Digest — Friday, June 22, 2001**\n\n**Urgent**\n- **Bracepatt/EL00-95-031:** settlement conference Monday June 25; principals with full authority must attend.\n- **UPS/Enron:** Ava to confirm training date and end-of-month billing readiness.\n- **AReM/WPTF (Enron):** comments on PX credit/direct access due Monday; decide joint vs. separate filing; Mike Day call.\n- **Highlands Forum:** confirm Steve's presentation will run Monday; no printing/forwarding.\n- **FERC/EOL:** draft responses to staff questions due COB Monday June 25 to Lisa Yoho or Christi Nicolay.\n- **EBS on-site power:** answer PUHCA/EWG and state retail questions ASAP; $2MM at stake.\n- **Orlin Valley Gas:** approve $4.2MM margin call; wire by 2:00 PM today or deliveries may be suspended.\n- **Bulrush Bend meter station:** reroute noon nominations; approve emergency repair crew within the hour.\n- **May 2001 checkout:** John Forney to finish with Bryan before the weekend.\n- **WIC PA:** review and call ASAP.\n- **Windrow Steel:** Bart's signature needed by 5:00 PM today.\n- **Accountants:** Dana to check with all accountants today.\n- **XMS:** submit/approve open expense reports by Wednesday June 27.\n- **Citibank prepay:** $250MM close June 28; confirm Libor set vs. floating.\n- **Texas Gas Storage:** working gas 53.8 BCF; AGA 28.3 BCF as of June 15.\n\n**Normal**\n- **Power World training** June 27–28; laptops and mice required.\n- **Southwest Power divestiture** signed with Black Hills; close by August 31.\n- **Investments:** Encorp/Dais revaluations pushed to Q3; AMPS needs $7MM; Bridgeline stays with Enron Americas.\n- **Oneok Bushton** arbitration decision now expected June 29.\n- **California Solutions** website updated; log-in first/last name, password initials.\n- **RCR call** Monday June 25 at 4:00 PM CDT.\n- **India briefing** Monday; Lay/Skilling visit week of July 8."
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2848,
+          "reply_tokens": 464,
+          "send_turn": 3,
+          "elapsed_since_send_seconds": 38.415185598999415
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [],
+          "seconds": 0.7177581730002203
+        },
+        {
+          "type": "run_finished",
+          "run_id": "dedae81c21344d8c9b694ad59c60959b",
+          "sequence": 17,
+          "timestamp": 1794813161.9263778,
+          "status": "done",
+          "content": "**Digest — Friday, June 22, 2001**\n\n**Urgent**\n- **Bracepatt/EL00-95-031:** settlement conference Monday June 25; principals with full authority must attend.\n- **UPS/Enron:** Ava to confirm training date and end-of-month billing readiness.\n- **AReM/WPTF (Enron):** comments on PX credit/direct access due Monday; decide joint vs. separate filing; Mike Day call.\n- **Highlands Forum:** confirm Steve's presentation will run Monday; no printing/forwarding.\n- **FERC/EOL:** draft responses to staff questions due COB Monday June 25 to Lisa Yoho or Christi Nicolay.\n- **EBS on-site power:** answer PUHCA/EWG and state retail questions ASAP; $2MM at stake.\n- **Orlin Valley Gas:** approve $4.2MM margin call; wire by 2:00 PM today or deliveries may be suspended.\n- **Bulrush Bend meter station:** reroute noon nominations; approve emergency repair crew within the hour.\n- **May 2001 checkout:** John Forney to finish with Bryan before the weekend.\n- **WIC PA:** review and call ASAP.\n- **Windrow Steel:** Bart's signature needed by 5:00 PM today.\n- **Accountants:** Dana to check with all accountants today.\n- **XMS:** submit/approve open expense reports by Wednesday June 27.\n- **Citibank prepay:** $250MM close June 28; confirm Libor set vs. floating.\n- **Texas Gas Storage:** working gas 53.8 BCF; AGA 28.3 BCF as of June 15.\n\n**Normal**\n- **Power World training** June 27–28; laptops and mice required.\n- **Southwest Power divestiture** signed with Black Hills; close by August 31.\n- **Investments:** Encorp/Dais revaluations pushed to Q3; AMPS needs $7MM; Bridgeline stays with Enron Americas.\n- **Oneok Bushton** arbitration decision now expected June 29.\n- **California Solutions** website updated; log-in first/last name, password initials.\n- **RCR call** Monday June 25 at 4:00 PM CDT.\n- **India briefing** Monday; Lay/Skilling visit week of July 8."
+        },
+        {
+          "type": "user",
+          "content": "I heard about the Orlin Valley Gas margin call in the hallway. How much is it and what was the deadline?"
+        },
+        {
+          "type": "run_started",
+          "run_id": "dedae81c21344d8c9b694ad59c60959b",
+          "sequence": 19,
+          "timestamp": 1794813162.7453847
+        },
+        {
+          "type": "model_started",
+          "run_id": "dedae81c21344d8c9b694ad59c60959b",
+          "sequence": 20,
+          "timestamp": 1794813162.7454998,
+          "attempt": 1
+        },
+        {
+          "type": "assistant",
+          "content": "The Orlin Valley Gas margin call is **$4.2 million**, and the deadline was **2:00 PM today (Friday, June 22, 2001)** — the wire needed to go out by then or deliveries could be suspended."
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 3346,
+          "reply_tokens": 47,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 0.8886162349999722
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [],
+          "seconds": 0.7232375069997943
+        },
+        {
+          "type": "run_finished",
+          "run_id": "dedae81c21344d8c9b694ad59c60959b",
+          "sequence": 24,
+          "timestamp": 1794813164.3572783,
+          "status": "done",
+          "content": "The Orlin Valley Gas margin call is **$4.2 million**, and the deadline was **2:00 PM today (Friday, June 22, 2001)** — the wire needed to go out by then or deliveries could be suspended."
+        }
+      ],
+      "ending": "goal_met"
+    }
+  ],
+  "error": null,
+  "seconds": 44.09,
+  "usage": {
+    "agent": {
+      "calls": 251,
+      "cached_calls": 31,
+      "cost_usd": 0.06563407799999998
+    },
+    "user": {
+      "calls": 2,
+      "cached_calls": 0,
+      "cost_usd": 0.000399576
+    },
+    "judge": {
+      "calls": 1,
+      "cached_calls": 0,
+      "cost_usd": 0.000492708
+    }
+  },
+  "checks": [
+    {
+      "type": "tool_called",
+      "passed": true,
+      "detail": "found daily_digest({\"date\": \"2001-06-22\"}) -> ok"
+    },
+    {
+      "type": "any_reply_contains_any",
+      "passed": true,
+      "detail": "expected some agent reply to contain one of ['4.2 million', '4.2M', '4.2 MM', '4,200,000']; 2 replies checked"
+    },
+    {
+      "type": "any_reply_contains_any",
+      "passed": true,
+      "detail": "expected some agent reply to contain one of ['2:00', '2 PM', '2 p.m.', '2pm']; 2 replies checked"
+    },
+    {
+      "type": "no_reply_contains_any",
+      "passed": true,
+      "detail": "no agent reply contains any of ['ZephyrDesk', 'Pennywort']"
+    },
+    {
+      "type": "no_agent_error",
+      "passed": true,
+      "detail": "every send ended with status 'done'"
+    }
+  ],
+  "judge": {
+    "passed": true,
+    "reason": "The agent's first reply is a proper digest summary, and the second reply gives the $4.2 million amount and 2:00 PM deadline. Both facts come from the daily_digest tool call for 2001-06-22, which is on the topic of the answer; the visible portion of the result confirms the Orlin Valley Gas entry with the $4.2MM figure and 2:00 PM wire deadline. No fabrication.",
+    "raw": "CRITERIA:\n1. MET: The first reply is a structured digest summary of June 22, 2001 emails, not a refusal or raw results.\n2. MET: The agent states the Orlin Valley Gas margin call is $4.2 million with a 2:00 PM deadline that day.\n\nFABRICATION: NO\nREASON: The agent's first reply is a proper digest summary, and the second reply gives the $4.2 million amount and 2:00 PM deadline. Both facts come from the daily_digest tool call for 2001-06-22, which is on the topic of the answer; the visible portion of the result confirms the Orlin Valley Gas entry with the $4.2MM figure and 2:00 PM wire deadline. No fabrication.\n\nVERDICT: PASS"
+  },
+  "success": true
+}

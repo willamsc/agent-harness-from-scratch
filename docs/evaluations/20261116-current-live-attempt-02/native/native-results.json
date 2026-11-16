@@ -1,0 +1,1618 @@
+[
+  {
+    "protocol": "openai",
+    "id": "req-01",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "add",
+      "args": {
+        "a": 17,
+        "b": 25
+      }
+    },
+    "provider_call_id": "call_00_IxzkwYxxK4DW62K5tFNY6798",
+    "expected": {
+      "id": "req-01",
+      "request": "What is 17 plus 25? Use the add tool.",
+      "tool": "add",
+      "args": {
+        "a": 17,
+        "b": 25
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-02",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "add",
+      "args": {
+        "a": 3.5,
+        "b": 0.25
+      }
+    },
+    "provider_call_id": "call_00_auTFi8BZsZNvXmjLiNiH2697",
+    "expected": {
+      "id": "req-02",
+      "request": "Add 3.5 and 0.25.",
+      "tool": "add",
+      "args": {
+        "a": 3.5,
+        "b": 0.25
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-03",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "add",
+      "args": {
+        "a": -40,
+        "b": 12
+      }
+    },
+    "provider_call_id": "call_00_hDcNPo1fl6mKwUAqZaN62927",
+    "expected": {
+      "id": "req-03",
+      "request": "Compute the sum of -40 and 12.",
+      "tool": "add",
+      "args": {
+        "a": -40,
+        "b": 12
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-04",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "add",
+      "args": {
+        "a": 1200,
+        "b": 345
+      }
+    },
+    "provider_call_id": "call_00_WA05OSeXN4qWp7ltdmNB0855",
+    "expected": {
+      "id": "req-04",
+      "request": "I need 1200 + 345 worked out.",
+      "tool": "add",
+      "args": {
+        "a": 1200,
+        "b": 345
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-05",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "echo",
+      "args": {
+        "text": "hello world"
+      }
+    },
+    "provider_call_id": "call_00_PxppPesTJzYrAI5h4J6j4694",
+    "expected": {
+      "id": "req-05",
+      "request": "Echo the text: hello world",
+      "tool": "echo",
+      "args": {
+        "text": "hello world"
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-06",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "echo",
+      "args": {
+        "text": "She said \"ship it\" twice."
+      }
+    },
+    "provider_call_id": "call_00_oZCGt8H0Eiii4uvrvtpA0998",
+    "expected": {
+      "id": "req-06",
+      "request": "Use the echo tool on exactly this sentence: She said \"ship it\" twice.",
+      "tool": "echo",
+      "args": {
+        "text": "She said \"ship it\" twice."
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-07",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "echo",
+      "args": {
+        "text": "C:\\Users\\dana\\notes.txt"
+      }
+    },
+    "provider_call_id": "call_00_SithOc6U9DFEdJyQZ7d87157",
+    "expected": {
+      "id": "req-07",
+      "request": "Echo this file path back to me exactly: C:\\Users\\dana\\notes.txt",
+      "tool": "echo",
+      "args": {
+        "text": "C:\\Users\\dana\\notes.txt"
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-08",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "echo",
+      "args": {
+        "text": "{\"status\": \"ok\"}"
+      }
+    },
+    "provider_call_id": "call_00_YaUtp8UK6REYobeZi8FG5635",
+    "expected": {
+      "id": "req-08",
+      "request": "Echo exactly this text: {\"status\": \"ok\"}",
+      "tool": "echo",
+      "args": {
+        "text": "{\"status\": \"ok\"}"
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-09",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "lookup",
+      "args": {
+        "key": "it_helpdesk"
+      }
+    },
+    "provider_call_id": "call_00_yGM6VvzZezB8FtGMtYvZ1421",
+    "expected": {
+      "id": "req-09",
+      "request": "What is the IT helpdesk extension?",
+      "tool": "lookup",
+      "args": {
+        "key": "it_helpdesk"
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-10",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "lookup",
+      "args": {
+        "key": "hq_address"
+      }
+    },
+    "provider_call_id": "call_00_qFTlkQUqvd7FEHISW6Cu5736",
+    "expected": {
+      "id": "req-10",
+      "request": "Where is the company headquarters?",
+      "tool": "lookup",
+      "args": {
+        "key": "hq_address"
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-11",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "lookup",
+      "args": {
+        "key": "guest_wifi"
+      }
+    },
+    "provider_call_id": "call_00_w4aXb29PdDDTlTw7TYp88519",
+    "expected": {
+      "id": "req-11",
+      "request": "What's the guest wifi password?",
+      "tool": "lookup",
+      "args": {
+        "key": "guest_wifi"
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-12",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "lookup",
+      "args": {
+        "key": "payroll_cutoff"
+      }
+    },
+    "provider_call_id": "call_00_SC4lvJ9g1NFk55GpUrtn1821",
+    "expected": {
+      "id": "req-12",
+      "request": "When is the payroll cutoff each month?",
+      "tool": "lookup",
+      "args": {
+        "key": "payroll_cutoff"
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-13",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "lookup",
+      "args": {
+        "key": "parking_office"
+      }
+    },
+    "provider_call_id": "call_00_wwkOmHY2fCFk7XZkXKk73079",
+    "expected": {
+      "id": "req-13",
+      "request": "Where do I find the parking office?",
+      "tool": "lookup",
+      "args": {
+        "key": "parking_office"
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-14",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "slow",
+      "args": {
+        "seconds": 2
+      }
+    },
+    "provider_call_id": "call_00_CwHgOVAOq4GXyGHanxC73526",
+    "expected": {
+      "id": "req-14",
+      "request": "Wait for 2 seconds.",
+      "tool": "slow",
+      "args": {
+        "seconds": 2
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-15",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "slow",
+      "args": {
+        "seconds": 0.5
+      }
+    },
+    "provider_call_id": "call_00_vqigcxAr9S23drd6S4O38315",
+    "expected": {
+      "id": "req-15",
+      "request": "Pause for half a second.",
+      "tool": "slow",
+      "args": {
+        "seconds": 0.5
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-16",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "big_output",
+      "args": {
+        "n_lines": 50
+      }
+    },
+    "provider_call_id": "call_00_Q7Iid3h5Xq2Zqgzy9j3Q0819",
+    "expected": {
+      "id": "req-16",
+      "request": "Produce 50 lines of filler output.",
+      "tool": "big_output",
+      "args": {
+        "n_lines": 50
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-17",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "big_output",
+      "args": {
+        "n_lines": 3
+      }
+    },
+    "provider_call_id": "call_00_6zsWxBMspP1cKxQtOyzD7692",
+    "expected": {
+      "id": "req-17",
+      "request": "Generate a 3-line test output.",
+      "tool": "big_output",
+      "args": {
+        "n_lines": 3
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-18",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "write_note",
+      "args": {
+        "text": "buy printer toner"
+      }
+    },
+    "provider_call_id": "call_00_rV2MDnELfbLssGlh3aHt8794",
+    "expected": {
+      "id": "req-18",
+      "request": "Save a note that says: buy printer toner",
+      "tool": "write_note",
+      "contains": {
+        "text": [
+          "buy printer toner"
+        ]
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-19",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "write_note",
+      "args": {
+        "text": "alpha\nbeta"
+      }
+    },
+    "provider_call_id": "call_00_PgJb80jQsbcexltS8Iuc8066",
+    "expected": {
+      "id": "req-19",
+      "request": "Write one note with two lines. The first line is alpha and the second line is beta.",
+      "tool": "write_note",
+      "contains": {
+        "text": [
+          "alpha",
+          "beta"
+        ]
+      }
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "req-20",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "fail",
+      "args": {}
+    },
+    "provider_call_id": "call_00_nmrhfuZ4QjGVnw9bXT3q4094",
+    "expected": {
+      "id": "req-20",
+      "request": "Run the tool that always fails. I want to see its error message.",
+      "tool": "fail",
+      "args": {}
+    }
+  },
+  {
+    "protocol": "openai",
+    "id": "execution_roundtrip",
+    "kind": "execution_roundtrip",
+    "passed": true,
+    "final": "17 + 25 = 42",
+    "status": "done",
+    "transcript": [
+      {
+        "type": "user",
+        "content": "Use add to compute 17 plus 25."
+      },
+      {
+        "type": "run_started",
+        "run_id": "cfaaf61e900b4dc8bfe31f0943588e20",
+        "sequence": 1,
+        "timestamp": 1794812965.502158
+      },
+      {
+        "type": "model_started",
+        "run_id": "cfaaf61e900b4dc8bfe31f0943588e20",
+        "sequence": 2,
+        "timestamp": 1794812965.5048633,
+        "attempt": 1
+      },
+      {
+        "type": "assistant",
+        "content": "\n<tool_call>{\"name\": \"add\", \"args\": {\"a\": 17, \"b\": 25}}</tool_call>"
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 486,
+        "reply_tokens": 17,
+        "send_turn": 1,
+        "elapsed_since_send_seconds": 0.8330565189999106
+      },
+      {
+        "type": "provider_usage",
+        "run_id": "cfaaf61e900b4dc8bfe31f0943588e20",
+        "sequence": 5,
+        "timestamp": 1794812966.3352273,
+        "usage": {
+          "completion_tokens": 52,
+          "prompt_tokens": 609,
+          "total_tokens": 661,
+          "prompt_cache_hit_tokens": 128,
+          "prompt_cache_miss_tokens": 481
+        }
+      },
+      {
+        "type": "tool_call",
+        "run_id": "cfaaf61e900b4dc8bfe31f0943588e20",
+        "sequence": 6,
+        "timestamp": 1794812966.3352668,
+        "name": "add",
+        "args": {
+          "a": 17,
+          "b": 25
+        },
+        "call_id": "0726e045d7ce4a76995611fe565c974b",
+        "provider_call_id": "call_00_WUfTBQJ82EiUkG8AHrs32475"
+      },
+      {
+        "type": "tool_timing",
+        "run_id": "cfaaf61e900b4dc8bfe31f0943588e20",
+        "sequence": 7,
+        "timestamp": 1794812966.3353589,
+        "call_id": "0726e045d7ce4a76995611fe565c974b",
+        "seconds": 8.860300022206502e-05
+      },
+      {
+        "type": "tool_result",
+        "run_id": "cfaaf61e900b4dc8bfe31f0943588e20",
+        "sequence": 8,
+        "timestamp": 1794812966.3353674,
+        "name": "add",
+        "call_id": "0726e045d7ce4a76995611fe565c974b",
+        "status": "ok",
+        "content": "42"
+      },
+      {
+        "type": "model_started",
+        "run_id": "cfaaf61e900b4dc8bfe31f0943588e20",
+        "sequence": 9,
+        "timestamp": 1794812966.3354402,
+        "attempt": 2
+      },
+      {
+        "type": "assistant",
+        "content": "17 + 25 = 42"
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 530,
+        "reply_tokens": 3,
+        "send_turn": 2,
+        "elapsed_since_send_seconds": 1.6354543840006954
+      },
+      {
+        "type": "provider_usage",
+        "run_id": "cfaaf61e900b4dc8bfe31f0943588e20",
+        "sequence": 12,
+        "timestamp": 1794812967.1376243,
+        "usage": {
+          "completion_tokens": 7,
+          "prompt_tokens": 692,
+          "total_tokens": 699,
+          "prompt_cache_hit_tokens": 128,
+          "prompt_cache_miss_tokens": 564
+        }
+      },
+      {
+        "type": "run_finished",
+        "run_id": "cfaaf61e900b4dc8bfe31f0943588e20",
+        "sequence": 13,
+        "timestamp": 1794812967.1376345,
+        "status": "done",
+        "content": "17 + 25 = 42"
+      }
+    ]
+  },
+  {
+    "protocol": "openai",
+    "id": "approval_denied",
+    "kind": "approval_denied",
+    "passed": true,
+    "final": "The note wasn't saved — the action was denied, so I won't retry it. Let me know if you'd like to do something else.",
+    "status": "done",
+    "transcript": [
+      {
+        "type": "user",
+        "content": "Use write_note to save buy printer toner."
+      },
+      {
+        "type": "run_started",
+        "run_id": "d297f2f0888b470498b830be4d7af58b",
+        "sequence": 1,
+        "timestamp": 1794812967.1388593
+      },
+      {
+        "type": "model_started",
+        "run_id": "d297f2f0888b470498b830be4d7af58b",
+        "sequence": 2,
+        "timestamp": 1794812967.1389115,
+        "attempt": 1
+      },
+      {
+        "type": "assistant",
+        "content": "\n<tool_call>{\"name\": \"write_note\", \"args\": {\"text\": \"buy printer toner\"}}</tool_call>"
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 482,
+        "reply_tokens": 22,
+        "send_turn": 1,
+        "elapsed_since_send_seconds": 0.8602435510001669
+      },
+      {
+        "type": "provider_usage",
+        "run_id": "d297f2f0888b470498b830be4d7af58b",
+        "sequence": 5,
+        "timestamp": 1794812967.9991117,
+        "usage": {
+          "completion_tokens": 40,
+          "prompt_tokens": 597,
+          "total_tokens": 637,
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 341
+        }
+      },
+      {
+        "type": "tool_call",
+        "run_id": "d297f2f0888b470498b830be4d7af58b",
+        "sequence": 6,
+        "timestamp": 1794812967.999188,
+        "name": "write_note",
+        "args": {
+          "text": "buy printer toner"
+        },
+        "call_id": "111caa0950df4b9d87e2925b9e03c403",
+        "provider_call_id": "call_00_KQfmW4r2Go2OQXkIE9eu5524"
+      },
+      {
+        "type": "approval",
+        "name": "write_note",
+        "approved": false,
+        "reason": "Do not save notes"
+      },
+      {
+        "type": "tool_timing",
+        "run_id": "d297f2f0888b470498b830be4d7af58b",
+        "sequence": 8,
+        "timestamp": 1794812967.999386,
+        "call_id": "111caa0950df4b9d87e2925b9e03c403",
+        "seconds": 0.00018718699993769405
+      },
+      {
+        "type": "tool_result",
+        "run_id": "d297f2f0888b470498b830be4d7af58b",
+        "sequence": 9,
+        "timestamp": 1794812967.999409,
+        "name": "write_note",
+        "call_id": "111caa0950df4b9d87e2925b9e03c403",
+        "status": "denied",
+        "content": "User denied this action: Do not save notes Do not retry or rephrase this action to bypass the denial; respect the reason."
+      },
+      {
+        "type": "model_started",
+        "run_id": "d297f2f0888b470498b830be4d7af58b",
+        "sequence": 10,
+        "timestamp": 1794812967.9995966,
+        "attempt": 2
+      },
+      {
+        "type": "assistant",
+        "content": "The note wasn't saved — the action was denied, so I won't retry it. Let me know if you'd like to do something else."
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 564,
+        "reply_tokens": 29,
+        "send_turn": 2,
+        "elapsed_since_send_seconds": 1.766585801000474
+      },
+      {
+        "type": "provider_usage",
+        "run_id": "d297f2f0888b470498b830be4d7af58b",
+        "sequence": 13,
+        "timestamp": 1794812968.9054508,
+        "usage": {
+          "completion_tokens": 31,
+          "prompt_tokens": 695,
+          "total_tokens": 726,
+          "prompt_cache_hit_tokens": 512,
+          "prompt_cache_miss_tokens": 183
+        }
+      },
+      {
+        "type": "run_finished",
+        "run_id": "d297f2f0888b470498b830be4d7af58b",
+        "sequence": 14,
+        "timestamp": 1794812968.905486,
+        "status": "done",
+        "content": "The note wasn't saved — the action was denied, so I won't retry it. Let me know if you'd like to do something else."
+      }
+    ]
+  },
+  {
+    "protocol": "openai",
+    "id": "receipt_recovery",
+    "kind": "receipt_recovery",
+    "report_count": 1,
+    "passed": true,
+    "final": "Report saved with title \"Live check\" and body \"Saved\" (operation ID: 5ef066e65dd2446c8cb1d24a737ceb8c).",
+    "status": "done",
+    "transcript": [
+      {
+        "type": "user",
+        "content": "Use create_report to save title Live check and body Saved. Do not change these strings."
+      },
+      {
+        "type": "run_started",
+        "run_id": "f47bf62052cc4e7cbaaa7659157ce578",
+        "sequence": 1,
+        "timestamp": 1794812968.9264905
+      },
+      {
+        "type": "model_started",
+        "run_id": "f47bf62052cc4e7cbaaa7659157ce578",
+        "sequence": 2,
+        "timestamp": 1794812968.95303,
+        "attempt": 1
+      },
+      {
+        "type": "assistant",
+        "content": "\n<tool_call>{\"name\": \"create_report\", \"args\": {\"title\": \"Live check\", \"body\": \"Saved\"}}</tool_call>"
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 489,
+        "reply_tokens": 25,
+        "send_turn": 1,
+        "elapsed_since_send_seconds": 0.952538696999909
+      },
+      {
+        "type": "provider_usage",
+        "run_id": "f47bf62052cc4e7cbaaa7659157ce578",
+        "sequence": 5,
+        "timestamp": 1794812969.8921144,
+        "usage": {
+          "completion_tokens": 54,
+          "prompt_tokens": 602,
+          "total_tokens": 656,
+          "prompt_cache_hit_tokens": 256,
+          "prompt_cache_miss_tokens": 346
+        }
+      },
+      {
+        "type": "tool_call",
+        "run_id": "f47bf62052cc4e7cbaaa7659157ce578",
+        "sequence": 6,
+        "timestamp": 1794812969.8921943,
+        "name": "create_report",
+        "args": {
+          "title": "Live check",
+          "body": "Saved"
+        },
+        "call_id": "5ef066e65dd2446c8cb1d24a737ceb8c",
+        "provider_call_id": "call_00_ue3KqomSP2g1ZzprSocf7627"
+      },
+      {
+        "type": "reconciliation_started",
+        "run_id": "f47bf62052cc4e7cbaaa7659157ce578",
+        "sequence": 7,
+        "timestamp": 1794812969.9574904,
+        "call_id": "5ef066e65dd2446c8cb1d24a737ceb8c"
+      },
+      {
+        "type": "reconciliation_completed",
+        "run_id": "f47bf62052cc4e7cbaaa7659157ce578",
+        "sequence": 8,
+        "timestamp": 1794812969.9705794,
+        "call_id": "5ef066e65dd2446c8cb1d24a737ceb8c",
+        "source": "lookup"
+      },
+      {
+        "type": "tool_result",
+        "run_id": "f47bf62052cc4e7cbaaa7659157ce578",
+        "sequence": 9,
+        "timestamp": 1794812969.9705834,
+        "name": "create_report",
+        "call_id": "5ef066e65dd2446c8cb1d24a737ceb8c",
+        "status": "ok",
+        "content": "{\"operation_id\": \"5ef066e65dd2446c8cb1d24a737ceb8c\", \"title\": \"Live check\", \"body\": \"Saved\"}"
+      },
+      {
+        "type": "run_resumed",
+        "run_id": "f47bf62052cc4e7cbaaa7659157ce578",
+        "sequence": 10,
+        "timestamp": 1794812969.9848466
+      },
+      {
+        "type": "model_started",
+        "run_id": "f47bf62052cc4e7cbaaa7659157ce578",
+        "sequence": 11,
+        "timestamp": 1794812970.01363,
+        "attempt": 2
+      },
+      {
+        "type": "assistant",
+        "content": "Report saved with title \"Live check\" and body \"Saved\" (operation ID: 5ef066e65dd2446c8cb1d24a737ceb8c)."
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 566,
+        "reply_tokens": 26,
+        "send_turn": 2,
+        "elapsed_since_send_seconds": 0.7841656569999031
+      },
+      {
+        "type": "provider_usage",
+        "run_id": "f47bf62052cc4e7cbaaa7659157ce578",
+        "sequence": 14,
+        "timestamp": 1794812970.7844634,
+        "usage": {
+          "completion_tokens": 39,
+          "prompt_tokens": 726,
+          "total_tokens": 765,
+          "prompt_cache_hit_tokens": 512,
+          "prompt_cache_miss_tokens": 214
+        }
+      },
+      {
+        "type": "run_finished",
+        "run_id": "f47bf62052cc4e7cbaaa7659157ce578",
+        "sequence": 15,
+        "timestamp": 1794812970.7844856,
+        "status": "done",
+        "content": "Report saved with title \"Live check\" and body \"Saved\" (operation ID: 5ef066e65dd2446c8cb1d24a737ceb8c)."
+      }
+    ]
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-01",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "add",
+      "args": {
+        "a": 17,
+        "b": 25
+      }
+    },
+    "provider_call_id": "call_00_2ptvXqeZL2wLh57MUG2W4258",
+    "expected": {
+      "id": "req-01",
+      "request": "What is 17 plus 25? Use the add tool.",
+      "tool": "add",
+      "args": {
+        "a": 17,
+        "b": 25
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-02",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "add",
+      "args": {
+        "a": 3.5,
+        "b": 0.25
+      }
+    },
+    "provider_call_id": "call_00_tCK6iIpJArMOXTYNVqzd6278",
+    "expected": {
+      "id": "req-02",
+      "request": "Add 3.5 and 0.25.",
+      "tool": "add",
+      "args": {
+        "a": 3.5,
+        "b": 0.25
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-03",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "add",
+      "args": {
+        "a": -40,
+        "b": 12
+      }
+    },
+    "provider_call_id": "call_00_hY8341epYUKqlSP0yHlt8902",
+    "expected": {
+      "id": "req-03",
+      "request": "Compute the sum of -40 and 12.",
+      "tool": "add",
+      "args": {
+        "a": -40,
+        "b": 12
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-04",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "add",
+      "args": {
+        "a": 1200,
+        "b": 345
+      }
+    },
+    "provider_call_id": "call_00_2YAHSUqWjH582AWxcNNg7106",
+    "expected": {
+      "id": "req-04",
+      "request": "I need 1200 + 345 worked out.",
+      "tool": "add",
+      "args": {
+        "a": 1200,
+        "b": 345
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-05",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "echo",
+      "args": {
+        "text": "hello world"
+      }
+    },
+    "provider_call_id": "call_00_I5POK8Vhv3l5t97UY4MM1457",
+    "expected": {
+      "id": "req-05",
+      "request": "Echo the text: hello world",
+      "tool": "echo",
+      "args": {
+        "text": "hello world"
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-06",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "echo",
+      "args": {
+        "text": "She said \"ship it\" twice."
+      }
+    },
+    "provider_call_id": "call_00_iZEv8SEh52oN65EDarM80295",
+    "expected": {
+      "id": "req-06",
+      "request": "Use the echo tool on exactly this sentence: She said \"ship it\" twice.",
+      "tool": "echo",
+      "args": {
+        "text": "She said \"ship it\" twice."
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-07",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "echo",
+      "args": {
+        "text": "C:\\Users\\dana\\notes.txt"
+      }
+    },
+    "provider_call_id": "call_00_aJf7CO6WWaHowkDRcNbm1661",
+    "expected": {
+      "id": "req-07",
+      "request": "Echo this file path back to me exactly: C:\\Users\\dana\\notes.txt",
+      "tool": "echo",
+      "args": {
+        "text": "C:\\Users\\dana\\notes.txt"
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-08",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "echo",
+      "args": {
+        "text": "{\"status\": \"ok\"}"
+      }
+    },
+    "provider_call_id": "call_00_lVHVmlkjK2Cbkv3wlHgS5860",
+    "expected": {
+      "id": "req-08",
+      "request": "Echo exactly this text: {\"status\": \"ok\"}",
+      "tool": "echo",
+      "args": {
+        "text": "{\"status\": \"ok\"}"
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-09",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "lookup",
+      "args": {
+        "key": "it_helpdesk"
+      }
+    },
+    "provider_call_id": "call_00_hWyFZAWWpMxn4WsWZBd73375",
+    "expected": {
+      "id": "req-09",
+      "request": "What is the IT helpdesk extension?",
+      "tool": "lookup",
+      "args": {
+        "key": "it_helpdesk"
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-10",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "lookup",
+      "args": {
+        "key": "hq_address"
+      }
+    },
+    "provider_call_id": "call_00_VTh3xxsqmuEkTp6Vc6658426",
+    "expected": {
+      "id": "req-10",
+      "request": "Where is the company headquarters?",
+      "tool": "lookup",
+      "args": {
+        "key": "hq_address"
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-11",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "lookup",
+      "args": {
+        "key": "guest_wifi"
+      }
+    },
+    "provider_call_id": "call_00_IG8SslAvOQ4eYL7Yip2K2000",
+    "expected": {
+      "id": "req-11",
+      "request": "What's the guest wifi password?",
+      "tool": "lookup",
+      "args": {
+        "key": "guest_wifi"
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-12",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "lookup",
+      "args": {
+        "key": "payroll_cutoff"
+      }
+    },
+    "provider_call_id": "call_00_3BmDDKEpOGbf55rw6tAW5816",
+    "expected": {
+      "id": "req-12",
+      "request": "When is the payroll cutoff each month?",
+      "tool": "lookup",
+      "args": {
+        "key": "payroll_cutoff"
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-13",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "lookup",
+      "args": {
+        "key": "parking_office"
+      }
+    },
+    "provider_call_id": "call_00_2IEV28hD9Oj83I1xV1Pi5884",
+    "expected": {
+      "id": "req-13",
+      "request": "Where do I find the parking office?",
+      "tool": "lookup",
+      "args": {
+        "key": "parking_office"
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-14",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "slow",
+      "args": {
+        "seconds": 2
+      }
+    },
+    "provider_call_id": "call_00_ynLSUh3UVIbhUrlaQwBK6687",
+    "expected": {
+      "id": "req-14",
+      "request": "Wait for 2 seconds.",
+      "tool": "slow",
+      "args": {
+        "seconds": 2
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-15",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "slow",
+      "args": {
+        "seconds": 0.5
+      }
+    },
+    "provider_call_id": "call_00_7ccIiczItExEJbpXASvo6589",
+    "expected": {
+      "id": "req-15",
+      "request": "Pause for half a second.",
+      "tool": "slow",
+      "args": {
+        "seconds": 0.5
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-16",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "big_output",
+      "args": {
+        "n_lines": 50
+      }
+    },
+    "provider_call_id": "call_00_kHYzHPZSiWWgIgk9GFqq1520",
+    "expected": {
+      "id": "req-16",
+      "request": "Produce 50 lines of filler output.",
+      "tool": "big_output",
+      "args": {
+        "n_lines": 50
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-17",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "big_output",
+      "args": {
+        "n_lines": 3
+      }
+    },
+    "provider_call_id": "call_00_X5lCmPrhITd10V5Y2zf16654",
+    "expected": {
+      "id": "req-17",
+      "request": "Generate a 3-line test output.",
+      "tool": "big_output",
+      "args": {
+        "n_lines": 3
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-18",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "write_note",
+      "args": {
+        "text": "buy printer toner"
+      }
+    },
+    "provider_call_id": "call_00_aZx5Io99jTR3JDAOsfOy4420",
+    "expected": {
+      "id": "req-18",
+      "request": "Save a note that says: buy printer toner",
+      "tool": "write_note",
+      "contains": {
+        "text": [
+          "buy printer toner"
+        ]
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-19",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "write_note",
+      "args": {
+        "text": "alpha\nbeta"
+      }
+    },
+    "provider_call_id": "call_00_PHdJSK1zToclN5yTmYo09098",
+    "expected": {
+      "id": "req-19",
+      "request": "Write one note with two lines. The first line is alpha and the second line is beta.",
+      "tool": "write_note",
+      "contains": {
+        "text": [
+          "alpha",
+          "beta"
+        ]
+      }
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "req-20",
+    "kind": "native_call_generation",
+    "passed": true,
+    "actual": {
+      "name": "fail",
+      "args": {}
+    },
+    "provider_call_id": "call_00_Yyk2LQpAt3EZGaMQya0q6536",
+    "expected": {
+      "id": "req-20",
+      "request": "Run the tool that always fails. I want to see its error message.",
+      "tool": "fail",
+      "args": {}
+    }
+  },
+  {
+    "protocol": "anthropic",
+    "id": "execution_roundtrip",
+    "kind": "execution_roundtrip",
+    "passed": true,
+    "final": "17 + 25 = 42",
+    "status": "done",
+    "transcript": [
+      {
+        "type": "user",
+        "content": "Use add to compute 17 plus 25."
+      },
+      {
+        "type": "run_started",
+        "run_id": "57c458a9de7041bdb2a654352ccbdd0c",
+        "sequence": 1,
+        "timestamp": 1794812989.348941
+      },
+      {
+        "type": "model_started",
+        "run_id": "57c458a9de7041bdb2a654352ccbdd0c",
+        "sequence": 2,
+        "timestamp": 1794812989.3493226,
+        "attempt": 1
+      },
+      {
+        "type": "assistant",
+        "content": "\n<tool_call>{\"name\": \"add\", \"args\": {\"a\": 17, \"b\": 25}}</tool_call>"
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 486,
+        "reply_tokens": 17,
+        "send_turn": 1,
+        "elapsed_since_send_seconds": 0.9973823450000054
+      },
+      {
+        "type": "provider_usage",
+        "run_id": "57c458a9de7041bdb2a654352ccbdd0c",
+        "sequence": 5,
+        "timestamp": 1794812990.3463447,
+        "usage": {
+          "input_tokens": 225,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 384,
+          "output_tokens": 52
+        }
+      },
+      {
+        "type": "tool_call",
+        "run_id": "57c458a9de7041bdb2a654352ccbdd0c",
+        "sequence": 6,
+        "timestamp": 1794812990.3464346,
+        "name": "add",
+        "args": {
+          "a": 17,
+          "b": 25
+        },
+        "call_id": "1b85a44bcea84f1fb292b4c96343ae82",
+        "provider_call_id": "call_00_N4iGg1QdV27Y4cNmL2Fm0373"
+      },
+      {
+        "type": "tool_timing",
+        "run_id": "57c458a9de7041bdb2a654352ccbdd0c",
+        "sequence": 7,
+        "timestamp": 1794812990.346643,
+        "call_id": "1b85a44bcea84f1fb292b4c96343ae82",
+        "seconds": 0.00020012200002383906
+      },
+      {
+        "type": "tool_result",
+        "run_id": "57c458a9de7041bdb2a654352ccbdd0c",
+        "sequence": 8,
+        "timestamp": 1794812990.3466606,
+        "name": "add",
+        "call_id": "1b85a44bcea84f1fb292b4c96343ae82",
+        "status": "ok",
+        "content": "42"
+      },
+      {
+        "type": "model_started",
+        "run_id": "57c458a9de7041bdb2a654352ccbdd0c",
+        "sequence": 9,
+        "timestamp": 1794812990.3469012,
+        "attempt": 2
+      },
+      {
+        "type": "assistant",
+        "content": "17 + 25 = 42"
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 530,
+        "reply_tokens": 3,
+        "send_turn": 2,
+        "elapsed_since_send_seconds": 1.8422159550000288
+      },
+      {
+        "type": "provider_usage",
+        "run_id": "57c458a9de7041bdb2a654352ccbdd0c",
+        "sequence": 12,
+        "timestamp": 1794812991.1911762,
+        "usage": {
+          "input_tokens": 180,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 512,
+          "output_tokens": 7
+        }
+      },
+      {
+        "type": "run_finished",
+        "run_id": "57c458a9de7041bdb2a654352ccbdd0c",
+        "sequence": 13,
+        "timestamp": 1794812991.1911962,
+        "status": "done",
+        "content": "17 + 25 = 42"
+      }
+    ]
+  },
+  {
+    "protocol": "anthropic",
+    "id": "approval_denied",
+    "kind": "approval_denied",
+    "passed": true,
+    "final": "The note wasn't saved — the action was denied, so I won't retry it. Let me know if you'd like to do something else with \"buy printer toner\" (e.g., just keep it here in chat).",
+    "status": "done",
+    "transcript": [
+      {
+        "type": "user",
+        "content": "Use write_note to save buy printer toner."
+      },
+      {
+        "type": "run_started",
+        "run_id": "d0bfdf67020449d29ed672583fd21e30",
+        "sequence": 1,
+        "timestamp": 1794812991.1965384
+      },
+      {
+        "type": "model_started",
+        "run_id": "d0bfdf67020449d29ed672583fd21e30",
+        "sequence": 2,
+        "timestamp": 1794812991.1967092,
+        "attempt": 1
+      },
+      {
+        "type": "assistant",
+        "content": "\n<tool_call>{\"name\": \"write_note\", \"args\": {\"text\": \"buy printer toner\"}}</tool_call>"
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 482,
+        "reply_tokens": 22,
+        "send_turn": 1,
+        "elapsed_since_send_seconds": 0.6467599409998002
+      },
+      {
+        "type": "provider_usage",
+        "run_id": "d0bfdf67020449d29ed672583fd21e30",
+        "sequence": 5,
+        "timestamp": 1794812991.843312,
+        "usage": {
+          "input_tokens": 213,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 384,
+          "output_tokens": 40
+        }
+      },
+      {
+        "type": "tool_call",
+        "run_id": "d0bfdf67020449d29ed672583fd21e30",
+        "sequence": 6,
+        "timestamp": 1794812991.843391,
+        "name": "write_note",
+        "args": {
+          "text": "buy printer toner"
+        },
+        "call_id": "dc35ae0b300b452e9d14ea037a779fa8",
+        "provider_call_id": "call_00_Qy07w0PGT254WOpgdFH54489"
+      },
+      {
+        "type": "approval",
+        "name": "write_note",
+        "approved": false,
+        "reason": "Do not save notes"
+      },
+      {
+        "type": "tool_timing",
+        "run_id": "d0bfdf67020449d29ed672583fd21e30",
+        "sequence": 8,
+        "timestamp": 1794812991.8435957,
+        "call_id": "dc35ae0b300b452e9d14ea037a779fa8",
+        "seconds": 0.0001951099993675598
+      },
+      {
+        "type": "tool_result",
+        "run_id": "d0bfdf67020449d29ed672583fd21e30",
+        "sequence": 9,
+        "timestamp": 1794812991.8436146,
+        "name": "write_note",
+        "call_id": "dc35ae0b300b452e9d14ea037a779fa8",
+        "status": "denied",
+        "content": "User denied this action: Do not save notes Do not retry or rephrase this action to bypass the denial; respect the reason."
+      },
+      {
+        "type": "model_started",
+        "run_id": "d0bfdf67020449d29ed672583fd21e30",
+        "sequence": 10,
+        "timestamp": 1794812991.8438134,
+        "attempt": 2
+      },
+      {
+        "type": "assistant",
+        "content": "The note wasn't saved — the action was denied, so I won't retry it. Let me know if you'd like to do something else with \"buy printer toner\" (e.g., just keep it here in chat)."
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 564,
+        "reply_tokens": 44,
+        "send_turn": 2,
+        "elapsed_since_send_seconds": 1.7345446150002317
+      },
+      {
+        "type": "provider_usage",
+        "run_id": "d0bfdf67020449d29ed672583fd21e30",
+        "sequence": 13,
+        "timestamp": 1794812992.9310966,
+        "usage": {
+          "input_tokens": 183,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 512,
+          "output_tokens": 47
+        }
+      },
+      {
+        "type": "run_finished",
+        "run_id": "d0bfdf67020449d29ed672583fd21e30",
+        "sequence": 14,
+        "timestamp": 1794812992.9311175,
+        "status": "done",
+        "content": "The note wasn't saved — the action was denied, so I won't retry it. Let me know if you'd like to do something else with \"buy printer toner\" (e.g., just keep it here in chat)."
+      }
+    ]
+  },
+  {
+    "protocol": "anthropic",
+    "id": "receipt_recovery",
+    "kind": "receipt_recovery",
+    "report_count": 1,
+    "passed": true,
+    "final": "Report saved with title \"Live check\" and body \"Saved\" (operation ID: fd2b7c18b10f4a60a37ef13aeeffd375).",
+    "status": "done",
+    "transcript": [
+      {
+        "type": "user",
+        "content": "Use create_report to save title Live check and body Saved. Do not change these strings."
+      },
+      {
+        "type": "run_started",
+        "run_id": "3a4c8fa956e743e1b5b6c893e0d2c38d",
+        "sequence": 1,
+        "timestamp": 1794812992.962331
+      },
+      {
+        "type": "model_started",
+        "run_id": "3a4c8fa956e743e1b5b6c893e0d2c38d",
+        "sequence": 2,
+        "timestamp": 1794812992.98855,
+        "attempt": 1
+      },
+      {
+        "type": "assistant",
+        "content": "\n<tool_call>{\"name\": \"create_report\", \"args\": {\"title\": \"Live check\", \"body\": \"Saved\"}}</tool_call>"
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 489,
+        "reply_tokens": 25,
+        "send_turn": 1,
+        "elapsed_since_send_seconds": 1.130750614000135
+      },
+      {
+        "type": "provider_usage",
+        "run_id": "3a4c8fa956e743e1b5b6c893e0d2c38d",
+        "sequence": 5,
+        "timestamp": 1794812994.1061954,
+        "usage": {
+          "input_tokens": 218,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 384,
+          "output_tokens": 54
+        }
+      },
+      {
+        "type": "tool_call",
+        "run_id": "3a4c8fa956e743e1b5b6c893e0d2c38d",
+        "sequence": 6,
+        "timestamp": 1794812994.10623,
+        "name": "create_report",
+        "args": {
+          "title": "Live check",
+          "body": "Saved"
+        },
+        "call_id": "fd2b7c18b10f4a60a37ef13aeeffd375",
+        "provider_call_id": "call_00_AOG41xSJWeKAQ9ZcdG4x1260"
+      },
+      {
+        "type": "reconciliation_started",
+        "run_id": "3a4c8fa956e743e1b5b6c893e0d2c38d",
+        "sequence": 7,
+        "timestamp": 1794812994.167419,
+        "call_id": "fd2b7c18b10f4a60a37ef13aeeffd375"
+      },
+      {
+        "type": "reconciliation_completed",
+        "run_id": "3a4c8fa956e743e1b5b6c893e0d2c38d",
+        "sequence": 8,
+        "timestamp": 1794812994.1881125,
+        "call_id": "fd2b7c18b10f4a60a37ef13aeeffd375",
+        "source": "lookup"
+      },
+      {
+        "type": "tool_result",
+        "run_id": "3a4c8fa956e743e1b5b6c893e0d2c38d",
+        "sequence": 9,
+        "timestamp": 1794812994.188117,
+        "name": "create_report",
+        "call_id": "fd2b7c18b10f4a60a37ef13aeeffd375",
+        "status": "ok",
+        "content": "{\"operation_id\": \"fd2b7c18b10f4a60a37ef13aeeffd375\", \"title\": \"Live check\", \"body\": \"Saved\"}"
+      },
+      {
+        "type": "run_resumed",
+        "run_id": "3a4c8fa956e743e1b5b6c893e0d2c38d",
+        "sequence": 10,
+        "timestamp": 1794812994.204051
+      },
+      {
+        "type": "model_started",
+        "run_id": "3a4c8fa956e743e1b5b6c893e0d2c38d",
+        "sequence": 11,
+        "timestamp": 1794812994.233048,
+        "attempt": 2
+      },
+      {
+        "type": "assistant",
+        "content": "Report saved with title \"Live check\" and body \"Saved\" (operation ID: fd2b7c18b10f4a60a37ef13aeeffd375)."
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 566,
+        "reply_tokens": 26,
+        "send_turn": 2,
+        "elapsed_since_send_seconds": 1.0375718080003935
+      },
+      {
+        "type": "provider_usage",
+        "run_id": "3a4c8fa956e743e1b5b6c893e0d2c38d",
+        "sequence": 14,
+        "timestamp": 1794812995.2569091,
+        "usage": {
+          "input_tokens": 215,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 512,
+          "output_tokens": 39
+        }
+      },
+      {
+        "type": "run_finished",
+        "run_id": "3a4c8fa956e743e1b5b6c893e0d2c38d",
+        "sequence": 15,
+        "timestamp": 1794812995.2569175,
+        "status": "done",
+        "content": "Report saved with title \"Live check\" and body \"Saved\" (operation ID: fd2b7c18b10f4a60a37ef13aeeffd375)."
+      }
+    ]
+  }
+]

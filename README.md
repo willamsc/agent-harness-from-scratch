@@ -40,7 +40,7 @@ print(session.send("Look up owner").text)
 
 ### 原生工具与可恢复工具
 
-除了原有文本协议，提供 `OpenAIChatAdapter` 和 `AnthropicMessagesAdapter`，通过注入 SDK 请求方法接入原生调用，仍复用参数校验、审批和恢复。当前为非流式、每轮一个工具调用；模拟协议测试通过，尚未做真实 API 联调。示例与限制见 [原生适配器](docs/20-native-tool-adapters.md)。
+除了原有文本协议，提供 `OpenAIChatAdapter` 和 `AnthropicMessagesAdapter`，通过注入 SDK 请求方法接入原生调用，仍复用参数校验、审批和恢复。当前为非流式、每轮一个工具调用；已在 DeepSeek 两种兼容端点上完成 46/46 项真实联调；不代表已测试 OpenAI 或 Claude 模型。示例与限制见 [原生适配器](docs/20-native-tool-adapters.md)。
 
 工具可提供 `execute_with_id(args, operation_id)` 和 `lookup_result(args, operation_id)`。运行时生成并保存操作 ID；恢复时查到确定结果才继续，查询失败或无结果仍暂停。内置 [SQLite 报告示例](cardinal_agent/examples/durable_reports.py) 演示事务写入和相同操作去重。见 [幂等与核对设计](docs/18-operation-reconciliation.md)。
 
@@ -132,9 +132,13 @@ cardinal chat --terminal
 
 新增真实子进程故障测试：在执行前、等待审批、执行中和结果保存后发送 SIGKILL，再启动全新进程恢复。覆盖保留预算、锁释放、人工核实以及事务回执自动核对，检查真实写入数量没有增加。当前源码离线回归 **424 passed，13 live deselected**，其中包含 **6 个真实进程故障场景、24 个原生适配器测试**。详细边界见 [进程故障测试](docs/17-process-faults.md)，[原始指标](docs/evaluations/20261116-062855-harness-resilience/metrics.json)及请求样例已保留。
 
-这些检查不代表断电恢复、分布式事务或任意外部服务的恰好一次保证。原生适配器使用模拟提供商响应验证，不将此类检查计入真实模型任务准确率。
+这些检查不代表断电恢复、分布式事务或任意外部服务的恰好一次保证。原生适配器另有真实 API 联调；确定性检查与真实模型任务准确率分别报告。
 
 ## 已测数据与范围
+
+当前版本已补做真实模型验证（DeepSeek deepseek-flash、全新本地缓存）：**原生接口 46/46；live pytest 12/13 通过；模拟用户 19/20**。文本协议为 **16/20，未达到 18/20 阈值**，因此不能声称 live 全通过。分类 59/60、邮件问答 22/25、文档问答 20/20、终端 10/10；失败与费用一并保留。详见 [完整 live 报告](docs/21-live-validation.md)。
+
+以下表格保留历史阶段结果，不能与本轮结果混作同一版本：
 
 | 测试 | 已记录结果 | 范围 |
 | --- | --- | --- |

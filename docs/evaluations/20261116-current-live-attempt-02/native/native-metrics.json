@@ -1,0 +1,25 @@
+{
+  "provider": "deepseek",
+  "model": "deepseek-flash",
+  "cases": 46,
+  "passed": 46,
+  "failed": 0,
+  "actual_provider_calls": 52,
+  "request_attempts": 52,
+  "local_cache_hits": 0,
+  "estimated_cost_usd": 0.00634674,
+  "cost_note": "Existing repository price table estimate, not the actual provider invoice.",
+  "input_tokens": 41543,
+  "output_tokens": 2116,
+  "by_protocol": {
+    "openai": {
+      "passed": 23,
+      "total": 23
+    },
+    "anthropic": {
+      "passed": 23,
+      "total": 23
+    }
+  },
+  "scope": "Both formats served by DeepSeek; not a test of OpenAI or Claude models."
+}

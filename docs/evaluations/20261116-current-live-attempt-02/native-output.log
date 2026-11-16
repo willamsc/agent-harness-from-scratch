@@ -1,0 +1,71 @@
+openai req-01 PASS
+openai req-02 PASS
+openai req-03 PASS
+openai req-04 PASS
+openai req-05 PASS
+openai req-06 PASS
+openai req-07 PASS
+openai req-08 PASS
+openai req-09 PASS
+openai req-10 PASS
+openai req-11 PASS
+openai req-12 PASS
+openai req-13 PASS
+openai req-14 PASS
+openai req-15 PASS
+openai req-16 PASS
+openai req-17 PASS
+openai req-18 PASS
+openai req-19 PASS
+openai req-20 PASS
+openai execution_roundtrip PASS
+openai approval_denied PASS
+openai receipt_recovery PASS
+anthropic req-01 PASS
+anthropic req-02 PASS
+anthropic req-03 PASS
+anthropic req-04 PASS
+anthropic req-05 PASS
+anthropic req-06 PASS
+anthropic req-07 PASS
+anthropic req-08 PASS
+anthropic req-09 PASS
+anthropic req-10 PASS
+anthropic req-11 PASS
+anthropic req-12 PASS
+anthropic req-13 PASS
+anthropic req-14 PASS
+anthropic req-15 PASS
+anthropic req-16 PASS
+anthropic req-17 PASS
+anthropic req-18 PASS
+anthropic req-19 PASS
+anthropic req-20 PASS
+anthropic execution_roundtrip PASS
+anthropic approval_denied PASS
+anthropic receipt_recovery PASS
+{
+  "provider": "deepseek",
+  "model": "deepseek-flash",
+  "cases": 46,
+  "passed": 46,
+  "failed": 0,
+  "actual_provider_calls": 52,
+  "request_attempts": 52,
+  "local_cache_hits": 0,
+  "estimated_cost_usd": 0.00634674,
+  "cost_note": "Existing repository price table estimate, not the actual provider invoice.",
+  "input_tokens": 41543,
+  "output_tokens": 2116,
+  "by_protocol": {
+    "openai": {
+      "passed": 23,
+      "total": 23
+    },
+    "anthropic": {
+      "passed": 23,
+      "total": 23
+    }
+  },
+  "scope": "Both formats served by DeepSeek; not a test of OpenAI or Claude models."
+}

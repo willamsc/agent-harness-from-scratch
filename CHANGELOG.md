@@ -6,7 +6,7 @@
 - Provide `cardinal runs list/show` with lock-aware activity and recovery summaries.
 - Normalize OpenAI-compatible Chat Completions and Anthropic Messages client tool calls through the existing approval/execution path.
 - Verify recovery using six real SIGKILL/fresh-process scenarios; retain deterministic protocol and fault-test artifacts.
-- Current source regression: 424 passed, 13 live tests deselected; no new live-provider accuracy claim.
+- Offline regression: 424 passed. Subsequent real DeepSeek validation: native protocols 46/46, live pytest 12/13, simulated users 19/20. Text protocol 16/20 failed its threshold; raw failures retained.
 
 ## 0.1.1
 

@@ -1,0 +1,257 @@
+{
+  "persona_id": "doc-pto-carryover",
+  "category": "doc_lookup",
+  "sessions": [
+    {
+      "index": 1,
+      "mode": "auto",
+      "dialogue": [
+        {
+          "kind": "user",
+          "content": "I'll have 12 unused PTO days at the end of 2026. How many of them do I lose, and is there a deadline for using the ones I keep?"
+        },
+        {
+          "kind": "agent",
+          "content": "With 12 unused PTO days at the end of 2026, you'd **lose 2 days** and keep **10 days**.\n\n- **Carryover limit:** 10 days (80 hours) per calendar year. This was raised from 5 days by the People Operations announcement of 2025-11-17, which explicitly replaces Section 5 of the PTO Policy (HR-101) and the matching handbook section. The announcement states it is the rule until the policy is reissued.\n- **Forfeiture:** PTO above the 10-day limit is forfeited on December 31 — so 2 of your 12 days are forfeited at year-end (except where state law prohibits forfeiture).\n- **Deadline for the days you keep:** carried-over PTO must be used by **June 30** of the following year (June 30, 2027 for your 2026 rollover). The old March 31 deadline no longer applies.\n\nNote the older policy and handbook documents still show 5 days / March 31; those figures are superseded. If you're outside the US, the Netherlands addendum is unaffected by this change, so check with People Operations about which rules apply to you.",
+          "status": "done"
+        }
+      ],
+      "transcript": [
+        {
+          "type": "user",
+          "content": "I'll have 12 unused PTO days at the end of 2026. How many of them do I lose, and is there a deadline for using the ones I keep?"
+        },
+        {
+          "type": "run_started",
+          "run_id": "cfead2e1d256460798c82683e5da0b2c",
+          "sequence": 1,
+          "timestamp": 1794813146.5491989
+        },
+        {
+          "type": "model_started",
+          "run_id": "cfead2e1d256460798c82683e5da0b2c",
+          "sequence": 2,
+          "timestamp": 1794813146.5492296,
+          "attempt": 1
+        },
+        {
+          "type": "assistant",
+          "content": "I'll check the current PTO policy, including any updates that may supersede older versions.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"search_docs\">\n<｜｜DSML｜｜ parameter name=\"args\" string=\"false\">{\"query\": \"PTO carryover unused days\", \"k\": 5}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2284,
+          "reply_tokens": 75,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 1.3363495909998164
+        },
+        {
+          "type": "error",
+          "content": "Unsupported provider tool syntax. No tool ran. Rewrite your call as literal ASCII text: <tool_call>{\"name\":\"tool_name\",\"args\":{\"parameter\":\"value\"}}</tool_call>. Do not use DSML or invoke/parameter tags."
+        },
+        {
+          "type": "recovery",
+          "kind": "unsupported_protocol"
+        },
+        {
+          "type": "model_started",
+          "run_id": "cfead2e1d256460798c82683e5da0b2c",
+          "sequence": 7,
+          "timestamp": 1794813147.8855925,
+          "attempt": 2
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"search_docs\">\n<｜｜DSML｜｜ parameter name=\"args\" string=\"false\">{\"query\": \"PTO carryover unused days\", \"k\": 5}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2418,
+          "reply_tokens": 52,
+          "send_turn": 2,
+          "elapsed_since_send_seconds": 2.2251414899992596
+        },
+        {
+          "type": "error",
+          "content": "Unsupported provider tool syntax. No tool ran. Rewrite your call as literal ASCII text: <tool_call>{\"name\":\"tool_name\",\"args\":{\"parameter\":\"value\"}}</tool_call>. Do not use DSML or invoke/parameter tags."
+        },
+        {
+          "type": "recovery",
+          "kind": "unsupported_protocol"
+        },
+        {
+          "type": "model_started",
+          "run_id": "cfead2e1d256460798c82683e5da0b2c",
+          "sequence": 12,
+          "timestamp": 1794813148.774448,
+          "attempt": 3
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<tool_call>{\"name\":\"search_docs\",\"args\":{\"query\": \"PTO carryover unused days\", \"k\": 5}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2529,
+          "reply_tokens": 26,
+          "send_turn": 3,
+          "elapsed_since_send_seconds": 3.3106792849994235
+        },
+        {
+          "type": "tool_call",
+          "run_id": "cfead2e1d256460798c82683e5da0b2c",
+          "sequence": 15,
+          "timestamp": 1794813149.860038,
+          "name": "search_docs",
+          "args": {
+            "query": "PTO carryover unused days",
+            "k": 5
+          },
+          "call_id": "4aa2bd70d009418b8dc48c1c42038762"
+        },
+        {
+          "type": "tool_timing",
+          "run_id": "cfead2e1d256460798c82683e5da0b2c",
+          "sequence": 16,
+          "timestamp": 1794813149.8614056,
+          "call_id": "4aa2bd70d009418b8dc48c1c42038762",
+          "seconds": 0.0013204810002207523
+        },
+        {
+          "type": "tool_result",
+          "run_id": "cfead2e1d256460798c82683e5da0b2c",
+          "sequence": 17,
+          "timestamp": 1794813149.8614209,
+          "name": "search_docs",
+          "call_id": "4aa2bd70d009418b8dc48c1c42038762",
+          "status": "ok",
+          "content": "[{\"doc_id\": \"pto-policy\", \"title\": \"Paid Time Off Policy\", \"snippet\": \"may convert the days of illness to sick leave by telling People Operations when you return.\\n\\n## 5. Carryover\\n\\nPTO is meant to be used in the year in which it is earned. At the end of each calendar year, you may carry over up to 5 days (40 hours) of unused PTO into the next year. Carried-over PTO must be used by March 31 of that year. Unused PTO above the carryover limit is forfeited on December 31, except where state law does not permit forfeiture. People Operations sends a balance reminder to every employee on October 1.\\n\\n## 6. Negative balances\\n\\nWith your manager's approval you may take PTO\", \"document_kind\": \"document\", \"category\": \"hr\", \"section\": \"5. Carryover\", \"start_line\": 40, \"end_line\": 48}, {\"doc_id\": \"people-announcement-2025-11-pto-carryover\", \"title\": \"Announcement: PTO Carryover Limit Raised\", \"snippet\": \"# Announcement: PTO Carryover Limit Raised\\n\\nPosted: 2025-11-17\\nFrom: Tessa Nguyen, Director of People Operations\\nTo: All US employees\\n\\nMany of you told us in the October survey that the end of the year is a hard time to use up vacation days, because customer go-lives and the winter closure fall in the same weeks. We have changed the carryover rule in response.\\n\\n## What is changing\\n\\nStarting with the rollover from 2025 into 2026, you may carry over up to 10 days (80 hours) of unused PTO into the next calendar year. Carried-over PTO must be used by June 30 of that year.\\n\\nThis replaces Section 5\", \"document_kind\": \"update_or_memo\", \"category\": \"hr\", \"section\": \"Announcement: PTO Carryover Limit Raised\", \"start_line\": 1, \"end_line\": 13}, {\"doc_id\": \"people-announcement-2026-05-office-days\", \"title\": \"Announcement: Three In-Office Days for Hybrid Teams\", \"snippet\": \"on-site arrangements do not change.\\n- Monday and Friday remain flexible. If you come in on those days, book a desk in DeskSpot as before.\\n- PTO, sick leave, business travel, and customer visits on an anchor day still count toward the expectation.\\n- Standing exceptions that People Operations has already approved remain valid until their next six-month review.\\n- The home office stipend, the internet stipend for remote employees, and the 20 days of work-from-anywhere time are unchanged.\\n\\n## Office changes\\n\\nRosa Alvarez and the Workplace team are adding assigned desks on the third floor of the\", \"document_kind\": \"update_or_memo\", \"category\": \"hr\", \"section\": \"Details\", \"start_line\": 18, \"end_line\": 26}, {\"doc_id\": \"employee-handbook\", \"title\": \"Cardinal Energy Employee Handbook\", \"snippet\": \"handbook does not repeat them.\\n\\n## 12. Paid time off\\n\\nFull-time employees accrue paid time off (PTO) each pay period. The rate depends on your length of service: 18 days per year during your first two years, 22 days per year from your second anniversary, and 25 days per year from your fifth anniversary. Part-time employees accrue in proportion to their scheduled hours.\\n\\nAs of the effective date of this handbook, you may carry over up to 5 days (40 hours) of unused PTO into the next calendar year, and carried-over days must be used by March 31. PTO above the carryover limit is forfeited on\", \"document_kind\": \"document\", \"category\": \"hr\", \"section\": \"12. Paid time off\", \"start_line\": 98, \"end_line\": 104}, {\"doc_id\": \"onboarding-guide\", \"title\": \"New Hire Onboarding Guide\", \"snippet\": \"in on a Monday or a Friday, book a desk in DeskSpot.\\n\\n## Time off in your first year\\n\\nYou accrue PTO from your first day at a rate of 18 days per year. You may take PTO during your introductory period with your manager's approval. You also have 10 days of sick leave and 2 floating holidays per calendar year. At the end of the year you may carry over up to 10 days of unused PTO.\\n\\n## For engineers\\n\\nEngineering has its own checklist in addition to this guide.\\n\\n- Day 1 to 3: set up your development environment using the setup script in the engineering handbook repository. If the script fails,\", \"document_kind\": \"document\", \"category\": \"hr\", \"section\": \"Time off in your first year\", \"start_line\": 55, \"end_line\": 65}]"
+        },
+        {
+          "type": "model_started",
+          "run_id": "cfead2e1d256460798c82683e5da0b2c",
+          "sequence": 18,
+          "timestamp": 1794813149.861478,
+          "attempt": 4
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<tool_call>{\"name\":\"read_doc\",\"args\":{\"doc_id\": \"people-announcement-2025-11-pto-carryover\", \"start_line\": 1}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 3618,
+          "reply_tokens": 31,
+          "send_turn": 4,
+          "elapsed_since_send_seconds": 4.2656052080001245
+        },
+        {
+          "type": "tool_call",
+          "run_id": "cfead2e1d256460798c82683e5da0b2c",
+          "sequence": 21,
+          "timestamp": 1794813150.8148959,
+          "name": "read_doc",
+          "args": {
+            "doc_id": "people-announcement-2025-11-pto-carryover",
+            "start_line": 1
+          },
+          "call_id": "f2974b64931b494da3aa790bdb79a28e"
+        },
+        {
+          "type": "tool_timing",
+          "run_id": "cfead2e1d256460798c82683e5da0b2c",
+          "sequence": 22,
+          "timestamp": 1794813150.8153481,
+          "call_id": "f2974b64931b494da3aa790bdb79a28e",
+          "seconds": 0.00044479299958766205
+        },
+        {
+          "type": "tool_result",
+          "run_id": "cfead2e1d256460798c82683e5da0b2c",
+          "sequence": 23,
+          "timestamp": 1794813150.8153625,
+          "name": "read_doc",
+          "call_id": "f2974b64931b494da3aa790bdb79a28e",
+          "status": "ok",
+          "content": "{\"doc_id\": \"people-announcement-2025-11-pto-carryover\", \"start_line\": 1, \"end_line\": 26, \"total_lines\": 26, \"text\": \"# Announcement: PTO Carryover Limit Raised\\n\\nPosted: 2025-11-17\\nFrom: Tessa Nguyen, Director of People Operations\\nTo: All US employees\\n\\nMany of you told us in the October survey that the end of the year is a hard time to use up vacation days, because customer go-lives and the winter closure fall in the same weeks. We have changed the carryover rule in response.\\n\\n## What is changing\\n\\nStarting with the rollover from 2025 into 2026, you may carry over up to 10 days (80 hours) of unused PTO into the next calendar year. Carried-over PTO must be used by June 30 of that year.\\n\\nThis replaces Section 5 of the Paid Time Off Policy (HR-101, effective 2025-01-01), which allowed 5 days and set a deadline of March 31. The same section of the Employee Handbook is replaced as well. The policy document will be reissued at its next annual review. Until then, this announcement is the rule.\\n\\n## What is not changing\\n\\n- Accrual rates stay the same.\\n- PTO above the carryover limit is still forfeited on December 31, except where state law does not permit forfeiture.\\n- Sick leave and floating holidays still do not carry over.\\n- The Netherlands addendum is not affected.\\n\\n## What you need to do\\n\\nNothing. PeopleHub will apply the new limit automatically on December 31, 2025. You can see your projected year-end balance under Time Off, Balances.\\n\\nQuestions go to Imani Brooks or to people@cardinal-energy.example.\"}"
+        },
+        {
+          "type": "model_started",
+          "run_id": "cfead2e1d256460798c82683e5da0b2c",
+          "sequence": 24,
+          "timestamp": 1794813150.8154457,
+          "attempt": 5
+        },
+        {
+          "type": "assistant",
+          "content": "With 12 unused PTO days at the end of 2026, you'd **lose 2 days** and keep **10 days**.\n\n- **Carryover limit:** 10 days (80 hours) per calendar year. This was raised from 5 days by the People Operations announcement of 2025-11-17, which explicitly replaces Section 5 of the PTO Policy (HR-101) and the matching handbook section. The announcement states it is the rule until the policy is reissued.\n- **Forfeiture:** PTO above the 10-day limit is forfeited on December 31 — so 2 of your 12 days are forfeited at year-end (except where state law prohibits forfeiture).\n- **Deadline for the days you keep:** carried-over PTO must be used by **June 30** of the following year (June 30, 2027 for your 2026 rollover). The old March 31 deadline no longer applies.\n\nNote the older policy and handbook documents still show 5 days / March 31; those figures are superseded. If you're outside the US, the Netherlands addendum is unaffected by this change, so check with People Operations about which rules apply to you."
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 4064,
+          "reply_tokens": 252,
+          "send_turn": 5,
+          "elapsed_since_send_seconds": 6.607332526999926
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [
+            "mem-9e84775bfafa4d9e94d5fc02684f9c59"
+          ],
+          "seconds": 1.2769423850004387
+        },
+        {
+          "type": "run_finished",
+          "run_id": "cfead2e1d256460798c82683e5da0b2c",
+          "sequence": 28,
+          "timestamp": 1794813154.4335117,
+          "status": "done",
+          "content": "With 12 unused PTO days at the end of 2026, you'd **lose 2 days** and keep **10 days**.\n\n- **Carryover limit:** 10 days (80 hours) per calendar year. This was raised from 5 days by the People Operations announcement of 2025-11-17, which explicitly replaces Section 5 of the PTO Policy (HR-101) and the matching handbook section. The announcement states it is the rule until the policy is reissued.\n- **Forfeiture:** PTO above the 10-day limit is forfeited on December 31 — so 2 of your 12 days are forfeited at year-end (except where state law prohibits forfeiture).\n- **Deadline for the days you keep:** carried-over PTO must be used by **June 30** of the following year (June 30, 2027 for your 2026 rollover). The old March 31 deadline no longer applies.\n\nNote the older policy and handbook documents still show 5 days / March 31; those figures are superseded. If you're outside the US, the Netherlands addendum is unaffected by this change, so check with People Operations about which rules apply to you."
+        }
+      ],
+      "ending": "goal_met"
+    }
+  ],
+  "error": null,
+  "seconds": 10.45,
+  "usage": {
+    "agent": {
+      "calls": 6,
+      "cached_calls": 0,
+      "cost_usd": 0.001449348
+    },
+    "user": {
+      "calls": 1,
+      "cached_calls": 0,
+      "cost_usd": 0.00015693600000000002
+    },
+    "judge": {
+      "calls": 1,
+      "cached_calls": 0,
+      "cost_usd": 0.00049524
+    }
+  },
+  "checks": [
+    {
+      "type": "any_reply_contains_any",
+      "passed": true,
+      "detail": "expected some agent reply to contain one of ['June 30', '30 June', 'June 30th', '6/30']; 1 replies checked"
+    },
+    {
+      "type": "any_reply_contains_any",
+      "passed": true,
+      "detail": "expected some agent reply to contain one of ['10 days', 'ten days', '10', '80 hours']; 1 replies checked"
+    },
+    {
+      "type": "no_agent_error",
+      "passed": true,
+      "detail": "every send ended with status 'done'"
+    }
+  ],
+  "judge": {
+    "passed": true,
+    "reason": "The agent's answer is supported by tool calls: a search_docs and a read_doc on the People announcement of 2025-11-17, whose visible result text confirms the 10-day (80-hour) carryover limit, the June 30 deadline, and that it replaces the 5-day/March 31 rule. The facts stated match the tool results, so there is no fabrication.",
+    "raw": "CRITERIA:\n1. MET: Agent states 10 days carry over, 2 of 12 lost, and carried-over days must be used by June 30 of the next year, citing the Nov 2025 People announcement and noting the old 5-day/March 31 rule is superseded.\n\nFABRICATION: NO\nREASON: The agent's answer is supported by tool calls: a search_docs and a read_doc on the People announcement of 2025-11-17, whose visible result text confirms the 10-day (80-hour) carryover limit, the June 30 deadline, and that it replaces the 5-day/March 31 rule. The facts stated match the tool results, so there is no fabrication.\n\nVERDICT: PASS"
+  },
+  "success": true
+}

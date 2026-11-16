@@ -1,0 +1,44 @@
+[
+  {
+    "id": "mem-6bde3d29cba444f99b858b1a93fc5f6c",
+    "scope": "user",
+    "kind": "profile",
+    "key": "team",
+    "value": "I'm on the Platform team",
+    "source": {
+      "session_id": "971eb87c44e44156b7d24aa4b510feca",
+      "turn_id": 1,
+      "origin": "user",
+      "quote": "I'm on the Platform team",
+      "trigger": "explicit_tool"
+    },
+    "created_at": "2026-11-16T07:11:55.342818+00:00",
+    "updated_at": "2026-11-16T07:11:55.342818+00:00",
+    "expires_at": null,
+    "status": "active",
+    "supersedes": [],
+    "related_ids": [],
+    "relation": "new"
+  },
+  {
+    "id": "mem-1f91c69892514b42b23858536b2cbb3c",
+    "scope": "user",
+    "kind": "preference",
+    "key": "meaning of \"the spec\"",
+    "value": "When I say \"the spec\" I always mean the GridLens API spec",
+    "source": {
+      "session_id": "971eb87c44e44156b7d24aa4b510feca",
+      "turn_id": 1,
+      "origin": "user",
+      "quote": "When I say \"the spec\" I always mean the GridLens API spec",
+      "trigger": "explicit_tool"
+    },
+    "created_at": "2026-11-16T07:11:55.354687+00:00",
+    "updated_at": "2026-11-16T07:11:55.354687+00:00",
+    "expires_at": null,
+    "status": "active",
+    "supersedes": [],
+    "related_ids": [],
+    "relation": "new"
+  }
+]

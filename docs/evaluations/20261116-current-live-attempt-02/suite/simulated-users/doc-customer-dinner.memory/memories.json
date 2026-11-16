@@ -1,0 +1,23 @@
+[
+  {
+    "id": "mem-56ebce630313417e9bdf7d517fb1734c",
+    "scope": "user",
+    "kind": "project_fact",
+    "key": "trip flight cost",
+    "value": "my flight for that same trip is $820",
+    "source": {
+      "session_id": "51442c9e57744aff9dcff96d7975d81b",
+      "turn_id": 2,
+      "origin": "user",
+      "quote": "my flight for that same trip is $820",
+      "trigger": "after_send"
+    },
+    "created_at": "2026-11-16T07:12:58.866286+00:00",
+    "updated_at": "2026-11-16T07:12:58.866286+00:00",
+    "expires_at": null,
+    "status": "active",
+    "supersedes": [],
+    "related_ids": [],
+    "relation": "new"
+  }
+]

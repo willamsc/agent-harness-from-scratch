@@ -13,7 +13,8 @@
 | 5 | [真实进程故障测试](17-process-faults.md) | 核对 SIGKILL 场景与真实副作用数量 |
 | 6 | [原生工具适配器](20-native-tool-adapters.md) | 理解文本、OpenAI 与 Anthropic 的统一执行路径 |
 | 7 | [运行状态](19-run-status.md) | 理解锁探测、任务状态和查询 CLI |
-| 8 | [评测目录说明](evaluations/README.md) | 找到原始日志、指标、失败和复现记录 |
+| 8 | [当前 live 验证](21-live-validation.md) | 理解真实调用结果与未通过检查 |
+| 9 | [评测目录说明](evaluations/README.md) | 找到原始日志、指标、失败和复现记录 |
 
 ## 按技术主题查阅
 
@@ -44,6 +45,8 @@
 - [优化复盘](optimization-review.md)：保留成功与失败，不将缓存收益误写成算法提升。
 
 ## 最重要的证据入口
+
+- [当前真实模型验证](21-live-validation.md)：原生 46/46、live pytest 12/13、模拟任务 19/20；文本协议 16/20 未通过阈值。
 
 - [当前离线回归：424 通过](evaluations/20261116-062855-harness-resilience/metrics.json)，包含 6 个真实进程故障场景、24 个原生适配器测试；13 个 live 测试未运行。
 - [历史模拟用户基线：18/20](evaluations/20261116-120629-sim-eval-live-baseline/metrics.json)：真实模型运行，公开固定场景、带既有缓存，非生产成功率。

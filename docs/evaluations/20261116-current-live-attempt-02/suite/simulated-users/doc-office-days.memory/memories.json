@@ -1,0 +1,23 @@
+[
+  {
+    "id": "mem-15110f0e0c4b4208becf0c01ff7ff172",
+    "scope": "user",
+    "kind": "profile",
+    "key": "work arrangement",
+    "value": "started last week (hybrid, Oakland office)",
+    "source": {
+      "session_id": "aefb0e0acb9d4553b5d5cf9278114cc6",
+      "turn_id": 1,
+      "origin": "user",
+      "quote": "I started last week (hybrid, Oakland office)",
+      "trigger": "after_send"
+    },
+    "created_at": "2026-11-16T07:12:11.886757+00:00",
+    "updated_at": "2026-11-16T07:12:11.886757+00:00",
+    "expires_at": null,
+    "status": "active",
+    "supersedes": [],
+    "related_ids": [],
+    "relation": "new"
+  }
+]
