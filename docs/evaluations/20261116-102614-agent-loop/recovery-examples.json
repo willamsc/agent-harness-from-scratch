@@ -1,0 +1,208 @@
+[
+  {
+    "case": "promise_then_call",
+    "kind": "scripted_example_not_live_evaluation",
+    "script": [
+      "I'll look that up.",
+      {
+        "tool_call": {
+          "name": "add",
+          "args": {
+            "a": 2,
+            "b": 3
+          }
+        }
+      },
+      "The answer is 5."
+    ],
+    "status": "done",
+    "text": "The answer is 5.",
+    "calls": 3,
+    "tool_executions": 1,
+    "transcript": [
+      {
+        "type": "user",
+        "content": "Add two and three."
+      },
+      {
+        "type": "assistant",
+        "content": "I'll look that up."
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 1004,
+        "reply_tokens": 5,
+        "send_turn": 1,
+        "elapsed_since_send_seconds": 2.8896000003442168e-05
+      },
+      {
+        "type": "error",
+        "content": "You announced an action but did not execute a tool. Output the actual tool call now, or explain why you cannot proceed. Do not repeat a promise."
+      },
+      {
+        "type": "recovery",
+        "kind": "promise"
+      },
+      {
+        "type": "assistant",
+        "content": "\n<tool_call>{\"name\": \"add\", \"args\": {\"a\": 2, \"b\": 3}}</tool_call>"
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 1053,
+        "reply_tokens": 17,
+        "send_turn": 2,
+        "elapsed_since_send_seconds": 7.474199992429931e-05
+      },
+      {
+        "type": "tool_call",
+        "name": "add",
+        "args": {
+          "a": 2,
+          "b": 3
+        }
+      },
+      {
+        "type": "tool_result",
+        "name": "add",
+        "status": "ok",
+        "content": "5"
+      },
+      {
+        "type": "assistant",
+        "content": "The answer is 5."
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 1097,
+        "reply_tokens": 4,
+        "send_turn": 3,
+        "elapsed_since_send_seconds": 0.00018296700000064448
+      }
+    ]
+  },
+  {
+    "case": "promise_limit",
+    "kind": "scripted_example_not_live_evaluation",
+    "script": [
+      "I'll look that up.",
+      "I'll look that up.",
+      "I'll look that up."
+    ],
+    "status": "malformed",
+    "text": "No tool was executed; the task is unfinished.",
+    "calls": 3,
+    "tool_executions": 0,
+    "transcript": [
+      {
+        "type": "user",
+        "content": "Add two and three."
+      },
+      {
+        "type": "assistant",
+        "content": "I'll look that up."
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 1004,
+        "reply_tokens": 5,
+        "send_turn": 1,
+        "elapsed_since_send_seconds": 1.3463999493978918e-05
+      },
+      {
+        "type": "error",
+        "content": "You announced an action but did not execute a tool. Output the actual tool call now, or explain why you cannot proceed. Do not repeat a promise."
+      },
+      {
+        "type": "recovery",
+        "kind": "promise"
+      },
+      {
+        "type": "assistant",
+        "content": "I'll look that up."
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 1053,
+        "reply_tokens": 5,
+        "send_turn": 2,
+        "elapsed_since_send_seconds": 3.542299964465201e-05
+      },
+      {
+        "type": "error",
+        "content": "You announced an action but did not execute a tool. Output the actual tool call now, or explain why you cannot proceed. Do not repeat a promise."
+      },
+      {
+        "type": "recovery",
+        "kind": "promise"
+      },
+      {
+        "type": "assistant",
+        "content": "I'll look that up."
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 1102,
+        "reply_tokens": 5,
+        "send_turn": 3,
+        "elapsed_since_send_seconds": 5.90109993936494e-05
+      },
+      {
+        "type": "error",
+        "content": "No tool was executed: repeated action announcements without a call."
+      },
+      {
+        "type": "recovery",
+        "kind": "promise_limit"
+      }
+    ]
+  },
+  {
+    "case": "empty_then_answer",
+    "kind": "scripted_example_not_live_evaluation",
+    "script": [
+      "",
+      "Answer."
+    ],
+    "status": "done",
+    "text": "Answer.",
+    "calls": 2,
+    "tool_executions": 0,
+    "transcript": [
+      {
+        "type": "user",
+        "content": "Add two and three."
+      },
+      {
+        "type": "assistant",
+        "content": ""
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 1004,
+        "reply_tokens": 0,
+        "send_turn": 1,
+        "elapsed_since_send_seconds": 1.2565998986246996e-05
+      },
+      {
+        "type": "error",
+        "content": "Your reply was empty. Provide an answer, clarification, or a complete tool call."
+      },
+      {
+        "type": "recovery",
+        "kind": "empty"
+      },
+      {
+        "type": "assistant",
+        "content": "Answer."
+      },
+      {
+        "type": "model_usage",
+        "input_tokens": 1032,
+        "reply_tokens": 2,
+        "send_turn": 2,
+        "elapsed_since_send_seconds": 3.112699960183818e-05
+      }
+    ]
+  }
+]
