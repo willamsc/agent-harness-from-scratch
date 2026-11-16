@@ -1,0 +1,145 @@
+{
+  "compactions": [
+    {
+      "type": "compaction",
+      "strategy": "structured_summary",
+      "before_tokens": 4046,
+      "after_tokens": 2689,
+      "retained_messages": 15,
+      "aux_input_tokens": 3025,
+      "summary_error": null,
+      "summary_seconds": 2.3955128519992286
+    },
+    {
+      "type": "compaction",
+      "strategy": "structured_summary",
+      "before_tokens": 4431,
+      "after_tokens": 2689,
+      "retained_messages": 13,
+      "aux_input_tokens": 3300,
+      "summary_error": null,
+      "summary_seconds": 2.1850470269982907
+    },
+    {
+      "type": "compaction",
+      "strategy": "structured_summary",
+      "before_tokens": 4302,
+      "after_tokens": 2881,
+      "retained_messages": 14,
+      "aux_input_tokens": 3262,
+      "summary_error": null,
+      "summary_seconds": 1.7089807559987094
+    },
+    {
+      "type": "compaction",
+      "strategy": "structured_summary",
+      "before_tokens": 4182,
+      "after_tokens": 2939,
+      "retained_messages": 15,
+      "aux_input_tokens": 3114,
+      "summary_error": null,
+      "summary_seconds": 2.1043062770004326
+    },
+    {
+      "type": "compaction",
+      "strategy": "structured_summary",
+      "before_tokens": 4250,
+      "after_tokens": 2972,
+      "retained_messages": 15,
+      "aux_input_tokens": 3165,
+      "summary_error": null,
+      "summary_seconds": 2.3672464600003877
+    },
+    {
+      "type": "compaction",
+      "strategy": "structured_summary",
+      "before_tokens": 4294,
+      "after_tokens": 2982,
+      "retained_messages": 14,
+      "aux_input_tokens": 3188,
+      "summary_error": null,
+      "summary_seconds": 1.6560732430007192
+    },
+    {
+      "type": "compaction",
+      "strategy": "structured_summary",
+      "before_tokens": 4314,
+      "after_tokens": 2857,
+      "retained_messages": 13,
+      "aux_input_tokens": 3184,
+      "summary_error": null,
+      "summary_seconds": 1.813037665999218
+    },
+    {
+      "type": "compaction",
+      "strategy": "structured_summary",
+      "before_tokens": 4200,
+      "after_tokens": 2878,
+      "retained_messages": 13,
+      "aux_input_tokens": 3044,
+      "summary_error": null,
+      "summary_seconds": 1.6598204250003619
+    },
+    {
+      "type": "compaction",
+      "strategy": "structured_summary",
+      "before_tokens": 4231,
+      "after_tokens": 2911,
+      "retained_messages": 13,
+      "aux_input_tokens": 3055,
+      "summary_error": null,
+      "summary_seconds": 1.9002539339999203
+    }
+  ],
+  "compaction_count": 9,
+  "max_agent_input_tokens": 3992,
+  "max_aux_input_tokens": 3300,
+  "aux_calls": 9,
+  "summary_outputs": [
+    {
+      "input_tokens_approx": 3025,
+      "reply_tokens_approx": 221
+    },
+    {
+      "input_tokens_approx": 3300,
+      "reply_tokens_approx": 241
+    },
+    {
+      "input_tokens_approx": 3262,
+      "reply_tokens_approx": 236
+    },
+    {
+      "input_tokens_approx": 3114,
+      "reply_tokens_approx": 232
+    },
+    {
+      "input_tokens_approx": 3165,
+      "reply_tokens_approx": 231
+    },
+    {
+      "input_tokens_approx": 3188,
+      "reply_tokens_approx": 234
+    },
+    {
+      "input_tokens_approx": 3184,
+      "reply_tokens_approx": 238
+    },
+    {
+      "input_tokens_approx": 3044,
+      "reply_tokens_approx": 224
+    },
+    {
+      "input_tokens_approx": 3055,
+      "reply_tokens_approx": 223
+    }
+  ],
+  "final_answer": "Your budget cap is $18,450, and the offsite has to be in Boulder (not Oakland).",
+  "constraint_check": {
+    "budget_found": true,
+    "city_found": true
+  },
+  "new_ledger_cost_usd": 0.012762299999999999,
+  "baseline": null,
+  "speedup": null,
+  "notes": "One public constraint test, not an ablation. Verbatim chronological user history remains available alongside summaries; cannot attribute success to summary alone. Token sizes use course approximation. Per-call costs in ledger; cache hits not newly billed."
+}

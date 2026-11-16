@@ -55,23 +55,8 @@ class AgentSession:
         return AgentResult(text, status, deepcopy(self.transcript))
 
     def _fit_context(self):
-        """Evict old tool observations from context only, never the event log.
-
-        This is the minimum large-output policy; durable conversation
-        summarization is designed separately in Problem 11.
-        """
-        removed = 0
-        while count_message_tokens(self.messages) > self.config.context_budget:
-            index = next((i for i, message in enumerate(self.messages[:-1])
-                          if message['role'] == 'user' and message['content'].startswith('Tool execution data,')
-                          and message is not self._current_request), None)
-            if index is None:
-                break
-            self.messages.pop(index)
-            removed += 1
-        if removed:
-            self.transcript.append({'type': 'context_eviction', 'old_tool_messages_removed': removed})
-        return count_message_tokens(self.messages) <= self.config.context_budget
+        from cs329z_hw1.agent.compaction import compact
+        return compact(self)
 
     def send(self, user_message: str) -> AgentResult:
         self.transcript.append({"type": "user", "content": user_message})
@@ -130,6 +115,14 @@ class AgentSession:
                 call = parsed.tool_call
                 self.transcript.append({"type": "tool_call", "name": call.name, "args": deepcopy(call.args)})
                 result = self.registry.execute(call.name, call.args)
+                # Bound an oversized observation before its first feedback;
+                # the tool_result event must equal what the model sees.
+                available = self.config.context_budget - count_message_tokens([self.messages[0], self._current_request]) - 100
+                cap = max(0, min(self.config.context_budget // 5, available // 2)) * 4
+                if len(result.content) > cap and cap >= 100:
+                    original = result.content
+                    result.content = original[:cap // 2 - 30] + "\n[observation shortened]\n" + original[-cap // 2 + 30:]
+                    self.transcript.append({"type": "raw_tool_output", "name": call.name, "content": original})
                 self.transcript.append({"type": "tool_result", "name": call.name,
                                         "status": result.status, "content": result.content})
                 self.messages.append({"role": "user", "content":

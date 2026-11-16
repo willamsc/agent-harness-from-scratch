@@ -1,0 +1,67 @@
+{
+  "started_at": "2026-11-16T11:22:07.107040+08:00",
+  "ended_at": "2026-11-16T11:22:26.086322+08:00",
+  "timezone": "Asia/Shanghai",
+  "base_commit": "2a410e8c424e0a08f8d425cdd93f2d2de9f11176",
+  "working_tree_dirty": true,
+  "command": [
+    "python",
+    "/tmp/record_protocol_live.py"
+  ],
+  "pytest_arguments": [
+    "tests/test_compaction.py",
+    "-o",
+    "addopts=",
+    "-m",
+    "live",
+    "-s",
+    "-q",
+    "--junitxml=docs/evaluations/20261116-112122-compaction/live/junit.xml"
+  ],
+  "wall_seconds": 18.9434004729992,
+  "exit_code": 0,
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "model_settings": [
+    {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "cache": true,
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 9,
+        "cached_calls": 0,
+        "input_tokens": 29541,
+        "output_tokens": 2497,
+        "cost_usd": 0.011858700000000002,
+        "seconds": 17.779141426086426
+      }
+    },
+    {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "cache": true,
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 2924,
+        "output_tokens": 22,
+        "cost_usd": 0.0009036,
+        "seconds": 0.9634902477264404
+      }
+    }
+  ],
+  "environment_note": "Exact implementation snapshot in this directory; final offline environment in docs/evaluations/20261116-112208-compaction. All auxiliary inputs counted against 4000 budget separately. Proxy variables unset only for this run.",
+  "baseline": null,
+  "implementation_sha256": {
+    "cs329z_hw1/agent/compaction.py": "f05feaad080ecd8333701761cc6927da792370fbac4a8feeadc080a36673a694",
+    "cs329z_hw1/agent/session.py": "711a69fcfb0db0a702a3e85266e3954d9c3972fb32480247c83b02e7f3b21eb6"
+  }
+}

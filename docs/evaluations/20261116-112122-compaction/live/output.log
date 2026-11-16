@@ -1,0 +1,5 @@
+
+compaction live: budget cap found, city found; 56 scripted calls, 1 live calls, largest call 3992 tokens (budget 4000), model deepseek-flash
+answer: 'Your budget cap is $18,450, and the offsite has to be in Boulder (not Oakland).'
+.
+1 passed, 6 deselected in 18.81s

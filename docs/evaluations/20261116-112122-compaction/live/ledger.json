@@ -1,0 +1,122 @@
+[
+  {
+    "ts": 1794799327.237,
+    "model": "deepseek-flash",
+    "provider": "deepseek",
+    "tag": "test_compaction/test_live_constraint_survives_compaction/aux",
+    "input_tokens": 3181,
+    "cached_tokens": 0,
+    "output_tokens": 264,
+    "cost_usd": 0.0012710999999999998,
+    "seconds": 2.394,
+    "finish_reason": "stop"
+  },
+  {
+    "ts": 1794799329.635,
+    "model": "deepseek-flash",
+    "provider": "deepseek",
+    "tag": "test_compaction/test_live_constraint_survives_compaction/aux",
+    "input_tokens": 3499,
+    "cached_tokens": 0,
+    "output_tokens": 293,
+    "cost_usd": 0.0014012999999999999,
+    "seconds": 2.184,
+    "finish_reason": "stop"
+  },
+  {
+    "ts": 1794799331.821,
+    "model": "deepseek-flash",
+    "provider": "deepseek",
+    "tag": "test_compaction/test_live_constraint_survives_compaction/aux",
+    "input_tokens": 3340,
+    "cached_tokens": 0,
+    "output_tokens": 301,
+    "cost_usd": 0.0013632,
+    "seconds": 1.708,
+    "finish_reason": "stop"
+  },
+  {
+    "ts": 1794799333.53,
+    "model": "deepseek-flash",
+    "provider": "deepseek",
+    "tag": "test_compaction/test_live_constraint_survives_compaction/aux",
+    "input_tokens": 3237,
+    "cached_tokens": 0,
+    "output_tokens": 279,
+    "cost_usd": 0.0013058999999999998,
+    "seconds": 2.104,
+    "finish_reason": "stop"
+  },
+  {
+    "ts": 1794799335.637,
+    "model": "deepseek-flash",
+    "provider": "deepseek",
+    "tag": "test_compaction/test_live_constraint_survives_compaction/aux",
+    "input_tokens": 3278,
+    "cached_tokens": 0,
+    "output_tokens": 279,
+    "cost_usd": 0.0013182,
+    "seconds": 2.366,
+    "finish_reason": "stop"
+  },
+  {
+    "ts": 1794799338.008,
+    "model": "deepseek-flash",
+    "provider": "deepseek",
+    "tag": "test_compaction/test_live_constraint_survives_compaction/aux",
+    "input_tokens": 3305,
+    "cached_tokens": 0,
+    "output_tokens": 289,
+    "cost_usd": 0.0013383,
+    "seconds": 1.655,
+    "finish_reason": "stop"
+  },
+  {
+    "ts": 1794799339.668,
+    "model": "deepseek-flash",
+    "provider": "deepseek",
+    "tag": "test_compaction/test_live_constraint_survives_compaction/aux",
+    "input_tokens": 3306,
+    "cached_tokens": 0,
+    "output_tokens": 299,
+    "cost_usd": 0.0013506,
+    "seconds": 1.812,
+    "finish_reason": "stop"
+  },
+  {
+    "ts": 1794799341.484,
+    "model": "deepseek-flash",
+    "provider": "deepseek",
+    "tag": "test_compaction/test_live_constraint_survives_compaction/aux",
+    "input_tokens": 3210,
+    "cached_tokens": 0,
+    "output_tokens": 247,
+    "cost_usd": 0.0012594000000000001,
+    "seconds": 1.658,
+    "finish_reason": "stop"
+  },
+  {
+    "ts": 1794799343.148,
+    "model": "deepseek-flash",
+    "provider": "deepseek",
+    "tag": "test_compaction/test_live_constraint_survives_compaction/aux",
+    "input_tokens": 3185,
+    "cached_tokens": 0,
+    "output_tokens": 246,
+    "cost_usd": 0.0012507,
+    "seconds": 1.899,
+    "finish_reason": "stop"
+  },
+  {
+    "ts": 1794799345.051,
+    "model": "deepseek-flash",
+    "provider": "deepseek",
+    "tag": "test_compaction/test_live_constraint_survives_compaction",
+    "input_tokens": 2924,
+    "cached_tokens": 0,
+    "output_tokens": 22,
+    "cost_usd": 0.0009036,
+    "seconds": 0.963,
+    "finish_reason": "stop"
+  }
+]
