@@ -201,7 +201,11 @@ def chat(args, home, config):
         raise ValueError('--allow-unisolated-terminal requires --terminal.')
     lm = LM(config.get('model'), tag='local/agent')
     aux = LM(config.get('model'), tag='local/aux')
-    settings = AgentConfig(mode='confirm', user=ConsoleUser(), memory_dir=home / 'memory',
+    resume_id = getattr(args, 'resume', None)
+    if resume_id and not re.fullmatch(r'[A-Za-z0-9-]+', resume_id):
+        raise ValueError('Invalid conversation ID.')
+    identifier = resume_id or (datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ') + '-' + uuid4().hex[:8])
+    settings = AgentConfig(checkpoint_path=home / 'checkpoints' / f'{identifier}.json', mode='confirm', user=ConsoleUser(), memory_dir=home / 'memory',
                            workspace=home / 'workspace', aux_lm=aux,
                            deny_rules=(r'\brm\b', r'\b(?:curl|wget|ssh|scp)\b'))
     specs = [t for t in build_cardinal_tools(lm, settings) if t.name not in ('remember', 'recall', 'ask_user')
@@ -210,10 +214,11 @@ def chat(args, home, config):
     for spec in specs:
         spec.description = spec.description.replace('2001 email archive', 'imported local email archive')
     session = adapters.run_agent_session(lm, specs, settings)
-    identifier = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ') + '-' + uuid4().hex[:8]
     path = home / 'conversations' / f'{identifier}.json'
     record = {'id': identifier, 'version': __version__, 'provider': config['provider'], 'model': lm.model,
               'mode': 'confirm', 'terminal_enabled': args.terminal, 'turns': []}
+    if resume_id and path.exists():
+        record = json.loads(path.read_text(encoding='utf-8'))
     print(f'Cardinal Agent {__version__} | {config["provider"]}/{lm.model} | confirm mode')
     print(f'Local profile: {home}. Selected content is sent to your model provider.')
     if config.get('demo_data'):
@@ -222,6 +227,20 @@ def chat(args, home, config):
         print('Type exit to leave. Use /status for usage. Tool approvals/questions appear as needed.')
     exit_code = 0
     try:
+        if resume_id:
+            try:
+                result = session.resume()
+                print(f'\nassistant> {result.text}')
+                record['turns'].append({'status': result.status, 'assistant': result.text, 'resumed': True})
+                if result.status != 'done':
+                    return 1
+            except Exception as exc:
+                print(f'Resume stopped ({type(exc).__name__}): {exc}', file=sys.stderr)
+                return 1
+            finally:
+                if session.transcript:
+                    record.update({'transcript': session.transcript, 'usage': {'agent': lm.usage(), 'aux': aux.usage()}})
+                    atomic_json(path, record)
         while True:
             try:
                 message = args.question if args.command == 'ask' else input('\nyou> ').strip()
@@ -291,6 +310,8 @@ def parser():
         c = commands.add_parser(name)
         if name == 'ask':
             c.add_argument('question')
+        else:
+            c.add_argument('--resume', metavar='ID', help='resume an interrupted checkpoint; uncertain tools require operator reconciliation')
         c.add_argument('--terminal', action='store_true', help='enable commands; every command requires approval')
         c.add_argument('--allow-unisolated-terminal', action='store_true', help='explicitly allow terminal without OS jail')
     hist = commands.add_parser('history', help='list saved conversations or inspect one')

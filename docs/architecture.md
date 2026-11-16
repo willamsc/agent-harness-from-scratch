@@ -1,5 +1,9 @@
 # Cardinal Agent 架构
 
+## 可嵌入的 Harness
+
+`cardinal_agent.harness.create_session` 接受模型 callable、显式 ToolSpec 列表和 AgentConfig，关闭默认业务工具补充。核心负责执行与状态，员工助手负责装配文档、邮件和终端能力。既有 adapters 默认入口保持兼容。
+
 ## 应用入口
 
 cardinal_agent.app.cli 提供初始化、导入、诊断、聊天、单次问答、会话查看和记忆管理。cardinal 命令与 python -m cardinal_agent 使用同一入口。状态存于独立 profile，不向源码目录写用户业务数据。
@@ -7,6 +11,12 @@ cardinal_agent.app.cli 提供初始化、导入、诊断、聊天、单次问答
 ## 执行与工具
 
 agent.session 管理双循环、预算、用户审批和事件日志。agent.protocol 解析文本调用；agent.registry 用 JSON Schema 验证参数。agent.cardinal_tools 连接文档/邮件流水线，agent.terminal 统一调用受限执行器。
+
+## 持久执行与追踪
+
+`agent.checkpoint` 原子写入运行状态，使用本地进程锁限制同一 checkpoint 并发发送/恢复。模型请求前预留预算，工具执行前持久化意图，结果反馈后保存上下文。`session.resume()` 恢复已中断轮次；结果不明工具要求人工核实，不自动重试。运行与工具调用有独立 ID，工具耗时和模型失败事件保存在 transcript。此实现不提供分布式锁或通用外部事务。
+
+`session.cancel()` 在执行边界协作停止，不能强行终止任意 Python 工具。设计、代码入口和故障验证见 [持久运行时](16-durable-runtime.md)。
 
 ## 知识与状态
 

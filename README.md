@@ -1,12 +1,46 @@
 # Cardinal Agent
 
-面向员工个人工作流的本地命令行助手：查询制度与项目资料、搜索邮件、生成日报、跨会话记忆，以及经批准运行统计命令。
+一个可嵌入 Python 应用的本地 Agent Harness，负责模型与工具之间的执行循环、参数校验、审批、上下文管理、持久记忆和故障恢复。员工个人助手是随项目提供的参考应用，支持文档与邮件检索。
 
-**Local-first orchestration, source-aware retrieval, persistent memory, and approved tools.** A single-user local assistant with explicit tool permissions and auditable execution. Runs locally; live model inference uses your configured external API provider.
+**Explicit tools, durable checkpoints, bounded execution, and inspectable traces.** 模型推理使用配置的外部 API；通用运行时也接受自定义模型 callable，不依赖邮件数据。
+
+## Harness 开发接口
+
+```python
+from pathlib import Path
+from cardinal_agent.harness import create_session
+from cardinal_agent.types import AgentConfig, ToolSpec
+
+# model 接收消息列表，返回包含文本工具协议的字符串。
+# 可使用 cardinal_agent.llm.LM，也可接入自己的适配器。
+from cardinal_agent.llm import LM
+
+lookup = ToolSpec(
+    name="lookup", description="Look up a local item",
+    parameters={"type": "object", "properties": {"key": {"type": "string"}},
+                "required": ["key"], "additionalProperties": False},
+    fn=lambda key: {"owner": "Morgan"}.get(key, "Unknown"),
+    read_only=True,
+)
+config = AgentConfig(checkpoint_path=Path(".cardinal/run.json"), mode="confirm")
+session = create_session(LM(), [lookup], config)
+print(session.send("Look up owner").text)
+# 若进程异常退出，使用相同模型、工具与配置构造 session 后：
+# result = session.resume()
+```
+
+`create_session()` 只加载显式传入的工具；已有应用入口保留员工助手默认工具。工具函数和模型对象由调用方重新构造，checkpoint 不序列化可执行对象或 API key。checkpoint 包含对话和工具输出，按敏感本地数据管理。
+
+- **断点恢复**：原子保存上下文、执行预算和工具结果；本地进程锁防止同一 checkpoint 并发写入。
+- **不确定结果暂停**：工具执行前先记录调用意图。执行中退出时，不自动重试；需人工核实后通过 `resume(ToolResult(...))` 提交结果。
+- **运行追踪**：运行 ID、工具调用 ID、事件顺序、时间戳及工具耗时，与原有对话、模型 token 和费用记录配合排查。
+- **协作取消**：Python 调用方可调用 `session.cancel()`，在下一执行边界停止；不能强制终止正在阻塞的模型请求或任意 Python 工具。
+
+恢复不提供任意外部系统的“恰好一次”保证。schema 相同也不能证明工具实现、文档数据或工作目录内容相同。使用相同代码和数据恢复；当前不是分布式任务调度器。详见 [恢复设计与故障验证](docs/16-durable-runtime.md)。
 
 ## 下载与运行
 
-GitHub Releases 提供 `code.zip`、Python wheel、`SHA256SUMS` 和记录源码 commit 的 manifest。当前为 `v0.1.1` 本地预览版本；以仓库实际 Release 页面为准，未发布前可直接从源码运行。
+GitHub Releases 提供 `code.zip`、Python wheel、`SHA256SUMS` 和记录源码 commit 的 manifest。已发布 `v0.1.1` 本地预览版。上述 Harness 恢复功能位于当前源码，尚未包含在 v0.1.1 附件中。
 
 需要 Python 3.11+。源代码安装：
 
@@ -63,6 +97,7 @@ cardinal --home ./work-assistant chat
 - **邮件处理**：搜索、原文读取、多跳问答、按 UTC 日期生成日报。
 - **个人记忆**：显式记忆及用户明确陈述的自动提取，按项目范围、时间和来源管理；`cardinal memory` 查看，`cardinal memory --forget ID` 删除单条。
 - **可追溯会话**：每轮保存完整日志，失败也保存；`cardinal history` 列表，`cardinal history --show ID` 查看。
+- **中断恢复**：`cardinal chat --resume ID` 继续尚未结束的 checkpoint；需使用原模型配置和终端启用选项。结果不明的工具会暂停，须通过 Python 接口核实处理。
 - **运行诊断**：`cardinal doctor` 不调用模型，检查资料、API 配置、模型、隔离能力和已记录费用。
 
 默认仅只读工具。需要运行命令时显式启用：
@@ -102,7 +137,8 @@ flowchart LR
     Registry --> Memory[Scoped JSON memory]
     Registry --> Terminal[Terminal sandbox / saved output]
     Loop --> Context[Bounded context + structured summaries]
-    Loop --> Trace[Conversation / cost ledger]
+    Loop --> Trace[Run and call IDs / cost ledger]
+    Loop --> Checkpoint[Atomic checkpoint / guarded resume]
 ```
 
 从零实现 Agent 调用循环及检索，不依赖 Agent 框架。使用统一模型接口和隔离命令执行器，业务工具与本地产品入口分离。模块与数据流见 [架构说明](docs/architecture.md)，历史设计与测试记录保存在 docs。
@@ -123,7 +159,7 @@ Release 的 code.zip 不含完整公共邮件档案；另行准备公开基准 `
 
 ## 当前成熟度
 
-适合受控的个人本地试用和技术展示。未达到多人企业生产服务要求：缺少 SSO/RBAC、企业连接器与增量同步、完整数据生命周期/审计、跨进程存储一致性和长期故障恢复。模型回答可能出错，命令可能有部分副作用；真实公司部署需要单独验收。
+适合受控的个人本地试用和技术展示。未达到多人企业生产服务要求：缺少 SSO/RBAC、企业连接器与增量同步、完整数据生命周期/审计、多 profile 并发一致性、分布式恢复和长期运行验证。模型回答可能出错，命令可能有部分副作用；真实公司部署需要单独验收。
 
 [可用性差距与路线](docs/product-readiness.md) · [本地使用](docs/local-usage.md) · [发布流程](docs/releasing.md) · [项目与面试材料](docs/project-case-study.md)
 

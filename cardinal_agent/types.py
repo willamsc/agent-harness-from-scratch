@@ -83,7 +83,7 @@ class ParsedResponse:
 #   "max_turns"     the model-call budget for this user message ran out
 #   "token_budget"  the token budget for this user message ran out
 #   "malformed"     too many consecutive malformed replies
-StopReason = Literal["done", "max_turns", "token_budget", "malformed"]
+StopReason = Literal["done", "max_turns", "token_budget", "malformed", "cancelled"]
 
 
 @dataclass
@@ -119,6 +119,10 @@ class Approval:
 class AgentConfig:
     """Settings the tests pass to run_agent_session. Your agent must honor
     every field that the problems you have implemented so far define."""
+
+    # Durable state is opt-in; explicit tool lists can disable app extensions.
+    checkpoint_path: Optional[Path] = None
+    app_extensions: bool = True
 
     # Feature (agent_loop)
     max_turns: int = 20  # model calls allowed per user message
