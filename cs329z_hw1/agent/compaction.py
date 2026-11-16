@@ -25,18 +25,24 @@ def compact(session):
     system = session.messages[0]
     current = session._current_request
     latest = session.messages[-1]
-    pinned = [system, current] + ([latest] if latest is not current else [])
+    turn_messages = getattr(session, '_turn_user_messages', [current])
+    pinned = [system] + list(turn_messages) + ([latest] if not any(latest is m for m in turn_messages) else [])
+    feedback = getattr(session, '_unseen_feedback', None)
+    if feedback is not None and not any(feedback is m for m in pinned):
+        pinned.append(feedback)
     if count_message_tokens(pinned) > budget:
         return False
 
     # Preserve user statements in their original chronological order. This
     # also protects corrections when a model summary omits or corrupts them.
-    users = [e['content'] for e in session.transcript if e['type'] == 'user'][:-1]
+    all_sources = [e['content'] for e in session.transcript if e['type'] in ('user', 'user_answer')]
+    turn_count = len(getattr(session, '_turn_sources', [current['content']]))
+    users = all_sources[:-turn_count]
     user_history = {'role': 'user', 'content': 'Earlier user statements, oldest first; later explicit corrections supersede earlier values:\n' + json.dumps(users, ensure_ascii=False)}
 
     # Cheap eviction only for outputs that have a real re-read path. Other
     # tool evidence is included in the summary request before being removed.
-    trimmed = [m for m in session.messages if m is system or m is current or m is latest
+    trimmed = [m for m in session.messages if any(m is t for t in pinned)
                or not (m['content'].startswith('Tool execution data,') and '_file' in m['content'])]
     if count_message_tokens(trimmed) <= int(budget * .75):
         removed = len(session.messages) - len(trimmed)
@@ -100,7 +106,7 @@ def compact(session):
     target = max(int(budget * .75), count_message_tokens(base))
     extras = []
     for message in reversed(session.messages[1:]):
-        if message is current or message is latest:
+        if any(message is t for t in pinned):
             continue
         if count_message_tokens(base + [message] + extras) <= target:
             extras.insert(0, message)
