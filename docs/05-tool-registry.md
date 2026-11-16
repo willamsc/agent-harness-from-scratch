@@ -1,8 +1,8 @@
-# Problem 5：工具注册表（tool_registry）
+# 实现笔记 5：工具注册表（tool_registry）
 
 ## 1. 要做什么
 
-本题是 Part 2 的第一步：把多个 Python 工具函数注册到统一的入口，向模型展示工具说明，独立验证调用，再执行并统一封装结果。不调用 LLM，也不在本题实现工具调用文本协议、Agent 循环或审批功能。
+本题是 Agent 运行时 的第一步：把多个 Python 工具函数注册到统一的入口，向模型展示工具说明，独立验证调用，再执行并统一封装结果。不调用 LLM，也不在本题实现工具调用文本协议、Agent 循环或审批功能。
 
 输入为课程 ToolSpec 列表。每个工具带 name、description、parameters（JSON Schema）、fn 和 read_only。返回对象必须提供 schemas、validate、execute，保持适配接口不变。
 
@@ -119,13 +119,13 @@ def run_tool_registry(tools: list[ToolSpec]):
 
 本题无需真实模型测试，也没有新增补充测试；课程自带测试已经覆盖注册顺序、Schema 输出、各类返回值、验证不执行、缺参数、错误类型、额外参数、未知工具、工具异常以及失败后恢复。
 
-本次执行本题测试并回归 Part 1 与 local_tests：
+本次执行本题测试并回归 业务流水线 与 local_tests：
 
 ```bash
 .venv/bin/python -m pytest tests/test_tool_registry.py tests/test_priority.py tests/test_daily_digest.py tests/test_bm25.py tests/test_email_qa.py local_tests -o addopts= -m 'not live' -q --junitxml=<本次记录目录>/junit.xml
 ```
 
-本题课程测试 **44 项通过**；合计 **149 项通过**，6 个 live 测试未执行，pytest 报告耗时 5.79 秒。模型调用 0 次，API 费用 0。
+本题基准测试 **44 项通过**；合计 **149 项通过**，6 个 live 测试未执行，pytest 报告耗时 5.79 秒。模型调用 0 次，API 费用 0。
 
 完整记录：[本次评测目录](evaluations/20261116-094526-tool-registry/)，包括 [原始输出](evaluations/20261116-094526-tool-registry/output.log)、metadata.json、metrics.json、junit.xml、实现差异及新增模块快照。metadata 的 base_commit 对应测试前已提交版本，当前实现由差异、快照和 SHA-256 标识，而不是假称已在该 base_commit 内。
 

@@ -1,4 +1,4 @@
-# Problem 11：上下文压缩（compaction）
+# 实现笔记 11：上下文压缩（compaction）
 
 ## 1. 题目与确认的边界
 

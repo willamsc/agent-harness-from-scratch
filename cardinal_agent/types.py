@@ -133,7 +133,7 @@ class AgentConfig:
     # Feature (guardrails)
     deny_rules: tuple[str, ...] = ()  # regexes over the run_terminal command
     # A second model for calls that are not the agent's own turns
-    # (summaries for compaction, the LLM calls inside your Part 1 tools).
+    # (summaries for compaction, the LLM calls inside the retrieval and email tools).
     # None means "use the agent's model".
     aux_lm: Any = None
     # Terminal workspace directory; None means the sandbox default.

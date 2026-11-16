@@ -100,7 +100,7 @@ flowchart LR
     Registry --> Docs[BM25 documents + source lines]
     Registry --> Email[Email workflows]
     Registry --> Memory[Scoped JSON memory]
-    Registry --> Terminal[Course sandbox / saved output]
+    Registry --> Terminal[Terminal sandbox / saved output]
     Loop --> Context[Bounded context + structured summaries]
     Loop --> Trace[Conversation / cost ledger]
 ```

@@ -1,8 +1,8 @@
-# Problem 8：组装 Cardinal 工具集（cardinal）
+# 实现笔记 8：组装 Cardinal 工具集（cardinal）
 
 ## 1. 题目与前面各题的关系
 
-Part 1 实现业务函数，第五题提供注册/验证/执行，第六题提供调用协议，第七题提供循环。本题把业务函数和默认工具定义连接，让 run_agent_session(lm, None, config) 创建可使用业务工具的 Agent，而不是重写流水线或注册表。
+业务流水线 实现业务函数，第五题提供注册/验证/执行，第六题提供调用协议，第七题提供循环。本题把业务函数和默认工具定义连接，让 run_agent_session(lm, None, config) 创建可使用业务工具的 Agent，而不是重写流水线或注册表。
 
 工具的名字、参数 Schema、read_only 由课程 cardinal.py 固定，通过 cardinal_spec(name, description, fn) 绑定说明和真实函数。Schema 是使用说明，fn 才是实际能力。
 
@@ -153,7 +153,7 @@ tools = build_cardinal_tools(lm, config) if tools is None else supplement_tools(
 - 工作流收到的是 aux_lm，并获取完整邮件，而非摘要片段。
 - 显式列表已有 ask_user 时保留原实现、不重复注册，仅补配置要求的记忆占位。
 
-这些是脚本断言的初始化次数，不是生产环境提速倍数。没有串行/无缓存性能对照，不能声称延迟降低多少。课程测试只检查组装契约；尚未完成工具不能算作已有业务能力。
+这些是脚本断言的初始化次数，不是生产环境提速倍数。没有串行/无缓存性能对照，不能声称延迟降低多少。基准测试只检查组装契约；尚未完成工具不能算作已有业务能力。
 
 ## 8. 手写参考与限制
 

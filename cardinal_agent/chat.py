@@ -3,15 +3,14 @@
     uv run python -m cardinal_agent.chat [--mode confirm|auto] [--memory-dir DIR] [--out DIR]
 
 This builds one session with ``cardinal_agent.adapters.run_agent_session(LM(), None,
-config)``, so it runs your full Cardinal toolset on the grading model.
+config)``, so it runs your full Cardinal toolset on the configured agent model.
 You are the user: in confirm mode you are asked to approve
 tool calls, and ``ask_user`` questions are put to you. Type ``exit`` or
 press Ctrl-D to leave.
 
 Every conversation is saved when it ends, as ``runs/chat-<timestamp>.json``
 (or under --out): the full transcript of events, plus what you typed and what
-the agent replied, and the model usage. Feature (field_notes) asks you to
-submit these files.
+the agent replied, and model usage, for debugging and evaluation.
 """
 
 from __future__ import annotations

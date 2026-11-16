@@ -17,7 +17,7 @@ build_release 从 Git commit 导出白名单文件，不从任意工作目录收
 
 不包含 `.env`、本地 profile、缓存、运行日志目录、凭据、解压邮件或完整公共邮件压缩档案。docs/evaluations 中已经纳入版本控制的公开评测记录包含在源码 ZIP，不能混入真实企业数据。发布前仍需人工检查提交内容，构建脚本不能识别任意文本中的所有秘密。
 
-wheel 包含应用代码和虚构 demo，独立于仓库 data/；code.zip 也包含开发测试和文档。复现全邮件评估需另取课程公开档案并按 data/source.json 校验，不能误认为 source ZIP 自带完整 benchmark 数据。
+wheel 包含应用代码和虚构 demo，独立于仓库 data/；code.zip 也包含开发测试和文档。复现全邮件评估需另取公开基准档案并按 data/source.json 校验，不能误认为 source ZIP 自带完整 benchmark 数据。
 
 ## GitHub Release
 
@@ -37,3 +37,17 @@ main 保留给个人手写版本，不需要合并或修改。默认分支即使
 Actions 使用仓库自动提供的 GITHUB_TOKEN，不把个人 token 写进代码。Release 附件为 code.zip、wheel、SHA256SUMS、release-manifest.json。当前会话若没有 GitHub 凭据，只能生成本地产物，不能声称已经发布；需要用户在有认证的终端推送或通过 GitHub 页面手动创建 Release 并上传这些文件。
 
 GitHub 页面提供的自动 Source code ZIP 不等同于这里的 code.zip，后者有明确文件清单和构建验证。ZIP 本身不是可信度证明，源码可读、来源真实、测试可复查和安装可复现才是依据。
+
+## 仓库 About 描述
+
+建议描述：
+
+> Local-first employee assistant with source-aware document and email search, persistent memory, approval-based tool execution, and reproducible evaluations.
+
+About 属于 GitHub 仓库设置，不随 README 提交更新。在已安装并登录 GitHub CLI 的终端执行：
+
+```bash
+gh repo edit willamsc/agent-harness-from-scratch --description "Local-first employee assistant with source-aware document and email search, persistent memory, approval-based tool execution, and reproducible evaluations."
+```
+
+已验证 v0.1.1 Release 发布成功，附带 code.zip、wheel、SHA256SUMS 与 release-manifest.json。后续源码提交不会改变已有版本附件；发布更新需增加版本并创建新 tag。

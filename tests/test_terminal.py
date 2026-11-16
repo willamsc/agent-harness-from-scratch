@@ -3,7 +3,7 @@
 The deterministic tests build your full agent (``tools=None``) with a
 scripted model and an empty temporary directory as ``AgentConfig.workspace``.
 The scripted model calls ``run_terminal`` with real commands, which run in
-the course sandbox. The tests then read the transcript and the messages of
+the terminal sandbox. The tests then read the transcript and the messages of
 the next model call. They do not check how you lay out a command's result,
 only that the output, the error output and the exit code are in it.
 

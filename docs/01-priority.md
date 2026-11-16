@@ -1,4 +1,4 @@
-# Problem 1：邮件优先级分类（priority）
+# 实现笔记 1：邮件优先级分类（priority）
 
 本文记录我们讨论并确认的方案及当前实现，供之后手写参考。实现位于 [adapters.py](../cardinal_agent/adapters.py)，补充测试位于 [test_priority_parser.py](../local_tests/test_priority_parser.py)。
 

@@ -1,4 +1,4 @@
-# Problem 10：终端工具（terminal）
+# 实现笔记 10：终端工具（terminal）
 
 ## 1. 用途和确认方案
 
@@ -107,7 +107,7 @@ def terminal_spec(config):
         return shown
 
     return cardinal_spec('run_terminal',
-        "Run one Bash command through the course sandbox, normally with a 10-second timeout. "
+        "Run one Bash command through the terminal sandbox, normally with a 10-second timeout. "
         "Workspace contains emails.jsonl (one email JSON per line) and docs/. Use relative paths. "
         "For exact counts/aggregations use Python standard library: python3 -c 'import json; ...'. "
         "No project packages; no heredocs, command substitution, or network programs such as curl. "
@@ -124,7 +124,7 @@ def terminal_spec(config):
 
 ## 8. 测试与实验记录
 
-离线最终 **315 项通过**，9 项 live 未执行，pytest 耗时 6.91 秒；其中本题课程测试 9 项，包括 stdout、文件读写、stderr/退出码、拒绝后恢复、超时后恢复，以及 16000/6000 上下文预算下两次 60 万字符输出。
+离线最终 **315 项通过**，9 项 live 未执行，pytest 耗时 6.91 秒；其中本题基准测试 9 项，包括 stdout、文件读写、stderr/退出码、拒绝后恢复、超时后恢复，以及 16000/6000 上下文预算下两次 60 万字符输出。
 
 两项补充测试验证：大输出文件确实保存、可 grep 重读第 6000 行；config 的 workspace/timeout 精确传给 sandbox，失败保留两路输出且只执行一次。
 

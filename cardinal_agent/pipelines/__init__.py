@@ -1,1 +1,1 @@
-"""Your Part 1 pipelines go in this package."""
+"""Email classification, digest, retrieval, and question-answering pipelines."""

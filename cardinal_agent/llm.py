@@ -3,7 +3,7 @@
 This module gives you exactly one primitive: a chat-completion call that takes
 a list of messages and returns a string.
 
-    lm = LM()                                  # the grading model
+    lm = LM()                                  # the configured agent model
     text = lm([{"role": "system", "content": "..."},
                {"role": "user", "content": "..."}])
 
@@ -47,7 +47,7 @@ Message = dict  # {"role": "system" | "user" | "assistant", "content": str}
 # Model used for each role. Override any of these with the environment
 # variable CARDINAL_<ROLE>_MODEL, e.g. CARDINAL_GRADING_MODEL.
 DEFAULT_MODELS = {
-    "grading": "openai/gpt-6-luna",  # the model your agent is graded with
+    "grading": "openai/gpt-6-luna",  # default agent model; role name retained for API compatibility
     "user": "openai/gpt-6-luna",  # plays the simulated users
     "judge": "openai/gpt-6-sol",  # scores evaluation transcripts
 }
@@ -392,7 +392,7 @@ class LM:
                 api_key=key,
                 max_retries=6,
                 timeout=120,
-                default_headers={"X-Title": "CS329Z HW1"},
+                default_headers={"X-Title": "Cardinal Agent"},
             )
         kwargs: dict = {
             "model": self.model,

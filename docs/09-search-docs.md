@@ -1,4 +1,4 @@
-# Problem 9：公司文档检索（search_docs）
+# 实现笔记 9：公司文档检索（search_docs）
 
 ## 1. 任务与我们确认的方案
 

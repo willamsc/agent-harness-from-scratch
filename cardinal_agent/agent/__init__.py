@@ -1,1 +1,1 @@
-"""Your Part 2 agent goes in this package."""
+"""Agent execution, memory, context management, and tool orchestration."""

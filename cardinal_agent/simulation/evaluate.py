@@ -85,7 +85,7 @@ def required_successes(n: int, full_credit: int = FULL_CREDIT, eval_size: int = 
 
 
 def points(successes: int, n: int = EVAL_SIZE) -> int:
-    """The handout's rule for (sim_eval): full credit (10 points) at 16 or
+    """The simulation scoring rule: full credit (10 points) at 16 or
     more successes out of 20, one point less for each conversation below
     16, never below zero. For ``n`` other than 20 the full-credit line is
     ``required_successes(n)``."""
@@ -125,7 +125,7 @@ def format_table(records: Sequence[ConversationRecord], verbose: bool = False) -
         "changes its model calls, so the conversation runs again and is charged."
     )
     if n == EVAL_SIZE:
-        lines.append(f"Points under the handout's rule: {points(successes)} of {MAX_POINTS}.")
+        lines.append(f"Simulation score: {points(successes)} of {MAX_POINTS}.")
     return "\n".join(lines)
 
 

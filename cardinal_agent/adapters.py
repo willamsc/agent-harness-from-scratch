@@ -24,7 +24,7 @@ from cardinal_agent.types import (
 )
 
 # ======================================================================
-# Part 1: LLM pipelines
+# Email and retrieval pipelines
 # ======================================================================
 
 PRIORITY_SYSTEM_PROMPT = """Classify one email from its recipient's point of
@@ -162,7 +162,7 @@ def run_bm25_search(index: Any, query: str, k: int) -> list[tuple[int, float]]:
     document's position in the ``docs`` list given to ``run_bm25_build``).
 
     Rules the tests check:
-    * Scores follow the handout's formula (k1 = 1.5, b = 0.75, Lucene IDF)
+    * Scores follow the BM25 scoring formula (k1 = 1.5, b = 0.75, Lucene IDF)
       to within 1e-6. The query is tokenized like the documents, and a term
       repeated in the query counts once.
     * A document that shares no term with the query is never returned, so
@@ -204,7 +204,7 @@ def run_email_qa(
 
 
 # ======================================================================
-# Part 2: the Cardinal Agent
+# Agent orchestration
 # ======================================================================
 
 

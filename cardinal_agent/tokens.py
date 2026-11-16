@@ -1,6 +1,6 @@
 """Shared token counter.
 
-Every budget in this assignment (the loop's token budget, the agent's context
+Every token budget in this application (the loop's token budget, the agent's context
 budget, the search tools' result budget) is measured with these two
 functions. They are a deterministic approximation (4 characters per token),
 not the provider's tokenizer, so that the deterministic tests never need the

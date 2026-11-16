@@ -40,7 +40,7 @@ def sha256_of(path: Path) -> str:
 
 def fetch(url: str, dest: Path) -> None:
     print(f"Downloading {url}")
-    request = urllib.request.Request(url, headers={"User-Agent": "cs329z-hw1"})
+    request = urllib.request.Request(url, headers={"User-Agent": "cardinal-agent"})
     with urllib.request.urlopen(request, timeout=60) as response, open(dest, "wb") as out:
         total = int(response.headers.get("Content-Length") or 0)
         done = 0
@@ -109,7 +109,7 @@ def main() -> None:
         if not url:
             sys.exit(
                 "data/source.json has no download URL yet.\n"
-                "Get emails.jsonl.gz from the course staff and run:\n"
+                "Get emails.jsonl.gz from the dataset maintainer and run:\n"
                 "  uv run python data/download.py --from-file PATH/TO/emails.jsonl.gz"
             )
         with tempfile.TemporaryDirectory() as tmpdir:

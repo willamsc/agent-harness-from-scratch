@@ -1,4 +1,4 @@
-"""See what your Part 1 pipelines produce on real data (shared).
+"""Inspect email and retrieval pipelines on the configured dataset.
 
     uv run python -m cardinal_agent.show priority em-12167 [em-...]   # label one or more emails
     uv run python -m cardinal_agent.show digest 2001-06-22 [--labels] [--limit N]  # the digest for one day
@@ -7,7 +7,7 @@
     uv run python -m cardinal_agent.show search_docs "parental leave" [--k 5]
     uv run python -m cardinal_agent.show memory [DIR]   # a memory store (e.g. .lm_cache/chat_memory), or every persona's after an evaluation
 
-Each command calls your adapters the way the tests do, on the grading model,
+Each command calls your adapters the way the tests do, on the configured agent model,
 and prints the result with the cost and time of the calls. Repeating a
 command with unchanged code is free, because the LM caches every reply.
 
@@ -210,7 +210,7 @@ def show_memory(args) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run one of your Part 1 pipelines and print what it produces.")
+    parser = argparse.ArgumentParser(description="Run an email or retrieval pipeline and print its result.")
     sub = parser.add_subparsers(dest="command", required=True)
     p = sub.add_parser("priority", help="label one or more emails by id")
     p.add_argument("ids", nargs="+")

@@ -1,4 +1,4 @@
-"""Boundary statistics and concurrent reuse beyond the course score checks."""
+"""Boundary statistics and concurrent reuse beyond the benchmark score checks."""
 from concurrent.futures import ThreadPoolExecutor
 import math
 

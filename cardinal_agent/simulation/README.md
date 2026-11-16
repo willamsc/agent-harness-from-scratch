@@ -135,7 +135,7 @@ if it states a specific fact and no tool call on that topic is in the list,
 or if it contradicts a result the judge can see. A fact the user stated, in
 this session or an earlier one, is not fabrication.
 
-`evaluate.py:points` computes the handout's rule: 16 or more successes out
+`evaluate.py:points` computes the simulation scoring rule: 16 or more successes out
 of 20 is 10 points, and each conversation below 16 costs one point. With a
 slice of N personas the live test requires `16 * N // 20` successes.
 
