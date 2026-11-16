@@ -1,0 +1,52 @@
+{
+  "started_at": "2026-11-16T11:06:38.809518+08:00",
+  "ended_at": "2026-11-16T11:07:29.585269+08:00",
+  "timezone": "Asia/Shanghai",
+  "base_commit": "65d1b17e67f40d28bfd168a1bea7111846ec3c41",
+  "working_tree_dirty": true,
+  "command": [
+    "python",
+    "/tmp/record_protocol_live.py"
+  ],
+  "pytest_arguments": [
+    "tests/test_terminal.py",
+    "-o",
+    "addopts=",
+    "-m",
+    "live",
+    "-s",
+    "-q",
+    "--junitxml=docs/evaluations/20261116-110600-terminal/live/junit.xml"
+  ],
+  "wall_seconds": 50.737789409999095,
+  "exit_code": 0,
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "model_settings": [
+    {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "cache": true,
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 41,
+        "cached_calls": 0,
+        "input_tokens": 84428,
+        "output_tokens": 4061,
+        "cost_usd": 0.008751359999999998,
+        "seconds": 47.414544343948364
+      }
+    }
+  ],
+  "environment_note": "Implementation snapshot in this directory; final offline environment in docs/evaluations/20261116-110639-terminal. Proxies unset only for test process. Sandbox captured output files reside in runtime workspace, not guaranteed retained after exit.",
+  "baseline": null,
+  "implementation_sha256": {
+    "cs329z_hw1/agent/terminal.py": "b1b599b60440b25056f492175cdf902d9ed01d032bb1a2c1f16cef9deeda5444",
+    "cs329z_hw1/agent/session.py": "6515a27e704ee095fac2e86f9f4d1d3de214736c7e53342c2435dacbbcad4221",
+    "cs329z_hw1/agent/cardinal_tools.py": "c344700ee53711713bbf3fefdba2f47254948d5164e86120956d40efff27354d"
+  },
+  "fixture_sha256": "67c82b359b3b79aced1ac002a755fceffce9de4f1c2b44c5abd6cb6a97b8071b"
+}

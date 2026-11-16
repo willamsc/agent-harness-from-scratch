@@ -1,0 +1,310 @@
+{
+  "correct": 10,
+  "total": 10,
+  "rows": [
+    {
+      "id": "t01",
+      "correct": true,
+      "status": "done",
+      "max_model_input_tokens": 2062,
+      "observations": [
+        {
+          "status": "ok",
+          "original_stream_chars": 6,
+          "shown_json_chars": 186,
+          "shown_tokens": 47,
+          "preview": false,
+          "stdout_file": null,
+          "elapsed_seconds": 0.377,
+          "exit_code": 0,
+          "timed_out": false,
+          "rejected": false,
+          "size_note": "JSON includes metadata; original_stream_chars excludes metadata. Observations cumulative for follow-up in same session."
+        }
+      ]
+    },
+    {
+      "id": "t02",
+      "correct": true,
+      "status": "done",
+      "max_model_input_tokens": 1933,
+      "observations": [
+        {
+          "status": "ok",
+          "original_stream_chars": 174,
+          "shown_json_chars": 359,
+          "shown_tokens": 90,
+          "preview": false,
+          "stdout_file": null,
+          "elapsed_seconds": 0.266568,
+          "exit_code": 0,
+          "timed_out": false,
+          "rejected": false,
+          "size_note": "JSON includes metadata; original_stream_chars excludes metadata. Observations cumulative for follow-up in same session."
+        }
+      ]
+    },
+    {
+      "id": "t03",
+      "correct": true,
+      "status": "done",
+      "max_model_input_tokens": 2014,
+      "observations": [
+        {
+          "status": "ok",
+          "original_stream_chars": 4,
+          "shown_json_chars": 186,
+          "shown_tokens": 47,
+          "preview": false,
+          "stdout_file": null,
+          "elapsed_seconds": 0.21569,
+          "exit_code": 0,
+          "timed_out": false,
+          "rejected": false,
+          "size_note": "JSON includes metadata; original_stream_chars excludes metadata. Observations cumulative for follow-up in same session."
+        }
+      ]
+    },
+    {
+      "id": "t04",
+      "correct": true,
+      "status": "done",
+      "max_model_input_tokens": 2018,
+      "observations": [
+        {
+          "status": "ok",
+          "original_stream_chars": 2,
+          "shown_json_chars": 185,
+          "shown_tokens": 47,
+          "preview": false,
+          "stdout_file": null,
+          "elapsed_seconds": 0.265578,
+          "exit_code": 0,
+          "timed_out": false,
+          "rejected": false,
+          "size_note": "JSON includes metadata; original_stream_chars excludes metadata. Observations cumulative for follow-up in same session."
+        }
+      ]
+    },
+    {
+      "id": "t05",
+      "correct": true,
+      "status": "done",
+      "max_model_input_tokens": 1916,
+      "observations": [
+        {
+          "status": "ok",
+          "original_stream_chars": 10,
+          "shown_json_chars": 194,
+          "shown_tokens": 49,
+          "preview": false,
+          "stdout_file": null,
+          "elapsed_seconds": 0.368644,
+          "exit_code": 0,
+          "timed_out": false,
+          "rejected": false,
+          "size_note": "JSON includes metadata; original_stream_chars excludes metadata. Observations cumulative for follow-up in same session."
+        }
+      ]
+    },
+    {
+      "id": "t06",
+      "correct": true,
+      "status": "done",
+      "max_model_input_tokens": 1920,
+      "observations": [
+        {
+          "status": "ok",
+          "original_stream_chars": 108,
+          "shown_json_chars": 293,
+          "shown_tokens": 74,
+          "preview": false,
+          "stdout_file": null,
+          "elapsed_seconds": 0.265665,
+          "exit_code": 0,
+          "timed_out": false,
+          "rejected": false,
+          "size_note": "JSON includes metadata; original_stream_chars excludes metadata. Observations cumulative for follow-up in same session."
+        }
+      ]
+    },
+    {
+      "id": "t07",
+      "correct": true,
+      "status": "done",
+      "max_model_input_tokens": 2341,
+      "observations": [
+        {
+          "status": "ok",
+          "original_stream_chars": 597,
+          "shown_json_chars": 803,
+          "shown_tokens": 201,
+          "preview": false,
+          "stdout_file": null,
+          "elapsed_seconds": 0.215222,
+          "exit_code": 0,
+          "timed_out": false,
+          "rejected": false,
+          "size_note": "JSON includes metadata; original_stream_chars excludes metadata. Observations cumulative for follow-up in same session."
+        }
+      ]
+    },
+    {
+      "id": "t08",
+      "correct": true,
+      "status": "done",
+      "max_model_input_tokens": 2052,
+      "observations": [
+        {
+          "status": "ok",
+          "original_stream_chars": 11,
+          "shown_json_chars": 195,
+          "shown_tokens": 49,
+          "preview": false,
+          "stdout_file": null,
+          "elapsed_seconds": 0.215716,
+          "exit_code": 0,
+          "timed_out": false,
+          "rejected": false,
+          "size_note": "JSON includes metadata; original_stream_chars excludes metadata. Observations cumulative for follow-up in same session."
+        }
+      ]
+    },
+    {
+      "id": "t09",
+      "correct": true,
+      "status": "done",
+      "max_model_input_tokens": 3654,
+      "observations": [
+        {
+          "status": "ok",
+          "original_stream_chars": 600,
+          "shown_json_chars": 845,
+          "shown_tokens": 212,
+          "preview": false,
+          "stdout_file": null,
+          "elapsed_seconds": 0.002282,
+          "exit_code": 0,
+          "timed_out": false,
+          "rejected": false,
+          "size_note": "JSON includes metadata; original_stream_chars excludes metadata. Observations cumulative for follow-up in same session."
+        },
+        {
+          "status": "ok",
+          "original_stream_chars": 217829,
+          "shown_json_chars": 2610,
+          "shown_tokens": 653,
+          "preview": true,
+          "stdout_file": "terminal_outputs/2b08022da07b4e17b08e1db4e8333e7f.stdout.txt",
+          "elapsed_seconds": 0.317892,
+          "exit_code": 0,
+          "timed_out": false,
+          "rejected": false,
+          "size_note": "JSON includes metadata; original_stream_chars excludes metadata. Observations cumulative for follow-up in same session."
+        },
+        {
+          "status": "ok",
+          "original_stream_chars": 18,
+          "shown_json_chars": 202,
+          "shown_tokens": 51,
+          "preview": false,
+          "stdout_file": null,
+          "elapsed_seconds": 0.216592,
+          "exit_code": 0,
+          "timed_out": false,
+          "rejected": false,
+          "size_note": "JSON includes metadata; original_stream_chars excludes metadata. Observations cumulative for follow-up in same session."
+        },
+        {
+          "status": "ok",
+          "original_stream_chars": 266,
+          "shown_json_chars": 461,
+          "shown_tokens": 116,
+          "preview": false,
+          "stdout_file": null,
+          "elapsed_seconds": 0.018998,
+          "exit_code": 0,
+          "timed_out": false,
+          "rejected": false,
+          "size_note": "JSON includes metadata; original_stream_chars excludes metadata. Observations cumulative for follow-up in same session."
+        }
+      ]
+    },
+    {
+      "id": "t09-followup",
+      "correct": true,
+      "status": "done",
+      "max_model_input_tokens": 4059,
+      "observations": [
+        {
+          "status": "ok",
+          "original_stream_chars": 600,
+          "shown_json_chars": 845,
+          "shown_tokens": 212,
+          "preview": false,
+          "stdout_file": null,
+          "elapsed_seconds": 0.002282,
+          "exit_code": 0,
+          "timed_out": false,
+          "rejected": false,
+          "size_note": "JSON includes metadata; original_stream_chars excludes metadata. Observations cumulative for follow-up in same session."
+        },
+        {
+          "status": "ok",
+          "original_stream_chars": 217829,
+          "shown_json_chars": 2610,
+          "shown_tokens": 653,
+          "preview": true,
+          "stdout_file": "terminal_outputs/2b08022da07b4e17b08e1db4e8333e7f.stdout.txt",
+          "elapsed_seconds": 0.317892,
+          "exit_code": 0,
+          "timed_out": false,
+          "rejected": false,
+          "size_note": "JSON includes metadata; original_stream_chars excludes metadata. Observations cumulative for follow-up in same session."
+        },
+        {
+          "status": "ok",
+          "original_stream_chars": 18,
+          "shown_json_chars": 202,
+          "shown_tokens": 51,
+          "preview": false,
+          "stdout_file": null,
+          "elapsed_seconds": 0.216592,
+          "exit_code": 0,
+          "timed_out": false,
+          "rejected": false,
+          "size_note": "JSON includes metadata; original_stream_chars excludes metadata. Observations cumulative for follow-up in same session."
+        },
+        {
+          "status": "ok",
+          "original_stream_chars": 266,
+          "shown_json_chars": 461,
+          "shown_tokens": 116,
+          "preview": false,
+          "stdout_file": null,
+          "elapsed_seconds": 0.018998,
+          "exit_code": 0,
+          "timed_out": false,
+          "rejected": false,
+          "size_note": "JSON includes metadata; original_stream_chars excludes metadata. Observations cumulative for follow-up in same session."
+        },
+        {
+          "status": "ok",
+          "original_stream_chars": 71,
+          "shown_json_chars": 255,
+          "shown_tokens": 64,
+          "preview": false,
+          "stdout_file": null,
+          "elapsed_seconds": 0.010734,
+          "exit_code": 0,
+          "timed_out": false,
+          "rejected": false,
+          "size_note": "JSON includes metadata; original_stream_chars excludes metadata. Observations cumulative for follow-up in same session."
+        }
+      ]
+    }
+  ],
+  "baseline": null,
+  "speedup": null,
+  "note": "Public exact-answer test, no comparative latency benchmark. Follow-up contains cumulative transcript."
+}

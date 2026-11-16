@@ -54,9 +54,29 @@ class AgentSession:
     def _finish(self, text: str, status: str) -> AgentResult:
         return AgentResult(text, status, deepcopy(self.transcript))
 
+    def _fit_context(self):
+        """Evict old tool observations from context only, never the event log.
+
+        This is the minimum large-output policy; durable conversation
+        summarization is designed separately in Problem 11.
+        """
+        removed = 0
+        while count_message_tokens(self.messages) > self.config.context_budget:
+            index = next((i for i, message in enumerate(self.messages[:-1])
+                          if message['role'] == 'user' and message['content'].startswith('Tool execution data,')
+                          and message is not self._current_request), None)
+            if index is None:
+                break
+            self.messages.pop(index)
+            removed += 1
+        if removed:
+            self.transcript.append({'type': 'context_eviction', 'old_tool_messages_removed': removed})
+        return count_message_tokens(self.messages) <= self.config.context_budget
+
     def send(self, user_message: str) -> AgentResult:
         self.transcript.append({"type": "user", "content": user_message})
-        self.messages.append({"role": "user", "content": user_message})
+        self._current_request = {"role": "user", "content": user_message}
+        self.messages.append(self._current_request)
         turns = spent = malformed = corrections = 0
         started = time.perf_counter()
         while True:
@@ -65,6 +85,8 @@ class AgentSession:
             if spent >= self.config.token_budget:
                 return self._finish("The token budget was reached; the task is unfinished.", "token_budget")
 
+            if not self._fit_context():
+                return self._finish("The context budget cannot fit this request and latest result; the task is unfinished.", "token_budget")
             messages = deepcopy(self.messages)
             input_tokens = count_message_tokens(messages)
             turns += 1

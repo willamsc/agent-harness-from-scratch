@@ -1,0 +1,14 @@
+
+terminal live: 10 of 10 correct (need 8), model deepseek-flash
+  ok   t01 (1 commands so far, status done): How many emails in the archive have a `date` in June 2001? Dates are UTC; use the first seven characters of the `date` field.
+  ok   t02 (1 commands so far, status done): Which address appears most often in the `from` field of emails dated in August 2001 (UTC dates)? Give the full address.
+  ok   t03 (1 commands so far, status done): How many emails dated in August 2001 (UTC dates) have `from` equal to d..steffes@enron.com?
+  ok   t04 (1 commands so far, status done): How many emails in the archive mention Thistledown? Count an email if the word appears in its subject or body, ignoring case.
+  ok   t05 (1 commands so far, status done): How many emails in the archive have an empty `subject` (the empty string)?
+  ok   t06 (1 commands so far, status done): On which calendar day (UTC, from the `date` field) were the most emails sent? Answer with the date.
+  ok   t07 (1 commands so far, status done): How many distinct addresses appear in the `from` field across the whole archive?
+  ok   t08 (1 commands so far, status done): How many emails in the archive have a `reply_to` that is not null?
+  ok   t09 (4 commands so far, status done): Use the terminal to print the subject of every email dated in July 2001 (UTC dates), one subject per line, in archive order. Print an empty line for an email whose subject is empty. Then tell me how many lines that is.
+  ok   t09-followup (5 commands so far, status done): In the list you just printed, what is the subject on line 6201 (counting the first line as line 1, and counting empty lines)?
+.
+1 passed, 9 deselected in 50.54s
