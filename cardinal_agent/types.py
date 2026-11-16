@@ -53,6 +53,11 @@ class ToolSpec:
     parameters: dict  # JSON Schema object describing the arguments
     fn: Callable[..., Any]  # called as fn(**args); its return value is str()-ed
     read_only: bool = False
+    # These paired hooks receive an opaque runtime-generated operation ID.
+    # Implementations must enforce deduplication in the external system.
+    execute_with_id: Optional[Callable[[dict, str], Any]] = None
+    lookup_result: Optional[Callable[[dict, str], Optional["ToolResult"]]] = None
+    revision: str = "1"  # change when implementation/recovery semantics change
 
 
 @dataclass

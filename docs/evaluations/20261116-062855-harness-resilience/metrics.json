@@ -1,0 +1,11 @@
+{
+  "tests": 424,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "case_seconds_sum": 11.33,
+  "sigkill_cases": 6,
+  "native_adapter_cases": 24,
+  "deselected": 13,
+  "passed": 424
+}

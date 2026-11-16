@@ -1,0 +1,12 @@
+{
+  "fault_boundary": "waiting_approval",
+  "termination": "SIGKILL",
+  "exit_code": -9,
+  "expected_effects": 0,
+  "actual_effects": 0,
+  "attempts_before": 1,
+  "attempts_after": 2,
+  "operator_reconciliation": true,
+  "final_status": "completed",
+  "tool_result_count": 1
+}

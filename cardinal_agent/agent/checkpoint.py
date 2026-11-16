@@ -29,6 +29,20 @@ class CheckpointStore:
             finally:
                 fcntl.flock(handle, fcntl.LOCK_UN)
 
+    def is_active(self):
+        """Probe the OS lock, not a stale PID or the existence of a lock file."""
+        import fcntl
+        path = self.path.with_suffix(self.path.suffix + '.lock')
+        if not path.exists():
+            return False
+        with path.open('r') as handle:
+            try:
+                fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except BlockingIOError:
+                return True
+            fcntl.flock(handle, fcntl.LOCK_UN)
+            return False
+
     def read(self):
         return json.loads(self.path.read_text(encoding='utf-8'))
 

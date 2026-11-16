@@ -314,6 +314,12 @@ def parser():
             c.add_argument('--resume', metavar='ID', help='resume an interrupted checkpoint; uncertain tools require operator reconciliation')
         c.add_argument('--terminal', action='store_true', help='enable commands; every command requires approval')
         c.add_argument('--allow-unisolated-terminal', action='store_true', help='explicitly allow terminal without OS jail')
+    runs = commands.add_parser('runs', help='inspect durable run states without calling a model')
+    actions = runs.add_subparsers(dest='run_action', required=True)
+    actions.add_parser('list', help='list run summaries')
+    show = actions.add_parser('show', help='show one run and optionally its event trace')
+    show.add_argument('id')
+    show.add_argument('--trace', action='store_true', help='include potentially sensitive conversation/tool events')
     hist = commands.add_parser('history', help='list saved conversations or inspect one')
     hist.add_argument('--show', metavar='ID')
     mem = commands.add_parser('memory', help='inspect or delete a local memory record')
@@ -352,6 +358,15 @@ def _main(argv=None):
             print(json.dumps(DocumentIndex(data.load_docs()).search(args.query), ensure_ascii=False, indent=2))
         elif args.command in ('chat', 'ask'):
             return chat(args, home, config)
+        elif args.command == 'runs':
+            from cardinal_agent.agent.runs import inspect_run, list_runs
+            if args.run_action == 'list':
+                result = list_runs(home / 'checkpoints')
+            else:
+                if not re.fullmatch(r'[A-Za-z0-9-]+', args.id):
+                    raise ValueError('Invalid run ID.')
+                result = inspect_run(home / 'checkpoints' / f'{args.id}.json', include_trace=args.trace)
+            print(json.dumps(result, ensure_ascii=False, indent=2))
         elif args.command == 'history':
             if args.show:
                 if not re.fullmatch(r'[A-Za-z0-9-]+', args.show):

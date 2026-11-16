@@ -11,6 +11,11 @@ class ToolRegistry:
     """Keep tool lookup separate from executing a validated call."""
 
     def __init__(self, tools: list[ToolSpec]):
+        if len({tool.name for tool in tools}) != len(tools):
+            raise ValueError('Duplicate tool names are not allowed.')
+        for tool in tools:
+            if (tool.execute_with_id is None) != (tool.lookup_result is None):
+                raise ValueError(f'{tool.name}: execute_with_id and lookup_result must be supplied together.')
         self.tools = {tool.name: tool for tool in tools}
         self._validators = {
             name: Draft202012Validator(deepcopy(tool.parameters))
@@ -34,12 +39,16 @@ class ToolRegistry:
             return ToolResult("invalid_args", str(exc) or type(exc).__name__)
         return None
 
-    def execute(self, name: str, args: dict) -> ToolResult:
+    def execute(self, name: str, args: dict, *, operation_id: str | None = None) -> ToolResult:
         error = self.validate(name, args)
         if error is not None:
             return error
         try:
-            value = self.tools[name].fn(**args)
+            spec = self.tools[name]
+            if operation_id is not None and spec.execute_with_id is not None:
+                value = spec.execute_with_id(deepcopy(args), operation_id)
+            else:
+                value = spec.fn(**args)
             return ToolResult("ok", str(value))
         except Exception as exc:
             return ToolResult("tool_error", str(exc) or type(exc).__name__)

@@ -32,15 +32,31 @@ print(session.send("Look up owner").text)
 `create_session()` 只加载显式传入的工具；已有应用入口保留员工助手默认工具。工具函数和模型对象由调用方重新构造，checkpoint 不序列化可执行对象或 API key。checkpoint 包含对话和工具输出，按敏感本地数据管理。
 
 - **断点恢复**：原子保存上下文、执行预算和工具结果；本地进程锁防止同一 checkpoint 并发写入。
-- **不确定结果暂停**：工具执行前先记录调用意图。执行中退出时，不自动重试；需人工核实后通过 `resume(ToolResult(...))` 提交结果。
+- **不确定结果暂停**：工具执行前先记录调用意图。执行中退出时，不自动重试；有结果核对回调的工具先查询回执，其他工具需人工核实后通过 `resume(ToolResult(...))` 提交结果。
 - **运行追踪**：运行 ID、工具调用 ID、事件顺序、时间戳及工具耗时，与原有对话、模型 token 和费用记录配合排查。
 - **协作取消**：Python 调用方可调用 `session.cancel()`，在下一执行边界停止；不能强制终止正在阻塞的模型请求或任意 Python 工具。
+
+### 原生工具与可恢复工具
+
+除了原有文本协议，提供 `OpenAIChatAdapter` 和 `AnthropicMessagesAdapter`，通过注入 SDK 请求方法接入原生调用，仍复用参数校验、审批和恢复。当前为非流式、每轮一个工具调用；模拟协议测试通过，尚未做真实 API 联调。示例与限制见 [原生适配器](docs/20-native-tool-adapters.md)。
+
+工具可提供 `execute_with_id(args, operation_id)` 和 `lookup_result(args, operation_id)`。运行时生成并保存操作 ID；恢复时查到确定结果才继续，查询失败或无结果仍暂停。内置 [SQLite 报告示例](cardinal_agent/examples/durable_reports.py) 演示事务写入和相同操作去重。见 [幂等与核对设计](docs/18-operation-reconciliation.md)。
+
+查看运行状态，无需 API key：
+
+```bash
+cardinal runs list
+cardinal runs show RUN_ID
+cardinal runs show RUN_ID --trace
+```
+
+默认摘要显示状态、尝试次数、未确认操作和恢复条件；`--trace` 才展开对话与工具输出。活跃状态依据进程锁探测，区分执行、等待批准、失败、中断、结果待核实和完成。见 [状态设计](docs/19-run-status.md)。
 
 恢复不提供任意外部系统的“恰好一次”保证。schema 相同也不能证明工具实现、文档数据或工作目录内容相同。使用相同代码和数据恢复；当前不是分布式任务调度器。详见 [恢复设计与故障验证](docs/16-durable-runtime.md)。
 
 ## 下载与运行
 
-GitHub Releases 提供 `code.zip`、Python wheel、`SHA256SUMS` 和记录源码 commit 的 manifest。已发布 `v0.1.1` 本地预览版。上述 Harness 恢复功能位于当前源码，尚未包含在 v0.1.1 附件中。
+GitHub Releases 提供 `code.zip`、Python wheel、`SHA256SUMS` 和记录源码 commit 的 manifest。已发布 `v0.1.1` 本地预览版。上述 Harness 恢复、核对、状态查询和原生适配功能位于当前源码，尚未包含在 v0.1.1 附件中。
 
 需要 Python 3.11+。源代码安装：
 
@@ -110,6 +126,12 @@ cardinal chat --terminal
 
 默认费用上限是 **每 profile 累计 $1**，不是每次请求 $1；提高上限用 `cardinal configure --budget 5`，不会清零旧费用。真实费用以服务商账单为准。缓存命中不会新增 API 支出，不能当作代码推理加速。
 
+## 故障恢复验证
+
+新增真实子进程故障测试：在执行前、等待审批、执行中和结果保存后发送 SIGKILL，再启动全新进程恢复。覆盖保留预算、锁释放、人工核实以及事务回执自动核对，检查真实写入数量没有增加。当前源码离线回归 **424 passed，13 live deselected**，其中包含 **6 个真实进程故障场景、24 个原生适配器测试**。详细边界见 [进程故障测试](docs/17-process-faults.md)，[原始指标](docs/evaluations/20261116-062855-harness-resilience/metrics.json)及请求样例已保留。
+
+这些检查不代表断电恢复、分布式事务或任意外部服务的恰好一次保证。原生适配器使用模拟提供商响应验证，不将此类检查计入真实模型任务准确率。
+
 ## 已测数据与范围
 
 | 测试 | 已记录结果 | 范围 |
@@ -130,7 +152,7 @@ cardinal chat --terminal
 ```mermaid
 flowchart LR
     CLI[Local CLI / Profile] --> Loop[Agent loop]
-    Loop --> Protocol[Text tool protocol]
+    Loop --> Protocol[Text protocol / native adapters]
     Protocol --> Registry[Schema validation / approval / deny rules]
     Registry --> Docs[BM25 documents + source lines]
     Registry --> Email[Email workflows]
@@ -139,6 +161,8 @@ flowchart LR
     Loop --> Context[Bounded context + structured summaries]
     Loop --> Trace[Run and call IDs / cost ledger]
     Loop --> Checkpoint[Atomic checkpoint / guarded resume]
+    Checkpoint --> Receipts[Operation IDs / result lookup]
+    Checkpoint --> Status[Run status CLI / process lock]
 ```
 
 从零实现 Agent 调用循环及检索，不依赖 Agent 框架。使用统一模型接口和隔离命令执行器，业务工具与本地产品入口分离。模块与数据流见 [架构说明](docs/architecture.md)，历史设计与测试记录保存在 docs。
@@ -151,6 +175,8 @@ uv run pytest local_tests/test_local_cli.py
 # 完整基准邮件档案可用时，解压后运行全套离线测试
 uv run python data/download.py
 uv run pytest tests local_tests
+# 保存离线回归、真实进程故障和原生协议测试的完整记录
+uv run python tools/verify_harness.py
 # 付费综合评估
 uv run python -m cardinal_agent.simulation
 ```

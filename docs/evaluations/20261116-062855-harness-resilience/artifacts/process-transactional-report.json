@@ -1,0 +1,106 @@
+{
+  "fault_boundary": "after_database_commit_before_tool_result",
+  "termination": "SIGKILL",
+  "report_count": 1,
+  "reconciliation_source": "lookup",
+  "final_status": "completed",
+  "transcript": [
+    {
+      "type": "user",
+      "content": "Create report"
+    },
+    {
+      "type": "run_started",
+      "run_id": "5449f603a72f459594c882aafe3db2d7",
+      "sequence": 1,
+      "timestamp": 1794810546.682895
+    },
+    {
+      "type": "model_started",
+      "run_id": "5449f603a72f459594c882aafe3db2d7",
+      "sequence": 2,
+      "timestamp": 1794810546.7082422,
+      "attempt": 1
+    },
+    {
+      "type": "assistant",
+      "content": "<tool_call>{\"name\": \"create_report\", \"args\": {\"title\": \"Weekly\", \"body\": \"Done\"}}</tool_call>"
+    },
+    {
+      "type": "model_usage",
+      "input_tokens": 953,
+      "reply_tokens": 24,
+      "send_turn": 1,
+      "elapsed_since_send_seconds": 0.025704786000005697
+    },
+    {
+      "type": "tool_call",
+      "run_id": "5449f603a72f459594c882aafe3db2d7",
+      "sequence": 5,
+      "timestamp": 1794810546.721169,
+      "name": "create_report",
+      "args": {
+        "title": "Weekly",
+        "body": "Done"
+      },
+      "call_id": "ccc93596c4824bd189924aa77b4347ac"
+    },
+    {
+      "type": "reconciliation_started",
+      "run_id": "5449f603a72f459594c882aafe3db2d7",
+      "sequence": 6,
+      "timestamp": 1794810546.85146,
+      "call_id": "ccc93596c4824bd189924aa77b4347ac"
+    },
+    {
+      "type": "reconciliation_completed",
+      "run_id": "5449f603a72f459594c882aafe3db2d7",
+      "sequence": 7,
+      "timestamp": 1794810546.86416,
+      "call_id": "ccc93596c4824bd189924aa77b4347ac",
+      "source": "lookup"
+    },
+    {
+      "type": "tool_result",
+      "run_id": "5449f603a72f459594c882aafe3db2d7",
+      "sequence": 8,
+      "timestamp": 1794810546.8641636,
+      "name": "create_report",
+      "call_id": "ccc93596c4824bd189924aa77b4347ac",
+      "status": "ok",
+      "content": "{\"operation_id\": \"ccc93596c4824bd189924aa77b4347ac\", \"title\": \"Weekly\", \"body\": \"Done\"}"
+    },
+    {
+      "type": "run_resumed",
+      "run_id": "5449f603a72f459594c882aafe3db2d7",
+      "sequence": 9,
+      "timestamp": 1794810546.8766348
+    },
+    {
+      "type": "model_started",
+      "run_id": "5449f603a72f459594c882aafe3db2d7",
+      "sequence": 10,
+      "timestamp": 1794810546.902323,
+      "attempt": 2
+    },
+    {
+      "type": "assistant",
+      "content": "Recovered"
+    },
+    {
+      "type": "model_usage",
+      "input_tokens": 1028,
+      "reply_tokens": 3,
+      "send_turn": 2,
+      "elapsed_since_send_seconds": 0.02457570799970199
+    },
+    {
+      "type": "run_finished",
+      "run_id": "5449f603a72f459594c882aafe3db2d7",
+      "sequence": 13,
+      "timestamp": 1794810546.914481,
+      "status": "done",
+      "content": "Recovered"
+    }
+  ]
+}

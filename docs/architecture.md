@@ -25,3 +25,9 @@ pipelines.bm25 使用倒排索引；pipelines.documents 保留章节与行号。
 ## 当前产品边界
 
 单用户本地 profile、远端模型推理、手动资料导入、同步 CLI；不具备企业 SSO、多人文档权限、实时账号同步或生产可用性承诺。实际验证与后续路线见 local-release-verification.md 和 product-readiness.md。许可信息集中在 NOTICE.md 和 LICENSE。
+
+## 原生协议、操作回执与状态
+
+models.native 将 OpenAI Chat Completions / Anthropic Messages 的客户端工具响应归一化为 NativeReply，再进入同一校验与审批路径。提供商 call ID 与运行时 operation ID 分离保存。
+
+ToolSpec 可成对提供 execute_with_id / lookup_result；恢复时只查询，不自动重试未确认操作。examples.durable_reports 演示 SQLite 事务内去重。agent.runs 结合 checkpoint 和 OS 锁提供 runs list/show，不需要创建模型。

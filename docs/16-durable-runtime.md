@@ -16,7 +16,7 @@
 
 模型请求前预留调用次数与输入 token，避免通过反复崩溃重置上限。提供商可能已经产生但尚未返回的输出 token 无法从 checkpoint 准确获知；费用仍应以服务商账单核对，不宣称恢复实现了严格费用上限。
 
-工具调用意图先落盘，随后经过验证、审批和执行；结果加入上下文后再次落盘。两个持久化点之间退出时，调用可能尚未执行，也可能已经完成。恢复统一暂停，抛出 `RecoveryRequired`，不自动重试，包括只读工具。
+工具调用意图先落盘，随后经过验证、审批和执行；结果加入上下文后再次落盘。两个持久化点之间退出时，调用可能尚未执行，也可能已经完成。恢复不自动重试，包括只读工具。工具提供结果核对回调时先查询回执，查到确定结果后继续；否则暂停并抛出 `RecoveryRequired`。
 
 ```python
 from cardinal_agent.types import ToolResult
@@ -39,3 +39,5 @@ chat/ask 默认写入 profile/checkpoints/ID.json。失败日志会输出会话 
 新增事件包括 run_started/run_resumed/run_finished、model_started、tool_timing。新增事件及工具调用/结果带运行 ID、序号、时间戳；调用/结果以 call_id 关联。旧事件保持兼容，尚未接入 OpenTelemetry，也不是完整的远程 tracing 平台。
 
 `local_tests/test_checkpoint.py` 通过真实临时文件与故障注入，验证结果持久化、执行期间中断、人工核对、预算不重置、策略/模型变化拒绝恢复、锁竞争、取消阻止执行、无业务工具的通用入口及 CLI 恢复。无真实 API 请求。原测试数据与新验证日志分别保留，不能将这些确定性检查换算为生产成功率或用户提效比例。
+
+后续实现补充：[真实进程故障](17-process-faults.md)、[操作幂等与核对](18-operation-reconciliation.md)、[状态查询](19-run-status.md)、[原生工具适配](20-native-tool-adapters.md)。

@@ -47,3 +47,9 @@
 “从零实现倒排索引与 BM25，在 2.6 万封邮件公开测试上实现平均 8.4 毫秒查询、17 个查询平均 recall@10 为 100%；构建最多三轮检索的邮件问答流水线，在 25 个公开问题上达到 92% 答案准确率。”
 
 以上是历史本机单次测量，尚无提速对照。求职材料应注明公开样本及测量范围；后续完成可复现对比后，再补充实际提升幅度。
+
+## Harness 故障与原生协议验证
+
+[20261116-062855-harness-resilience](20261116-062855-harness-resilience/metadata.json) 为 UTC 命名的本次最终验证：424 passed、13 live deselected，0 真实模型调用。包含 6 个真实子进程 SIGKILL 场景、24 个原生适配器测试；不是线上可靠性抽样或用户效率对比。
+
+目录内 metrics.json 汇总测试数量；artifacts/process-*.json 记录实际写入数量、恢复前后预算和核对方式；native-*-roundtrip.json 保存虚构内容的请求与事件。source-snapshot.json、源码/fixture 哈希、metadata、JUnit 和 stdout 可用于复查。重跑可执行 `uv run python tools/verify_harness.py`，每次新建目录，不覆盖旧数据。
