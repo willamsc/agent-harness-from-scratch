@@ -1,0 +1,97 @@
+[
+  {
+    "problem": "01-priority",
+    "implementation_commit": "d74657f",
+    "metrics": {
+      "correct": 59,
+      "total": 60,
+      "accuracy": 0.9833333333333333,
+      "unknown": 0
+    },
+    "source": "docs/01-priority.md",
+    "baseline": null,
+    "record_kind": "historical_backfill",
+    "backfilled_on": "2026-11-16",
+    "run_timestamp": null,
+    "raw_log": null,
+    "model_at_run": null,
+    "environment_at_run": null,
+    "limitations": "Historical summary from saved documentation/conversation, not a newly reproduced run. Exact model, environment, timestamps and full raw output were not archived; do not infer them from current configuration. No measured speedup without a comparable baseline."
+  },
+  {
+    "problem": "02-daily-digest",
+    "implementation_commit": "20a1359",
+    "metrics": {
+      "days": 5,
+      "length_pass_before": 1,
+      "length_pass_after": 5,
+      "urgent_coverage_days_before": 5,
+      "urgent_coverage_days_after": 5,
+      "ignore_exclusion_days_before": 5,
+      "ignore_exclusion_days_after": 5,
+      "before_word_counts": {
+        "2001-06-22": 366,
+        "2001-07-25": 303,
+        "2001-08-08": 341,
+        "2001-08-21": 367
+      },
+      "length_pass_change_percentage_points": 80
+    },
+    "source": "docs/02-daily-digest.md and conversation test output",
+    "baseline": "Earlier prompt in same implementation session; not committed separately; exact baseline prompt not archived as a standalone artifact.",
+    "record_kind": "historical_backfill",
+    "backfilled_on": "2026-11-16",
+    "run_timestamp": null,
+    "raw_log": null,
+    "model_at_run": null,
+    "environment_at_run": null,
+    "limitations": "Historical summary from saved documentation/conversation, not a newly reproduced run. Exact model, environment, timestamps and full raw output were not archived; do not infer them from current configuration. No measured speedup without a comparable baseline."
+  },
+  {
+    "problem": "03-bm25",
+    "implementation_commit": "9a986ae",
+    "metrics": {
+      "emails": 26278,
+      "build_seconds_rounded": 3.1,
+      "queries": 17,
+      "mean_query_ms_rounded": 8.4,
+      "mean_recall_at_10": 1.0,
+      "rare_term_test_passed": true,
+      "rare_term_limit_ms": 2
+    },
+    "source": "docs/03-bm25.md",
+    "baseline": null,
+    "record_kind": "historical_backfill",
+    "backfilled_on": "2026-11-16",
+    "run_timestamp": null,
+    "raw_log": null,
+    "model_at_run": null,
+    "environment_at_run": null,
+    "limitations": "Historical summary from saved documentation/conversation, not a newly reproduced run. Exact model, environment, timestamps and full raw output were not archived; do not infer them from current configuration. No measured speedup without a comparable baseline."
+  },
+  {
+    "problem": "04-email-qa",
+    "implementation_commit": "9477340",
+    "metrics": {
+      "correct": 23,
+      "total": 25,
+      "accuracy": 0.92,
+      "one_hop_correct": 12,
+      "one_hop_total": 12,
+      "two_hop_correct": 11,
+      "two_hop_total": 13,
+      "correct_with_gold_support": 23,
+      "part1_and_local_offline_passed": 105,
+      "offline_seconds": 5.21
+    },
+    "source": "docs/04-email-qa.md and conversation test output",
+    "baseline": null,
+    "record_kind": "historical_backfill",
+    "backfilled_on": "2026-11-16",
+    "run_timestamp": null,
+    "raw_log": null,
+    "model_at_run": null,
+    "environment_at_run": null,
+    "limitations": "Historical summary from saved documentation/conversation, not a newly reproduced run. Exact model, environment, timestamps and full raw output were not archived; do not infer them from current configuration. No measured speedup without a comparable baseline."
+  }
+]
