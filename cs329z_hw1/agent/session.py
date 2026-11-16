@@ -32,8 +32,9 @@ _PROMISE = re.compile(
 
 class AgentSession:
     def __init__(self, lm, tools: list[ToolSpec] | None, config: AgentConfig):
-        if tools is None:
-            raise NotImplementedError("The Cardinal toolset is assembled in Problem 8; pass explicit tools for now.")
+        from cs329z_hw1.agent.cardinal_tools import build_cardinal_tools, supplement_tools
+
+        tools = build_cardinal_tools(lm, config) if tools is None else supplement_tools(tools, config)
         self.lm = lm
         self.config = copy(config)
         self.registry = ToolRegistry(tools)
