@@ -1,0 +1,23 @@
+[
+  {
+    "id": "mem-42d0edda822c410685eb03383b2d1f73",
+    "scope": "user",
+    "kind": "temporary",
+    "key": "unused PTO days at end of 2026",
+    "value": "I'll have 12 unused PTO days at the end of 2026",
+    "source": {
+      "session_id": "809af4dbf43a445690e4f6a5b8fe261d",
+      "turn_id": 1,
+      "origin": "user",
+      "quote": "I'll have 12 unused PTO days at the end of 2026",
+      "trigger": "after_send"
+    },
+    "created_at": "2026-11-16T04:07:11.772474+00:00",
+    "updated_at": "2026-11-16T04:07:11.772474+00:00",
+    "expires_at": null,
+    "status": "active",
+    "supersedes": [],
+    "related_ids": [],
+    "relation": "new"
+  }
+]

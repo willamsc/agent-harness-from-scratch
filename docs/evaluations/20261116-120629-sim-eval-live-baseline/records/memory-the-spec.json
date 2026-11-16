@@ -1,0 +1,210 @@
+{
+  "persona_id": "memory-the-spec",
+  "category": "memory",
+  "sessions": [
+    {
+      "index": 1,
+      "mode": "auto",
+      "dialogue": [
+        {
+          "kind": "user",
+          "content": "Hi. I'm on the Platform team. When I say \"the spec\" I always mean the GridLens API spec. Please remember that."
+        },
+        {
+          "kind": "agent",
+          "content": "Got it — stored. From now on, \"the spec\" means the GridLens API spec, and I'll treat you as being on the Platform team. What would you like to look at?",
+          "status": "done"
+        }
+      ],
+      "transcript": [
+        {
+          "type": "user",
+          "content": "Hi. I'm on the Platform team. When I say \"the spec\" I always mean the GridLens API spec. Please remember that."
+        },
+        {
+          "type": "assistant",
+          "content": "I'll remember that.\n\n<tool_call>{\"name\":\"remember\",\"args\":{\"fact\":\"User is on the Platform team. When they say \\\"the spec\\\", they always mean the GridLens API spec.\"}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2012,
+          "reply_tokens": 45,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 1.6870610209989536
+        },
+        {
+          "type": "tool_call",
+          "name": "remember",
+          "args": {
+            "fact": "User is on the Platform team. When they say \"the spec\", they always mean the GridLens API spec."
+          }
+        },
+        {
+          "type": "tool_result",
+          "name": "remember",
+          "status": "ok",
+          "content": "Stored original user statement (normalization unavailable): mem-355d5b47182947d2b084b145aa8a6692"
+        },
+        {
+          "type": "assistant",
+          "content": "Got it — stored. From now on, \"the spec\" means the GridLens API spec, and I'll treat you as being on the Platform team. What would you like to look at?"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2109,
+          "reply_tokens": 38,
+          "send_turn": 2,
+          "elapsed_since_send_seconds": 3.491531589999795
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [
+            "mem-8ed93d8764bc4a67b8c818b4dc6a0694",
+            "mem-a51a4890a60f407698e0762d4e1e39de"
+          ],
+          "seconds": 0.8697127779996663
+        }
+      ],
+      "ending": "goal_met"
+    },
+    {
+      "index": 2,
+      "mode": "auto",
+      "dialogue": [
+        {
+          "kind": "user",
+          "content": "What's the document number of the spec, and what date is on it?"
+        },
+        {
+          "kind": "agent",
+          "content": "The GridLens Ingestion API Specification is **document number API-SPEC-002** (version 2.1), dated **2026-02-20**. It's owned by the Platform team and describes API version 2.1, which ships with GridLens 4.8. (Source: `gridlens-api-spec`, lines 1–14.)",
+          "status": "done"
+        }
+      ],
+      "transcript": [
+        {
+          "type": "user",
+          "content": "What's the document number of the spec, and what date is on it?"
+        },
+        {
+          "type": "assistant",
+          "content": "I'll check my memory for context on which spec you mean.\n\n<tool_call>{\"name\":\"recall\",\"args\":{\"query\":\"spec document number date\"}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2000,
+          "reply_tokens": 36,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 0.616853090999939
+        },
+        {
+          "type": "tool_call",
+          "name": "recall",
+          "args": {
+            "query": "spec document number date"
+          }
+        },
+        {
+          "type": "tool_result",
+          "name": "recall",
+          "status": "ok",
+          "content": "[{\"id\": \"mem-a51a4890a60f407698e0762d4e1e39de\", \"scope\": \"user\", \"kind\": \"preference\", \"key\": \"term:the spec\", \"value\": \"When I say \\\"the spec\\\" I always mean the GridLens API spec\", \"source\": {\"session_id\": \"3296c20f05714b268090b6496d51621d\", \"turn_id\": 1, \"origin\": \"user\", \"quote\": \"When I say \\\"the spec\\\" I always mean the GridLens API spec\", \"trigger\": \"after_send\"}, \"created_at\": \"2026-11-16T04:06:50.038180+00:00\", \"updated_at\": \"2026-11-16T04:06:50.038180+00:00\", \"expires_at\": null, \"status\": \"active\", \"supersedes\": [], \"related_ids\": [], \"relation\": \"new\"}, {\"id\": \"mem-355d5b47182947d2b084b145aa8a6692\", \"scope\": \"user\", \"kind\": \"history\", \"key\": \"raw:1535a2b5c228706c\", \"value\": \"Hi. I'm on the Platform team. When I say \\\"the spec\\\" I always mean the GridLens API spec. Please remember that.\", \"source\": {\"session_id\": \"3296c20f05714b268090b6496d51621d\", \"turn_id\": 1, \"origin\": \"user_raw_explicit\", \"quote\": \"Hi. I'm on the Platform team. When I say \\\"the spec\\\" I always mean the GridLens API spec. Please remember that.\", \"trigger\": \"explicit_tool\"}, \"created_at\": \"2026-11-16T04:06:48.313776+00:00\", \"updated_at\": \"2026-11-16T04:06:48.313776+00:00\", \"expires_at\": null, \"status\": \"active\", \"supersedes\": [], \"related_ids\": [], \"relation\": \"new\"}]"
+        },
+        {
+          "type": "assistant",
+          "content": "You mean the GridLens API spec. Let me find it.\n\n<tool_call>{\"name\":\"search_docs\",\"args\":{\"query\":\"GridLens API spec\",\"k\":5}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2380,
+          "reply_tokens": 35,
+          "send_turn": 2,
+          "elapsed_since_send_seconds": 1.3574651680028182
+        },
+        {
+          "type": "tool_call",
+          "name": "search_docs",
+          "args": {
+            "query": "GridLens API spec",
+            "k": 5
+          }
+        },
+        {
+          "type": "tool_result",
+          "name": "search_docs",
+          "status": "ok",
+          "content": "[{\"doc_id\": \"gridlens-api-spec\", \"title\": \"GridLens Ingestion API Specification\", \"snippet\": \"# GridLens Ingestion API Specification\\n\\nDocument number: API-SPEC-002\\nVersion: 2.1\\nDate: 2026-02-20\\nOwner: Platform team (Dmitri Volkov, Director of Platform Engineering)\\nAuthor: Arjun Mehta, Staff Engineer\\nStatus: Approved. Describes API version 2.1, which ships with GridLens 4.8.\\n\\n## 1. Scope\\n\\nThis specification defines the HTTP interface through which customers and integrators send data to GridLens and read data from it. Typical clients are a utility's meter data management system, its SCADA historian, and third-party meters that are not Cardinal devices.\\n\\nCardinal devices do not use this\", \"category\": \"product\", \"section\": \"GridLens Ingestion API Specification\", \"start_line\": 1, \"end_line\": 14}, {\"doc_id\": \"firmware-spec-emberos\", \"title\": \"EmberOS 3 Firmware Specification\", \"snippet\": \"device protocol.\\n\\nThe cloud interface for customers and integrators is a different document, the GridLens Ingestion API Specification (API-SPEC-002). When someone on the Firmware team says \\\"the spec\\\", they usually mean this document. When someone on the Platform team says it, they usually mean the API specification.\\n\\n## 2. Device models\\n\\n| | Meridian M4 | Pulse S2 |\\n|---|---|---|\\n| Role | Meter gateway installed at the service point or transformer | Clamp-on sensor for overhead and underground lines |\\n| Processor | 32-bit microcontroller, 1 MB flash, 256 KB RAM | 32-bit low-power\", \"category\": \"engineering\", \"section\": \"1. Scope\", \"start_line\": 12, \"end_line\": 21}, {\"doc_id\": \"architecture-overview\", \"title\": \"GridLens Architecture Overview\", \"snippet\": \"messages, silent meters, and sensor events, and groups them into outage events by feeder.\\n\\n**api-edge** (Platform). Serves the public API and the internal API that the applications use.\\n\\n**notify** (Apps). Sends webhooks, email, and push notifications.\\n\\n**The applications** (Apps). The GridLens web application and the FieldKit mobile application are written in TypeScript.\\n\\n## 4. Regions and tenancy\\n\\nGridLens runs in three cloud regions.\\n\\n| Region | Location | Role |\\n|---|---|---|\\n| us-west | Oregon | Primary for customers in North America |\\n| us-east | Virginia | Disaster recovery for us-west\", \"category\": \"engineering\", \"section\": \"3. The pipeline\", \"start_line\": 37, \"end_line\": 52}, {\"doc_id\": \"gridlens-api-spec\", \"title\": \"GridLens Ingestion API Specification\", \"snippet\": \"This specification defines the HTTP interface through which customers and integrators send data to GridLens and read data from it. Typical clients are a utility's meter data management system, its SCADA historian, and third-party meters that are not Cardinal devices.\\n\\nCardinal devices do not use this interface. They connect to the device broker with the protocol defined in the EmberOS 3 Firmware Specification (FW-SPEC-003). Both paths feed the same pipeline, which is described in the GridLens Architecture Overview.\\n\\n## 2. Conventions\\n\\n2.1 The base address is\", \"category\": \"product\", \"section\": \"1. Scope\", \"start_line\": 12, \"end_line\": 18}, {\"doc_id\": \"gridlens-product-faq\", \"title\": \"GridLens Product FAQ\", \"snippet\": \"development. There is nothing to announce to customers yet.\\n\\n## Integrations\\n\\n**What systems does GridLens connect to?**\\nMeter data management systems, outage management systems, SCADA historians, and geographic information systems. Most integrations use the Ingestion API and webhooks. Customer Success maintains the list of tested integrations on Perch.\\n\\n**Is the older API still supported?**\\nAPI version 1 is supported until its shutdown date, which is given in the API specification. Customers on version 1 should plan their move to version 2 now, and their Customer Success Manager can\", \"category\": \"product\", \"section\": \"Integrations\", \"start_line\": 126, \"end_line\": 134}]"
+        },
+        {
+          "type": "assistant",
+          "content": "The GridLens Ingestion API Specification is **document number API-SPEC-002** (version 2.1), dated **2026-02-20**. It's owned by the Platform team and describes API version 2.1, which ships with GridLens 4.8. (Source: `gridlens-api-spec`, lines 1–14.)"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 3421,
+          "reply_tokens": 63,
+          "send_turn": 3,
+          "elapsed_since_send_seconds": 2.3742774260026636
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [],
+          "seconds": 0.5070186069970077
+        }
+      ],
+      "ending": "goal_met"
+    }
+  ],
+  "error": null,
+  "seconds": 10.29,
+  "usage": {
+    "agent": {
+      "calls": 8,
+      "cached_calls": 0,
+      "cost_usd": 0.001433724
+    },
+    "user": {
+      "calls": 2,
+      "cached_calls": 0,
+      "cost_usd": 0.00034889999999999997
+    },
+    "judge": {
+      "calls": 1,
+      "cached_calls": 0,
+      "cost_usd": 0.0005310720000000001
+    }
+  },
+  "checks": [
+    {
+      "type": "first_reply_contains_any",
+      "passed": true,
+      "detail": "expected the first reply to contain one of ['API-SPEC-002']; got: \"The GridLens Ingestion API Specification is **document number API-SPEC-002** (version 2.1), dated **2026-02-20**. It's owned by the Platform team and describes API version 2.1, which ships with GridLe\""
+    },
+    {
+      "type": "tool_not_called",
+      "passed": true,
+      "detail": "no call to ask_user"
+    },
+    {
+      "type": "no_reply_contains_any",
+      "passed": true,
+      "detail": "no agent reply contains any of ['FW-SPEC-003']"
+    },
+    {
+      "type": "session2_did_not_reask",
+      "passed": true,
+      "detail": "nothing in session 2 matches 'which (spec|specification|document|one)\\\\b|do you mean the'"
+    },
+    {
+      "type": "no_agent_error",
+      "passed": true,
+      "detail": "every send ended with status 'done'"
+    }
+  ],
+  "judge": {
+    "passed": true,
+    "reason": "The agent recalled the user's stored preference and ran a search_docs call on the GridLens API spec, whose result shows document number API-SPEC-002 and date 2026-02-20. The answer is grounded in tool results, not fabricated. Both rubric criteria are satisfied.",
+    "raw": "CRITERIA:\n1. MET: Agent gives API-SPEC-002, dated 2026-02-20, as the GridLens API spec.\n2. MET: Agent did not ask which spec; it used recalled memory and searched directly.\n\nFABRICATION: NO\nREASON: The agent recalled the user's stored preference and ran a search_docs call on the GridLens API spec, whose result shows document number API-SPEC-002 and date 2026-02-20. The answer is grounded in tool results, not fabricated. Both rubric criteria are satisfied.\nVERDICT: PASS"
+  },
+  "success": true
+}

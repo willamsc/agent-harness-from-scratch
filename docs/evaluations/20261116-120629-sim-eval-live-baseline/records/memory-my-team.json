@@ -1,0 +1,288 @@
+{
+  "persona_id": "memory-my-team",
+  "category": "memory",
+  "sessions": [
+    {
+      "index": 1,
+      "mode": "auto",
+      "dialogue": [
+        {
+          "kind": "user",
+          "content": "For future reference: I'm on the Customer Success team, based in Rotterdam."
+        },
+        {
+          "kind": "agent",
+          "content": "Noted — I've saved that you're on the Customer Success team in Rotterdam for future reference. Let me know what you'd like to work on.",
+          "status": "done"
+        }
+      ],
+      "transcript": [
+        {
+          "type": "user",
+          "content": "For future reference: I'm on the Customer Success team, based in Rotterdam."
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"remember\">\n<｜｜DSML｜｜ parameter name=\"fact\" string=\"true\">User is on the Customer Success team, based in Rotterdam.</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2003,
+          "reply_tokens": 54,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 0.9549359109987563
+        },
+        {
+          "type": "error",
+          "content": "Unsupported provider tool syntax. No tool ran. Rewrite your call as literal ASCII text: <tool_call>{\"name\":\"tool_name\",\"args\":{\"parameter\":\"value\"}}</tool_call>. Do not use DSML or invoke/parameter tags."
+        },
+        {
+          "type": "recovery",
+          "kind": "unsupported_protocol"
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<tool_call>{\"name\":\"remember\",\"args\":{\"fact\":\"User is on the Customer Success team, based in Rotterdam.\"}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2116,
+          "reply_tokens": 30,
+          "send_turn": 2,
+          "elapsed_since_send_seconds": 1.6746678829986195
+        },
+        {
+          "type": "tool_call",
+          "name": "remember",
+          "args": {
+            "fact": "User is on the Customer Success team, based in Rotterdam."
+          }
+        },
+        {
+          "type": "tool_result",
+          "name": "remember",
+          "status": "ok",
+          "content": "Stored memories: mem-03c1b0ec8e484dc098f02ca4e7eb442f, mem-d5753ffb87254424a8862f98c56b683d"
+        },
+        {
+          "type": "assistant",
+          "content": "Noted — I've saved that you're on the Customer Success team in Rotterdam for future reference. Let me know what you'd like to work on."
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2197,
+          "reply_tokens": 34,
+          "send_turn": 3,
+          "elapsed_since_send_seconds": 3.2937728260003496
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [],
+          "seconds": 0.6494238660015981
+        }
+      ],
+      "ending": "goal_met"
+    },
+    {
+      "index": 2,
+      "mode": "auto",
+      "dialogue": [
+        {
+          "kind": "user",
+          "content": "Who manages my team, and how many people are on it?"
+        },
+        {
+          "kind": "agent",
+          "content": "You're on the **Customer Success** team, which is part of the Revenue organization.\n\n- **Manager:** Hannah Kowalski, Director of Customer Success\n- **Team size:** 15 people (headcount includes the manager; contractors and interns aren't counted)\n- **Main sites:** Oakland and Rotterdam\n\nSource: Cardinal Energy Organization Chart (doc `org-chart`), Revenue section, lines 57–70, current as of 2026-07-01.",
+          "status": "done"
+        }
+      ],
+      "transcript": [
+        {
+          "type": "user",
+          "content": "Who manages my team, and how many people are on it?"
+        },
+        {
+          "type": "assistant",
+          "content": "I'll check my stored memory for context about your team first.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"recall\">\n<｜｜DSML｜｜ parameter name=\"query\" string=\"true\">my team manager team size</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 1997,
+          "reply_tokens": 61,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 1.0163097929980722
+        },
+        {
+          "type": "error",
+          "content": "Unsupported provider tool syntax. No tool ran. Rewrite your call as literal ASCII text: <tool_call>{\"name\":\"tool_name\",\"args\":{\"parameter\":\"value\"}}</tool_call>. Do not use DSML or invoke/parameter tags."
+        },
+        {
+          "type": "recovery",
+          "kind": "unsupported_protocol"
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"recall\">\n<｜｜DSML｜｜ parameter name=\"args\" string=\"false\">{\"query\": \"my team manager team size\"}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2117,
+          "reply_tokens": 49,
+          "send_turn": 2,
+          "elapsed_since_send_seconds": 1.775017398998898
+        },
+        {
+          "type": "error",
+          "content": "Unsupported provider tool syntax. No tool ran. Rewrite your call as literal ASCII text: <tool_call>{\"name\":\"tool_name\",\"args\":{\"parameter\":\"value\"}}</tool_call>. Do not use DSML or invoke/parameter tags."
+        },
+        {
+          "type": "recovery",
+          "kind": "unsupported_protocol"
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<tool_call>{\"name\":\"recall\",\"args\":{\"query\":\"my team manager team size\"}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2225,
+          "reply_tokens": 22,
+          "send_turn": 3,
+          "elapsed_since_send_seconds": 2.5062180579989217
+        },
+        {
+          "type": "tool_call",
+          "name": "recall",
+          "args": {
+            "query": "my team manager team size"
+          }
+        },
+        {
+          "type": "tool_result",
+          "name": "recall",
+          "status": "ok",
+          "content": "[{\"id\": \"mem-03c1b0ec8e484dc098f02ca4e7eb442f\", \"scope\": \"user\", \"kind\": \"profile\", \"key\": \"team\", \"value\": \"I'm on the Customer Success team\", \"source\": {\"session_id\": \"3b24b69fe15d41eb92edad907a77ebfd\", \"turn_id\": 1, \"origin\": \"user\", \"quote\": \"I'm on the Customer Success team\", \"trigger\": \"explicit_tool\"}, \"created_at\": \"2026-11-16T04:07:05.305063+00:00\", \"updated_at\": \"2026-11-16T04:07:05.305063+00:00\", \"expires_at\": null, \"status\": \"active\", \"supersedes\": [], \"related_ids\": [], \"relation\": \"new\"}]"
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<tool_call>{\"name\":\"recall\",\"args\":{\"query\":\"Customer Success team manager lead headcount\"}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2401,
+          "reply_tokens": 27,
+          "send_turn": 4,
+          "elapsed_since_send_seconds": 3.3068975979986135
+        },
+        {
+          "type": "tool_call",
+          "name": "recall",
+          "args": {
+            "query": "Customer Success team manager lead headcount"
+          }
+        },
+        {
+          "type": "tool_result",
+          "name": "recall",
+          "status": "ok",
+          "content": "[{\"id\": \"mem-03c1b0ec8e484dc098f02ca4e7eb442f\", \"scope\": \"user\", \"kind\": \"profile\", \"key\": \"team\", \"value\": \"I'm on the Customer Success team\", \"source\": {\"session_id\": \"3b24b69fe15d41eb92edad907a77ebfd\", \"turn_id\": 1, \"origin\": \"user\", \"quote\": \"I'm on the Customer Success team\", \"trigger\": \"explicit_tool\"}, \"created_at\": \"2026-11-16T04:07:05.305063+00:00\", \"updated_at\": \"2026-11-16T04:07:05.305063+00:00\", \"expires_at\": null, \"status\": \"active\", \"supersedes\": [], \"related_ids\": [], \"relation\": \"new\"}]"
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<tool_call>{\"name\":\"search_docs\",\"args\":{\"query\":\"Customer Success team manager headcount\",\"k\":5}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2582,
+          "reply_tokens": 28,
+          "send_turn": 5,
+          "elapsed_since_send_seconds": 4.2090326059988
+        },
+        {
+          "type": "tool_call",
+          "name": "search_docs",
+          "args": {
+            "query": "Customer Success team manager headcount",
+            "k": 5
+          }
+        },
+        {
+          "type": "tool_result",
+          "name": "search_docs",
+          "status": "ok",
+          "content": "[{\"doc_id\": \"org-chart\", \"title\": \"Cardinal Energy Organization Chart\", \"snippet\": \"for devices and for Project Heron.\\n\\n## Revenue\\n\\nLed by Renee Bouchard, Chief Revenue Officer. Headcount: 53.\\n\\n| Team | Manager | Title | Headcount | Main site |\\n|---|---|---|---|---|\\n| Sales | Jamal Whitfield | VP Sales | 18 | Oakland and Rotterdam |\\n| Customer Success | Hannah Kowalski | Director of Customer Success | 15 | Oakland and Rotterdam |\\n| Field Operations | Luis Ortega | Director of Field Operations | 12 | Boulder |\\n| Marketing | Callum Reid | Head of Marketing | 8 | Oakland |\\n\\nBridget O'Malley is an Account Executive covering cooperatives in the Midwest. Yusuf Demir is a Customer\", \"category\": \"general\", \"section\": \"Revenue\", \"start_line\": 57, \"end_line\": 70}, {\"doc_id\": \"org-chart\", \"title\": \"Cardinal Energy Organization Chart\", \"snippet\": \"# Cardinal Energy Organization Chart\\n\\nAs of: 2026-07-01\\nMaintained by: People Operations\\nTotal headcount: 200\\n\\nThis page lists every organization and team, its manager, and its headcount. Team headcounts include the manager. Contractors and interns are not counted. People Operations updates the page on the first day of each quarter.\\n\\n## Executive team\\n\\n| Name | Title | Reports to |\\n|---|---|---|\\n| Priya Raman | Chief Executive Officer | Board of Directors |\\n| Tomas Lindqvist | Chief Technology Officer | Priya Raman |\\n| Helen Okafor | Chief Financial Officer | Priya Raman |\\n| Renee Bouchard |\", \"category\": \"general\", \"section\": \"Cardinal Energy Organization Chart\", \"start_line\": 1, \"end_line\": 16}, {\"doc_id\": \"org-chart\", \"title\": \"Cardinal Energy Organization Chart\", \"snippet\": \"and customer data and runs the security program.\\n\\n## Product\\n\\nLed by Aiko Tanabe, VP Product. Headcount: 14.\\n\\n| Team | Manager | Title | Headcount | Main site |\\n|---|---|---|---|---|\\n| Product Management | Daniel Osei | Group Product Manager | 8 | Oakland |\\n| Design | Sofia Marchetti | Head of Design | 6 | Oakland |\\n\\nElena Vasquez is the product manager for GridLens forecasting and for Project Kestrel. Rohan Kapoor is the product manager for devices and for Project Heron.\\n\\n## Revenue\\n\\nLed by Renee Bouchard, Chief Revenue Officer. Headcount: 53.\\n\\n| Team | Manager | Title | Headcount | Main\", \"category\": \"general\", \"section\": \"Product\", \"start_line\": 46, \"end_line\": 63}, {\"doc_id\": \"org-chart\", \"title\": \"Cardinal Energy Organization Chart\", \"snippet\": \"is the IT Support Engineer who staffs the HelpDesk.\\n\\n## People\\n\\nLed by Marcus Delgado, VP People. Headcount: 16.\\n\\n| Team | Manager | Title | Headcount | Main site |\\n|---|---|---|---|---|\\n| People Operations | Tessa Nguyen | Director of People Operations | 7 | Oakland |\\n| Recruiting | Andre Baptiste | Head of Recruiting | 5 | Oakland |\\n| Workplace | Rosa Alvarez | Workplace Manager | 4 | Oakland |\\n\\nImani Brooks is the Benefits Specialist and the first contact for questions about leave and benefits.\\n\\n## Headcount by organization\\n\\n| Organization | Headcount |\\n|---|---|\\n| Executive team and\", \"category\": \"general\", \"section\": \"People\", \"start_line\": 82, \"end_line\": 100}, {\"doc_id\": \"org-chart\", \"title\": \"Cardinal Energy Organization Chart\", \"snippet\": \"Banks is the Lead Field Technician.\\n\\n## Finance and Administration\\n\\nLed by Helen Okafor, CFO. Headcount: 17.\\n\\n| Team | Manager | Title | Headcount | Main site |\\n|---|---|---|---|---|\\n| Finance and Accounting | Peter Andersson | Controller | 9 | Oakland |\\n| IT | Carla Jimenez | IT Manager | 5 | Oakland |\\n| Legal | Fiona MacLeod | General Counsel | 3 | Oakland |\\n\\nNora Lindgren is the Accounts Payable Specialist and the first contact for expense questions. Felix Moreau is the IT Support Engineer who staffs the HelpDesk.\\n\\n## People\\n\\nLed by Marcus Delgado, VP People. Headcount: 16.\\n\\n| Team |\", \"category\": \"general\", \"section\": \"Finance and Administration\", \"start_line\": 70, \"end_line\": 88}]"
+        },
+        {
+          "type": "assistant",
+          "content": "You're on the **Customer Success** team, which is part of the Revenue organization.\n\n- **Manager:** Hannah Kowalski, Director of Customer Success\n- **Team size:** 15 people (headcount includes the manager; contractors and interns aren't counted)\n- **Main sites:** Oakland and Rotterdam\n\nSource: Cardinal Energy Organization Chart (doc `org-chart`), Revenue section, lines 57–70, current as of 2026-07-01."
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 3622,
+          "reply_tokens": 101,
+          "send_turn": 6,
+          "elapsed_since_send_seconds": 5.465378853998118
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [],
+          "seconds": 0.858445664998726
+        }
+      ],
+      "ending": "goal_met"
+    }
+  ],
+  "error": null,
+  "seconds": 14.16,
+  "usage": {
+    "agent": {
+      "calls": 12,
+      "cached_calls": 0,
+      "cost_usd": 0.0017643
+    },
+    "user": {
+      "calls": 2,
+      "cached_calls": 0,
+      "cost_usd": 0.0003351
+    },
+    "judge": {
+      "calls": 1,
+      "cached_calls": 0,
+      "cost_usd": 0.000495072
+    }
+  },
+  "checks": [
+    {
+      "type": "first_reply_contains_any",
+      "passed": true,
+      "detail": "expected the first reply to contain one of ['Kowalski']; got: \"You're on the **Customer Success** team, which is part of the Revenue organization.\\n\\n- **Manager:** Hannah Kowalski, Director of Customer Success\\n- **Team size:** 15 people (headcount includes the man\""
+    },
+    {
+      "type": "tool_not_called",
+      "passed": true,
+      "detail": "no call to ask_user"
+    },
+    {
+      "type": "any_reply_contains_any",
+      "passed": true,
+      "detail": "expected some agent reply to contain one of ['15', 'fifteen']; 1 replies checked"
+    },
+    {
+      "type": "session2_did_not_reask",
+      "passed": true,
+      "detail": "nothing in session 2 matches 'which team|what team|which department|what is your team'"
+    },
+    {
+      "type": "no_agent_error",
+      "passed": true,
+      "detail": "every send ended with status 'done'"
+    }
+  ],
+  "judge": {
+    "passed": true,
+    "reason": "The agent's answer is supported by the search_docs call on the org chart, whose result shows \"Customer Success | Hannah Kowalski | Director of Customer Success | 15.\" The team identity came from the recall of the stored memory from session 1, not from asking the user. No fabricated facts.",
+    "raw": "CRITERIA:\n1. MET: Agent states Hannah Kowalski manages the team and it has 15 people, matching the org chart.\n2. MET: Agent did not ask which team the user is on; it recalled the team from memory.\n\nFABRICATION: NO\nREASON: The agent's answer is supported by the search_docs call on the org chart, whose result shows \"Customer Success | Hannah Kowalski | Director of Customer Success | 15.\" The team identity came from the recall of the stored memory from session 1, not from asking the user. No fabricated facts.\nVERDICT: PASS"
+  },
+  "success": true
+}

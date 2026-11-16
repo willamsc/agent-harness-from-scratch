@@ -1,0 +1,280 @@
+{
+  "persona_id": "memory-corrected-number",
+  "category": "memory",
+  "sessions": [
+    {
+      "index": 1,
+      "mode": "auto",
+      "dialogue": [
+        {
+          "kind": "user",
+          "content": "Keep this for later: my employee number is 30918."
+        },
+        {
+          "kind": "agent",
+          "content": "Got it — I've saved your employee number (30918) for later.",
+          "status": "done"
+        },
+        {
+          "kind": "user",
+          "content": "Oh wait, I messed that up — it's 31908, not 30918. Swapped two digits. Can you fix that?"
+        },
+        {
+          "kind": "agent",
+          "content": "Fixed — your employee number is now recorded as 31908.",
+          "status": "done"
+        }
+      ],
+      "transcript": [
+        {
+          "type": "user",
+          "content": "Keep this for later: my employee number is 30918."
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"remember\">\n<｜｜DSML｜｜ parameter name=\"args\" string=\"false\">{\"fact\": \"User's employee number is 30918.\"}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 1997,
+          "reply_tokens": 51,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 0.952589534001163
+        },
+        {
+          "type": "error",
+          "content": "Unsupported provider tool syntax. No tool ran. Rewrite your call as literal ASCII text: <tool_call>{\"name\":\"tool_name\",\"args\":{\"parameter\":\"value\"}}</tool_call>. Do not use DSML or invoke/parameter tags."
+        },
+        {
+          "type": "recovery",
+          "kind": "unsupported_protocol"
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<tool_call>{\"name\":\"remember\",\"args\":{\"fact\":\"User's employee number is 30918.\"}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2107,
+          "reply_tokens": 24,
+          "send_turn": 2,
+          "elapsed_since_send_seconds": 1.759818828002608
+        },
+        {
+          "type": "tool_call",
+          "name": "remember",
+          "args": {
+            "fact": "User's employee number is 30918."
+          }
+        },
+        {
+          "type": "tool_result",
+          "name": "remember",
+          "status": "ok",
+          "content": "Stored memories: mem-4c164c54b22840ff99ad8c70f118a13c"
+        },
+        {
+          "type": "assistant",
+          "content": "Got it — I've saved your employee number (30918) for later."
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2172,
+          "reply_tokens": 15,
+          "send_turn": 3,
+          "elapsed_since_send_seconds": 3.1322015590012597
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [],
+          "seconds": 0.7140901359998679
+        },
+        {
+          "type": "user",
+          "content": "Oh wait, I messed that up — it's 31908, not 30918. Swapped two digits. Can you fix that?"
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<tool_call>{\"name\":\"remember\",\"args\":{\"fact\":\"User's employee number is 31908 (corrected from 30918).\"}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2217,
+          "reply_tokens": 30,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 0.8125154200024554
+        },
+        {
+          "type": "tool_call",
+          "name": "remember",
+          "args": {
+            "fact": "User's employee number is 31908 (corrected from 30918)."
+          }
+        },
+        {
+          "type": "tool_result",
+          "name": "remember",
+          "status": "ok",
+          "content": "Stored memories: mem-d2fe92eb5c52471f9a1fa63534943944"
+        },
+        {
+          "type": "assistant",
+          "content": "Fixed — your employee number is now recorded as 31908."
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2288,
+          "reply_tokens": 14,
+          "send_turn": 2,
+          "elapsed_since_send_seconds": 2.289214548000018
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [
+            "mem-d2fe92eb5c52471f9a1fa63534943944"
+          ],
+          "seconds": 0.9526950629988278
+        }
+      ],
+      "ending": "goal_met"
+    },
+    {
+      "index": 2,
+      "mode": "auto",
+      "dialogue": [
+        {
+          "kind": "user",
+          "content": "I'm filling in a benefits form. What's my employee number?"
+        },
+        {
+          "kind": "agent",
+          "content": "I don't have your employee number in anything I can access — it's not something stored in the email archive or company documents I can search. You'd need to check your HR portal, pay stub, or ask HR directly.\n\nIf you tell me your name or team, I could search the email archive to see if it happens to be mentioned somewhere, but I'd recommend getting it from an official HR source for a benefits form.",
+          "status": "done"
+        },
+        {
+          "kind": "user",
+          "content": "I gave it to you in an earlier conversation though — can you pull that up? I really don't want to go digging through the HR portal right now."
+        },
+        {
+          "kind": "agent",
+          "content": "Yes — I have it stored. You told me your employee number is **31908**, correcting an earlier \"30918.\"\n\nOne caveat: the two records are flagged as \"unresolved\" rather than one cleanly superseding the other, so if the form is important, it's worth double-checking against a pay stub. But based on what you told me, **31908** is the current value.",
+          "status": "done"
+        }
+      ],
+      "transcript": [
+        {
+          "type": "user",
+          "content": "I'm filling in a benefits form. What's my employee number?"
+        },
+        {
+          "type": "assistant",
+          "content": "I don't have your employee number in anything I can access — it's not something stored in the email archive or company documents I can search. You'd need to check your HR portal, pay stub, or ask HR directly.\n\nIf you tell me your name or team, I could search the email archive to see if it happens to be mentioned somewhere, but I'd recommend getting it from an official HR source for a benefits form."
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 1999,
+          "reply_tokens": 101,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 1.1104867579997517
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [],
+          "seconds": 0.35117868799716234
+        },
+        {
+          "type": "user",
+          "content": "I gave it to you in an earlier conversation though — can you pull that up? I really don't want to go digging through the HR portal right now."
+        },
+        {
+          "type": "assistant",
+          "content": "Let me check my stored memory for anything you've shared before.\n\n<tool_call>{\"name\":\"recall\",\"args\":{\"query\":\"employee number benefits HR\"}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2144,
+          "reply_tokens": 39,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 0.6531982289998268
+        },
+        {
+          "type": "tool_call",
+          "name": "recall",
+          "args": {
+            "query": "employee number benefits HR"
+          }
+        },
+        {
+          "type": "tool_result",
+          "name": "recall",
+          "status": "ok",
+          "content": "[{\"id\": \"mem-4c164c54b22840ff99ad8c70f118a13c\", \"scope\": \"user\", \"kind\": \"profile\", \"key\": \"employee number\", \"value\": \"my employee number is 30918\", \"source\": {\"session_id\": \"fa5b28525c8045dd8a441caf11a41dbe\", \"turn_id\": 1, \"origin\": \"user\", \"quote\": \"my employee number is 30918\", \"trigger\": \"explicit_tool\"}, \"created_at\": \"2026-11-16T04:07:26.565189+00:00\", \"updated_at\": \"2026-11-16T04:07:26.565189+00:00\", \"expires_at\": null, \"status\": \"active\", \"supersedes\": [], \"related_ids\": [], \"relation\": \"new\"}, {\"id\": \"mem-d2fe92eb5c52471f9a1fa63534943944\", \"scope\": \"user\", \"kind\": \"profile\", \"key\": \"employee number\", \"value\": \"31908\", \"source\": {\"session_id\": \"fa5b28525c8045dd8a441caf11a41dbe\", \"turn_id\": 2, \"origin\": \"user\", \"quote\": \"it's 31908, not 30918\", \"trigger\": \"explicit_tool\"}, \"created_at\": \"2026-11-16T04:07:30.530189+00:00\", \"updated_at\": \"2026-11-16T04:07:30.530189+00:00\", \"expires_at\": null, \"status\": \"active\", \"supersedes\": [], \"related_ids\": [\"mem-4c164c54b22840ff99ad8c70f118a13c\"], \"relation\": \"unresolved\"}]"
+        },
+        {
+          "type": "assistant",
+          "content": "Yes — I have it stored. You told me your employee number is **31908**, correcting an earlier \"30918.\"\n\nOne caveat: the two records are flagged as \"unresolved\" rather than one cleanly superseding the other, so if the form is important, it's worth double-checking against a pay stub. But based on what you told me, **31908** is the current value."
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2469,
+          "reply_tokens": 86,
+          "send_turn": 2,
+          "elapsed_since_send_seconds": 1.7971308170017437
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [],
+          "seconds": 0.4472428230001242
+        }
+      ],
+      "ending": "goal_met"
+    }
+  ],
+  "error": null,
+  "seconds": 15.18,
+  "usage": {
+    "agent": {
+      "calls": 14,
+      "cached_calls": 0,
+      "cost_usd": 0.00171294
+    },
+    "user": {
+      "calls": 4,
+      "cached_calls": 0,
+      "cost_usd": 0.0005939399999999999
+    },
+    "judge": {
+      "calls": 1,
+      "cached_calls": 0,
+      "cost_usd": 0.00046297199999999997
+    }
+  },
+  "checks": [
+    {
+      "type": "first_reply_contains_any",
+      "passed": false,
+      "detail": "expected the first reply to contain one of ['31908']; got: \"I don't have your employee number in anything I can access — it's not something stored in the email archive or company documents I can search. You'd need to check your HR portal, pay stub, or ask HR d\""
+    },
+    {
+      "type": "no_reply_contains_any",
+      "passed": false,
+      "detail": "no agent reply may contain '30918'; got: 'Yes — I have it stored. You told me your employee number is **31908**, correcting an earlier \"30918.\"\\n\\nOne caveat: the two records are flagged as \"unresolved\" rather than one cleanly superseding the o'"
+    },
+    {
+      "type": "tool_not_called",
+      "passed": true,
+      "detail": "no call to ask_user"
+    },
+    {
+      "type": "no_agent_error",
+      "passed": true,
+      "detail": "every send ended with status 'done'"
+    }
+  ],
+  "judge": {
+    "passed": true,
+    "reason": "The agent's session 2 answer of 31908 is supported by a recall tool call whose result contains the corrected value \"31908\" and the quote \"it's 31908, not 30918.\" The agent did not fabricate; it retrieved the stored correction. The rubric's single criterion is satisfied.",
+    "raw": "CRITERIA:\n1. MET: In session 2 the agent states the employee number is 31908, not 30918 or both.\nFABRICATION: NO\nREASON: The agent's session 2 answer of 31908 is supported by a recall tool call whose result contains the corrected value \"31908\" and the quote \"it's 31908, not 30918.\" The agent did not fabricate; it retrieved the stored correction. The rubric's single criterion is satisfied.\nVERDICT: PASS"
+  },
+  "success": false
+}

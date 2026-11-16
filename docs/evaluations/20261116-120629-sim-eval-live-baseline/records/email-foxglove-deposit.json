@@ -1,0 +1,203 @@
+{
+  "persona_id": "email-foxglove-deposit",
+  "category": "email_multihop",
+  "sessions": [
+    {
+      "index": 1,
+      "mode": "auto",
+      "dialogue": [
+        {
+          "kind": "user",
+          "content": "For the 2001 Foxglove Classic, how much did the caterer want up front to hold the date?"
+        },
+        {
+          "kind": "agent",
+          "content": "The caterer, Delacroix & Sons Catering, wanted **$2,250 up front** to hold the date for the June 29, 2001 Foxglove Classic (165 boxed lunches), with the remaining $2,100 balance due on delivery (email em-06347, June 13, 2001).",
+          "status": "done"
+        },
+        {
+          "kind": "user",
+          "content": "Perfect, thanks! And how much did the event end up raising?"
+        },
+        {
+          "kind": "agent",
+          "content": "The 2001 Foxglove Classic raised **$64,300** for the Bayou Literacy Fund, per the post-event recap (email em-11462, July 2, 2001) — well above the $50,000 goal.",
+          "status": "done"
+        }
+      ],
+      "transcript": [
+        {
+          "type": "user",
+          "content": "For the 2001 Foxglove Classic, how much did the caterer want up front to hold the date?"
+        },
+        {
+          "type": "assistant",
+          "content": "I'll search the email archive for details about the Foxglove Classic catering.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"search_emails\">\n<｜｜DSML｜｜ parameter name=\"query\" string=\"true\">Foxglove Classic caterer deposit hold date</｜｜DSML｜｜ parameter>\n<｜｜DSML｜｜ parameter name=\"k\" string=\"false\">10</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2006,
+          "reply_tokens": 88,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 1.0687989950019983
+        },
+        {
+          "type": "error",
+          "content": "Unsupported provider tool syntax. No tool ran. Rewrite your call as literal ASCII text: <tool_call>{\"name\":\"tool_name\",\"args\":{\"parameter\":\"value\"}}</tool_call>. Do not use DSML or invoke/parameter tags."
+        },
+        {
+          "type": "recovery",
+          "kind": "unsupported_protocol"
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<tool_call>{\"name\":\"search_emails\",\"args\":{\"query\":\"Foxglove Classic caterer deposit hold date\",\"k\":10}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2153,
+          "reply_tokens": 30,
+          "send_turn": 2,
+          "elapsed_since_send_seconds": 1.7982595940011379
+        },
+        {
+          "type": "tool_call",
+          "name": "search_emails",
+          "args": {
+            "query": "Foxglove Classic caterer deposit hold date",
+            "k": 10
+          }
+        },
+        {
+          "type": "tool_result",
+          "name": "search_emails",
+          "status": "ok",
+          "content": "[{\"id\": \"em-11462\", \"date\": \"2001-07-02T14:36:00Z\", \"subject\": \"RE: Foxglove Classic planning\", \"snippet\": \"Final numbers from Friday: 35 foursomes played, and the 2001 Foxglove Classic raised $64,300 for the Bayou Literacy Fund. Thank you to everyone who played and sponsored. Marisol will present the check on July 12.\\n\\nHyacinth\", \"snippet_truncated\": false}, {\"id\": \"em-02299\", \"date\": \"2001-06-05T15:05:00Z\", \"subject\": \"Foxglove Classic planning\", \"snippet\": \"All,\\n\\nPlanning notes for this year's Foxglove Classic, our golf day for the Bayou Literacy Fund:\\n\\n- Friday, June 29, at Cypress Hollow Golf Club. Shotgun start at 8:00 AM.\\n- 28 foursomes are signed up so far. The course can take 36.\\n- Lunch is by Delacroix & Sons Catering.\\n- The goal is $50,000. Last year we raised $43,000.\\n\\nMarisol has agreed to chair this year.\\n\\nHyacinth\", \"snippet_truncated\": false}, {\"id\": \"em-03228\", \"date\": \"2001-06-06T13:27:00Z\", \"subject\": \"RE: Foxglove Classic planning\", \"snippet\": \"Put me down for a foursome and a hole sponsorship.\\n\\nCormac\", \"snippet_truncated\": false}, {\"id\": \"em-15346\", \"date\": \"2001-07-20T00:17:00Z\", \"subject\": \"Deposit MEDICAL RECEIPT CHECK\", \"snippet\": \"\\tTASK ASSIGNMENT\\n\\n\\nStatus:\\t\\tcompleted\\n\\nTask Priority:\\t\\t1\\nTask Due On:\\t\\t3/16/2001\\nTask Start Date:\\t3/16/2001\\n\", \"snippet_truncated\": false}, {\"id\": \"em-21217\", \"date\": \"2001-08-13T22:23:02Z\", \"subject\": \"Misc. + MG\", \"snippet\": \"Jeffrey:\\n\\nThanks for taking the time to step out into the heat to \\\"dine\\\" with me. As\\nalways; it was a pleasure catching up (ever so briefly). Per our discussion,\\nmy post-Belco career move will most likely be to a) a Financial Control\\npost in an energy company, b) Risk/Financial Control consulting or c) tbd\\nother intellectually challenging position. I've attached my resume for you\\nto\\nsend on to Joe\", \"snippet_truncated\": true}, {\"id\": \"em-19859\", \"date\": \"2001-08-08T00:46:00Z\", \"subject\": \"Haas Classic Sign-ups - I apologize and delete if you have already received this\", \"snippet\": \"I apologize for the repeats to some of you, but my first emails were not\\ngetting through to everyone, so I'm using a different address this\\ntime........\\n\\n> Fellow students,\\n>     The Haas EvMBA Golf Classic tournament dates and info have been\\n> finalized and now the fun begins..... sign-ups and team organizing!  A\\n> short recap for those who don't already know.... the Haas Evening MBA\\n> Board has \", \"snippet_truncated\": true}, {\"id\": \"em-20145\", \"date\": \"2001-08-09T11:04:21Z\", \"subject\": \"Coverage on Teesside explosion from Classic FM 08.08.01\", \"snippet\": \"Please find the yesterdays news coverage from Classic FM \\n\\n\\n \", \"snippet_truncated\": false}, {\"id\": \"em-20474\", \"date\": \"2001-08-10T00:56:19Z\", \"subject\": \"FW: FW: Hold the Date: Oct 3-4\", \"snippet\": \"fyi\\n\\n -----Original Message-----\\nFrom: \\tDietrich, Janet  \\nSent:\\tThursday, August 09, 2001 5:02 PM\\nTo:\\tKean, Steven J.\\nSubject:\\tRe: FW: Hold the Date: Oct 3-4\\n\\nSteve, unfortunately I am attending a Fortune Magazine conference in California Oct. 3-5. I'm quite disappointed I won't be able to attend. Thank you for the invitation though!\", \"snippet_truncated\": false}, {\"id\": \"em-20946\", \"date\": \"2001-08-13T14:08:04Z\", \"subject\": \"RE: HOLD THE DATE - BUDGET MTG.\", \"snippet\": \"I think you do need to be there.\\n\\n -----Original Message-----\\nFrom: \\tShapiro, Richard  \\nSent:\\tSaturday, August 11, 2001 9:27 AM\\nTo:\\tMcVicker, Maureen; Olson, Cindy; Brown, Suzanne; Joyce, Mary; Linnell, Elizabeth; Palmer, Mark A. (PR)\\nCc:\\tLindsey, Mark E.; West, Terry; Myer, Karen; McMahon, Kathy; Wright, Teresa; Dernehl, Ginger; Underwood, Jody; Kean, Steven J.\\nSubject:\\tRE: HOLD THE DATE - BUDGET\", \"snippet_truncated\": true}, {\"id\": \"em-01150\", \"date\": \"2001-06-04T11:06:00Z\", \"subject\": \"Re:  Letter of Creidt Question\", \"snippet\": \"See the attached.  Antonoff relies on 546 e, the margin provision.  \\n\\n\\nCordially,\\nMary Cook\\nEnron North America Corp.\\n1400 Smith, 38th Floor, Legal\\nHouston, Texas   77002-7361\\n(713) 345-7732 (phone)\\n(713) 646-3490 (fax)\\nmary.cook@enron.com\\n----- Forwarded by Mary Cook/HOU/ECT on 06/04/2001 11:05 AM -----\\n\\n\\t\\\"Rick Antonoff\\\" <Rick.Antonoff@cwt.com>\\n\\t05/31/2001 04:19 PM\\n\\t\\t \\n\\t\\t To: mary.cook@enron.com\\n\", \"snippet_truncated\": true}]"
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"search_emails\">\n<｜｜DSML｜｜ parameter name=\"args\" string=\"false\">{\"query\": \"Delacroix Sons Catering deposit\", \"k\": 10}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 3288,
+          "reply_tokens": 54,
+          "send_turn": 3,
+          "elapsed_since_send_seconds": 2.8457681970030535
+        },
+        {
+          "type": "error",
+          "content": "Unsupported provider tool syntax. No tool ran. Rewrite your call as literal ASCII text: <tool_call>{\"name\":\"tool_name\",\"args\":{\"parameter\":\"value\"}}</tool_call>. Do not use DSML or invoke/parameter tags."
+        },
+        {
+          "type": "recovery",
+          "kind": "unsupported_protocol"
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<tool_call>{\"name\":\"search_emails\",\"args\":{\"query\":\"Delacroix Sons Catering deposit\",\"k\":10}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 3401,
+          "reply_tokens": 27,
+          "send_turn": 4,
+          "elapsed_since_send_seconds": 3.7433342690019344
+        },
+        {
+          "type": "tool_call",
+          "name": "search_emails",
+          "args": {
+            "query": "Delacroix Sons Catering deposit",
+            "k": 10
+          }
+        },
+        {
+          "type": "tool_result",
+          "name": "search_emails",
+          "status": "ok",
+          "content": "[{\"id\": \"em-06347\", \"date\": \"2001-06-13T18:40:00Z\", \"subject\": \"June 29 order\", \"snippet\": \"Ms. Oduya,\\n\\nWe have you down for 165 boxed lunches on June 29, delivered to the clubhouse by 11:30. We need $2,250 up front to hold the date. The balance of $2,100 is due on delivery. Please confirm the count by June 22.\\n\\nDelacroix & Sons Catering\", \"snippet_truncated\": false}, {\"id\": \"em-02299\", \"date\": \"2001-06-05T15:05:00Z\", \"subject\": \"Foxglove Classic planning\", \"snippet\": \"All,\\n\\nPlanning notes for this year's Foxglove Classic, our golf day for the Bayou Literacy Fund:\\n\\n- Friday, June 29, at Cypress Hollow Golf Club. Shotgun start at 8:00 AM.\\n- 28 foursomes are signed up so far. The course can take 36.\\n- Lunch is by Delacroix & Sons Catering.\\n- The goal is $50,000. Last year we raised $43,000.\\n\\nMarisol has agreed to chair this year.\\n\\nHyacinth\", \"snippet_truncated\": false}, {\"id\": \"em-17920\", \"date\": \"2001-07-30T22:29:06Z\", \"subject\": \"AIRCRAFT FOR BEAVER CREEK\", \"snippet\": \"Below are the aircraft options for Beaver Creek:\\n\\n727\\n170 Coach Seats\\nBasic Cost:\\t$64,536\\n7.5% Tax:\\t   4,840\\nAirport Tax:\\t      517 ($11.75 per person - I based it on 44 people)\\nTotal:\\t\\t$69,893\\nAdditional costs:  cash bar and catering\\nThe beverage service is the same as on a commercial aircraft\\nCatering estimate is $20 per person\\n\\n737\\n54 First Class Seats (obviously refurbished)\\nBasic Cost:\\t$76,51\", \"snippet_truncated\": true}, {\"id\": \"em-06838\", \"date\": \"2001-06-15T21:23:00Z\", \"subject\": \"Boardwalk Inn Mtg.\", \"snippet\": \"Lynn, per your request price for conference mtg. room at the Boardwalk Inn, in Kemah, is $350 per day.  Corporate rate for hotel room is $140 per night.  I am waiting for price information on lunch catering.  \\n\\nThanks,\\nAva-35842 \", \"snippet_truncated\": false}, {\"id\": \"em-21809\", \"date\": \"2001-08-15T17:09:16Z\", \"subject\": \"Saturday, Sep 22 - Mt. Tabor\", \"snippet\": \" \\nDon't forget to mark your calendars for our company picnic at \\nMt. Tabor on Saturday, September 22, at Noon.  \\nBring your family!\\n\\nA Hawaiian band and live hula dancers will provide the entertainment.  Games are to be played and prizes are to be won. Noho's Hawaiian Cafe will be catering the event.\\n\\nRemember to wear your \\\"aloha\\\" gear - there will be a prize for best dressed!\\n\\n~Anna~\\n\\n<Embedded M\", \"snippet_truncated\": true}, {\"id\": \"em-24099\", \"date\": \"2001-08-24T15:18:04Z\", \"subject\": \"FW: fyi\", \"snippet\": \"\\n\\n -----Original Message-----\\nFrom: \\tMoore, Kevin G.  \\nSent:\\tFriday, August 24, 2001 7:57 AM\\nTo:\\tCrenshaw, Shirley; Dupont, Anita\\nCc:\\tKaminski, Vince J\\nSubject:\\tfyi\\n\\nTo God be the Glory for the Things He has Done ! \\n\\n                CORNELIOUS \\\"Tut\\\" SCOTT, SR., 105, was born September 19, 1895\\n                and passed away August 19, 2001. Funeral services will be Saturday August\\n               \", \"snippet_truncated\": true}, {\"id\": \"em-25693\", \"date\": \"2001-08-30T15:04:29Z\", \"subject\": \"\", \"snippet\": \"Shirley,\\n\\nCan you FedEx to her the reprints of my papers. \\n\\nI shall bring you one more tomorrow.\\n\\nVince\\n\\nSamantha Whittaker\\nSenior Publishing Editor, Finance\\nJohn Wiley & Sons Ltd.\\nBaffins Lane\\nChichester\\nWest Sussex PO19 1UD\\nUK\\nDirect T: +44 (0)1243 770643\\nFax: +44 (0)1243 770677\\nswhittak@wiley.co.uk\", \"snippet_truncated\": false}, {\"id\": \"em-14775\", \"date\": \"2001-07-18T12:31:43Z\", \"subject\": \"RE: Vacation - Berney\", \"snippet\": \"No problem.   He can expense it.\\n\\n -----Original Message-----\\nFrom: \\tHerndon, Rogers  \\nSent:\\tTuesday, July 17, 2001 5:41 PM\\nTo:\\tPresto, Kevin M.\\nSubject:\\tFW: Vacation - Berney\\n\\nKevin -\\n\\nBerney offered this up and I usually wouldn't consider, BUT:  Edith is out through next week and i would really like her to get the benefit of a download from Berne.  What do you think on this one.  Issue is whethe\", \"snippet_truncated\": true}, {\"id\": \"em-11579\", \"date\": \"2001-07-02T19:49:55Z\", \"subject\": \"Reservation Confirmation #79A\", \"snippet\": \"This is confirming reservation #79A.....arriving on July 13th, 2001 and  \\ndeparting on  July 15th, 2001.....for a 2-story one bedroom suite at a rate  \\nof $135.00 per night plus tax.  Should you  have any additional questions or  \\nrequests please do not hesitate to give us a call toll free @ 1-866-877-1024.  \\n Again thank you for choosing 'Girod House Hotel'. \\n      Vashon Williams \\n      'Girod H\", \"snippet_truncated\": true}, {\"id\": \"em-11743\", \"date\": \"2001-07-03T13:54:53Z\", \"subject\": \"Revised Reservation Confirmation #79A\", \"snippet\": \"This is confirming reservation #73A.....arriving on July 13th, 2001 for (2)  \\nnights and departing on July 15th, 2001.....for a one bedroom suite at a rate  \\nof $115.00 per night plus tax.  Should you  have any additional questions or  \\nrequests please do not hesitate to give us a call toll free @ 1-866-877-1024.  \\n Again thank you for choosing 'Girod House Hotel'. \\n      Vashon Williams \\n      'G\", \"snippet_truncated\": true}]"
+        },
+        {
+          "type": "assistant",
+          "content": "The caterer, Delacroix & Sons Catering, wanted **$2,250 up front** to hold the date for the June 29, 2001 Foxglove Classic (165 boxed lunches), with the remaining $2,100 balance due on delivery (email em-06347, June 13, 2001)."
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 4698,
+          "reply_tokens": 57,
+          "send_turn": 5,
+          "elapsed_since_send_seconds": 4.744679672003258
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [],
+          "seconds": 0.9772979959998338
+        },
+        {
+          "type": "user",
+          "content": "Perfect, thanks! And how much did the event end up raising?"
+        },
+        {
+          "type": "assistant",
+          "content": "The 2001 Foxglove Classic raised **$64,300** for the Bayou Literacy Fund, per the post-event recap (email em-11462, July 2, 2001) — well above the $50,000 goal."
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 4778,
+          "reply_tokens": 40,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 1.0993521750024229
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [],
+          "seconds": 0.6770066370008863
+        }
+      ],
+      "ending": "goal_met"
+    }
+  ],
+  "error": null,
+  "seconds": 10.28,
+  "usage": {
+    "agent": {
+      "calls": 8,
+      "cached_calls": 0,
+      "cost_usd": 0.001895772
+    },
+    "user": {
+      "calls": 2,
+      "cached_calls": 0,
+      "cost_usd": 0.000315036
+    },
+    "judge": {
+      "calls": 1,
+      "cached_calls": 0,
+      "cost_usd": 0.000484272
+    }
+  },
+  "checks": [
+    {
+      "type": "any_reply_contains_any",
+      "passed": true,
+      "detail": "expected some agent reply to contain one of ['2,250']; 2 replies checked"
+    },
+    {
+      "type": "any_reply_contains_any",
+      "passed": true,
+      "detail": "expected some agent reply to contain one of ['64,300']; 2 replies checked"
+    },
+    {
+      "type": "no_agent_error",
+      "passed": true,
+      "detail": "every send ended with status 'done'"
+    }
+  ],
+  "judge": {
+    "passed": true,
+    "reason": "Both facts were produced by relevant email searches — the deposit figure from the Delacroix & Sons order email (em-06347) and the fundraising total from the post-event recap (em-11462) — and both agree with the rubric's reference answers. No contradiction with tool results is visible.",
+    "raw": "CRITERIA:\n1. MET: Agent states the caterer wanted $2,250 up front, matching the Delacroix & Sons email (em-06347).\n2. MET: Agent states the event raised $64,300, matching the recap email (em-11462).\n\nFABRICATION: NO\nREASON: Both facts were produced by relevant email searches — the deposit figure from the Delacroix & Sons order email (em-06347) and the fundraising total from the post-event recap (em-11462) — and both agree with the rubric's reference answers. No contradiction with tool results is visible.\nVERDICT: PASS"
+  },
+  "success": true
+}

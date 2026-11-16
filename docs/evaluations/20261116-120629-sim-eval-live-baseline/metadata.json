@@ -1,0 +1,1459 @@
+{
+  "started_at": "2026-11-16T12:06:29.690702+08:00",
+  "timezone": "Asia/Shanghai",
+  "base_commit": "04124c689a1344961f9050d10c0489fcc423a8b6",
+  "working_tree_dirty": true,
+  "command": [
+    "/home/chenying/dev/stanford/assignment1-harness/.venv/bin/python",
+    "/tmp/run_recorded_sim_eval.py"
+  ],
+  "plan": "Course run_eval first 3 then remaining 17, concurrency=4, no implementation changes between batches; same output directory.",
+  "run_dir": "runs/sim-20261116-120629",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cpu_count": 8,
+  "dependencies": {
+    "pytest": "9.1.1",
+    "jsonschema": "4.26.0",
+    "numpy": "2.5.3",
+    "openai": "3.22.1",
+    "python-dotenv": "1.2.3"
+  },
+  "implementation_sha256": {
+    "cs329z_hw1/types.py": "7bd14c9a4c099efa0a1ed15e3e9f5e84946b6e8f5a12b351a432638017b16ffb",
+    "cs329z_hw1/tokens.py": "e3258e05dd8b854535ced7bee018ea08045e45708921bda125f6e3f60acadbca",
+    "cs329z_hw1/sandbox.py": "bc84385fc3f4f930c81a0a5c6aae6583c188504dd63c08226839ef597a93cfd2",
+    "cs329z_hw1/cardinal.py": "c280c4a2f2b35f841b314bf942859b384237ffa98a88334a4ca3ce4b9139a243",
+    "cs329z_hw1/sandbox_windows.py": "bc40faef950e1771be6af4c03dd754f6e8184f595cd707a09170805b6fa20c30",
+    "cs329z_hw1/__init__.py": "b2cd902f9108a95b63e54a3fdf92c4b34806974fd8a506b1b25c0e0ab434d484",
+    "cs329z_hw1/tokenizer.py": "4782e9c180136cb3fa47ed2977331372d6a36544d7b5fcd8046f0e0ae90395e9",
+    "cs329z_hw1/user.py": "021b8bd6324d71a686a391a599e32b65988da0b51b8bdde314512b9c46639188",
+    "cs329z_hw1/adapters.py": "736f78756e7ba000aa9019aa6192358c88b759e7d188a0cacc7b5b310f3357ad",
+    "cs329z_hw1/chat.py": "0d82350efad80221411d6adcb0b2b9d33bb5f4cf98d503a10ad1e9ac9bac0519",
+    "cs329z_hw1/data.py": "dc01a49d0e45996ed70d0f77d67f1cb72b6f886300218741664cf2e353fd098d",
+    "cs329z_hw1/llm.py": "191a12b19845a563993f1acb045bcd606e19ca75d580ede606ab72c5b216efb4",
+    "cs329z_hw1/show.py": "bd3c76b06c2df311311761654f4b6fb7cdeda44ac6264af699b3d1ebe3ebb85e",
+    "cs329z_hw1/simulation/evaluate.py": "1d8f2e626c58c71fd210104b90fb0ba989e52ac792b2907e36af6098340bb33f",
+    "cs329z_hw1/simulation/runner.py": "128541c0a4730b213290c710c95d742fe02ecc23ca753715fed6e5bb04e194be",
+    "cs329z_hw1/simulation/judge.py": "6e6c2a0798a03868b4ce16db7e612aae825777b22b8ab2a545c4a09832fdba9c",
+    "cs329z_hw1/simulation/checks.py": "7b535d826cb8e1acf8c5affc7596ad2072646a4d9cf1fc8163f6e94aa3037904",
+    "cs329z_hw1/simulation/persona_user.py": "956e401f0fd50187451c0774dfea540fdc4c51859a78050c992b11a5cde573d9",
+    "cs329z_hw1/simulation/__init__.py": "a00db3e1743ee8e785f9c8f4c8aa88396869f67230be07068dfd505595739845",
+    "cs329z_hw1/simulation/__main__.py": "3311772fa914dacc338731d4c557c67feb0ed1be0dbe93a64f4080579a38f49d",
+    "cs329z_hw1/simulation/record.py": "d732758482082e687d98d0a6266ddf4d2df988662c4b78cad096fc0185486ffa",
+    "cs329z_hw1/simulation/persona.py": "04e25658263dcbebfc609abb5a8c8edc274da411a5e02c361519df96440cdd85",
+    "cs329z_hw1/pipelines/daily_digest.py": "86fe8908132014bb9e1833254e75c56cedb56fa9f2feb4d9b7928f1ab34532b7",
+    "cs329z_hw1/pipelines/__init__.py": "c10d87939093a036db56bca53316b72e346bba5b1572c8292f6f4c65d180c765",
+    "cs329z_hw1/pipelines/documents.py": "9cc3bd32ea93ea2230672870e943825121482e46183193df236a2aea48531bbd",
+    "cs329z_hw1/pipelines/email_qa.py": "f4f28c482202b06af169ef88e0feb1c41923f5e280b7eff668302cdb81907d4e",
+    "cs329z_hw1/pipelines/bm25.py": "9cfab065fd2cbce7737db29476e077bea87365d2cb5aed696d1ce34a402e35e4",
+    "cs329z_hw1/agent/registry.py": "48163f704af7f1cc953e620213c6881611821cadd009855d5aba604a67b507d6",
+    "cs329z_hw1/agent/protocol.py": "c4566578e8b386e387785ef3ed580184ea0d1339acbe03c9b3de9dddb0d71872",
+    "cs329z_hw1/agent/__init__.py": "94a85b9a811b2672b005c6c2a2c3cad58391f004670a777c3b0b2ae890482f25",
+    "cs329z_hw1/agent/memory.py": "cf00dcfeec34a2f61a9e3bf347fadf13c2e4862ccf27e8cb0a0a80d3bd912b24",
+    "cs329z_hw1/agent/cardinal_tools.py": "c344700ee53711713bbf3fefdba2f47254948d5164e86120956d40efff27354d",
+    "cs329z_hw1/agent/session.py": "cf5c3c0013c56a39c8d6a66e07acda543fe21bdb2230b3084ad313e1170f71e8",
+    "cs329z_hw1/agent/terminal.py": "b1b599b60440b25056f492175cdf902d9ed01d032bb1a2c1f16cef9deeda5444",
+    "cs329z_hw1/agent/compaction.py": "faa5e6e2c0134b7bbd9e70e1209783d50d560212b9015ca448b35e2c9924c7d4"
+  },
+  "fixture_sha256": {
+    "tests/fixtures/digest_days.json": "2f99d35f123cc0ea77bf9eb5493cf76648c871c3ae1b9a917c8e1e9dea61d25c",
+    "tests/fixtures/terminal_questions.json": "67c82b359b3b79aced1ac002a755fceffce9de4f1c2b44c5abd6cb6a97b8071b",
+    "tests/fixtures/bm25_queries.json": "219b9717d1eb35f564d77861148a2a59badbae34bfbd08657844aa007669967f",
+    "tests/fixtures/agent_guardrail_email_tasks.json": "093312d68c494455b5dc679dd7b3307a4f5c82d59dce3b8f0900b646c1d4e82c",
+    "tests/fixtures/priority_gold.json": "0288eb35624a03380ccc9e1bce29d3a3034b07ac4810243855e75f5ea35f5867",
+    "tests/fixtures/email_qa.json": "93ce4f755dc24074ddd6b5847513be42658350c9a72b5faa8ddd15e65591c2e1",
+    "tests/fixtures/agent_protocol_requests.json": "ff53046026c42d5fb3c3d07e8c9bff867771c7a55533f9db24d0a9f6d8cdd817",
+    "tests/fixtures/doc_questions.json": "796f4ce3be72b46ba5240f91cef74c1c24c81c46f647461d77f16afce77d7f34",
+    "tests/fixtures/personas/07-adversarial-poisoned-policy.json": "23bc0b8bccb8d316f0c580426563e7f62f1a65f841f6b66e0fa40c0bb7710fa5",
+    "tests/fixtures/personas/11-memory-my-team.json": "2b5a7dd553fa7bc64b317702fdc54704917b64e4e1345f0f25b85ec2ce9c671c",
+    "tests/fixtures/personas/05-clarify-meal-limit.json": "1a3fd816c8b119a940addbb769793acc9a02fef3edc6d4df90a3883739dedda0",
+    "tests/fixtures/personas/14-adversarial-upload-push.json": "aa90e20a45871b7fe5dc45e6e269043697f17cc96c61b6eaa78185659c502a73",
+    "tests/fixtures/personas/06-digest-june-22.json": "8119dc6e117ea825df06c461135f156ef792b113e78b53be4f42ff729d4258da",
+    "tests/fixtures/personas/10-email-hollyoak-economist.json": "dcec03bdafa84058c46895bdba79dfafd86e17459a4598fa6d855288a637aee0",
+    "tests/fixtures/personas/20-coding-big-listing.json": "0b629a6ec1ff154d992265fd908617edd59eac5b49b318664534f53e1c22ff70",
+    "tests/fixtures/personas/02-coding-july4-count.json": "9461d1790b41ad2cc85b450ae655453c27dd22c305c4cc3386a307f8a22fe816",
+    "tests/fixtures/personas/17-memory-corrected-number.json": "1c66572bff35314ff8c1479f1afbd428f6538c773948a17ad7f468a8cba99cd2",
+    "tests/fixtures/personas/09-coding-no-python.json": "d9fcdd11b2a5bb32b8102cb181c6ffb76c6046149a941713c8acdeaab6124106",
+    "tests/fixtures/personas/19-doc-customer-dinner.json": "0783120d16bfaa7cb06a41cf586b9afc43485b7aaeccb8b62049a15c231269ae",
+    "tests/fixtures/personas/08-doc-office-days.json": "fb5300a92f65785ac698f53683f07fd9055b01b71a6608a2ee5269afe1fd2a9b",
+    "tests/fixtures/personas/01-doc-incident-severity.json": "bde10b2c49c5cf65e1b9536384a0ab365f27a8779ccb7a0f35d51ede2c3bffa8",
+    "tests/fixtures/personas/15-email-foxglove-deposit.json": "8960a166acd95739429f5249698ba5c5d2e68ddd4c3eb142f10deb715665493a",
+    "tests/fixtures/personas/13-coding-docs-pagerline.json": "02a249c52fe8ea91a8b67df553f6f2de0799aaee56f81ff5fb1627a411bd08e3",
+    "tests/fixtures/personas/18-clarify-which-spec.json": "4b38d0f3d426cdd764f72ca00ba9c6b446c2e2a0c0cac226aab1f9851dc78f20",
+    "tests/fixtures/personas/12-doc-pto-carryover.json": "06f53107a767335bf64a41eebf38a5d7e5e6b8d3c3e7c723ffb2618db6b5efe2",
+    "tests/fixtures/personas/03-email-ironvale-part.json": "e81849ac286d1b303aada1ce89d6c35f31bd8ad0a274409d1926a42593fc9cad",
+    "tests/fixtures/personas/04-memory-the-spec.json": "b9a407c09e05ca455fbc3b6bcf010734a812a0799603d231053c785840e56d65",
+    "tests/fixtures/personas/16-digest-july-05.json": "0bbb325d09cee213dd8d29374a461433e405e3c8f91605cac5b80b8406da701c"
+  },
+  "model_cache": "Existing cache enabled, no new salt. Workspace paths may prevent reuse.",
+  "configured_budget_usd": null,
+  "proxy_note": "Proxy variables unset only for this process. No keys or full environment recorded.",
+  "ended_at": "2026-11-16T12:08:06.916024+08:00",
+  "wall_seconds": 97.2023644769979,
+  "error": null,
+  "completed_records": 20,
+  "actual_models": [
+    {
+      "tag": "sim_eval/coding-july4-count/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 4,
+        "cached_calls": 0,
+        "input_tokens": 7780,
+        "output_tokens": 310,
+        "cost_usd": 0.0010878239999999998,
+        "seconds": 4.499224424362183
+      }
+    },
+    {
+      "tag": "sim_eval/email-ironvale-part/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 7,
+        "cached_calls": 0,
+        "input_tokens": 17204,
+        "output_tokens": 431,
+        "cost_usd": 0.0017646720000000001,
+        "seconds": 7.537691354751587
+      }
+    },
+    {
+      "tag": "sim_eval/doc-incident-severity/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 7,
+        "cached_calls": 0,
+        "input_tokens": 21232,
+        "output_tokens": 662,
+        "cost_usd": 0.002347104,
+        "seconds": 8.811424255371094
+      }
+    },
+    {
+      "tag": "sim_eval/coding-july4-count/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 2,
+        "cached_calls": 0,
+        "input_tokens": 1060,
+        "output_tokens": 28,
+        "cost_usd": 0.000313968,
+        "seconds": 1.5400199890136719
+      }
+    },
+    {
+      "tag": "sim_eval/coding-july4-count/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 239,
+        "output_tokens": 6,
+        "cost_usd": 7.890000000000001e-05,
+        "seconds": 0.9149584770202637
+      }
+    },
+    {
+      "tag": "sim_eval/doc-incident-severity/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 2,
+        "cached_calls": 0,
+        "input_tokens": 478,
+        "output_tokens": 92,
+        "cost_usd": 0.0002538,
+        "seconds": 1.6808319091796875
+      }
+    },
+    {
+      "tag": "sim_eval/doc-incident-severity/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 2,
+        "cached_calls": 0,
+        "input_tokens": 1780,
+        "output_tokens": 43,
+        "cost_usd": 0.000435072,
+        "seconds": 1.8300981521606445
+      }
+    },
+    {
+      "tag": "sim_eval/coding-july4-count/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 1048,
+        "output_tokens": 106,
+        "cost_usd": 0.00044159999999999995,
+        "seconds": 1.3775629997253418
+      }
+    },
+    {
+      "tag": "sim_eval/email-ironvale-part/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 2,
+        "cached_calls": 0,
+        "input_tokens": 461,
+        "output_tokens": 12,
+        "cost_usd": 0.0001527,
+        "seconds": 1.2865550518035889
+      }
+    },
+    {
+      "tag": "sim_eval/email-ironvale-part/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 2,
+        "cached_calls": 0,
+        "input_tokens": 1378,
+        "output_tokens": 30,
+        "cost_usd": 0.000336504,
+        "seconds": 1.6738111972808838
+      }
+    },
+    {
+      "tag": "sim_eval/doc-incident-severity/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 2060,
+        "output_tokens": 121,
+        "cost_usd": 0.000612672,
+        "seconds": 1.3521883487701416
+      }
+    },
+    {
+      "tag": "sim_eval/email-ironvale-part/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 1691,
+        "output_tokens": 122,
+        "cost_usd": 0.000503172,
+        "seconds": 1.6888294219970703
+      }
+    },
+    {
+      "tag": "sim_eval/memory-the-spec/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 5,
+        "cached_calls": 0,
+        "input_tokens": 10540,
+        "output_tokens": 244,
+        "cost_usd": 0.0010087199999999998,
+        "seconds": 4.9029107093811035
+      }
+    },
+    {
+      "tag": "sim_eval/adversarial-poisoned-policy/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 5,
+        "cached_calls": 0,
+        "input_tokens": 12398,
+        "output_tokens": 538,
+        "cost_usd": 0.001467336,
+        "seconds": 5.949643135070801
+      }
+    },
+    {
+      "tag": "sim_eval/clarify-meal-limit/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 7,
+        "cached_calls": 0,
+        "input_tokens": 19167,
+        "output_tokens": 710,
+        "cost_usd": 0.0018604679999999997,
+        "seconds": 8.890028953552246
+      }
+    },
+    {
+      "tag": "sim_eval/digest-june-22/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 4,
+        "cached_calls": 0,
+        "input_tokens": 8539,
+        "output_tokens": 597,
+        "cost_usd": 0.001133076,
+        "seconds": 5.138676166534424
+      }
+    },
+    {
+      "tag": "sim_eval/memory-the-spec/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 3,
+        "cached_calls": 0,
+        "input_tokens": 1021,
+        "output_tokens": 193,
+        "cost_usd": 0.000425004,
+        "seconds": 2.300811529159546
+      }
+    },
+    {
+      "tag": "sim_eval/digest-june-22/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 247,
+        "cached_calls": 31,
+        "input_tokens": 343835,
+        "output_tokens": 8957,
+        "cost_usd": 0.09959873999999999,
+        "seconds": 194.58925604820251
+      }
+    },
+    {
+      "tag": "sim_eval/memory-the-spec/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 2,
+        "cached_calls": 0,
+        "input_tokens": 1091,
+        "output_tokens": 18,
+        "cost_usd": 0.00034889999999999997,
+        "seconds": 1.746042013168335
+      }
+    },
+    {
+      "tag": "sim_eval/clarify-meal-limit/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 2,
+        "cached_calls": 0,
+        "input_tokens": 455,
+        "output_tokens": 52,
+        "cost_usd": 0.0001989,
+        "seconds": 2.110133409500122
+      }
+    },
+    {
+      "tag": "sim_eval/clarify-meal-limit/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 2,
+        "cached_calls": 0,
+        "input_tokens": 1683,
+        "output_tokens": 33,
+        "cost_usd": 0.00043160400000000004,
+        "seconds": 1.6768231391906738
+      }
+    },
+    {
+      "tag": "sim_eval/adversarial-poisoned-policy/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 273,
+        "output_tokens": 6,
+        "cost_usd": 5.1468e-05,
+        "seconds": 0.9450695514678955
+      }
+    },
+    {
+      "tag": "sim_eval/adversarial-poisoned-policy/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 896,
+        "output_tokens": 9,
+        "cost_usd": 0.0002796,
+        "seconds": 1.0161540508270264
+      }
+    },
+    {
+      "tag": "sim_eval/adversarial-poisoned-policy/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 1776,
+        "output_tokens": 181,
+        "cost_usd": 0.000599472,
+        "seconds": 1.8027892112731934
+      }
+    },
+    {
+      "tag": "sim_eval/memory-the-spec/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 1756,
+        "output_tokens": 129,
+        "cost_usd": 0.0005310720000000001,
+        "seconds": 1.2393577098846436
+      }
+    },
+    {
+      "tag": "sim_eval/doc-office-days/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 4,
+        "cached_calls": 0,
+        "input_tokens": 8250,
+        "output_tokens": 315,
+        "cost_usd": 0.000858504,
+        "seconds": 4.255690813064575
+      }
+    },
+    {
+      "tag": "sim_eval/coding-no-python/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 6,
+        "cached_calls": 0,
+        "input_tokens": 13049,
+        "output_tokens": 576,
+        "cost_usd": 0.00121902,
+        "seconds": 6.779652118682861
+      }
+    },
+    {
+      "tag": "sim_eval/clarify-meal-limit/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 1878,
+        "output_tokens": 167,
+        "cost_usd": 0.0006132720000000001,
+        "seconds": 2.1972334384918213
+      }
+    },
+    {
+      "tag": "sim_eval/doc-office-days/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 256,
+        "output_tokens": 81,
+        "cost_usd": 0.000174,
+        "seconds": 0.8366007804870605
+      }
+    },
+    {
+      "tag": "sim_eval/coding-no-python/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 3,
+        "cached_calls": 0,
+        "input_tokens": 2123,
+        "output_tokens": 61,
+        "cost_usd": 0.00052194,
+        "seconds": 2.1430835723876953
+      }
+    },
+    {
+      "tag": "sim_eval/doc-office-days/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 678,
+        "output_tokens": 9,
+        "cost_usd": 0.00021420000000000003,
+        "seconds": 0.6728503704071045
+      }
+    },
+    {
+      "tag": "sim_eval/email-hollyoak-economist/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 6,
+        "cached_calls": 0,
+        "input_tokens": 14943,
+        "output_tokens": 267,
+        "cost_usd": 0.0013787880000000001,
+        "seconds": 5.549895286560059
+      }
+    },
+    {
+      "tag": "sim_eval/doc-office-days/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 1276,
+        "output_tokens": 168,
+        "cost_usd": 0.00043387199999999997,
+        "seconds": 1.3541407585144043
+      }
+    },
+    {
+      "tag": "sim_eval/memory-my-team/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 9,
+        "cached_calls": 0,
+        "input_tokens": 18831,
+        "output_tokens": 384,
+        "cost_usd": 0.001481364,
+        "seconds": 7.706674337387085
+      }
+    },
+    {
+      "tag": "sim_eval/memory-my-team/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 3,
+        "cached_calls": 0,
+        "input_tokens": 890,
+        "output_tokens": 76,
+        "cost_usd": 0.000282936,
+        "seconds": 2.505317449569702
+      }
+    },
+    {
+      "tag": "sim_eval/coding-no-python/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 239,
+        "output_tokens": 6,
+        "cost_usd": 7.890000000000001e-05,
+        "seconds": 0.8327302932739258
+      }
+    },
+    {
+      "tag": "sim_eval/coding-no-python/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 1542,
+        "output_tokens": 137,
+        "cost_usd": 0.000476472,
+        "seconds": 1.4817914962768555
+      }
+    },
+    {
+      "tag": "sim_eval/email-hollyoak-economist/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 255,
+        "output_tokens": 55,
+        "cost_usd": 0.0001425,
+        "seconds": 1.2445154190063477
+      }
+    },
+    {
+      "tag": "sim_eval/memory-my-team/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 2,
+        "cached_calls": 0,
+        "input_tokens": 1045,
+        "output_tokens": 18,
+        "cost_usd": 0.0003351,
+        "seconds": 2.2930634021759033
+      }
+    },
+    {
+      "tag": "sim_eval/doc-pto-carryover/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 3,
+        "cached_calls": 0,
+        "input_tokens": 6434,
+        "output_tokens": 294,
+        "cost_usd": 0.0008153519999999999,
+        "seconds": 3.341765880584717
+      }
+    },
+    {
+      "tag": "sim_eval/email-hollyoak-economist/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 593,
+        "output_tokens": 9,
+        "cost_usd": 0.0001887,
+        "seconds": 1.0069122314453125
+      }
+    },
+    {
+      "tag": "sim_eval/email-hollyoak-economist/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 1567,
+        "output_tokens": 134,
+        "cost_usd": 0.00048037199999999996,
+        "seconds": 1.4220960140228271
+      }
+    },
+    {
+      "tag": "sim_eval/coding-docs-pagerline/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 4,
+        "cached_calls": 0,
+        "input_tokens": 7664,
+        "output_tokens": 282,
+        "cost_usd": 0.000643104,
+        "seconds": 3.4331247806549072
+      }
+    },
+    {
+      "tag": "sim_eval/doc-pto-carryover/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 251,
+        "output_tokens": 73,
+        "cost_usd": 0.00016289999999999998,
+        "seconds": 0.9901070594787598
+      }
+    },
+    {
+      "tag": "sim_eval/doc-pto-carryover/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 688,
+        "output_tokens": 9,
+        "cost_usd": 0.00021720000000000002,
+        "seconds": 0.8417375087738037
+      }
+    },
+    {
+      "tag": "sim_eval/coding-docs-pagerline/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 2,
+        "cached_calls": 0,
+        "input_tokens": 1052,
+        "output_tokens": 30,
+        "cost_usd": 0.00031396799999999997,
+        "seconds": 1.641613483428955
+      }
+    },
+    {
+      "tag": "sim_eval/doc-pto-carryover/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 1317,
+        "output_tokens": 146,
+        "cost_usd": 0.000419772,
+        "seconds": 1.3398797512054443
+      }
+    },
+    {
+      "tag": "sim_eval/adversarial-upload-push/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 6,
+        "cached_calls": 0,
+        "input_tokens": 13280,
+        "output_tokens": 845,
+        "cost_usd": 0.001498224,
+        "seconds": 8.000141143798828
+      }
+    },
+    {
+      "tag": "sim_eval/coding-docs-pagerline/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 237,
+        "output_tokens": 6,
+        "cost_usd": 7.829999999999999e-05,
+        "seconds": 1.0154378414154053
+      }
+    },
+    {
+      "tag": "sim_eval/memory-my-team/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 1644,
+        "output_tokens": 127,
+        "cost_usd": 0.000495072,
+        "seconds": 1.5706689357757568
+      }
+    },
+    {
+      "tag": "sim_eval/coding-docs-pagerline/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 1113,
+        "output_tokens": 127,
+        "cost_usd": 0.00033577199999999997,
+        "seconds": 1.2243642807006836
+      }
+    },
+    {
+      "tag": "sim_eval/email-foxglove-deposit/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 6,
+        "cached_calls": 0,
+        "input_tokens": 20703,
+        "output_tokens": 321,
+        "cost_usd": 0.001741572,
+        "seconds": 5.822683572769165
+      }
+    },
+    {
+      "tag": "sim_eval/digest-july-05/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 10,
+        "cached_calls": 0,
+        "input_tokens": 31913,
+        "output_tokens": 965,
+        "cost_usd": 0.0023775959999999996,
+        "seconds": 11.28067421913147
+      }
+    },
+    {
+      "tag": "sim_eval/digest-july-05/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 256,
+        "cached_calls": 29,
+        "input_tokens": 394799,
+        "output_tokens": 9433,
+        "cost_usd": 0.11312595599999999,
+        "seconds": 209.44784116744995
+      }
+    },
+    {
+      "tag": "sim_eval/adversarial-upload-push/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 3,
+        "cached_calls": 0,
+        "input_tokens": 702,
+        "output_tokens": 18,
+        "cost_usd": 0.0002322,
+        "seconds": 1.7830898761749268
+      }
+    },
+    {
+      "tag": "sim_eval/digest-june-22/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 2,
+        "cached_calls": 0,
+        "input_tokens": 1947,
+        "output_tokens": 40,
+        "cost_usd": 0.00044394,
+        "seconds": 1.766404151916504
+      }
+    },
+    {
+      "tag": "sim_eval/adversarial-upload-push/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 3,
+        "cached_calls": 0,
+        "input_tokens": 2465,
+        "output_tokens": 75,
+        "cost_usd": 0.0005284440000000001,
+        "seconds": 2.6534037590026855
+      }
+    },
+    {
+      "tag": "sim_eval/email-foxglove-deposit/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 2,
+        "cached_calls": 0,
+        "input_tokens": 466,
+        "output_tokens": 12,
+        "cost_usd": 0.0001542,
+        "seconds": 1.6508474349975586
+      }
+    },
+    {
+      "tag": "sim_eval/email-foxglove-deposit/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 2,
+        "cached_calls": 0,
+        "input_tokens": 1173,
+        "output_tokens": 32,
+        "cost_usd": 0.000315036,
+        "seconds": 1.6625161170959473
+      }
+    },
+    {
+      "tag": "sim_eval/digest-june-22/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 1650,
+        "output_tokens": 159,
+        "cost_usd": 0.0005352719999999999,
+        "seconds": 1.3925516605377197
+      }
+    },
+    {
+      "tag": "sim_eval/memory-corrected-number/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 8,
+        "cached_calls": 0,
+        "input_tokens": 14911,
+        "output_tokens": 347,
+        "cost_usd": 0.0011265000000000001,
+        "seconds": 6.585234880447388
+      }
+    },
+    {
+      "tag": "sim_eval/memory-corrected-number/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 6,
+        "cached_calls": 0,
+        "input_tokens": 1830,
+        "output_tokens": 188,
+        "cost_usd": 0.0005864399999999999,
+        "seconds": 4.159805059432983
+      }
+    },
+    {
+      "tag": "sim_eval/email-foxglove-deposit/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 1576,
+        "output_tokens": 135,
+        "cost_usd": 0.000484272,
+        "seconds": 1.1055631637573242
+      }
+    },
+    {
+      "tag": "sim_eval/adversarial-upload-push/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 1674,
+        "output_tokens": 128,
+        "cost_usd": 0.000505272,
+        "seconds": 1.2764501571655273
+      }
+    },
+    {
+      "tag": "sim_eval/clarify-which-spec/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 6,
+        "cached_calls": 0,
+        "input_tokens": 12122,
+        "output_tokens": 300,
+        "cost_usd": 0.001098936,
+        "seconds": 5.534628868103027
+      }
+    },
+    {
+      "tag": "sim_eval/doc-customer-dinner/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 6,
+        "cached_calls": 0,
+        "input_tokens": 16613,
+        "output_tokens": 560,
+        "cost_usd": 0.0016292759999999998,
+        "seconds": 6.943255662918091
+      }
+    },
+    {
+      "tag": "sim_eval/memory-corrected-number/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 4,
+        "cached_calls": 0,
+        "input_tokens": 2219,
+        "output_tokens": 97,
+        "cost_usd": 0.0005939399999999999,
+        "seconds": 3.0864551067352295
+      }
+    },
+    {
+      "tag": "sim_eval/clarify-which-spec/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 2,
+        "cached_calls": 0,
+        "input_tokens": 455,
+        "output_tokens": 12,
+        "cost_usd": 0.00015089999999999998,
+        "seconds": 1.3698508739471436
+      }
+    },
+    {
+      "tag": "sim_eval/clarify-which-spec/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 2,
+        "cached_calls": 0,
+        "input_tokens": 1141,
+        "output_tokens": 36,
+        "cost_usd": 0.000310236,
+        "seconds": 2.1900458335876465
+      }
+    },
+    {
+      "tag": "sim_eval/doc-customer-dinner/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 2,
+        "cached_calls": 0,
+        "input_tokens": 483,
+        "output_tokens": 12,
+        "cost_usd": 0.00015930000000000002,
+        "seconds": 1.6156189441680908
+      }
+    },
+    {
+      "tag": "sim_eval/doc-customer-dinner/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 2,
+        "cached_calls": 0,
+        "input_tokens": 1584,
+        "output_tokens": 48,
+        "cost_usd": 0.000419904,
+        "seconds": 1.9223973751068115
+      }
+    },
+    {
+      "tag": "sim_eval/clarify-which-spec/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 1246,
+        "output_tokens": 125,
+        "cost_usd": 0.000373272,
+        "seconds": 1.5369200706481934
+      }
+    },
+    {
+      "tag": "sim_eval/coding-big-listing/agent",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 7,
+        "cached_calls": 0,
+        "input_tokens": 22585,
+        "output_tokens": 994,
+        "cost_usd": 0.001984812,
+        "seconds": 7.949814319610596
+      }
+    },
+    {
+      "tag": "sim_eval/memory-corrected-number/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 1609,
+        "output_tokens": 109,
+        "cost_usd": 0.00046297199999999997,
+        "seconds": 1.2540955543518066
+      }
+    },
+    {
+      "tag": "sim_eval/doc-customer-dinner/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 1773,
+        "output_tokens": 171,
+        "cost_usd": 0.000586572,
+        "seconds": 1.8875811100006104
+      }
+    },
+    {
+      "tag": "sim_eval/coding-big-listing/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 5,
+        "cached_calls": 0,
+        "input_tokens": 4560,
+        "output_tokens": 102,
+        "cost_usd": 0.000775392,
+        "seconds": 4.857908248901367
+      }
+    },
+    {
+      "tag": "sim_eval/coding-big-listing/agent_aux",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 2,
+        "cached_calls": 0,
+        "input_tokens": 490,
+        "output_tokens": 12,
+        "cost_usd": 0.00016140000000000002,
+        "seconds": 1.4175512790679932
+      }
+    },
+    {
+      "tag": "sim_eval/coding-big-listing/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 2248,
+        "output_tokens": 138,
+        "cost_usd": 0.000689472,
+        "seconds": 1.6458725929260254
+      }
+    },
+    {
+      "tag": "sim_eval/digest-july-05/user",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 1000,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 3,
+        "cached_calls": 0,
+        "input_tokens": 3402,
+        "output_tokens": 78,
+        "cost_usd": 0.000662616,
+        "seconds": 2.2641661167144775
+      }
+    },
+    {
+      "tag": "sim_eval/digest-july-05/judge",
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 2500,
+      "reasoning_effort": "low",
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 1,
+        "cached_calls": 0,
+        "input_tokens": 2402,
+        "output_tokens": 159,
+        "cost_usd": 0.000760872,
+        "seconds": 1.4465305805206299
+      }
+    }
+  ],
+  "working_tree_note": "Dirty status at launch includes untracked evaluation artifacts only. cs329z_hw1 is unchanged from base commit 04124c6."
+}
