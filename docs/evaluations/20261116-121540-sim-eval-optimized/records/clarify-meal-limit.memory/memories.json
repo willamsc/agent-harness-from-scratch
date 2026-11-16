@@ -1,0 +1,23 @@
+[
+  {
+    "id": "mem-58d2fbd8955f4fd4982a2ac8f0749990",
+    "scope": "project:international",
+    "kind": "project_fact",
+    "key": "location and timing",
+    "value": "rotterdam in october",
+    "source": {
+      "session_id": "f3fa6bd81e71426bac60d74a24c45d05",
+      "turn_id": 2,
+      "origin": "user",
+      "quote": "rotterdam in october",
+      "trigger": "after_send"
+    },
+    "created_at": "2026-11-16T04:16:06.133434+00:00",
+    "updated_at": "2026-11-16T04:16:06.133434+00:00",
+    "expires_at": null,
+    "status": "active",
+    "supersedes": [],
+    "related_ids": [],
+    "relation": "new"
+  }
+]

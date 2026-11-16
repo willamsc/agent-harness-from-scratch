@@ -1,0 +1,44 @@
+[
+  {
+    "id": "mem-26fa682c0eb04715b41fe61fae374c86",
+    "scope": "user",
+    "kind": "profile",
+    "key": "work arrangement and office location",
+    "value": "started last week (hybrid, Oakland office)",
+    "source": {
+      "session_id": "42aac5dc160b4a29918941aac15a4b51",
+      "turn_id": 1,
+      "origin": "user",
+      "quote": "I started last week (hybrid, Oakland office)",
+      "trigger": "after_send"
+    },
+    "created_at": "2026-11-16T04:16:10.559301+00:00",
+    "updated_at": "2026-11-16T04:16:10.559301+00:00",
+    "expires_at": null,
+    "status": "active",
+    "supersedes": [],
+    "related_ids": [],
+    "relation": "new"
+  },
+  {
+    "id": "mem-ea7ac76ff5d546c880abc5442f3a7b4f",
+    "scope": "user",
+    "kind": "temporary",
+    "key": "badge status",
+    "value": "badge finally works",
+    "source": {
+      "session_id": "42aac5dc160b4a29918941aac15a4b51",
+      "turn_id": 1,
+      "origin": "user",
+      "quote": "my badge finally works",
+      "trigger": "after_send"
+    },
+    "created_at": "2026-11-16T04:16:10.571198+00:00",
+    "updated_at": "2026-11-16T04:16:10.571198+00:00",
+    "expires_at": null,
+    "status": "active",
+    "supersedes": [],
+    "related_ids": [],
+    "relation": "new"
+  }
+]

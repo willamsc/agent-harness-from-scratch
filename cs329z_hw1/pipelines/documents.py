@@ -65,7 +65,25 @@ class DocumentIndex:
         if k <= 0:
             return results
         seen = set()
-        for i, _ in self.bm25.search(query, len(self.chunks)):
+        ranked = self.bm25.search(query, len(self.chunks))
+        # Reserve pointers to explicitly labelled update/memo documents when
+        # their TITLE shares a query term. Do not infer newer facts or dates:
+        # the model still needs to compare effective dates against the task.
+        updates = []
+        update_docs = set()
+        for i, _ in ranked:
+            doc = self.docs[self.chunks[i]['doc_id']]
+            if (re.search(r'\b(announcement|memo|update)\b', doc['title'], re.I)
+                    and terms.intersection(tokenize(doc['title']))
+                    and doc['doc_id'] not in update_docs):
+                updates.append((i, 0))
+                update_docs.add(doc['doc_id'])
+        order = ranked[:1] + updates[:2] + ranked[1:]
+        visited_chunks = set()
+        for i, _ in order:
+            if i in visited_chunks:
+                continue
+            visited_chunks.add(i)
             chunk = self.chunks[i]
             doc = self.docs[chunk['doc_id']]
             text = doc['text']
@@ -92,6 +110,7 @@ class DocumentIndex:
                 continue
             seen.add(position)
             results.append({'doc_id': doc['doc_id'], 'title': doc['title'], 'snippet': snippet,
+                            'document_kind': 'update_or_memo' if re.search(r'\b(announcement|memo|update)\b', doc['title'], re.I) else 'document',
                             'category': category(doc['doc_id']), 'section': chunk['section'],
                             'start_line': start_line, 'end_line': end_line})
             if len(results) >= k:

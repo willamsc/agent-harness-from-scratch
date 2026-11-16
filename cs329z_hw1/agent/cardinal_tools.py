@@ -1,6 +1,7 @@
 """Bind fixed Cardinal schemas to lazy email workflows and future tools."""
 
 import json
+import hashlib
 from threading import RLock
 
 from cs329z_hw1 import data
@@ -67,9 +68,29 @@ def build_cardinal_tools(lm, config):
         from cs329z_hw1.adapters import run_email_qa
         return json.dumps(run_email_qa(question, search, aux_lm), ensure_ascii=False)
 
+    digest_cache = {}
+    digest_lock = RLock()
+
     def daily_digest(date):
         from cs329z_hw1.adapters import run_daily_digest
-        return run_daily_digest(data.emails_on(date), aux_lm)
+        from cs329z_hw1.adapters import PRIORITY_SYSTEM_PROMPT
+        from cs329z_hw1.pipelines.daily_digest import DIGEST_SYSTEM_PROMPT
+        emails = data.emails_on(date)
+        key = hashlib.sha256(json.dumps([date, emails, PRIORITY_SYSTEM_PROMPT, DIGEST_SYSTEM_PROMPT],
+                                       ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+        # Per-session cache: no cross-user/model sharing. Hold the lock to
+        # avoid duplicate work for simultaneous requests for unchanged data.
+        with digest_lock:
+            if key in digest_cache:
+                daily_digest.cache_hits += 1
+                return digest_cache[key]
+            daily_digest.cache_misses += 1
+            result = run_daily_digest(emails, aux_lm)
+            if isinstance(result, str) and result.strip():
+                digest_cache[key] = result
+            return result
+
+    daily_digest.cache_hits = daily_digest.cache_misses = 0
 
     def search_docs(query, k=5):
         return json.dumps(_documents().search(query, k), ensure_ascii=False)

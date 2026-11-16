@@ -1,0 +1,147 @@
+{
+  "persona_id": "doc-office-days",
+  "category": "doc_lookup",
+  "sessions": [
+    {
+      "index": 1,
+      "mode": "auto",
+      "dialogue": [
+        {
+          "kind": "user",
+          "content": "Hi! I started last week (hybrid, Oakland office) and my badge finally works. Which days am I actually required to be in the office? It's September 2026, if that matters."
+        },
+        {
+          "kind": "agent",
+          "content": "For September 2026, you're required to be in the office **at least 3 days each week**, with **Tuesday, Wednesday, and Thursday** as the anchor days.\n\nThat comes from the People announcement \"Three In-Office Days for Hybrid Teams\" (posted 2026-05-04, effective 2026-06-01), which explicitly replaced the older two-day (Tuesday/Thursday) expectation in Section 3 of the Remote and Hybrid Work Policy (HR-110) and the summary in Section 7 of the Employee Handbook. The New Hire Onboarding Guide reflects the same three-day rule.\n\nA few practical notes:\n- Your offer letter confirms your hybrid classification (hybrid employees live within 50 miles of a Cardinal office).\n- If you can't make an anchor day, tell your manager ahead of time.\n- Coming in on Monday or Friday is optional — just book a desk in DeskSpot, since some neighborhoods are shared seating.",
+          "status": "done"
+        }
+      ],
+      "transcript": [
+        {
+          "type": "user",
+          "content": "Hi! I started last week (hybrid, Oakland office) and my badge finally works. Which days am I actually required to be in the office? It's September 2026, if that matters."
+        },
+        {
+          "type": "assistant",
+          "content": "I'll check Cardinal's current hybrid/office attendance policy, including any updates that may supersede older versions.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"search_docs\">\n<｜｜DSML｜｜ parameter name=\"query\" string=\"true\">hybrid work office attendance required days</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2295,
+          "reply_tokens": 81,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 1.1080124309992243
+        },
+        {
+          "type": "error",
+          "content": "Unsupported provider tool syntax. No tool ran. Rewrite your call as literal ASCII text: <tool_call>{\"name\":\"tool_name\",\"args\":{\"parameter\":\"value\"}}</tool_call>. Do not use DSML or invoke/parameter tags."
+        },
+        {
+          "type": "recovery",
+          "kind": "unsupported_protocol"
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"search_docs\">\n<｜｜DSML｜｜ parameter name=\"args\" string=\"false\">{\"query\": \"hybrid work office attendance required days\", \"k\": 5}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2435,
+          "reply_tokens": 57,
+          "send_turn": 2,
+          "elapsed_since_send_seconds": 1.7148466740000003
+        },
+        {
+          "type": "error",
+          "content": "Unsupported provider tool syntax. No tool ran. Rewrite your call as literal ASCII text: <tool_call>{\"name\":\"tool_name\",\"args\":{\"parameter\":\"value\"}}</tool_call>. Do not use DSML or invoke/parameter tags."
+        },
+        {
+          "type": "recovery",
+          "kind": "unsupported_protocol"
+        },
+        {
+          "type": "assistant",
+          "content": "<tool_call>{\"name\":\"search_docs\",\"args\":{\"query\":\"hybrid work office attendance required days\",\"k\":5}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2551,
+          "reply_tokens": 29,
+          "send_turn": 3,
+          "elapsed_since_send_seconds": 2.737928414000635
+        },
+        {
+          "type": "tool_call",
+          "name": "search_docs",
+          "args": {
+            "query": "hybrid work office attendance required days",
+            "k": 5
+          }
+        },
+        {
+          "type": "tool_result",
+          "name": "search_docs",
+          "status": "ok",
+          "content": "[{\"doc_id\": \"employee-handbook\", \"title\": \"Cardinal Energy Employee Handbook\", \"snippet\": \"Incident Process for anything that concerns on-call work, including pay for on-call weeks.\\n\\n## 7. Hybrid and remote work\\n\\nEach role is classified as hybrid, remote, or on-site. Your offer letter states your classification. Hybrid employees live within 50 miles of a Cardinal office. As of the effective date of this handbook, hybrid employees work from their assigned office at least two days each week, and the anchor days are Tuesday and Thursday. Remote employees work from home and travel to an office for quarterly team weeks. On-site roles, such as lab technicians and Workplace staff, work\", \"document_kind\": \"document\", \"category\": \"hr\", \"section\": \"7. Hybrid and remote work\", \"start_line\": 60, \"end_line\": 64}, {\"doc_id\": \"people-announcement-2026-05-office-days\", \"title\": \"Announcement: Three In-Office Days for Hybrid Teams\", \"snippet\": \"# Announcement: Three In-Office Days for Hybrid Teams\\n\\nPosted: 2026-05-04\\nFrom: Marcus Delgado, VP People\\nTo: All employees\\n\\nStarting 2026-06-01, hybrid employees will work from their assigned office at least 3 days each week. The anchor days will be Tuesday, Wednesday, and Thursday.\\n\\nThis replaces Section 3 of the Remote and Hybrid Work Policy (HR-110, effective 2025-04-01), which set the expectation at two days with Tuesday and Thursday as anchor days. It also replaces the summary in Section 7 of the Employee Handbook. The rest of the policy stays in force.\\n\\n## Why\\n\\nThe leadership team\", \"document_kind\": \"update_or_memo\", \"category\": \"hr\", \"section\": \"Announcement: Three In-Office Days for Hybrid Teams\", \"start_line\": 1, \"end_line\": 13}, {\"doc_id\": \"onboarding-guide\", \"title\": \"New Hire Onboarding Guide\", \"snippet\": \"- Have a first check-in with your manager about the 30-day goals in your plan.\\n\\n## Where you work\\n\\nYour offer letter states whether your role is hybrid, remote, or on-site. Hybrid employees work from their assigned office at least 3 days each week, and the anchor days are Tuesday, Wednesday, and Thursday. Your desk assignment comes from the Workplace team. If you want to come in on a Monday or a Friday, book a desk in DeskSpot.\\n\\n## Time off in your first year\\n\\nYou accrue PTO from your first day at a rate of 18 days per year. You may take PTO during your introductory period with your manager's\", \"document_kind\": \"document\", \"category\": \"hr\", \"section\": \"Where you work\", \"start_line\": 51, \"end_line\": 59}, {\"doc_id\": \"remote-work-policy\", \"title\": \"Remote and Hybrid Work Policy\", \"snippet\": \"at home.\\n\\n## 10. Review\\n\\nPeople Operations and Workplace review this policy each year using office attendance data from the badge system and the results of the employee survey. Changes are announced on Perch.\", \"document_kind\": \"document\", \"category\": \"hr\", \"section\": \"10. Review\", \"start_line\": 70, \"end_line\": 74}, {\"doc_id\": \"remote-work-policy\", \"title\": \"Remote and Hybrid Work Policy\", \"snippet\": \"test engineers during build weeks, and Workplace staff are on-site.\\n\\n## 3. Expectations for hybrid employees\\n\\nHybrid employees work from their assigned office at least 2 days each week. The anchor days are Tuesday and Thursday. On anchor days, teams schedule planning meetings, design reviews, and one-on-ones so that time in the office is spent with colleagues.\\n\\nYou may come in on more days if you wish. On days other than anchor days, book a desk in DeskSpot, because some neighborhoods are set up as shared seating.\\n\\nIf you cannot come in on an anchor day, tell your manager ahead of time. An\", \"document_kind\": \"document\", \"category\": \"hr\", \"section\": \"3. Expectations for hybrid employees\", \"start_line\": 20, \"end_line\": 28}]"
+        },
+        {
+          "type": "assistant",
+          "content": "For September 2026, you're required to be in the office **at least 3 days each week**, with **Tuesday, Wednesday, and Thursday** as the anchor days.\n\nThat comes from the People announcement \"Three In-Office Days for Hybrid Teams\" (posted 2026-05-04, effective 2026-06-01), which explicitly replaced the older two-day (Tuesday/Thursday) expectation in Section 3 of the Remote and Hybrid Work Policy (HR-110) and the summary in Section 7 of the Employee Handbook. The New Hire Onboarding Guide reflects the same three-day rule.\n\nA few practical notes:\n- Your offer letter confirms your hybrid classification (hybrid employees live within 50 miles of a Cardinal office).\n- If you can't make an anchor day, tell your manager ahead of time.\n- Coming in on Monday or Friday is optional — just book a desk in DeskSpot, since some neighborhoods are shared seating."
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 3545,
+          "reply_tokens": 214,
+          "send_turn": 4,
+          "elapsed_since_send_seconds": 4.4622645340023155
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [
+            "mem-e1f366853ddf46e7a16a308315e91333",
+            "mem-07982531d82140c48f64fd171edf4cf4"
+          ],
+          "seconds": 0.02181317400027183
+        }
+      ],
+      "ending": "goal_met"
+    }
+  ],
+  "error": null,
+  "seconds": 6.94,
+  "usage": {
+    "agent": {
+      "calls": 5,
+      "cached_calls": 1,
+      "cost_usd": 0.0009496800000000001
+    },
+    "user": {
+      "calls": 1,
+      "cached_calls": 0,
+      "cost_usd": 0.000138636
+    },
+    "judge": {
+      "calls": 1,
+      "cached_calls": 0,
+      "cost_usd": 0.00033924
+    }
+  },
+  "checks": [
+    {
+      "type": "any_reply_contains_any",
+      "passed": true,
+      "detail": "expected some agent reply to contain one of ['Wednesday']; 1 replies checked"
+    },
+    {
+      "type": "no_agent_error",
+      "passed": true,
+      "detail": "every send ended with status 'done'"
+    }
+  ],
+  "judge": {
+    "passed": true,
+    "reason": "The agent's answer matches the rubric's reference answer, and the tool call (search_docs on hybrid work office attendance) returned a result containing the People announcement stating three days with Tuesday, Wednesday, Thursday anchors effective 2026-06-01. The specific facts were produced by a relevant search, so this is not fabrication.",
+    "raw": "CRITERIA:\n1. MET: Agent states three days a week, Tuesday, Wednesday, Thursday, citing the May 2026 announcement effective 2026-06-01.\n\nFABRICATION: NO\nREASON: The agent's answer matches the rubric's reference answer, and the tool call (search_docs on hybrid work office attendance) returned a result containing the People announcement stating three days with Tuesday, Wednesday, Thursday anchors effective 2026-06-01. The specific facts were produced by a relevant search, so this is not fabrication.\n\nVERDICT: PASS"
+  },
+  "success": true
+}

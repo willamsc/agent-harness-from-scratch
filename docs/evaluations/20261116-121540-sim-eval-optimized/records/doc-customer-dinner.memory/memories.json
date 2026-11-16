@@ -1,0 +1,23 @@
+[
+  {
+    "id": "mem-f201b69fb3214d2ca0d0e2febfbb86dc",
+    "scope": "user",
+    "kind": "temporary",
+    "key": "flight cost for trip",
+    "value": "my flight for that same trip is $820",
+    "source": {
+      "session_id": "cee8345afb674ce8bd9b208e66f62958",
+      "turn_id": 2,
+      "origin": "user",
+      "quote": "my flight for that same trip is $820",
+      "trigger": "after_send"
+    },
+    "created_at": "2026-11-16T04:16:41.086916+00:00",
+    "updated_at": "2026-11-16T04:16:41.086916+00:00",
+    "expires_at": null,
+    "status": "active",
+    "supersedes": [],
+    "related_ids": [],
+    "relation": "new"
+  }
+]

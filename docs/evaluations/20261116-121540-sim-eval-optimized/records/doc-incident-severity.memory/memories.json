@@ -1,0 +1,44 @@
+[
+  {
+    "id": "mem-7c68a35ccba348adbc9ef468d7708db8",
+    "scope": "user",
+    "kind": "preference",
+    "key": "incident response: sev2 ack time",
+    "value": "sev2, 15 min ack",
+    "source": {
+      "session_id": "dec5d0461cac4e2bbd81f2071f90337a",
+      "turn_id": 2,
+      "origin": "user",
+      "quote": "sev2, 15 min ack",
+      "trigger": "after_send"
+    },
+    "created_at": "2026-11-16T04:15:54.534846+00:00",
+    "updated_at": "2026-11-16T04:15:54.534846+00:00",
+    "expires_at": null,
+    "status": "active",
+    "supersedes": [],
+    "related_ids": [],
+    "relation": "new"
+  },
+  {
+    "id": "mem-f49797c37d96494c8f06a0b657f80496",
+    "scope": "user",
+    "kind": "temporary",
+    "key": "incident status: no data lost, late",
+    "value": "no data lost, just late",
+    "source": {
+      "session_id": "dec5d0461cac4e2bbd81f2071f90337a",
+      "turn_id": 2,
+      "origin": "user",
+      "quote": "no data lost, just late",
+      "trigger": "after_send"
+    },
+    "created_at": "2026-11-16T04:15:54.545139+00:00",
+    "updated_at": "2026-11-16T04:15:54.545139+00:00",
+    "expires_at": null,
+    "status": "active",
+    "supersedes": [],
+    "related_ids": [],
+    "relation": "new"
+  }
+]

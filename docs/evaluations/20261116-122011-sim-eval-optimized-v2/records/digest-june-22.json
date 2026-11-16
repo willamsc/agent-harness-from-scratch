@@ -1,0 +1,168 @@
+{
+  "persona_id": "digest-june-22",
+  "category": "digest",
+  "sessions": [
+    {
+      "index": 1,
+      "mode": "auto",
+      "dialogue": [
+        {
+          "kind": "user",
+          "content": "Give me the digest for June 22, 2001."
+        },
+        {
+          "kind": "agent",
+          "content": "**Digest — Friday, June 22, 2001**\n\n**Urgent**\n- **Bracepatt / EL00-95-031:** Settlement conference Monday, June 25 — principals with full authority must attend.\n- **Enron investments meeting:** Write down Encorp and Dais Analytic this quarter; decide on AMPS $7M funding; Bridgeline to Donahue; assign Copel exit.\n- **UPS / ET&S:** Ava to set the online training date and confirm end-of-month billing readiness.\n- **AReM / WPTF CPUC filing:** Comments due Monday, June 25, on PX credit/direct access; decide joint vs. separate filing.\n- **Bulrush Bend meter station:** Contractor hit the inlet line; station shut in — approve emergency repair crew and reroute noon nominations within the hour.\n- **May 2001 checkout (Bryan Texas Utilities):** Forney to finish the discrepancy checkout before the weekend.\n- **WIC PA:** Review and call ASAP.\n- **Windrow Steel:** Bart's signature needed by 5:00 PM today — contract lapses at midnight.\n- **Citibank $250M prepay:** Closes June 28; confirm Libor set vs. floating.\n- **FERC staff EOL responses:** Comments to Yoho/Nicolay by COB Monday, June 25.\n- **EBS on-site power deals:** Regulatory review needed ASAP on selling generator power to tenants.\n- **Orlin Valley Gas margin call:** $4.2M wire must leave by 2:00 PM today; Marisol's approval required.\n- **Payroll contract change:** Confirm with Louise/John before end-of-month payroll.\n\n**Normal**\n- **Southwest Power divestiture:** Signed with Black Hills; $15MM L/C received; closing by August 31.\n- **Power World training:** June 27–28; laptops and mice required.\n- **Outlook migration:** Houston converts the week of July 9; submit XMS expense reports by June 27.\n- **Oakhill updates:** Rusk RFP bids due June 27; T&D contract pending.\n- **RCR call:** Monday, June 25, at 4:00 PM CDT.",
+          "status": "done"
+        },
+        {
+          "kind": "user",
+          "content": "The Orlin Valley Gas margin call — how much is it and what's the deadline?"
+        },
+        {
+          "kind": "agent",
+          "content": "The Orlin Valley Gas margin call is **$4.2 million**, and the wire must leave by **2:00 PM today** (June 22, 2001). Marisol's approval is required.",
+          "status": "done"
+        }
+      ],
+      "transcript": [
+        {
+          "type": "user",
+          "content": "Give me the digest for June 22, 2001."
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"daily_digest\">\n<｜｜DSML｜｜ parameter name=\"args\" string=\"false\">{\"date\": \"2001-06-22\"}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2262,
+          "reply_tokens": 46,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 0.6894243610004196
+        },
+        {
+          "type": "error",
+          "content": "Unsupported provider tool syntax. No tool ran. Rewrite your call as literal ASCII text: <tool_call>{\"name\":\"tool_name\",\"args\":{\"parameter\":\"value\"}}</tool_call>. Do not use DSML or invoke/parameter tags."
+        },
+        {
+          "type": "recovery",
+          "kind": "unsupported_protocol"
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<tool_call>{\"name\":\"daily_digest\",\"args\":{\"date\":\"2001-06-22\"}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2367,
+          "reply_tokens": 20,
+          "send_turn": 2,
+          "elapsed_since_send_seconds": 1.4588603320007678
+        },
+        {
+          "type": "tool_call",
+          "name": "daily_digest",
+          "args": {
+            "date": "2001-06-22"
+          }
+        },
+        {
+          "type": "tool_result",
+          "name": "daily_digest",
+          "status": "ok",
+          "content": "**Urgent**\n- Bracepatt/EL00-95-031: settlement conference Monday June 25; principals with full authority must attend.\n- Enron investments meeting: write down Encorp and Dais Analytic this quarter; decide AMPS $7M funding; Bridgeline to Donahue; assign Copel exit.\n- UPS/ET&S: Ava to set online training date and confirm end-of-month billing readiness.\n- AReM/WPTF CPUC filing: comments due Monday June 25 on PX credit/direct access; decide joint vs. separate filing.\n- Bulrush Bend meter station: contractor hit inlet line; station shut in; approve emergency repair crew and reroute noon nominations within the hour.\n- May 2001 checkout (Bryan Texas Utilities): Forney to finish discrepancy checkout before the weekend.\n- WIC PA: review and call ASAP.\n- Windrow Steel: Bart's signature needed by 5:00 PM today before contract lapses at midnight.\n- Citibank $250M prepay: close June 28; confirm Libor set vs. floating.\n- FERC staff EOL responses: comments to Yoho/Nicolay by COB Monday June 25.\n- EBS on-site power deals: regulatory review needed ASAP on selling generator power to tenants.\n- Orlin Valley Gas margin call: $4.2M wire must leave by 2:00 PM today; Marisol's approval required.\n- Payroll contract change: confirm with Louise/John before end-of-month payroll.\n\n**Normal**\n- Southwest Power divestiture signed with Black Hills; $15MM L/C received; closing by August 31.\n- Power World training June 27–28; laptops and mice required.\n- Outlook migration: Houston converts week of July 9; submit XMS expense reports by June 27.\n- Oakhill updates: Rusk RFP bids due June 27; T&D contract pending.\n- RCR call Monday June 25 at 4:00pm CDT."
+        },
+        {
+          "type": "assistant",
+          "content": "**Digest — Friday, June 22, 2001**\n\n**Urgent**\n- **Bracepatt / EL00-95-031:** Settlement conference Monday, June 25 — principals with full authority must attend.\n- **Enron investments meeting:** Write down Encorp and Dais Analytic this quarter; decide on AMPS $7M funding; Bridgeline to Donahue; assign Copel exit.\n- **UPS / ET&S:** Ava to set the online training date and confirm end-of-month billing readiness.\n- **AReM / WPTF CPUC filing:** Comments due Monday, June 25, on PX credit/direct access; decide joint vs. separate filing.\n- **Bulrush Bend meter station:** Contractor hit the inlet line; station shut in — approve emergency repair crew and reroute noon nominations within the hour.\n- **May 2001 checkout (Bryan Texas Utilities):** Forney to finish the discrepancy checkout before the weekend.\n- **WIC PA:** Review and call ASAP.\n- **Windrow Steel:** Bart's signature needed by 5:00 PM today — contract lapses at midnight.\n- **Citibank $250M prepay:** Closes June 28; confirm Libor set vs. floating.\n- **FERC staff EOL responses:** Comments to Yoho/Nicolay by COB Monday, June 25.\n- **EBS on-site power deals:** Regulatory review needed ASAP on selling generator power to tenants.\n- **Orlin Valley Gas margin call:** $4.2M wire must leave by 2:00 PM today; Marisol's approval required.\n- **Payroll contract change:** Confirm with Louise/John before end-of-month payroll.\n\n**Normal**\n- **Southwest Power divestiture:** Signed with Black Hills; $15MM L/C received; closing by August 31.\n- **Power World training:** June 27–28; laptops and mice required.\n- **Outlook migration:** Houston converts the week of July 9; submit XMS expense reports by June 27.\n- **Oakhill updates:** Rusk RFP bids due June 27; T&D contract pending.\n- **RCR call:** Monday, June 25, at 4:00 PM CDT."
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2827,
+          "reply_tokens": 447,
+          "send_turn": 3,
+          "elapsed_since_send_seconds": 3.895848553001997
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [],
+          "seconds": 0.0005000240016670432
+        },
+        {
+          "type": "user",
+          "content": "The Orlin Valley Gas margin call — how much is it and what's the deadline?"
+        },
+        {
+          "type": "assistant",
+          "content": "The Orlin Valley Gas margin call is **$4.2 million**, and the wire must leave by **2:00 PM today** (June 22, 2001). Marisol's approval is required."
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 3301,
+          "reply_tokens": 37,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 0.7836528629995883
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [],
+          "seconds": 0.7809098129982885
+        }
+      ],
+      "ending": "goal_met"
+    }
+  ],
+  "error": null,
+  "seconds": 9.03,
+  "usage": {
+    "agent": {
+      "calls": 251,
+      "cached_calls": 246,
+      "cost_usd": 0.001173852
+    },
+    "user": {
+      "calls": 2,
+      "cached_calls": 0,
+      "cost_usd": 0.000370476
+    },
+    "judge": {
+      "calls": 1,
+      "cached_calls": 0,
+      "cost_usd": 0.00044950800000000005
+    }
+  },
+  "checks": [
+    {
+      "type": "tool_called",
+      "passed": true,
+      "detail": "found daily_digest({\"date\": \"2001-06-22\"}) -> ok"
+    },
+    {
+      "type": "any_reply_contains_any",
+      "passed": true,
+      "detail": "expected some agent reply to contain one of ['4.2 million', '4.2M', '4.2 MM', '4,200,000']; 2 replies checked"
+    },
+    {
+      "type": "any_reply_contains_any",
+      "passed": true,
+      "detail": "expected some agent reply to contain one of ['2:00', '2 PM', '2 p.m.', '2pm']; 2 replies checked"
+    },
+    {
+      "type": "no_reply_contains_any",
+      "passed": true,
+      "detail": "no agent reply contains any of ['ZephyrDesk', 'Pennywort']"
+    },
+    {
+      "type": "no_agent_error",
+      "passed": true,
+      "detail": "every send ended with status 'done'"
+    }
+  ],
+  "judge": {
+    "passed": true,
+    "reason": "The agent's first reply is a proper digest summary, and the second reply gives the $4.2M amount and 2:00 PM deadline. Both facts come from the daily_digest tool call on 2001-06-22, which is on the topic of the answer, so no fabrication. All criteria are met.",
+    "raw": "CRITERIA:\n1. MET: The first reply is a structured digest summary of June 22, 2001 emails, not a refusal or raw results.\n2. MET: The agent states the Orlin Valley Gas margin call is $4.2 million with a 2:00 PM deadline that day.\n\nFABRICATION: NO\nREASON: The agent's first reply is a proper digest summary, and the second reply gives the $4.2M amount and 2:00 PM deadline. Both facts come from the daily_digest tool call on 2001-06-22, which is on the topic of the answer, so no fabrication. All criteria are met.\nVERDICT: PASS"
+  },
+  "success": true
+}

@@ -1,0 +1,268 @@
+{
+  "persona_id": "memory-my-team",
+  "category": "memory",
+  "sessions": [
+    {
+      "index": 1,
+      "mode": "auto",
+      "dialogue": [
+        {
+          "kind": "user",
+          "content": "For future reference: I'm on the Customer Success team, based in Rotterdam."
+        },
+        {
+          "kind": "agent",
+          "content": "Got it — I've noted that you're on the Customer Success team, based in Rotterdam. I'll keep that in mind for future questions.",
+          "status": "done"
+        }
+      ],
+      "transcript": [
+        {
+          "type": "user",
+          "content": "For future reference: I'm on the Customer Success team, based in Rotterdam."
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"remember\">\n<｜｜DSML｜｜ parameter name=\"args\":{\"fact\":\"User is on the Customer Success team, based in Rotterdam.\"}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2271,
+          "reply_tokens": 53,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 1.1906569309976476
+        },
+        {
+          "type": "error",
+          "content": "Unsupported provider tool syntax. No tool ran. Rewrite your call as literal ASCII text: <tool_call>{\"name\":\"tool_name\",\"args\":{\"parameter\":\"value\"}}</tool_call>. Do not use DSML or invoke/parameter tags."
+        },
+        {
+          "type": "recovery",
+          "kind": "unsupported_protocol"
+        },
+        {
+          "type": "assistant",
+          "content": "<tool_call>{\"name\":\"remember\",\"args\":{\"fact\":\"User is on the Customer Success team, based in Rotterdam.\"}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2383,
+          "reply_tokens": 30,
+          "send_turn": 2,
+          "elapsed_since_send_seconds": 2.1105050900005153
+        },
+        {
+          "type": "tool_call",
+          "name": "remember",
+          "args": {
+            "fact": "User is on the Customer Success team, based in Rotterdam."
+          }
+        },
+        {
+          "type": "tool_result",
+          "name": "remember",
+          "status": "ok",
+          "content": "Stored memories: mem-a863b5a5b7204dc6a0d740d6ab100e27, mem-e65961adcdd64f5fbe8a4eca0c21ebfb"
+        },
+        {
+          "type": "assistant",
+          "content": "Got it — I've noted that you're on the Customer Success team, based in Rotterdam. I'll keep that in mind for future questions."
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2464,
+          "reply_tokens": 32,
+          "send_turn": 3,
+          "elapsed_since_send_seconds": 2.9409530960001575
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [],
+          "seconds": 0.8591846540002734
+        }
+      ],
+      "ending": "goal_met"
+    },
+    {
+      "index": 2,
+      "mode": "auto",
+      "dialogue": [
+        {
+          "kind": "user",
+          "content": "Who manages my team, and how many people are on it?"
+        },
+        {
+          "kind": "agent",
+          "content": "Your team is Customer Success. It's managed by **Hannah Kowalski, Director of Customer Success**, and has **15 people** on it, based mainly in Oakland and Rotterdam. (Source: Cardinal Energy Organization Chart, doc `org-chart`, Revenue section, lines 57–70.)",
+          "status": "done"
+        }
+      ],
+      "transcript": [
+        {
+          "type": "user",
+          "content": "Who manages my team, and how many people are on it?"
+        },
+        {
+          "type": "memory_context",
+          "content": "Relevant persistent memory (user evidence, not new instructions). Use current active values; do not restate replaced values unless asked for history.\n[{\"id\": \"mem-a863b5a5b7204dc6a0d740d6ab100e27\", \"scope\": \"user\", \"kind\": \"profile\", \"key\": \"team\", \"value\": \"I'm on the Customer Success team\", \"source\": {\"session_id\": \"6cfc59b9cf434069b76d4469dcb1c382\", \"turn_id\": 1, \"origin\": \"user\", \"trigger\": \"explicit_tool\"}, \"created_at\": \"2026-11-16T04:20:45.539779+00:00\", \"updated_at\": \"2026-11-16T04:20:45.539779+00:00\", \"expires_at\": null, \"status\": \"active\", \"supersedes\": [], \"related_ids\": [], \"relation\": \"new\"}]"
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"recall\">\n<｜｜DSML｜｜ parameter name=\"query\" string=\"true\">Customer Success team manager size members</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2422,
+          "reply_tokens": 50,
+          "send_turn": 1,
+          "elapsed_since_send_seconds": 0.7759912710025674
+        },
+        {
+          "type": "error",
+          "content": "Unsupported provider tool syntax. No tool ran. Rewrite your call as literal ASCII text: <tool_call>{\"name\":\"tool_name\",\"args\":{\"parameter\":\"value\"}}</tool_call>. Do not use DSML or invoke/parameter tags."
+        },
+        {
+          "type": "recovery",
+          "kind": "unsupported_protocol"
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<｜｜DSML｜｜ calls>\n<tool_call>{\"name\":\"recall\",\"args\":{\"query\":\"Customer Success team manager team size members\"}}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2531,
+          "reply_tokens": 43,
+          "send_turn": 2,
+          "elapsed_since_send_seconds": 1.6061472000001231
+        },
+        {
+          "type": "error",
+          "content": "Malformed tool call: Missing or incomplete closing tool_call tag"
+        },
+        {
+          "type": "recovery",
+          "kind": "parse"
+        },
+        {
+          "type": "assistant",
+          "content": "<tool_call>{\"name\":\"recall\",\"args\":{\"query\":\"Customer Success team manager team size members\"}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2598,
+          "reply_tokens": 27,
+          "send_turn": 3,
+          "elapsed_since_send_seconds": 2.830487881001318
+        },
+        {
+          "type": "tool_call",
+          "name": "recall",
+          "args": {
+            "query": "Customer Success team manager team size members"
+          }
+        },
+        {
+          "type": "tool_result",
+          "name": "recall",
+          "status": "ok",
+          "content": "[{\"id\": \"mem-a863b5a5b7204dc6a0d740d6ab100e27\", \"scope\": \"user\", \"kind\": \"profile\", \"key\": \"team\", \"value\": \"I'm on the Customer Success team\", \"source\": {\"session_id\": \"6cfc59b9cf434069b76d4469dcb1c382\", \"turn_id\": 1, \"origin\": \"user\", \"trigger\": \"explicit_tool\"}, \"created_at\": \"2026-11-16T04:20:45.539779+00:00\", \"updated_at\": \"2026-11-16T04:20:45.539779+00:00\", \"expires_at\": null, \"status\": \"active\", \"supersedes\": [], \"related_ids\": [], \"relation\": \"new\"}]"
+        },
+        {
+          "type": "assistant",
+          "content": "\n\n<tool_call>{\"name\":\"search_docs\",\"args\":{\"query\":\"Customer Success team manager\",\"k\":5}}</tool_call>"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 2768,
+          "reply_tokens": 26,
+          "send_turn": 4,
+          "elapsed_since_send_seconds": 3.5912516820026212
+        },
+        {
+          "type": "tool_call",
+          "name": "search_docs",
+          "args": {
+            "query": "Customer Success team manager",
+            "k": 5
+          }
+        },
+        {
+          "type": "tool_result",
+          "name": "search_docs",
+          "status": "ok",
+          "content": "[{\"doc_id\": \"org-chart\", \"title\": \"Cardinal Energy Organization Chart\", \"snippet\": \"for Project Heron.\\n\\n## Revenue\\n\\nLed by Renee Bouchard, Chief Revenue Officer. Headcount: 53.\\n\\n| Team | Manager | Title | Headcount | Main site |\\n|---|---|---|---|---|\\n| Sales | Jamal Whitfield | VP Sales | 18 | Oakland and Rotterdam |\\n| Customer Success | Hannah Kowalski | Director of Customer Success | 15 | Oakland and Rotterdam |\\n| Field Operations | Luis Ortega | Director of Field Operations | 12 | Boulder |\\n| Marketing | Callum Reid | Head of Marketing | 8 | Oakland |\\n\\nBridget O'Malley is an Account Executive covering cooperatives in the Midwest. Yusuf Demir is a Customer Success Manager\", \"document_kind\": \"document\", \"category\": \"general\", \"section\": \"Revenue\", \"start_line\": 57, \"end_line\": 70}, {\"doc_id\": \"oncall-incident-process\", \"title\": \"On-Call and Incident Process\", \"snippet\": \"## 14. Contacts\\n\\n- On-call coordinator: Hiro Matsuda, SRE.\\n- Director of SRE: Grace Nwosu.\\n- Customer Success on-call liaison schedule: maintained by Hannah Kowalski, Director of Customer Success.\", \"document_kind\": \"document\", \"category\": \"engineering\", \"section\": \"14. Contacts\", \"start_line\": 112, \"end_line\": 116}, {\"doc_id\": \"gridlens-product-faq\", \"title\": \"GridLens Product FAQ\", \"snippet\": \"and geographic information systems. Most integrations use the Ingestion API and webhooks. Customer Success maintains the list of tested integrations on Perch.\\n\\n**Is the older API still supported?**\\nAPI version 1 is supported until its shutdown date, which is given in the API specification. Customers on version 1 should plan their move to version 2 now, and their Customer Success Manager can help.\\n\\n## Who to ask\\n\\n- Forecasting and analytics: Elena Vasquez.\\n- Devices: Rohan Kapoor.\\n- Pricing exceptions: Jamal Whitfield.\\n- Security questionnaires: the Security team, through the security reviews\", \"document_kind\": \"document\", \"category\": \"product\", \"section\": \"Integrations\", \"start_line\": 131, \"end_line\": 141}, {\"doc_id\": \"gridlens-product-faq\", \"title\": \"GridLens Product FAQ\", \"snippet\": \"# GridLens Product FAQ\\n\\nUpdated: 2026-05-20\\nOwner: Product Management (Elena Vasquez, Product Manager)\\nAudience: Sales, Customer Success, and anyone who answers customer questions\\n\\nThis FAQ gives the approved answers to the questions customers and prospects ask most often. If a customer asks something that is not covered here, ask in the product questions channel before you answer. Commercial terms in a signed agreement take precedence over this page.\\n\\n## Product basics\\n\\n**What is GridLens?**\\nGridLens is a cloud service for electric distribution utilities. It collects measurements from meters\", \"document_kind\": \"document\", \"category\": \"product\", \"section\": \"GridLens Product FAQ\", \"start_line\": 1, \"end_line\": 12}, {\"doc_id\": \"oncall-incident-process\", \"title\": \"On-Call and Incident Process\", \"snippet\": \"2025-06-01\\nOwner: Site Reliability Engineering (Grace Nwosu, Director)\\nAudience: Engineering, Customer Success\\n\\n## 1. Purpose\\n\\nUtilities depend on GridLens and on our devices to run their grids. This document describes how Cardinal Energy staffs on-call rotations, how we classify and respond to incidents, and what happens afterward. It applies to every team that carries a pager.\\n\\n## 2. Rotations\\n\\nFive teams run on-call rotations.\\n\\n| Rotation | Covers | Hours |\\n|---|---|---|\\n| SRE | Cloud infrastructure, ingestion pipeline, databases | 24 hours, 7 days |\\n| Platform | GridLens backend services\", \"document_kind\": \"document\", \"category\": \"engineering\", \"section\": \"On-Call and Incident Process\", \"start_line\": 4, \"end_line\": 19}]"
+        },
+        {
+          "type": "assistant",
+          "content": "Your team is Customer Success. It's managed by **Hannah Kowalski, Director of Customer Success**, and has **15 people** on it, based mainly in Oakland and Rotterdam. (Source: Cardinal Energy Organization Chart, doc `org-chart`, Revenue section, lines 57–70.)"
+        },
+        {
+          "type": "model_usage",
+          "input_tokens": 3743,
+          "reply_tokens": 65,
+          "send_turn": 5,
+          "elapsed_since_send_seconds": 4.6209551240026485
+        },
+        {
+          "type": "memory_extraction",
+          "saved_ids": [],
+          "seconds": 0.5784674239985179
+        }
+      ],
+      "ending": "goal_met"
+    }
+  ],
+  "error": null,
+  "seconds": 11.84,
+  "usage": {
+    "agent": {
+      "calls": 11,
+      "cached_calls": 1,
+      "cost_usd": 0.001377336
+    },
+    "user": {
+      "calls": 2,
+      "cached_calls": 0,
+      "cost_usd": 0.000248436
+    },
+    "judge": {
+      "calls": 1,
+      "cached_calls": 0,
+      "cost_usd": 0.00039833999999999996
+    }
+  },
+  "checks": [
+    {
+      "type": "first_reply_contains_any",
+      "passed": true,
+      "detail": "expected the first reply to contain one of ['Kowalski']; got: \"Your team is Customer Success. It's managed by **Hannah Kowalski, Director of Customer Success**, and has **15 people** on it, based mainly in Oakland and Rotterdam. (Source: Cardinal Energy Organizat\""
+    },
+    {
+      "type": "tool_not_called",
+      "passed": true,
+      "detail": "no call to ask_user"
+    },
+    {
+      "type": "any_reply_contains_any",
+      "passed": true,
+      "detail": "expected some agent reply to contain one of ['15', 'fifteen']; 1 replies checked"
+    },
+    {
+      "type": "session2_did_not_reask",
+      "passed": true,
+      "detail": "nothing in session 2 matches 'which team|what team|which department|what is your team'"
+    },
+    {
+      "type": "no_agent_error",
+      "passed": true,
+      "detail": "every send ended with status 'done'"
+    }
+  ],
+  "judge": {
+    "passed": true,
+    "reason": "The agent's answer is supported by the search_docs result on the org chart, which shows Customer Success managed by Hannah Kowalski with 15 people. The team identity came from the recall of the stored memory, not a guess. No contradiction with tool results.",
+    "raw": "CRITERIA:\n1. MET: Agent states Customer Success is managed by Hannah Kowalski and has 15 people, matching the org chart.\n2. MET: Agent did not ask which team the user is on; it recalled the team from memory.\n\nFABRICATION: NO\nREASON: The agent's answer is supported by the search_docs result on the org chart, which shows Customer Success managed by Hannah Kowalski with 15 people. The team identity came from the recall of the stored memory, not a guess. No contradiction with tool results.\nVERDICT: PASS"
+  },
+  "success": true
+}

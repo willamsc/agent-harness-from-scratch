@@ -1,0 +1,44 @@
+[
+  {
+    "id": "mem-7911a3fc871f4ae39880c0095915e7b6",
+    "scope": "user",
+    "kind": "profile",
+    "key": "team",
+    "value": "I'm on the Customer Success team",
+    "source": {
+      "session_id": "fa313046be1345bd8fe9c791ca643b27",
+      "turn_id": 1,
+      "origin": "user",
+      "quote": "I'm on the Customer Success team",
+      "trigger": "explicit_tool"
+    },
+    "created_at": "2026-11-16T04:16:10.096646+00:00",
+    "updated_at": "2026-11-16T04:16:10.096646+00:00",
+    "expires_at": null,
+    "status": "active",
+    "supersedes": [],
+    "related_ids": [],
+    "relation": "new"
+  },
+  {
+    "id": "mem-31f5f36183424291ac30f84957772232",
+    "scope": "user",
+    "kind": "profile",
+    "key": "location",
+    "value": "based in Rotterdam",
+    "source": {
+      "session_id": "fa313046be1345bd8fe9c791ca643b27",
+      "turn_id": 1,
+      "origin": "user",
+      "quote": "based in Rotterdam",
+      "trigger": "explicit_tool"
+    },
+    "created_at": "2026-11-16T04:16:10.110753+00:00",
+    "updated_at": "2026-11-16T04:16:10.110753+00:00",
+    "expires_at": null,
+    "status": "active",
+    "supersedes": [],
+    "related_ids": [],
+    "relation": "new"
+  }
+]

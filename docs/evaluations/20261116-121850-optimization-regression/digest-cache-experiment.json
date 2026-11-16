@@ -1,0 +1,33 @@
+{
+  "kind": "controlled synthetic repeat-request experiment",
+  "emails": 3,
+  "cases": [
+    {
+      "case": "initial",
+      "scripted_lm_calls": 4,
+      "seconds": 0.0019026070003747009,
+      "result": "Three routine project updates."
+    },
+    {
+      "case": "repeat_unchanged",
+      "scripted_lm_calls": 0,
+      "seconds": 4.988000000594184e-05,
+      "result": "Three routine project updates."
+    },
+    {
+      "case": "changed_email",
+      "scripted_lm_calls": 4,
+      "seconds": 0.0007387779987766407,
+      "result": "Three routine project updates."
+    },
+    {
+      "case": "changed_prompt",
+      "scripted_lm_calls": 4,
+      "seconds": 0.0008040549982979428,
+      "result": "Three routine project updates."
+    }
+  ],
+  "real_api_calls": 0,
+  "api_cost_usd": 0,
+  "note": "Repeat avoids all four workflow model invocations. Not evidence of reduced first-run classification cost or paid API speedup; course LM already has its own disk cache."
+}
