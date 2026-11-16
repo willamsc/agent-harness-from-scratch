@@ -12,3 +12,6 @@ dist/
 build/
 *.egg-info/
 .cardinal/
+
+# Local working notes and application materials
+.local-notes/

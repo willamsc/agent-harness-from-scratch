@@ -4,6 +4,8 @@
 
 **Explicit tools, durable checkpoints, bounded execution, and inspectable traces.** 模型推理使用配置的外部 API；通用运行时也接受自定义模型 callable，不依赖邮件数据。
 
+项目资料：[文档阅读导航](docs/README.md) · [架构说明](docs/architecture.md) · [评测记录](docs/evaluations/README.md)
+
 ## Harness 开发接口
 
 ```python
@@ -187,7 +189,7 @@ Release 的 code.zip 不含完整公共邮件档案；另行准备公开基准 `
 
 适合受控的个人本地试用和技术展示。未达到多人企业生产服务要求：缺少 SSO/RBAC、企业连接器与增量同步、完整数据生命周期/审计、多 profile 并发一致性、分布式恢复和长期运行验证。模型回答可能出错，命令可能有部分副作用；真实公司部署需要单独验收。
 
-[可用性差距与路线](docs/product-readiness.md) · [本地使用](docs/local-usage.md) · [发布流程](docs/releasing.md) · [项目与面试材料](docs/project-case-study.md)
+[可用性差距与路线](docs/product-readiness.md) · [本地使用](docs/local-usage.md) · [发布流程](docs/releasing.md) · [项目设计与验证](docs/project-case-study.md)
 
 ## 许可
 
