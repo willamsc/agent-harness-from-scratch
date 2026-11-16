@@ -1,0 +1,3 @@
+{
+  "git_diff": "diff --git a/cs329z_hw1/adapters.py b/cs329z_hw1/adapters.py\nindex b03f523..fe7f58e 100644\n--- a/cs329z_hw1/adapters.py\n+++ b/cs329z_hw1/adapters.py\n@@ -251,7 +251,9 @@ def run_tool_registry(tools: list[ToolSpec]) -> Any:\n       ``fn(**args)``: status \"ok\", ``content == str(return value)``.\n     * The registry keeps working after any of these outcomes.\n     \"\"\"\n-    raise NotImplementedError\n+    from cs329z_hw1.agent.registry import ToolRegistry\n+\n+    return ToolRegistry(tools)\n \n \n def run_render_tools(schemas: list[dict]) -> str:\n"
+}
