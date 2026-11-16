@@ -1,0 +1,88 @@
+{
+  "correct": 18,
+  "total": 20,
+  "accuracy": 0.9,
+  "results": [
+    {
+      "id": "req-01",
+      "error": null
+    },
+    {
+      "id": "req-02",
+      "error": null
+    },
+    {
+      "id": "req-03",
+      "error": null
+    },
+    {
+      "id": "req-04",
+      "error": null
+    },
+    {
+      "id": "req-05",
+      "error": null
+    },
+    {
+      "id": "req-06",
+      "error": null
+    },
+    {
+      "id": "req-07",
+      "error": null
+    },
+    {
+      "id": "req-08",
+      "error": null
+    },
+    {
+      "id": "req-09",
+      "error": null
+    },
+    {
+      "id": "req-10",
+      "error": null
+    },
+    {
+      "id": "req-11",
+      "error": null
+    },
+    {
+      "id": "req-12",
+      "error": "the reply has no tool call"
+    },
+    {
+      "id": "req-13",
+      "error": "the reply has no tool call"
+    },
+    {
+      "id": "req-14",
+      "error": null
+    },
+    {
+      "id": "req-15",
+      "error": null
+    },
+    {
+      "id": "req-16",
+      "error": null
+    },
+    {
+      "id": "req-17",
+      "error": null
+    },
+    {
+      "id": "req-18",
+      "error": null
+    },
+    {
+      "id": "req-19",
+      "error": null
+    },
+    {
+      "id": "req-20",
+      "error": null
+    }
+  ],
+  "change_percentage_points": 15
+}

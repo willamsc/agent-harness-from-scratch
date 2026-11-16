@@ -1,0 +1,46 @@
+{
+  "started_at": "2026-11-16T10:04:43.795334+08:00",
+  "ended_at": "2026-11-16T10:05:01.272095+08:00",
+  "timezone": "Asia/Shanghai",
+  "base_commit": "4d84093c9e13f65bd1c196b72249e8705a8142f5",
+  "working_tree_dirty": true,
+  "command": [
+    "python",
+    "/tmp/record_protocol_live.py"
+  ],
+  "pytest_arguments": [
+    "tests/test_tool_protocol.py",
+    "-o",
+    "addopts=",
+    "-m",
+    "live",
+    "-s",
+    "-q",
+    "--junitxml=docs/evaluations/20261116-100415-tool-protocol/live/junit.xml"
+  ],
+  "wall_seconds": 17.478835588000948,
+  "exit_code": 1,
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "model_settings": [
+    {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "cache": true,
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 20,
+        "cached_calls": 0,
+        "input_tokens": 14090,
+        "output_tokens": 572,
+        "cost_usd": 0.002053368,
+        "seconds": 17.204347848892212
+      }
+    }
+  ],
+  "environment_note": "Proxy variables unset for this process only; no credentials recorded. Base implementation snapshot/environment/hashes in parent directory.",
+  "baseline": null
+}

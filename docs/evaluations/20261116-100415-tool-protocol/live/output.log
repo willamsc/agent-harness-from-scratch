@@ -1,0 +1,29 @@
+
+tool_protocol live: 15 of 20 correct (need 18), model deepseek-flash
+  req-06 ('Use the echo tool on exactly this sentence: She said "ship it" twice.'): the reply has no tool call
+    reply: '\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="echo">\n<｜｜DSML｜｜ parameter name="args" string="false">{"text": "She said \\"ship it\\" twice."}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+  req-07 ('Echo this file path back to me exactly: C:\\Users\\dana\\notes.txt'): the reply has no tool call
+    reply: '\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="echo">\n<｜｜DSML｜｜ parameter name="text" string="true">C:\\Users\\dana\\notes.txt</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+  req-08 ('Echo exactly this text: {"status": "ok"}'): the reply has no tool call
+    reply: '\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="echo">\n<｜｜DSML｜｜ parameter name="args" string="false">{"text": "{\\"status\\": \\"ok\\"}"}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+  req-17 ('Generate a 3-line test output.'): the reply has no tool call
+    reply: '\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="big_output">\n<｜｜DSML｜｜ parameter name="args" string="false">{"n_lines": 3}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+  req-18 ('Save a note that says: buy printer toner'): the reply has no tool call
+    reply: '\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="write_note">\n<｜｜DSML｜｜ parameter name="args" string="false">{"text": "buy printer toner"}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+F
+=================================== FAILURES ===================================
+_____________________ test_live_model_writes_correct_calls _____________________
+15 of 20 requests produced a correct call; need at least 18.
+req-06 ('Use the echo tool on exactly this sentence: She said "ship it" twice.'): the reply has no tool call
+    reply: '\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="echo">\n<｜｜DSML｜｜ parameter name="args" string="false">{"text": "She said \\"ship it\\" twice."}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+req-07 ('Echo this file path back to me exactly: C:\\Users\\dana\\notes.txt'): the reply has no tool call
+    reply: '\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="echo">\n<｜｜DSML｜｜ parameter name="text" string="true">C:\\Users\\dana\\notes.txt</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+req-08 ('Echo exactly this text: {"status": "ok"}'): the reply has no tool call
+    reply: '\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="echo">\n<｜｜DSML｜｜ parameter name="args" string="false">{"text": "{\\"status\\": \\"ok\\"}"}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+req-17 ('Generate a 3-line test output.'): the reply has no tool call
+    reply: '\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="big_output">\n<｜｜DSML｜｜ parameter name="args" string="false">{"n_lines": 3}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+req-18 ('Save a note that says: buy printer toner'): the reply has no tool call
+    reply: '\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="write_note">\n<｜｜DSML｜｜ parameter name="args" string="false">{"text": "buy printer toner"}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+=========================== short test summary info ============================
+FAILED tests/test_tool_protocol.py::test_live_model_writes_correct_calls - Fa...
+1 failed, 60 deselected in 17.33s

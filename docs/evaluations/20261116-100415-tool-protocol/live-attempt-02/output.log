@@ -1,0 +1,8 @@
+
+tool_protocol live: 18 of 20 correct (need 18), model deepseek-flash
+  req-12 ('When is the payroll cutoff each month?'): the reply has no tool call
+    reply: '\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="lookup">\n<｜｜DSML｜｜ parameter name="args" string="false">{"key": "payroll_cutoff"}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+  req-13 ('Where do I find the parking office?'): the reply has no tool call
+    reply: '\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="lookup">\n<｜｜DSML｜｜ parameter name="args":{"key":"parking_office"}}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+.
+1 passed, 60 deselected in 18.09s
