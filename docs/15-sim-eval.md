@@ -90,7 +90,7 @@ Agent、辅助模型、模拟用户、评审均为本地配置 deepseek-flash。
 标准课程命令：
 
 ```bash
-uv run python -m cs329z_hw1.simulation --concurrency 4
+uv run python -m cardinal_agent.simulation --concurrency 4
 uv run pytest tests/test_sim_eval.py -m live -s
 ```
 

@@ -4,7 +4,7 @@ import math
 
 import pytest
 
-from cs329z_hw1.adapters import run_bm25_build, run_bm25_search
+from cardinal_agent.adapters import run_bm25_build, run_bm25_search
 
 
 @pytest.mark.parametrize('docs', [[], ['', '   ', '?!']])

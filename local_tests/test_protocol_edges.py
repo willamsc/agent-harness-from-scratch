@@ -1,7 +1,7 @@
 """Protocol shape errors are separate from registry schema validation."""
 import pytest
 
-from cs329z_hw1.agent.protocol import parse_response
+from cardinal_agent.agent.protocol import parse_response
 
 
 @pytest.mark.parametrize('payload', ['[]', 'null', '{"name":1,"args":{}}',

@@ -2,11 +2,11 @@
 import json
 from concurrent.futures import ThreadPoolExecutor
 
-from cs329z_hw1 import adapters, data
-from cs329z_hw1.agent.memory import MemoryStore, MemoryController, explicit_replacement
-from cs329z_hw1.llm import ScriptedLM
-from cs329z_hw1.types import AgentConfig
-from cs329z_hw1.pipelines.documents import DocumentIndex
+from cardinal_agent import adapters, data
+from cardinal_agent.agent.memory import MemoryStore, MemoryController, explicit_replacement
+from cardinal_agent.llm import ScriptedLM
+from cardinal_agent.types import AgentConfig
+from cardinal_agent.pipelines.documents import DocumentIndex
 
 
 def test_contrastive_correction_retires_old_value_and_hides_it_in_current_recall(tmp_path):

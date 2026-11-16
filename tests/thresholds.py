@@ -1,4 +1,4 @@
-"""Pass thresholds for the live tests, in one place (course-provided).
+"""Pass thresholds for the live tests, in one place (shared).
 
 These are the numbers the handout quotes. They were calibrated against the
 reference solution running the grading model.

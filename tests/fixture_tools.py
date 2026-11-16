@@ -1,4 +1,4 @@
-"""Small deterministic tools used by the agent tests (course-provided; do
+"""Small deterministic tools used by the agent tests (shared; do
 not edit).
 
 ``make_fixture_tools()`` returns a fresh ``FixtureTools`` each time:
@@ -21,7 +21,7 @@ from __future__ import annotations
 import time
 from dataclasses import dataclass, field
 
-from cs329z_hw1.types import ToolSpec
+from cardinal_agent.types import ToolSpec
 
 TOOL_NAMES = ["echo", "add", "lookup", "fail", "slow", "big_output", "write_note"]
 

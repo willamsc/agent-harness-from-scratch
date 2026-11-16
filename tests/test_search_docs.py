@@ -9,7 +9,7 @@ Rules the deterministic tests check:
 
 * ``run_search_docs(index, query, k)`` returns a list of at most k dicts with the
   keys doc_id, title, snippet. doc_id and title are those of a real document
-  (see ``cs329z_hw1.data.load_docs``). A query that matches nothing returns [].
+  (see ``cardinal_agent.data.load_docs``). A query that matches nothing returns [].
   Two results may come from the same document (for example two passages of
   it), and a result may carry keys besides these three.
 * A snippet is at most SNIPPET_MAX_TOKENS tokens and contains text from its
@@ -32,11 +32,11 @@ from concurrent.futures import ThreadPoolExecutor
 
 import pytest
 
-from cs329z_hw1 import data
-from cs329z_hw1.tokenizer import tokenize
-from cs329z_hw1.tokens import count_tokens
-from cs329z_hw1.types import AgentConfig
-from cs329z_hw1 import adapters
+from cardinal_agent import data
+from cardinal_agent.tokenizer import tokenize
+from cardinal_agent.tokens import count_tokens
+from cardinal_agent.types import AgentConfig
+from cardinal_agent import adapters
 from tests.conftest import eval_slice
 from tests.helpers import contains_any, events, load_fixture
 from tests.thresholds import SEARCH_DOCS_MAX_RESULT_TOKENS, SEARCH_DOCS_MIN_ACCURACY
@@ -130,7 +130,7 @@ def test_search_results_have_the_right_shape_and_point_to_real_documents(query):
 def test_snippets_are_short_and_come_from_the_document(query):
     """Each snippet is at most SNIPPET_MAX_TOKENS tokens and shares at least
     SNIPPET_SHARED_RUN consecutive words with the text of its document
-    (compared after cs329z_hw1.tokenizer.tokenize, so markers such as line
+    (compared after cardinal_agent.tokenizer.tokenize, so markers such as line
     numbers or ellipses around the quoted text are fine)."""
     docs = docs_by_id()
     for r in search(query, 5):

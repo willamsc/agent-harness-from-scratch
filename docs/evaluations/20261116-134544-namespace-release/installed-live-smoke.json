@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/tmp/cardinal-011-check/bin/cardinal",
+    "--home",
+    "/tmp/cardinal-011-profile",
+    "ask",
+    "Who owns the demo Aurora project? Cite the document."
+  ],
+  "cwd": "/tmp",
+  "exit_code": 0,
+  "stdout": "Cardinal Agent 0.1.1 | deepseek/deepseek-flash | confirm mode\nLocal profile: /tmp/cardinal-011-profile. Selected content is sent to your model provider.\nThis profile contains fictional demo data; it is not connected to a company account.\n\nassistant> The demo Aurora project is owned by **Morgan Lee**.\n\nSource: `project-aurora` — \"Demo Project Aurora,\" section \"Current status,\" lines 3–7: \"Aurora's demo owner is Morgan Lee.\"\nConversation saved: 20261116T054738Z-f7a1da93\n",
+  "stderr": "",
+  "seconds": 5.29313602000002,
+  "note": "Fictional demo only; credentials inherited through environment and not recorded."
+}

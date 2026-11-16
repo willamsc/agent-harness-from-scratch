@@ -1,11 +1,11 @@
 """Source positions, long paragraphs, and lazy document tool integration."""
 import json
 
-from cs329z_hw1 import adapters, data
-from cs329z_hw1.agent import cardinal_tools
-from cs329z_hw1.pipelines.documents import DocumentIndex
-from cs329z_hw1.tokens import count_tokens
-from cs329z_hw1.types import AgentConfig
+from cardinal_agent import adapters, data
+from cardinal_agent.agent import cardinal_tools
+from cardinal_agent.pipelines.documents import DocumentIndex
+from cardinal_agent.tokens import count_tokens
+from cardinal_agent.types import AgentConfig
 
 
 def test_late_match_in_long_paragraph_preserves_source_and_lines():

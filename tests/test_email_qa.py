@@ -6,8 +6,8 @@ from concurrent.futures import ThreadPoolExecutor
 
 import pytest
 
-from cs329z_hw1.llm import ScriptedLM
-from cs329z_hw1 import adapters
+from cardinal_agent.llm import ScriptedLM
+from cardinal_agent import adapters
 from tests.conftest import eval_slice
 from tests.helpers import contains_any, load_fixture
 from tests.thresholds import EMAIL_QA_MIN_ACCURACY
@@ -113,7 +113,7 @@ _cache: dict = {}
 def make_search(archive):
     """search(query, k) over the archive, built from your BM25 index."""
     if "index" not in _cache:
-        from cs329z_hw1.data import email_text
+        from cardinal_agent.data import email_text
 
         _cache["index"] = adapters.run_bm25_build([email_text(email) for email in archive])
     index = _cache["index"]

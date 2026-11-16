@@ -1,7 +1,7 @@
 """Tests for problem (cardinal). Deterministic: no model calls.
 
 ``run_agent_session(lm, None, config)`` builds a session with the Cardinal
-toolset, the ten tools named in ``cs329z_hw1/cardinal.py``. These tests
+toolset, the ten tools named in ``cardinal_agent/cardinal.py``. These tests
 check the toolset itself, not what the tools do (later problems test that):
 
 * With ``tools=None`` the system prompt of the first model call names all
@@ -19,11 +19,11 @@ from pathlib import Path
 
 import pytest
 
-from cs329z_hw1 import data
-from cs329z_hw1.cardinal import CARDINAL_TOOLS
-from cs329z_hw1.types import AgentConfig
-from cs329z_hw1.user import ScriptedUser
-from cs329z_hw1 import adapters
+from cardinal_agent import data
+from cardinal_agent.cardinal import CARDINAL_TOOLS
+from cardinal_agent.types import AgentConfig
+from cardinal_agent.user import ScriptedUser
+from cardinal_agent import adapters
 from tests.fixture_tools import TOOL_NAMES, make_fixture_tools
 
 CARDINAL_NAMES = list(CARDINAL_TOOLS)

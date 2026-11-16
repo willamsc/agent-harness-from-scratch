@@ -1,4 +1,4 @@
-"""Shared fixtures for the HW1 test suite (course-provided; do not edit)."""
+"""Shared fixtures for the HW1 test suite (shared; do not edit)."""
 
 from __future__ import annotations
 
@@ -7,9 +7,9 @@ import re
 
 import pytest
 
-from cs329z_hw1.llm import LM, ScriptedLM, _load_env
+from cardinal_agent.llm import LM, ScriptedLM, _load_env
 
-_load_env()  # so CS329Z_* settings in .env apply to the tests too
+_load_env()  # so CARDINAL_* settings in .env apply to the tests too
 
 
 def _tag(request) -> str:
@@ -26,7 +26,7 @@ def scripted():
         lm = scripted([{"text": "Looking.", "tool_call": {"name": "echo", "args": {"x": 1}}},
                        "The answer is 1."])
     """
-    from cs329z_hw1 import adapters
+    from cardinal_agent import adapters
 
     def make(script, *, repeat_last: bool = False) -> ScriptedLM:
         return ScriptedLM(script, formatter=adapters.run_format_tool_call, repeat_last=repeat_last)
@@ -57,7 +57,7 @@ def live_aux(request):
 @pytest.fixture(scope="session")
 def archive():
     """The full email archive as a list of Email dicts."""
-    from cs329z_hw1 import data
+    from cardinal_agent import data
 
     if not data.EMAILS_PATH.exists():
         pytest.fail(
@@ -68,6 +68,6 @@ def archive():
 
 
 def eval_slice(items: list) -> list:
-    """Apply CS329Z_EVAL_SLICE=N (keep the first N items) if it is set."""
-    n = os.environ.get("CS329Z_EVAL_SLICE")
+    """Apply CARDINAL_EVAL_SLICE=N (keep the first N items) if it is set."""
+    n = os.environ.get("CARDINAL_EVAL_SLICE")
     return items[: int(n)] if n else items

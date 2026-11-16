@@ -58,7 +58,7 @@ aux_lm 接收独立 system/user 消息。要求 JSON 含以下六个 list[str] �
 import json
 import time
 
-from cs329z_hw1.tokens import count_message_tokens, count_tokens
+from cardinal_agent.tokens import count_message_tokens, count_tokens
 
 FIELDS = ('goals', 'constraints', 'facts', 'attempts', 'failures', 'pending')
 PROMPT = """Compact conversation history into a JSON object with exactly these
@@ -128,7 +128,7 @@ def compact(session):
     if count_message_tokens(aux_messages) <= budget:
         try:
             reply = aux(aux_messages)
-            from cs329z_hw1.pipelines.email_qa import parse_object
+            from cardinal_agent.pipelines.email_qa import parse_object
             value = parse_object(reply)
             if not all(isinstance(value.get(key), list) and all(isinstance(s, str) for s in value[key]) for key in FIELDS):
                 raise ValueError('Summary must contain six list-of-string fields')

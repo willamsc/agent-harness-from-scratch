@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 
-from cs329z_hw1.app.cli import main, import_emails, import_docs
+from cardinal_agent.app.cli import main, import_emails, import_docs
 
 
 def test_demo_initialization_and_offline_search(tmp_path, capsys):
@@ -61,7 +61,7 @@ def test_document_import_requires_explicit_replace_and_bounds_lines(tmp_path):
 def test_profile_memory_deletion_and_history_path_validation(tmp_path):
     home = tmp_path / 'profile'
     assert main(['--home', str(home), 'init']) == 0
-    from cs329z_hw1.agent.memory import MemoryStore
+    from cardinal_agent.agent.memory import MemoryStore
     store = MemoryStore(home / 'memory')
     identifier = store.save('explicit test fact')
     assert main(['--home', str(home), 'memory', '--forget', identifier]) == 0
@@ -71,8 +71,8 @@ def test_profile_memory_deletion_and_history_path_validation(tmp_path):
 
 
 def test_cli_chat_is_confirm_only_and_saves_after_failure(tmp_path, monkeypatch, capsys):
-    from cs329z_hw1 import adapters
-    from cs329z_hw1.types import AgentResult
+    from cardinal_agent import adapters
+    from cardinal_agent.types import AgentResult
     home = tmp_path / 'profile'
     assert main(['--home', str(home), 'init', '--demo', '--model', 'deepseek-flash']) == 0
     monkeypatch.setenv('DEEPSEEK_API_KEY', 'test-not-a-real-key')

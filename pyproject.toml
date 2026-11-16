@@ -1,6 +1,6 @@
 [project]
 name = "cardinal-agent"
-version = "0.1.0"
+version = "0.1.1"
 description = "Local employee assistant with source-aware retrieval, memory, and approved terminal tools"
 requires-python = ">=3.11"
 dependencies = [
@@ -12,14 +12,14 @@ dependencies = [
 ]
 
 [project.scripts]
-cardinal = "cs329z_hw1.app.cli:main"
+cardinal = "cardinal_agent.app.cli:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["cs329z_hw1"]
+packages = ["cardinal_agent"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -71,7 +71,7 @@
 
 ## 5. 完整实现
 
-代码位于 `cs329z_hw1/pipelines/email_qa.py`：
+代码位于 `cardinal_agent/pipelines/email_qa.py`：
 
 ```python
 """Bounded multi-hop retrieval with accumulated evidence and checked citations."""
@@ -79,7 +79,7 @@
 import json
 from typing import Callable
 
-from cs329z_hw1.types import Email, LMCallable
+from cardinal_agent.types import Email, LMCallable
 
 
 QUERY_PROMPT = """Extract a focused BM25 search query from the user's question.
@@ -172,7 +172,7 @@ Adapter 仅负责转发，签名不变：
 
 ```python
 def run_email_qa(question, search, lm):
-    from cs329z_hw1.pipelines.email_qa import email_qa
+    from cardinal_agent.pipelines.email_qa import email_qa
     return email_qa(question, search, lm)
 ```
 

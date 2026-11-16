@@ -55,7 +55,7 @@ token 计数使用课程 tokens.py：每次 count_message_tokens(messages) + cou
 
 ## 7. 完整实现
 
-实现位于 cs329z_hw1/agent/session.py：
+实现位于 cardinal_agent/agent/session.py：
 
 ```python
 """A bounded conversation loop over explicit tools and text model replies."""
@@ -64,11 +64,11 @@ from copy import copy, deepcopy
 import re
 import time
 
-from cs329z_hw1.agent.protocol import parse_response, render_tools
-from cs329z_hw1.agent.registry import ToolRegistry
-from cs329z_hw1.llm import OutputTruncated
-from cs329z_hw1.tokens import count_message_tokens, count_tokens
-from cs329z_hw1.types import AgentConfig, AgentResult, ToolSpec
+from cardinal_agent.agent.protocol import parse_response, render_tools
+from cardinal_agent.agent.registry import ToolRegistry
+from cardinal_agent.llm import OutputTruncated
+from cardinal_agent.tokens import count_message_tokens, count_tokens
+from cardinal_agent.types import AgentConfig, AgentResult, ToolSpec
 
 
 SYSTEM_PROMPT = """Help the user using the available tools when needed.

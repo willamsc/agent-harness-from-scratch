@@ -56,7 +56,7 @@ registry.execute("missing", {})             # unknown_tool
 
 ## 5. 完整实现
 
-实现位置：cs329z_hw1/agent/registry.py。
+实现位置：cardinal_agent/agent/registry.py。
 
 ```python
 """Tool registration, side-effect-free validation, and contained execution."""
@@ -65,7 +65,7 @@ from copy import deepcopy
 
 from jsonschema import Draft202012Validator
 
-from cs329z_hw1.types import ToolResult, ToolSpec
+from cardinal_agent.types import ToolResult, ToolSpec
 
 
 class ToolRegistry:
@@ -111,7 +111,7 @@ Adapter 接入：
 
 ```python
 def run_tool_registry(tools: list[ToolSpec]):
-    from cs329z_hw1.agent.registry import ToolRegistry
+    from cardinal_agent.agent.registry import ToolRegistry
     return ToolRegistry(tools)
 ```
 

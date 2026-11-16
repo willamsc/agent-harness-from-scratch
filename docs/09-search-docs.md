@@ -46,9 +46,9 @@ read_doc 的描述要求模型尽量引用来源 ID 和行号，避免无必要�
 """Structural Markdown chunks with original source positions and bounded reads."""
 import re
 
-from cs329z_hw1.pipelines.bm25 import BM25Index
-from cs329z_hw1.tokenizer import tokenize
-from cs329z_hw1.tokens import count_tokens
+from cardinal_agent.pipelines.bm25 import BM25Index
+from cardinal_agent.tokenizer import tokenize
+from cardinal_agent.tokens import count_tokens
 
 
 def category(doc_id):

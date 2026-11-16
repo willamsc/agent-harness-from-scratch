@@ -52,11 +52,11 @@ from copy import copy, deepcopy
 import re
 import time
 
-from cs329z_hw1.agent.protocol import parse_response, render_tools
-from cs329z_hw1.agent.registry import ToolRegistry
-from cs329z_hw1.llm import OutputTruncated
-from cs329z_hw1.tokens import count_message_tokens, count_tokens
-from cs329z_hw1.types import AgentConfig, AgentResult, ToolSpec, ToolResult
+from cardinal_agent.agent.protocol import parse_response, render_tools
+from cardinal_agent.agent.registry import ToolRegistry
+from cardinal_agent.llm import OutputTruncated
+from cardinal_agent.tokens import count_message_tokens, count_tokens
+from cardinal_agent.types import AgentConfig, AgentResult, ToolSpec, ToolResult
 
 
 SYSTEM_PROMPT = """Help the user using the available tools when needed.
@@ -80,20 +80,20 @@ _PROMISE = re.compile(
 
 class AgentSession:
     def __init__(self, lm, tools: list[ToolSpec] | None, config: AgentConfig):
-        from cs329z_hw1.agent.cardinal_tools import build_cardinal_tools, supplement_tools
+        from cardinal_agent.agent.cardinal_tools import build_cardinal_tools, supplement_tools
 
         original_names = {tool.name for tool in tools} if tools is not None else set()
         tools = build_cardinal_tools(lm, config) if tools is None else supplement_tools(tools, config)
         self.memory = None
         if config.memory_dir is not None:
-            from cs329z_hw1.agent.memory import MemoryController
+            from cardinal_agent.agent.memory import MemoryController
             self.memory = MemoryController(lm, config)
             memory_specs = {spec.name: spec for spec in self.memory.specs()}
             tools = [memory_specs[t.name] if t.name in memory_specs and t.name not in original_names else t for t in tools]
         self.lm = lm
         self.config = copy(config)
         if config.user is not None and 'ask_user' not in original_names:
-            from cs329z_hw1.cardinal import cardinal_spec
+            from cardinal_agent.cardinal import cardinal_spec
             ask_spec = cardinal_spec('ask_user', 'Ask the user a specific clarification question and wait for their answer. No approval is required. Do not guess missing user intent.', self._ask_user)
             tools = [ask_spec if t.name == 'ask_user' else t for t in tools]
         self.registry = ToolRegistry(tools)
@@ -169,7 +169,7 @@ class AgentSession:
         return AgentResult(text, status, deepcopy(self.transcript))
 
     def _fit_context(self):
-        from cs329z_hw1.agent.compaction import compact
+        from cardinal_agent.agent.compaction import compact
         return compact(self)
 
     def send(self, user_message: str) -> AgentResult:

@@ -20,9 +20,9 @@ from __future__ import annotations
 
 import pytest
 
-from cs329z_hw1.types import AgentConfig, AgentResult
-from cs329z_hw1.user import ScriptedUser
-from cs329z_hw1 import adapters
+from cardinal_agent.types import AgentConfig, AgentResult
+from cardinal_agent.user import ScriptedUser
+from cardinal_agent import adapters
 from tests.fixture_tools import make_fixture_tools
 from tests.helpers import contains, events
 from tests.thresholds import MEMORY_MIN_CORRECT

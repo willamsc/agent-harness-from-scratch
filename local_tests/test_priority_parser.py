@@ -3,7 +3,7 @@ import copy
 
 import pytest
 
-from cs329z_hw1.adapters import parse_priority, run_priority
+from cardinal_agent.adapters import parse_priority, run_priority
 
 
 @pytest.mark.parametrize("reply, expected", [

@@ -8,13 +8,13 @@ The live test plays every persona in ``tests/fixtures/personas/`` against
 your full agent (``run_agent_session(lm, None, config)``), scores each
 conversation with the programmatic checks and the judge, and prints one row
 per persona. How a conversation is run and scored is documented in
-``cs329z_hw1/simulation/README.md``. The same run is available as
-``uv run python -m cs329z_hw1.simulation``.
+``cardinal_agent/simulation/README.md``. The same run is available as
+``uv run python -m cardinal_agent.simulation``.
 
 Environment variables for the live test:
-    CS329Z_EVAL_SLICE=N        run only the first N personas
-    CS329Z_EVAL_CONCURRENCY=N  conversations run at the same time (default 4)
-    CS329Z_EVAL_SALT=text      repeat the run without the cache
+    CARDINAL_EVAL_SLICE=N        run only the first N personas
+    CARDINAL_EVAL_CONCURRENCY=N  conversations run at the same time (default 4)
+    CARDINAL_EVAL_SALT=text      repeat the run without the cache
 """
 
 from __future__ import annotations
@@ -23,8 +23,8 @@ import os
 
 import pytest
 
-from cs329z_hw1.llm import ScriptedLM
-from cs329z_hw1.simulation import (
+from cardinal_agent.llm import ScriptedLM
+from cardinal_agent.simulation import (
     adapter_agent_factory,
     format_table,
     load_personas,
@@ -33,9 +33,9 @@ from cs329z_hw1.simulation import (
     run_eval,
     run_persona,
 )
-from cs329z_hw1.simulation.evaluate import DEFAULT_CONCURRENCY, EVAL_SIZE, new_run_dir
-from cs329z_hw1.simulation.record import tool_calls
-from cs329z_hw1 import adapters
+from cardinal_agent.simulation.evaluate import DEFAULT_CONCURRENCY, EVAL_SIZE, new_run_dir
+from cardinal_agent.simulation.record import tool_calls
+from cardinal_agent import adapters
 from tests import thresholds
 from tests.conftest import eval_slice
 from tests.fixture_tools import DIRECTORY, make_fixture_tools
@@ -127,7 +127,7 @@ def test_live_simulated_users(archive):
     records = run_eval(
         personas,
         adapter_agent_factory(adapters),
-        concurrency=int(os.environ.get("CS329Z_EVAL_CONCURRENCY") or DEFAULT_CONCURRENCY),
+        concurrency=int(os.environ.get("CARDINAL_EVAL_CONCURRENCY") or DEFAULT_CONCURRENCY),
         out_dir=out_dir,
     )
     table = format_table(records)

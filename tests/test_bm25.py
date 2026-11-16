@@ -12,7 +12,7 @@ import time
 
 import pytest
 
-from cs329z_hw1 import adapters
+from cardinal_agent import adapters
 from tests.helpers import load_fixture
 
 # Limits for the full archive. The time limits are about four times what the
@@ -197,7 +197,7 @@ _archive_index: dict = {}
 def archive_index(archive):
     """Build the index over the archive once per test run; remember how long it took."""
     if not _archive_index:
-        from cs329z_hw1.data import email_text
+        from cardinal_agent.data import email_text
 
         docs = [email_text(email) for email in archive]
         start = time.perf_counter()

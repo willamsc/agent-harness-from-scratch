@@ -21,10 +21,10 @@ import copy
 
 import pytest
 
-from cs329z_hw1.llm import ScriptedLM
-from cs329z_hw1.tokens import count_message_tokens, count_tokens
-from cs329z_hw1.types import AgentConfig, AgentResult
-from cs329z_hw1 import adapters
+from cardinal_agent.llm import ScriptedLM
+from cardinal_agent.tokens import count_message_tokens, count_tokens
+from cardinal_agent.types import AgentConfig, AgentResult
+from cardinal_agent import adapters
 from tests.fixture_tools import make_fixture_tools
 from tests.helpers import events
 

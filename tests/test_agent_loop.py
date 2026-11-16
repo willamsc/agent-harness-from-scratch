@@ -15,10 +15,10 @@ import copy
 
 import pytest
 
-from cs329z_hw1.llm import ScriptExhausted
-from cs329z_hw1.tokens import count_message_tokens, count_tokens
-from cs329z_hw1.types import AgentConfig, AgentResult, ToolCall
-from cs329z_hw1 import adapters
+from cardinal_agent.llm import ScriptExhausted
+from cardinal_agent.tokens import count_message_tokens, count_tokens
+from cardinal_agent.types import AgentConfig, AgentResult, ToolCall
+from cardinal_agent import adapters
 from tests.fixture_tools import DIRECTORY, FAIL_MESSAGE, TOOL_NAMES, make_fixture_tools
 from tests.helpers import events, truncated
 
@@ -87,7 +87,7 @@ def send(session, message: str) -> AgentResult:
             pytrace=False,
         )
     assert isinstance(result, AgentResult), (
-        f"send must return a cs329z_hw1.types.AgentResult, got {type(result).__name__}"
+        f"send must return a cardinal_agent.types.AgentResult, got {type(result).__name__}"
     )
     assert isinstance(result.text, str), f"AgentResult.text must be a str, got {result.text!r}"
     return result

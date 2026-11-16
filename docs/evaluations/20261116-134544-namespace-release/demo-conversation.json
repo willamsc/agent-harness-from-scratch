@@ -1,0 +1,125 @@
+{
+  "id": "20261116T054738Z-f7a1da93",
+  "version": "0.1.1",
+  "provider": "deepseek",
+  "model": "deepseek-flash",
+  "mode": "confirm",
+  "terminal_enabled": false,
+  "turns": [
+    {
+      "user": "Who owns the demo Aurora project? Cite the document.",
+      "assistant": "The demo Aurora project is owned by **Morgan Lee**.\n\nSource: `project-aurora` — \"Demo Project Aurora,\" section \"Current status,\" lines 3–7: \"Aurora's demo owner is Morgan Lee.\"",
+      "status": "done",
+      "seconds": 4.856235212999991
+    }
+  ],
+  "transcript": [
+    {
+      "type": "user",
+      "content": "Who owns the demo Aurora project? Cite the document."
+    },
+    {
+      "type": "assistant",
+      "content": "I'll check stored context first, then the company documents.\n\n<tool_call>{\"name\":\"recall\",\"args\":{\"query\":\"Aurora project owner demo\"}}</tool_call>"
+    },
+    {
+      "type": "model_usage",
+      "input_tokens": 2015,
+      "reply_tokens": 37,
+      "send_turn": 1,
+      "elapsed_since_send_seconds": 1.8697291080000014
+    },
+    {
+      "type": "tool_call",
+      "name": "recall",
+      "args": {
+        "query": "Aurora project owner demo"
+      }
+    },
+    {
+      "type": "tool_result",
+      "name": "recall",
+      "status": "ok",
+      "content": "No matching memories stored."
+    },
+    {
+      "type": "assistant",
+      "content": "\n\n<tool_call>{\"name\":\"search_docs\",\"args\":{\"query\":\"Aurora project owner\"}}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"
+    },
+    {
+      "type": "model_usage",
+      "input_tokens": 2087,
+      "reply_tokens": 34,
+      "send_turn": 2,
+      "elapsed_since_send_seconds": 2.6599840619999213
+    },
+    {
+      "type": "error",
+      "content": "Malformed tool call: Missing or incomplete closing tool_call tag"
+    },
+    {
+      "type": "recovery",
+      "kind": "parse"
+    },
+    {
+      "type": "assistant",
+      "content": "\n\n<tool_call>{\"name\":\"search_docs\",\"args\":{\"query\":\"Aurora project owner\"}}</tool_call>"
+    },
+    {
+      "type": "model_usage",
+      "input_tokens": 2145,
+      "reply_tokens": 22,
+      "send_turn": 3,
+      "elapsed_since_send_seconds": 3.443665968000005
+    },
+    {
+      "type": "tool_call",
+      "name": "search_docs",
+      "args": {
+        "query": "Aurora project owner"
+      }
+    },
+    {
+      "type": "tool_result",
+      "name": "search_docs",
+      "status": "ok",
+      "content": "[{\"doc_id\": \"project-aurora\", \"title\": \"Demo Project Aurora\", \"snippet\": \"# Demo Project Aurora\\n\\nThis fictional project demonstrates retrieval and project-specific memory.\\n\\n## Current status\\n\\nAurora's demo owner is Morgan Lee. The demo milestone is a design review. There is no live calendar, ticket system, or email account connected.\", \"document_kind\": \"document\", \"category\": \"product\", \"section\": \"Demo Project Aurora\", \"start_line\": 1, \"end_line\": 7}, {\"doc_id\": \"project-aurora\", \"title\": \"Demo Project Aurora\", \"snippet\": \"This fictional project demonstrates retrieval and project-specific memory.\\n\\n## Current status\\n\\nAurora's demo owner is Morgan Lee. The demo milestone is a design review. There is no live calendar, ticket system, or email account connected.\", \"document_kind\": \"document\", \"category\": \"product\", \"section\": \"Current status\", \"start_line\": 3, \"end_line\": 7}]"
+    },
+    {
+      "type": "assistant",
+      "content": "The demo Aurora project is owned by **Morgan Lee**.\n\nSource: `project-aurora` — \"Demo Project Aurora,\" section \"Current status,\" lines 3–7: \"Aurora's demo owner is Morgan Lee.\""
+    },
+    {
+      "type": "model_usage",
+      "input_tokens": 2419,
+      "reply_tokens": 44,
+      "send_turn": 4,
+      "elapsed_since_send_seconds": 4.251979946999995
+    },
+    {
+      "type": "memory_extraction",
+      "saved_ids": [],
+      "seconds": 0.6039456559999508
+    }
+  ],
+  "usage": {
+    "agent": {
+      "model": "deepseek-flash",
+      "calls": 4,
+      "cached_calls": 0,
+      "input_tokens": 7205,
+      "output_tokens": 144,
+      "cost_usd": 0.000490332,
+      "seconds": 4.243090867996216
+    },
+    "aux": {
+      "model": "deepseek-flash",
+      "calls": 1,
+      "cached_calls": 0,
+      "input_tokens": 225,
+      "output_tokens": 6,
+      "cost_usd": 7.47e-05,
+      "seconds": 0.6027929782867432
+    }
+  }
+}

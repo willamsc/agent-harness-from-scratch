@@ -40,7 +40,7 @@
 
 有 N 封邮件且至少保留一封时，调用 N 次分类模型加 1 次摘要模型；全部过滤时是 N 次分类。模型 API 异常继续向外传播，不伪装成“没有邮件”。
 
-代码主体放在 `cs329z_hw1/pipelines/daily_digest.py`；adapter 只传入第 1 题函数及调用参数。通过 classify 参数传入分类函数，避免模块循环引用，也便于在测试中用确定的分类结果检查聚合逻辑。
+代码主体放在 `cardinal_agent/pipelines/daily_digest.py`；adapter 只传入第 1 题函数及调用参数。通过 classify 参数传入分类函数，避免模块循环引用，也便于在测试中用确定的分类结果检查聚合逻辑。
 
 ## 5. Prompt 设计
 
@@ -68,7 +68,7 @@ def run_daily_digest(emails: list[Email], lm: LMCallable) -> str:
       site that email is about; it contains no term listed for the gold
       ignore emails.
     """
-    from cs329z_hw1.pipelines.daily_digest import daily_digest
+    from cardinal_agent.pipelines.daily_digest import daily_digest
 
     return daily_digest(emails, lm, classify=run_priority)
 ```
@@ -82,7 +82,7 @@ from concurrent.futures import ThreadPoolExecutor
 import json
 from typing import Callable
 
-from cs329z_hw1.types import Email, LMCallable
+from cardinal_agent.types import Email, LMCallable
 
 
 DIGEST_SYSTEM_PROMPT = """Write a concise morning email digest for a busy employee.

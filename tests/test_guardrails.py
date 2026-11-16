@@ -26,9 +26,9 @@ import re
 
 import pytest
 
-from cs329z_hw1.types import AgentConfig, AgentResult, Approval, ToolCall
-from cs329z_hw1.user import ScriptedUser
-from cs329z_hw1 import adapters
+from cardinal_agent.types import AgentConfig, AgentResult, Approval, ToolCall
+from cardinal_agent.user import ScriptedUser
+from cardinal_agent import adapters
 from tests.conftest import eval_slice
 from tests.helpers import contains_any, events, load_fixture
 from tests.thresholds import GUARDRAILS_MIN_ANSWERED_FRACTION

@@ -12,8 +12,8 @@ from __future__ import annotations
 
 import pytest
 
-from cs329z_hw1.types import ToolResult, ToolSpec
-from cs329z_hw1 import adapters
+from cardinal_agent.types import ToolResult, ToolSpec
+from cardinal_agent import adapters
 from tests.fixture_tools import DIRECTORY, FAIL_MESSAGE, TOOL_NAMES, make_fixture_tools
 
 
@@ -33,7 +33,7 @@ def execute(registry, name, args) -> ToolResult:
             pytrace=False,
         )
     assert isinstance(result, ToolResult), (
-        f"execute({name!r}, {args!r}) must return a cs329z_hw1.types.ToolResult, "
+        f"execute({name!r}, {args!r}) must return a cardinal_agent.types.ToolResult, "
         f"got {type(result).__name__}: {result!r}"
     )
     assert isinstance(result.content, str), (

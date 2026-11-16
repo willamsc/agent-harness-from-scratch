@@ -1,11 +1,11 @@
 """Validation order and immutable configured command policy."""
 import pytest
 
-from cs329z_hw1.adapters import run_agent_session, run_format_tool_call
-from cs329z_hw1.cardinal import cardinal_spec
-from cs329z_hw1.llm import ScriptedLM
-from cs329z_hw1.types import AgentConfig
-from cs329z_hw1.user import ScriptedUser
+from cardinal_agent.adapters import run_agent_session, run_format_tool_call
+from cardinal_agent.cardinal import cardinal_spec
+from cardinal_agent.llm import ScriptedLM
+from cardinal_agent.types import AgentConfig
+from cardinal_agent.user import ScriptedUser
 
 
 def test_validation_precedes_rules_and_denial_never_asks_or_executes():

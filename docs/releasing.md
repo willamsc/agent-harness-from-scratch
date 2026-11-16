@@ -28,8 +28,8 @@ wheel 包含应用代码和虚构 demo，独立于仓库 data/；code.zip 也包
 ```bash
 git switch master
 git push origin master
-git tag v0.1.0
-git push origin v0.1.0
+git tag v0.1.1
+git push origin v0.1.1
 ```
 
 main 保留给个人手写版本，不需要合并或修改。默认分支即使是 main，tag 指向的 master 提交内也携带本工作流；具体运行仍受仓库 Actions 权限策略影响。

@@ -3,8 +3,8 @@ import json
 
 import pytest
 
-from cs329z_hw1.adapters import run_email_qa
-from cs329z_hw1.llm import ScriptedLM
+from cardinal_agent.adapters import run_email_qa
+from cardinal_agent.llm import ScriptedLM
 
 
 def scripted(*replies):

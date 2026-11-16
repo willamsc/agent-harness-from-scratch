@@ -71,10 +71,10 @@ from tempfile import NamedTemporaryFile
 from threading import RLock
 from uuid import uuid4
 
-from cs329z_hw1.cardinal import cardinal_spec
-from cs329z_hw1.pipelines.bm25 import BM25Index
-from cs329z_hw1.pipelines.email_qa import parse_object
-from cs329z_hw1.tokens import count_message_tokens
+from cardinal_agent.cardinal import cardinal_spec
+from cardinal_agent.pipelines.bm25 import BM25Index
+from cardinal_agent.pipelines.email_qa import parse_object
+from cardinal_agent.tokens import count_message_tokens
 
 _LOCK = RLock()
 KINDS = ('profile', 'preference', 'project_fact', 'temporary', 'history')

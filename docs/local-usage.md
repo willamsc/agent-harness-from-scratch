@@ -2,7 +2,7 @@
 
 ## 安装与初始化
 
-Release wheel 安装后运行 `cardinal`，也可在 source ZIP 中 `uv sync --locked` 后用 `uv run cardinal`。支持 Python 3.11+；源码运行同时支持 `python -m cs329z_hw1`。预览版仅在当前 Linux 环境验证；Windows/macOS 还需实际安装与 sandbox 验证，不承诺完整跨平台等价。
+Release wheel 安装后运行 `cardinal`，也可在 source ZIP 中 `uv sync --locked` 后用 `uv run cardinal`。支持 Python 3.11+；源码运行同时支持 `python -m cardinal_agent`。预览版仅在当前 Linux 环境验证；Windows/macOS 还需实际安装与 sandbox 验证，不承诺完整跨平台等价。
 
 ```bash
 cardinal init --demo --provider deepseek --model deepseek-flash

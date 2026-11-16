@@ -1,4 +1,4 @@
-# Cardinal Agent v0.1.0 — local preview
+# Cardinal Agent v0.1.1 — local preview
 
 An installable employee-assistant CLI with isolated profiles, Markdown/email
 imports, source-aware retrieval, persistent memory, saved conversations and
@@ -18,5 +18,4 @@ prompts and selected evidence are sent to the configured external provider.
 The public simulated-user baseline is 18/20 using deepseek-flash across all
 roles. Subsequent runs also scored 18/20 with different individual failures;
 all results are retained. This is not a production SLA or a claim of company
-deployment. Stanford CS329Z Assignment 1 is the credited foundation; the local
-application and release workflow extend that harness.
+deployment. Third-party licensing and attribution are preserved in NOTICE.md and LICENSE.

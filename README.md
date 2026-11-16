@@ -2,16 +2,16 @@
 
 面向员工个人工作流的本地命令行助手：查询制度与项目资料、搜索邮件、生成日报、跨会话记忆，以及经批准运行统计命令。
 
-**Local-first orchestration, source-aware retrieval, persistent memory, and approved tools.** A single-user preview built from scratch on the Stanford CS329Z Assignment 1 harness. Runs locally; live model inference uses your configured external API provider.
+**Local-first orchestration, source-aware retrieval, persistent memory, and approved tools.** A single-user local assistant with explicit tool permissions and auditable execution. Runs locally; live model inference uses your configured external API provider.
 
 ## 下载与运行
 
-GitHub Releases 提供 `code.zip`、Python wheel、`SHA256SUMS` 和记录源码 commit 的 manifest。当前为 `v0.1.0` 本地预览版本；以仓库实际 Release 页面为准，未发布前可直接从源码运行。
+GitHub Releases 提供 `code.zip`、Python wheel、`SHA256SUMS` 和记录源码 commit 的 manifest。当前为 `v0.1.1` 本地预览版本；以仓库实际 Release 页面为准，未发布前可直接从源码运行。
 
 需要 Python 3.11+。源代码安装：
 
 ```bash
-# 下载 code.zip 并解压后，进入 cardinal-agent-0.1.0
+# 下载 code.zip 并解压后，进入 cardinal-agent-0.1.1
 uv sync --locked
 uv run cardinal --version
 uv run cardinal init --demo --provider deepseek --model deepseek-flash
@@ -23,11 +23,11 @@ uv run cardinal demo onboarding
 也可以安装 Release 中的 wheel，获得全局可执行的命令：
 
 ```bash
-uv tool install ./cardinal_agent-0.1.0-py3-none-any.whl
+uv tool install ./cardinal_agent-0.1.1-py3-none-any.whl
 cardinal --help
 ```
 
-不要直接从 PyPI 安装同名项目；本项目目前通过本仓库 Release 文件分发。没有 uv 时，可在自己的虚拟环境运行 `python -m pip install ./cardinal_agent-0.1.0-py3-none-any.whl`。
+不要直接从 PyPI 安装同名项目；本项目目前通过本仓库 Release 文件分发。没有 uv 时，可在自己的虚拟环境运行 `python -m pip install ./cardinal_agent-0.1.1-py3-none-any.whl`。
 
 配置你自己的 API key（以下是 Bash 示例，不要把真实 key 放进聊天或 Git）：
 
@@ -88,7 +88,7 @@ cardinal chat --terminal
 
 这些结果来自不同阶段，不是对当前版本的一次统一跑分。后续综合评估也为 18/20，但失败任务有变化；没有生产用户或企业部署证据。详见 [评测基线](docs/15-sim-eval.md)、[已停止优化记录](docs/optimization-review.md) 和 [测试数据目录](docs/evaluations/README.md)。
 
-本地应用入口的可安装性、资料隔离和失败保存会另有发布验证记录，不用课程分数替代产品验证。
+本地应用入口的可安装性、资料隔离和失败保存会另有发布验证记录，不以算法评测替代产品验证。
 
 ## 架构
 
@@ -105,21 +105,21 @@ flowchart LR
     Loop --> Trace[Conversation / cost ledger]
 ```
 
-从零实现 Agent 调用循环及检索，不依赖 Agent 框架。复用课程模型接口和 sandbox，业务工具与本地产品入口分离。模块与设计思路见 `docs/01-priority.md` 至 `docs/15-sim-eval.md`。
+从零实现 Agent 调用循环及检索，不依赖 Agent 框架。使用统一模型接口和隔离命令执行器，业务工具与本地产品入口分离。模块与数据流见 [架构说明](docs/architecture.md)，历史设计与测试记录保存在 docs。
 
 ## 开发与评估
 
 ```bash
 uv sync --locked
 uv run pytest local_tests/test_local_cli.py
-# 完整课程数据已在 Git checkout 中；解压后可跑全套离线测试
+# 完整基准邮件档案可用时，解压后运行全套离线测试
 uv run python data/download.py
 uv run pytest tests local_tests
 # 付费综合评估
-uv run python -m cs329z_hw1.simulation
+uv run python -m cardinal_agent.simulation
 ```
 
-Release 的 code.zip 不含完整公共邮件档案；从课程原仓库获得 `data/emails.jsonl.gz` 后再复现全档案测试，并按 `data/source.json` 校验。安装 wheel 只需应用自有数据或内置虚构 demo，不依赖开发仓库。原课程设置与来源保存在 [COURSE_README.md](COURSE_README.md)。
+Release 的 code.zip 不含完整公共邮件档案；另行准备公开基准 `data/emails.jsonl.gz` 后再复现全档案测试，并按 `data/source.json` 校验。安装 wheel 只需应用自有数据或内置虚构 demo，不依赖开发仓库。
 
 ## 当前成熟度
 
@@ -127,6 +127,6 @@ Release 的 code.zip 不含完整公共邮件档案；从课程原仓库获得 `
 
 [可用性差距与路线](docs/product-readiness.md) · [本地使用](docs/local-usage.md) · [发布流程](docs/releasing.md) · [项目与面试材料](docs/project-case-study.md)
 
-## 来源与许可
+## 许可
 
-基于 Stanford CS329Z Assignment 1: Building an Agent Harness，保留课程来源、接口和测试。Cardinal Energy 与 demo 公司信息为虚构；Enron 档案仅作为公开评估语料。遵循仓库 [MIT License](LICENSE)。不声称真实公司部署、商业用户规模或未测量的效率提升。
+使用条款见 [LICENSE](LICENSE)。第三方归属和许可信息见 [NOTICE](NOTICE.md)。虚构演示资料与公开评估数据不能作为真实公司部署、商业用户规模或人工效率提升的证明。

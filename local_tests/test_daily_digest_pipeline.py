@@ -3,7 +3,7 @@ import copy
 import json
 from threading import Barrier
 
-from cs329z_hw1 import adapters
+from cardinal_agent import adapters
 
 
 def email(number, thread):

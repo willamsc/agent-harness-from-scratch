@@ -49,9 +49,9 @@ aux_lm = config.aux_lm if config.aux_lm is not None else lm。
 import json
 from threading import RLock
 
-from cs329z_hw1 import data
-from cs329z_hw1.cardinal import CARDINAL_TOOLS, cardinal_spec
-from cs329z_hw1.pipelines.bm25 import BM25Index
+from cardinal_agent import data
+from cardinal_agent.cardinal import CARDINAL_TOOLS, cardinal_spec
+from cardinal_agent.pipelines.bm25 import BM25Index
 
 
 _LOCK = RLock()
@@ -99,11 +99,11 @@ def build_cardinal_tools(lm, config):
         return json.dumps(email, ensure_ascii=False)
 
     def email_qa(question):
-        from cs329z_hw1.adapters import run_email_qa
+        from cardinal_agent.adapters import run_email_qa
         return json.dumps(run_email_qa(question, search, aux_lm), ensure_ascii=False)
 
     def daily_digest(date):
-        from cs329z_hw1.adapters import run_daily_digest
+        from cardinal_agent.adapters import run_daily_digest
         return run_daily_digest(data.emails_on(date), aux_lm)
 
     available = {
@@ -133,7 +133,7 @@ def supplement_tools(tools, config):
 第七题构造函数新增接线，其他循环逻辑保持原样：
 
 ```python
-from cs329z_hw1.agent.cardinal_tools import build_cardinal_tools, supplement_tools
+from cardinal_agent.agent.cardinal_tools import build_cardinal_tools, supplement_tools
 
 tools = build_cardinal_tools(lm, config) if tools is None else supplement_tools(tools, config)
 ```

@@ -1,4 +1,4 @@
-"""Small helpers shared by the tests (course-provided; do not edit)."""
+"""Small helpers shared by the tests (shared; do not edit)."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ def truncated(text: str = "", *, max_tokens: int = 64):
     """A ScriptedLM script entry that raises OutputTruncated, as the real LM
     does when the model stops at max_tokens. ``text`` is what the model had
     written so far (``exc.text``)."""
-    from cs329z_hw1.llm import OutputTruncated
+    from cardinal_agent.llm import OutputTruncated
 
     def raise_it(messages):
         raise OutputTruncated(

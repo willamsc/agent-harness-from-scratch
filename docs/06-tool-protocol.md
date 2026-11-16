@@ -54,14 +54,14 @@ format 与 parse 配套，保证工具名、参数、数字/字符串/布尔值�
 
 ## 6. 完整实现
 
-实现位于 cs329z_hw1/agent/protocol.py：
+实现位于 cardinal_agent/agent/protocol.py：
 
 ```python
 """Text tool calls framed by tags; JSON decoding respects quoted tag text."""
 
 import json
 
-from cs329z_hw1.types import ParsedResponse, ToolCall
+from cardinal_agent.types import ParsedResponse, ToolCall
 
 OPEN = "<tool_call>"
 CLOSE = "</tool_call>"

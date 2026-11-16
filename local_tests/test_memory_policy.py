@@ -1,9 +1,9 @@
 """Explicit-source grounding, scoped corrections and durable isolated stores."""
 import json
 
-from cs329z_hw1.agent.memory import MemoryController, MemoryStore
-from cs329z_hw1.llm import ScriptedLM
-from cs329z_hw1.types import AgentConfig
+from cardinal_agent.agent.memory import MemoryController, MemoryStore
+from cardinal_agent.llm import ScriptedLM
+from cardinal_agent.types import AgentConfig
 
 
 def test_scoped_correction_does_not_replace_another_project(tmp_path):

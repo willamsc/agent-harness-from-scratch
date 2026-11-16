@@ -60,9 +60,9 @@ from pathlib import Path
 import time
 from uuid import uuid4
 
-from cs329z_hw1 import sandbox
-from cs329z_hw1.cardinal import cardinal_spec
-from cs329z_hw1.tokens import count_tokens
+from cardinal_agent import sandbox
+from cardinal_agent.cardinal import cardinal_spec
+from cardinal_agent.tokens import count_tokens
 
 
 def terminal_spec(config):

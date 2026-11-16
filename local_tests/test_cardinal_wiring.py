@@ -4,10 +4,10 @@ from concurrent.futures import ThreadPoolExecutor
 
 import pytest
 
-from cs329z_hw1 import adapters, data
-from cs329z_hw1.agent import cardinal_tools
-from cs329z_hw1.cardinal import cardinal_spec
-from cs329z_hw1.types import AgentConfig
+from cardinal_agent import adapters, data
+from cardinal_agent.agent import cardinal_tools
+from cardinal_agent.cardinal import cardinal_spec
+from cardinal_agent.types import AgentConfig
 
 
 @pytest.fixture

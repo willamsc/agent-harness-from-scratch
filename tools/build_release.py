@@ -23,13 +23,13 @@ def allowed(name):
     if (any(part in forbidden or (part.startswith('.env') and part != '.env.example') for part in path.parts)
             or name.endswith(('.pyc', '.pem', '.key'))):
         return False
-    # Source releases ship fictional demo data. The full public course
+    # Source releases ship fictional demo data. The full public benchmark
     # archive is obtained separately when reproducing archive benchmarks.
     if name == 'data/emails.jsonl.gz' or name.startswith(('data/emails/', 'data/raw/')):
         return False
-    return (path.parts[0] in {'cs329z_hw1', 'tests', 'local_tests', 'docs', 'tools', '.github'}
+    return (path.parts[0] in {'cardinal_agent', 'tests', 'local_tests', 'docs', 'tools', '.github'}
             or name.startswith('data/docs/') or name in {
-                'README.md', 'COURSE_README.md', 'LICENSE', 'CHANGELOG.md', 'RELEASE_NOTES.md',
+                'README.md', 'NOTICE.md', 'LICENSE', 'CHANGELOG.md', 'RELEASE_NOTES.md',
                 'pyproject.toml', 'uv.lock', '.gitignore', '.env.example',
                 'data/download.py', 'data/source.json', 'data/priority_rubric.md'})
 
@@ -51,7 +51,7 @@ def main(argv=None):
     version = project['version']
     prefix = f'cardinal-agent-{version}/'
     manifest = {'name': project['name'], 'version': version, 'source_commit': commit,
-                'excluded': ['credentials', 'runtime profiles/logs/caches', 'full public course email archive'],
+                'excluded': ['credentials', 'runtime profiles/logs/caches', 'full public benchmark email archive'],
                 'files': {name: hashlib.sha256(content).hexdigest() for name, content in sorted(contents.items())}}
     contents['SOURCE_MANIFEST.json'] = (json.dumps(manifest, indent=2) + '\n').encode()
     args.out.mkdir(parents=True, exist_ok=True)

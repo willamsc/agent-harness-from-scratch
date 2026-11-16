@@ -1,0 +1,25 @@
+{
+  "version": "0.1.1",
+  "namespace": "cardinal_agent",
+  "base_commit": "28f8733cd0ec8d2185377405b56086cea53c6c4c",
+  "working_tree_dirty": true,
+  "pytest_arguments": [
+    "tests",
+    "local_tests",
+    "-o",
+    "addopts=",
+    "-m",
+    "not live",
+    "-q",
+    "--junitxml=docs/evaluations/20261116-134544-namespace-release/junit.xml"
+  ],
+  "pytest_exit_code": 0,
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "license_notice_retained": true,
+  "historical_evaluations_unmodified": true,
+  "removed_from_current_tree": [
+    "cs329z_assignment1_harness.pdf",
+    "COURSE_README.md",
+    "cs329z_hw1/"
+  ]
+}

@@ -1,11 +1,11 @@
 """Save/re-read large observations, without using another command runner."""
 import json
 
-from cs329z_hw1 import sandbox
-from cs329z_hw1.agent.terminal import terminal_spec
-from cs329z_hw1.agent.registry import ToolRegistry
-from cs329z_hw1.tokens import count_tokens
-from cs329z_hw1.types import AgentConfig
+from cardinal_agent import sandbox
+from cardinal_agent.agent.terminal import terminal_spec
+from cardinal_agent.agent.registry import ToolRegistry
+from cardinal_agent.tokens import count_tokens
+from cardinal_agent.types import AgentConfig
 
 
 def test_large_output_is_saved_and_middle_can_be_reread(tmp_path):
