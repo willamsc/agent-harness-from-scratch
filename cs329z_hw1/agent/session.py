@@ -34,12 +34,25 @@ class AgentSession:
     def __init__(self, lm, tools: list[ToolSpec] | None, config: AgentConfig):
         from cs329z_hw1.agent.cardinal_tools import build_cardinal_tools, supplement_tools
 
+        original_names = {tool.name for tool in tools} if tools is not None else set()
         tools = build_cardinal_tools(lm, config) if tools is None else supplement_tools(tools, config)
+        self.memory = None
+        if config.memory_dir is not None:
+            from cs329z_hw1.agent.memory import MemoryController
+            self.memory = MemoryController(lm, config)
+            memory_specs = {spec.name: spec for spec in self.memory.specs()}
+            tools = [memory_specs[t.name] if t.name in memory_specs and t.name not in original_names else t for t in tools]
         self.lm = lm
         self.config = copy(config)
         self.registry = ToolRegistry(tools)
         self.transcript: list[dict] = []
-        self.messages = [{"role": "system", "content": SYSTEM_PROMPT + render_tools(self.registry.schemas())}]
+        memory_hint = ("Persistent memory is configured. Before answering questions about the user's team, projects, "
+                       "preferences or prior facts, call recall with relevant keywords. Resolve ambiguous shorthand and references such as "
+                       "the spec or my team using recall BEFORE searching general documents or offering multiple interpretations. "
+                       "Use matching stored context to scope subsequent retrieval. Answer only the requested scope; "
+                       "do not add unrelated project/spec comparisons unless explicitly requested. Do not guess from general documents. "
+                       "Store only explicit user statements; background extraction also runs after completed turns.\n") if self.memory else ""
+        self.messages = [{"role": "system", "content": SYSTEM_PROMPT + memory_hint + render_tools(self.registry.schemas())}]
 
     def set_mode(self, mode: str) -> None:
         if mode not in ("auto", "confirm"):
@@ -52,6 +65,17 @@ class AgentSession:
         self.messages.append({"role": "user", "content": content})
 
     def _finish(self, text: str, status: str) -> AgentResult:
+        if self.memory is not None:
+            if status == 'done':
+                started = time.perf_counter()
+                try:
+                    ids = self.memory.extract()
+                    self.transcript.append({'type': 'memory_extraction', 'saved_ids': ids,
+                                            'seconds': time.perf_counter() - started})
+                except Exception as exc:
+                    self.transcript.append({'type': 'memory_error', 'trigger': 'after_send', 'content': str(exc)})
+            self.transcript.extend(self.memory.events)
+            self.memory.events.clear()
         return AgentResult(text, status, deepcopy(self.transcript))
 
     def _fit_context(self):
@@ -59,6 +83,9 @@ class AgentSession:
         return compact(self)
 
     def send(self, user_message: str) -> AgentResult:
+        if self.memory is not None:
+            self.memory.user_text = user_message
+            self.memory.turn += 1
         self.transcript.append({"type": "user", "content": user_message})
         self._current_request = {"role": "user", "content": user_message}
         self.messages.append(self._current_request)

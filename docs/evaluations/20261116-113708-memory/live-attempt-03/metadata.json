@@ -1,0 +1,67 @@
+{
+  "started_at": "2026-11-16T11:41:32.797730+08:00",
+  "ended_at": "2026-11-16T11:41:59.661418+08:00",
+  "timezone": "Asia/Shanghai",
+  "base_commit": "a50e2b4bf7aa9408ac750435fcf06ef56d1421b7",
+  "working_tree_dirty": true,
+  "command": [
+    "python",
+    "/tmp/record_protocol_live.py"
+  ],
+  "pytest_arguments": [
+    "tests/test_memory.py",
+    "-o",
+    "addopts=",
+    "-m",
+    "live",
+    "-s",
+    "-q",
+    "--junitxml=docs/evaluations/20261116-113708-memory/live-attempt-03/junit.xml"
+  ],
+  "wall_seconds": 26.801848567998604,
+  "exit_code": 0,
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "model_settings": [
+    {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "cache": true,
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 24,
+        "cached_calls": 0,
+        "input_tokens": 49261,
+        "output_tokens": 1140,
+        "cost_usd": 0.004405116000000001,
+        "seconds": 21.01065945625305
+      }
+    },
+    {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "cache": true,
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 9,
+        "cached_calls": 2,
+        "input_tokens": 2150,
+        "output_tokens": 121,
+        "cost_usd": 0.000564408,
+        "seconds": 5.440465450286865
+      }
+    }
+  ],
+  "environment_note": "Exact source snapshot in this directory; final offline environment in docs/evaluations/20261116-114133-memory. Memory files snapshotted per send in sessions.json. Proxy unset only for this process.",
+  "baseline": null,
+  "implementation_sha256": {
+    "cs329z_hw1/agent/memory.py": "cf00dcfeec34a2f61a9e3bf347fadf13c2e4862ccf27e8cb0a0a80d3bd912b24",
+    "cs329z_hw1/agent/session.py": "357a34174adc95bc04335b43bd33ea428ef8cc089ea9a064c46a4d3d556ec839"
+  }
+}

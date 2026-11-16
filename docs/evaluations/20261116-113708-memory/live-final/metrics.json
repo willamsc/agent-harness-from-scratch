@@ -1,0 +1,30 @@
+{
+  "correct": 2,
+  "total": 3,
+  "rows": [
+    {
+      "id": "the-spec",
+      "correct": false,
+      "stored_records": 2,
+      "recall_calls": 1,
+      "extraction_errors": 0
+    },
+    {
+      "id": "my-team",
+      "correct": true,
+      "stored_records": 1,
+      "recall_calls": 1,
+      "extraction_errors": 0
+    },
+    {
+      "id": "cost-center",
+      "correct": true,
+      "stored_records": 2,
+      "recall_calls": 1,
+      "extraction_errors": 0
+    }
+  ],
+  "new_ledger_cost_usd": 0.004327956,
+  "baseline": null,
+  "notes": "Three public paired-session tasks. Iterative prompt changes, no no-memory/decay ablation; cannot infer production uplift."
+}

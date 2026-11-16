@@ -1,0 +1,7 @@
+
+memory live: 3 of 3 pairs correct (need 2), model deepseek-flash
+  ok   the-spec
+  ok   my-team
+  ok   cost-center
+.
+1 passed, 7 deselected in 26.62s

@@ -1,0 +1,10 @@
+
+memory live: 2 of 3 pairs correct (need 2), model deepseek-flash
+  MISS the-spec
+       session 1 reply: 'Got it — I\'ve saved that. When you say "the spec," I\'ll interpret it as the firmware spec. What would you like to look up or work on?'
+       session 2 reply: 'There are two documents called "the spec," so the answer depends on which team you\'re on:\n\n**GridLens Ingestion API Specification** (API-SPEC-002) — what the Platform team means by "the spec"\n- **Version:** 2.1 (dated 2026-02-20), describing API version 2.1, which ships with GridLens 4.8\n- **Author:** Arjun Mehta, Staff Engineer\n- **Owner:** Platform team (Dmitri Volkov, Director of Platform Engin'
+       expected one of ['3.2'] and none of ['2.1', 'Mehta']
+  ok   my-team
+  ok   cost-center
+.
+1 passed, 7 deselected in 26.24s

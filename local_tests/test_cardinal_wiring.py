@@ -73,4 +73,4 @@ def test_configured_tools_do_not_duplicate_or_change_input(tmp_path):
     assert list(s.registry.tools) == ['ask_user', 'remember', 'recall']
     assert tools == [custom]
     assert s.registry.execute('ask_user', {'question': 'Hi'}).content == 'Custom answer'
-    assert s.registry.execute('recall', {'query': 'Hi'}).status == 'tool_error'
+    assert s.registry.execute('recall', {'query': 'Hi'}).status == 'ok'

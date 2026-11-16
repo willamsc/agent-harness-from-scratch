@@ -1,0 +1,63 @@
+{
+  "started_at": "2026-11-16T11:40:44.551378+08:00",
+  "ended_at": "2026-11-16T11:41:06.957366+08:00",
+  "timezone": "Asia/Shanghai",
+  "base_commit": "a50e2b4bf7aa9408ac750435fcf06ef56d1421b7",
+  "working_tree_dirty": true,
+  "command": [
+    "python",
+    "/tmp/record_protocol_live.py"
+  ],
+  "pytest_arguments": [
+    "tests/test_memory.py",
+    "-o",
+    "addopts=",
+    "-m",
+    "live",
+    "-s",
+    "-q",
+    "--junitxml=docs/evaluations/20261116-113708-memory/live-final/junit.xml"
+  ],
+  "wall_seconds": 22.37086949500008,
+  "exit_code": 0,
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "model_settings": [
+    {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "cache": true,
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 18,
+        "cached_calls": 0,
+        "input_tokens": 35034,
+        "output_tokens": 878,
+        "cost_usd": 0.0036234479999999996,
+        "seconds": 16.304006576538086
+      }
+    },
+    {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "temperature": 0.0,
+      "max_tokens": 4096,
+      "reasoning_effort": "low",
+      "cache": true,
+      "usage": {
+        "model": "deepseek-flash",
+        "calls": 9,
+        "cached_calls": 2,
+        "input_tokens": 2161,
+        "output_tokens": 235,
+        "cost_usd": 0.0007045080000000001,
+        "seconds": 5.793190240859985
+      }
+    }
+  ],
+  "environment_note": "Proxy variables unset for this process only; no credentials recorded. Base implementation snapshot/environment/hashes in parent directory.",
+  "baseline": null
+}
