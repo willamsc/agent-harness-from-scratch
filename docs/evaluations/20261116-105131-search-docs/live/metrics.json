@@ -1,0 +1,201 @@
+{
+  "correct": 2,
+  "total": 20,
+  "max_result_tokens": 978,
+  "mean_result_tokens": 91.65,
+  "rows": [
+    {
+      "id": "d04",
+      "correct": false,
+      "status": "done",
+      "result_tokens": 0,
+      "tool_calls": 0,
+      "snippet_tokens": [],
+      "window_tokens": []
+    },
+    {
+      "id": "d03",
+      "correct": false,
+      "status": "done",
+      "result_tokens": 0,
+      "tool_calls": 0,
+      "snippet_tokens": [],
+      "window_tokens": []
+    },
+    {
+      "id": "d02",
+      "correct": false,
+      "status": "done",
+      "result_tokens": 0,
+      "tool_calls": 0,
+      "snippet_tokens": [],
+      "window_tokens": []
+    },
+    {
+      "id": "d07",
+      "correct": false,
+      "status": "done",
+      "result_tokens": 0,
+      "tool_calls": 0,
+      "snippet_tokens": [],
+      "window_tokens": []
+    },
+    {
+      "id": "d06",
+      "correct": false,
+      "status": "done",
+      "result_tokens": 0,
+      "tool_calls": 0,
+      "snippet_tokens": [],
+      "window_tokens": []
+    },
+    {
+      "id": "d01",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 978,
+      "tool_calls": 1,
+      "snippet_tokens": [
+        150,
+        147,
+        149,
+        149,
+        149
+      ],
+      "window_tokens": []
+    },
+    {
+      "id": "d09",
+      "correct": false,
+      "status": "done",
+      "result_tokens": 0,
+      "tool_calls": 0,
+      "snippet_tokens": [],
+      "window_tokens": []
+    },
+    {
+      "id": "d05",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 855,
+      "tool_calls": 1,
+      "snippet_tokens": [
+        149,
+        79,
+        149,
+        150,
+        100
+      ],
+      "window_tokens": []
+    },
+    {
+      "id": "d10",
+      "correct": false,
+      "status": "done",
+      "result_tokens": 0,
+      "tool_calls": 0,
+      "snippet_tokens": [],
+      "window_tokens": []
+    },
+    {
+      "id": "d08",
+      "correct": false,
+      "status": "done",
+      "result_tokens": 0,
+      "tool_calls": 0,
+      "snippet_tokens": [],
+      "window_tokens": []
+    },
+    {
+      "id": "d13",
+      "correct": false,
+      "status": "done",
+      "result_tokens": 0,
+      "tool_calls": 0,
+      "snippet_tokens": [],
+      "window_tokens": []
+    },
+    {
+      "id": "d11",
+      "correct": false,
+      "status": "done",
+      "result_tokens": 0,
+      "tool_calls": 0,
+      "snippet_tokens": [],
+      "window_tokens": []
+    },
+    {
+      "id": "d12",
+      "correct": false,
+      "status": "done",
+      "result_tokens": 0,
+      "tool_calls": 0,
+      "snippet_tokens": [],
+      "window_tokens": []
+    },
+    {
+      "id": "d14",
+      "correct": false,
+      "status": "done",
+      "result_tokens": 0,
+      "tool_calls": 0,
+      "snippet_tokens": [],
+      "window_tokens": []
+    },
+    {
+      "id": "d15",
+      "correct": false,
+      "status": "done",
+      "result_tokens": 0,
+      "tool_calls": 0,
+      "snippet_tokens": [],
+      "window_tokens": []
+    },
+    {
+      "id": "d16",
+      "correct": false,
+      "status": "done",
+      "result_tokens": 0,
+      "tool_calls": 0,
+      "snippet_tokens": [],
+      "window_tokens": []
+    },
+    {
+      "id": "d18",
+      "correct": false,
+      "status": "done",
+      "result_tokens": 0,
+      "tool_calls": 0,
+      "snippet_tokens": [],
+      "window_tokens": []
+    },
+    {
+      "id": "d17",
+      "correct": false,
+      "status": "done",
+      "result_tokens": 0,
+      "tool_calls": 0,
+      "snippet_tokens": [],
+      "window_tokens": []
+    },
+    {
+      "id": "d19",
+      "correct": false,
+      "status": "done",
+      "result_tokens": 0,
+      "tool_calls": 0,
+      "snippet_tokens": [],
+      "window_tokens": []
+    },
+    {
+      "id": "d20",
+      "correct": false,
+      "status": "done",
+      "result_tokens": 0,
+      "tool_calls": 0,
+      "snippet_tokens": [],
+      "window_tokens": []
+    }
+  ],
+  "comparison_note": "First run had unsupported protocol early termination. Later runs add protocol correction; not a pure retrieval/chunking ablation. Final run may use model cache."
+}

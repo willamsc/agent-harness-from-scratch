@@ -1,0 +1,22 @@
+........................................................................ [ 23%]
+........................................................................ [ 47%]
+........................................................................ [ 71%]
+..................................F..................................... [ 95%]
+...............                                                          [100%]
+=================================== FAILURES ===================================
+_________ test_late_match_in_long_paragraph_preserves_source_and_lines _________
+
+    def test_late_match_in_long_paragraph_preserves_source_and_lines():
+        text = '# Example\n\n## Details\n\n' + 'ordinary words ' * 180 + 'uniqueneedle final evidence words.\n'
+        index = DocumentIndex([{'doc_id': 'unknown', 'title': 'Example', 'text': text}])
+        result = index.search('uniqueneedle', 1)[0]
+        assert result['category'] == 'general' and result['section'] == 'Details'
+        assert result['snippet'] in text and 'uniqueneedle' in result['snippet']
+        assert count_tokens(result['snippet']) <= 150
+>       assert result['start_line'] == result['end_line'] == 5
+E       assert 5 == 6
+
+local_tests/test_document_structure.py:18: AssertionError
+=========================== short test summary info ============================
+FAILED local_tests/test_document_structure.py::test_late_match_in_long_paragraph_preserves_source_and_lines
+1 failed, 302 passed, 8 deselected in 6.02s

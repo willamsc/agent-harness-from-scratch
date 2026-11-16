@@ -1,0 +1,48 @@
+
+search_docs live: 2 of 20 correct (need 15), model deepseek-flash
+search_docs and read_doc result tokens per question: max 978, mean 91 (limit 6000)
+  ok   d01 [direct]   978 tokens, 1 tool calls, status done: Who manages the Firmware team?
+  MISS d02 [direct]     0 tokens, 0 tool calls, status done: What is the minimum password length under the IT and Security Policy?
+       expected one of ['14 characters', '14 character', 'fourteen characters', '14 chars', 'fourteen', '14']; got: 'I\'ll search the company documents for the password policy.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="search_docs">\n<｜｜DSML｜｜ parameter name="args" string="false">{"query": "password minimum length", "k": 5}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+  MISS d03 [direct]     0 tokens, 0 tool calls, status done: How many requests per minute may one client make to the GridLens Ingestion API?
+       expected one of ['600']; got: 'I\'ll search the company documents for the GridLens Ingestion API rate limits.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="search_docs">\n<｜｜DSML｜｜ parameter name="args" string="false">{"query": "GridLens Ingestion API rate limit requests per minute"}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ ca'
+  MISS d04 [direct]     0 tokens, 0 tool calls, status done: What is the price per meter per month of the GridLens Professional tier?
+       expected one of ['1.40', '1.4']; got: 'I\'ll search the company documents for GridLens pricing.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="search_docs">\n<｜｜DSML｜｜ parameter name="query" string="true">GridLens Professional tier price per meter per month</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+  ok   d05 [direct]   855 tokens, 1 tool calls, status done: Who is the technical lead for Project Kestrel?
+  MISS d06 [direct]     0 tokens, 0 tool calls, status done: On what date will version 1 of the GridLens API be shut down?
+       expected one of ['2026-12-31', 'December 31, 2026', '31 December 2026', 'Dec 31, 2026', 'December 31st, 2026', '12/31/2026']; got: 'I\'ll search the company documents for GridLens API version 1 shutdown information.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="search_docs">\n<｜｜DSML｜｜ parameter name="args" string="false">{"query": "GridLens API version 1 shutdown", "k": 5}</｜｜DSML｜｜ parameter>\n<｜｜DSML｜｜ parameter name="name" string="t'
+  MISS d07 [deep]     0 tokens, 0 tool calls, status done: For how many working days does Cardinal Energy pay full salary during jury duty?
+       expected one of ['10 working days', 'ten working days', '10 days', 'ten days', '10 business days']; got: 'I\'ll look this up in the company documents.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="search_docs">\n<｜｜DSML｜｜ parameter name="args" string="false">{"query": "jury duty pay", "k": 5}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+  MISS d08 [deep]     0 tokens, 0 tool calls, status done: What is the phone number of the anonymous ethics hotline?
+       expected one of ['1-800-555-0142', '800-555-0142', '555-0142']; got: 'I\'ll search the company documents for the ethics hotline information.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="search_docs">\n<｜｜DSML｜｜ parameter name="args" string="false">{"query": "anonymous ethics hotline phone number", "k": 5}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+  MISS d09 [deep]     0 tokens, 0 tool calls, status done: Which EmberOS error code means that the sensor mesh link was lost?
+       expected one of ['E-214', 'E214']; got: 'I\'ll search the company documents for EmberOS error codes.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="search_docs">\n<｜｜DSML｜｜ parameter name="args" string="false">{"query": "EmberOS error code sensor mesh link lost"}</｜｜DSML｜｜ parameter>\n<｜｜DSML｜｜ parameter name="name" string="true">search_docs</｜｜DSM'
+  MISS d10 [deep]     0 tokens, 0 tool calls, status done: How many business days after an incident is resolved is the postmortem draft due?
+       expected one of ['5 business days', 'five business days', '5 working days', 'five working days']; got: 'I\'ll search the company documents for the postmortem policy.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="search_docs">\n<｜｜DSML｜｜ parameter name="query" string="true">postmortem draft due business days after incident resolved</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+  MISS d11 [deep]     0 tokens, 0 tool calls, status done: What is the recovery time objective for GridLens after a regional failure?
+       expected one of ['4 hours', 'four hours', '4 hour', '4h']; got: 'I\'ll search the company documents for the GridLens recovery time objective.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="search_docs">\n<｜｜DSML｜｜ parameter name="args" string="false">{"query": "GridLens recovery time objective regional failure"}</｜｜DSML｜｜ parameter>\n<｜｜DSML｜｜ parameter name="name" string'
+  MISS d12 [superseded]     0 tokens, 0 tool calls, status done: What is the daily meal limit when I travel on business within the United States?
+       expected one of ['75']; got: 'I\'ll look up the current travel meal policy in the company documents.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="search_docs">\n<｜｜DSML｜｜ parameter name="args" string="false">{"query": "meal limit domestic travel", "k": 5}</｜｜DSML｜｜ parameter>\n<｜｜DSML｜｜ parameter name="name" string="true">search_docs</'
+  MISS d13 [superseded]     0 tokens, 0 tool calls, status done: Above what amount does a single expense need approval from my department's vice president?
+       expected one of ['750']; got: 'I\'ll look up the expense approval policy in the company documents.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="search_docs">\n<｜｜DSML｜｜ parameter name="query" string="true">expense approval vice president threshold</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+  MISS d14 [superseded]     0 tokens, 0 tool calls, status done: How many days of unused PTO can I carry over into the next calendar year?
+       expected one of ['10 days', 'ten days', '80 hours', '10 working days']; got: 'I\'ll look up the current PTO carryover policy in the company documents.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="search_docs">\n<｜｜DSML｜｜ parameter name="args" string="false">{"query": "PTO carryover unused days", "k": 5}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+  MISS d15 [superseded]     0 tokens, 0 tool calls, status done: Which days of the week are hybrid employees required to work from the office?
+       expected one of ['Tuesday, Wednesday, and Thursday', 'Wednesday']; got: 'I\'ll search the company documents for the hybrid work policy.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="search_docs">\n<｜｜DSML｜｜ parameter name="query" string="true">hybrid employees office days</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+  MISS d16 [superseded]     0 tokens, 0 tool calls, status done: How much is the weekly stipend for the primary on-call engineer?
+       expected one of ['500']; got: 'I\'ll search the company documents for the on-call stipend policy.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="search_docs">\n<｜｜DSML｜｜ parameter name="args" string="false">{"query": "on-call stipend primary engineer", "k": 5}</｜｜DSML｜｜ parameter>\n<｜｜DSML｜｜ parameter name="name" string="true">search_docs'
+  MISS d17 [lexical]     0 tokens, 0 tool calls, status done: How much will Cardinal Energy reimburse each month for my gym membership?
+       expected one of ['65']; got: 'I\'ll look up Cardinal\'s policy on gym membership reimbursement.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="search_docs">\n<｜｜DSML｜｜ parameter name="args" string="false">{"query": "gym membership reimbursement"}</｜｜DSML｜｜ parameter>\n<｜｜DSML｜｜ parameter name="name" string="true">search_docs</｜｜DSML｜｜ par'
+  MISS d18 [lexical]     0 tokens, 0 tool calls, status done: My laptop was stolen. What phone extension do I call to report it?
+       expected one of ['4911']; got: 'I\'ll look this up in the company documents.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="search_docs">\n<｜｜DSML｜｜ parameter name="args" string="false">{"query": "stolen laptop report phone extension", "k": 5}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+  MISS d19 [lexical]     0 tokens, 0 tool calls, status done: When is payday?
+       expected one of ['15th', 'fifteenth', 'last business day']; got: 'I\'ll check the company documents for the payday policy.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="search_docs">\n<｜｜DSML｜｜ parameter name="args" string="false">{"query": "payday payroll schedule"}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+  MISS d20 [lexical]     0 tokens, 0 tool calls, status done: How much can I spend per year on conferences and online courses for my own development?
+       expected one of ['1,800']; got: 'I\'ll look up the relevant policy documents.\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name="search_docs">\n<｜｜DSML｜｜ parameter name="args" string="false">{"query": "professional development budget conferences courses"}</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>'
+F
+=================================== FAILURES ===================================
+___________________________ test_live_doc_questions ____________________________
+2 of 20 answers are correct; need at least 15.
+=========================== short test summary info ============================
+FAILED tests/test_search_docs.py::test_live_doc_questions - Failed: 2 of 20 a...
+1 failed, 36 deselected in 7.21s

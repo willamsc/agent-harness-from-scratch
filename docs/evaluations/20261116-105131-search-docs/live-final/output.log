@@ -1,0 +1,25 @@
+
+search_docs live: 20 of 20 correct (need 15), model deepseek-flash
+search_docs and read_doc result tokens per question: max 2880, mean 1219 (limit 6000)
+  ok   d01 [direct]   978 tokens, 1 tool calls, status done: Who manages the Firmware team?
+  ok   d02 [direct]   968 tokens, 1 tool calls, status done: What is the minimum password length under the IT and Security Policy?
+  ok   d03 [direct]  1911 tokens, 2 tool calls, status done: How many requests per minute may one client make to the GridLens Ingestion API?
+  ok   d04 [direct]   981 tokens, 1 tool calls, status done: What is the price per meter per month of the GridLens Professional tier?
+  ok   d05 [direct]   855 tokens, 1 tool calls, status done: Who is the technical lead for Project Kestrel?
+  ok   d06 [direct]  1493 tokens, 2 tool calls, status done: On what date will version 1 of the GridLens API be shut down?
+  ok   d07 [deep]   934 tokens, 1 tool calls, status done: For how many working days does Cardinal Energy pay full salary during jury duty?
+  ok   d08 [deep]   993 tokens, 1 tool calls, status done: What is the phone number of the anonymous ethics hotline?
+  ok   d09 [deep]   973 tokens, 1 tool calls, status done: Which EmberOS error code means that the sensor mesh link was lost?
+  ok   d10 [deep]   986 tokens, 1 tool calls, status done: How many business days after an incident is resolved is the postmortem draft due?
+  ok   d11 [deep]   989 tokens, 1 tool calls, status done: What is the recovery time objective for GridLens after a regional failure?
+  ok   d12 [superseded]  1817 tokens, 2 tool calls, status done: What is the daily meal limit when I travel on business within the United States?
+  ok   d13 [superseded]   995 tokens, 1 tool calls, status done: Above what amount does a single expense need approval from my department's vice president?
+  ok   d14 [superseded]   983 tokens, 1 tool calls, status done: How many days of unused PTO can I carry over into the next calendar year?
+  ok   d15 [superseded]  1000 tokens, 1 tool calls, status done: Which days of the week are hybrid employees required to work from the office?
+  ok   d16 [superseded]  1015 tokens, 1 tool calls, status done: How much is the weekly stipend for the primary on-call engineer?
+  ok   d17 [lexical]  1172 tokens, 2 tool calls, status done: How much will Cardinal Energy reimburse each month for my gym membership?
+  ok   d18 [lexical]   867 tokens, 1 tool calls, status done: My laptop was stolen. What phone extension do I call to report it?
+  ok   d19 [lexical]  2880 tokens, 3 tool calls, status done: When is payday?
+  ok   d20 [lexical]  1599 tokens, 2 tool calls, status done: How much can I spend per year on conferences and online courses for my own development?
+.
+1 passed, 36 deselected in 8.82s

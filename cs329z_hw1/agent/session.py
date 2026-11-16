@@ -86,7 +86,12 @@ class AgentSession:
                 self._feedback("Model output was truncated; write a complete reply or tool call."
                                if truncated else parsed.error, "truncated" if truncated else "parse")
             elif parsed.tool_call is None:
-                if not parsed.text:
+                if 'DSML' in parsed.text and 'invoke' in parsed.text:
+                    malformed += 1
+                    self._feedback('Unsupported provider tool syntax. No tool ran. Rewrite your call as literal ASCII text: '
+                                   '<tool_call>{"name":"tool_name","args":{"parameter":"value"}}</tool_call>. '
+                                   'Do not use DSML or invoke/parameter tags.', 'unsupported_protocol')
+                elif not parsed.text:
                     malformed += 1
                     self._feedback("Your reply was empty. Provide an answer, clarification, or a complete tool call.", "empty")
                 elif _PROMISE.fullmatch(parsed.text):

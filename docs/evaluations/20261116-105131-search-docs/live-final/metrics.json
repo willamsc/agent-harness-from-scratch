@@ -1,0 +1,331 @@
+{
+  "correct": 20,
+  "total": 20,
+  "max_result_tokens": 2880,
+  "mean_result_tokens": 1219.45,
+  "rows": [
+    {
+      "id": "d04",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 981,
+      "tool_calls": 1,
+      "snippet_tokens": [
+        147,
+        150,
+        147,
+        150,
+        150
+      ],
+      "window_tokens": []
+    },
+    {
+      "id": "d01",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 978,
+      "tool_calls": 1,
+      "snippet_tokens": [
+        150,
+        147,
+        149,
+        149,
+        149
+      ],
+      "window_tokens": []
+    },
+    {
+      "id": "d02",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 968,
+      "tool_calls": 1,
+      "snippet_tokens": [
+        150,
+        149,
+        147,
+        150,
+        150
+      ],
+      "window_tokens": []
+    },
+    {
+      "id": "d05",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 855,
+      "tool_calls": 1,
+      "snippet_tokens": [
+        149,
+        79,
+        149,
+        150,
+        100
+      ],
+      "window_tokens": []
+    },
+    {
+      "id": "d08",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 993,
+      "tool_calls": 1,
+      "snippet_tokens": [
+        150,
+        150,
+        150,
+        149,
+        149
+      ],
+      "window_tokens": []
+    },
+    {
+      "id": "d07",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 934,
+      "tool_calls": 1,
+      "snippet_tokens": [
+        150,
+        100,
+        148,
+        149,
+        148
+      ],
+      "window_tokens": []
+    },
+    {
+      "id": "d10",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 986,
+      "tool_calls": 1,
+      "snippet_tokens": [
+        150,
+        150,
+        150,
+        148,
+        150
+      ],
+      "window_tokens": []
+    },
+    {
+      "id": "d11",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 989,
+      "tool_calls": 1,
+      "snippet_tokens": [
+        149,
+        149,
+        150,
+        150,
+        149
+      ],
+      "window_tokens": []
+    },
+    {
+      "id": "d12",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 1817,
+      "tool_calls": 2,
+      "snippet_tokens": [
+        148,
+        149,
+        149,
+        150,
+        150
+      ],
+      "window_tokens": [
+        799
+      ]
+    },
+    {
+      "id": "d13",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 995,
+      "tool_calls": 1,
+      "snippet_tokens": [
+        148,
+        150,
+        149,
+        150,
+        142
+      ],
+      "window_tokens": []
+    },
+    {
+      "id": "d14",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 983,
+      "tool_calls": 1,
+      "snippet_tokens": [
+        150,
+        149,
+        150,
+        149,
+        149
+      ],
+      "window_tokens": []
+    },
+    {
+      "id": "d15",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 1000,
+      "tool_calls": 1,
+      "snippet_tokens": [
+        149,
+        149,
+        150,
+        149,
+        150
+      ],
+      "window_tokens": []
+    },
+    {
+      "id": "d16",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 1015,
+      "tool_calls": 1,
+      "snippet_tokens": [
+        150,
+        149,
+        149,
+        150,
+        148
+      ],
+      "window_tokens": []
+    },
+    {
+      "id": "d17",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 1172,
+      "tool_calls": 2,
+      "snippet_tokens": [
+        150,
+        149,
+        149,
+        149,
+        149,
+        149
+      ],
+      "window_tokens": []
+    },
+    {
+      "id": "d09",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 973,
+      "tool_calls": 1,
+      "snippet_tokens": [
+        149,
+        149,
+        149,
+        129,
+        150
+      ],
+      "window_tokens": []
+    },
+    {
+      "id": "d18",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 867,
+      "tool_calls": 1,
+      "snippet_tokens": [
+        150,
+        92,
+        96,
+        150,
+        149
+      ],
+      "window_tokens": []
+    },
+    {
+      "id": "d20",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 1599,
+      "tool_calls": 2,
+      "snippet_tokens": [
+        150,
+        147,
+        149,
+        149,
+        150
+      ],
+      "window_tokens": [
+        582
+      ]
+    },
+    {
+      "id": "d06",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 1493,
+      "tool_calls": 2,
+      "snippet_tokens": [
+        148,
+        90,
+        149,
+        150,
+        147
+      ],
+      "window_tokens": [
+        531
+      ]
+    },
+    {
+      "id": "d03",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 1911,
+      "tool_calls": 2,
+      "snippet_tokens": [
+        150,
+        150,
+        80,
+        150,
+        149,
+        149,
+        150,
+        149,
+        149,
+        150
+      ],
+      "window_tokens": []
+    },
+    {
+      "id": "d19",
+      "correct": true,
+      "status": "done",
+      "result_tokens": 2880,
+      "tool_calls": 3,
+      "snippet_tokens": [
+        150,
+        145,
+        150,
+        150,
+        149,
+        150,
+        150,
+        148,
+        85,
+        149,
+        149,
+        149,
+        145,
+        150,
+        148
+      ],
+      "window_tokens": []
+    }
+  ],
+  "comparison_note": "First run had unsupported protocol early termination. Later runs add protocol correction; not a pure retrieval/chunking ablation. Final run may use model cache."
+}

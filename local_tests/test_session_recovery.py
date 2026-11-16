@@ -50,3 +50,11 @@ def test_corrections_obey_model_budget():
     s, lm, _ = session(["I'll look that up."], max_turns=1)
     assert s.send('Question').status == 'max_turns'
     assert len(lm.calls) == 1
+
+
+def test_provider_markup_is_rejected_then_corrected():
+    s, lm, tools = session(['<DSML invoke name="add">',
+                           {'tool_call': {'name': 'add', 'args': {'a': 2, 'b': 3}}}, '5'])
+    assert s.send('Add two and three').text == '5'
+    assert tools.count('add') == 1 and len(lm.calls) == 3
+    assert any('Unsupported provider' in m['content'] for m in lm.calls[1])
